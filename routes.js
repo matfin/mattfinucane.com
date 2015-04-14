@@ -23,4 +23,30 @@ Router.map(function() {
 
 	}, {where: 'client'});
 
+	/**
+	 *	CV - client side routing
+	 */
+	this.route('cv', {
+		path: '/cv',
+		template: 'main',
+		yieldTemplates: {
+			'components_header': 	{to: 'header'},
+			'views_cv': 			{to: 'content'}
+		}
+
+	}, {where: 'client'});
+
+	/**
+	 *	CV - client side routing
+	 */
+	this.route('about', {
+		path: '/about',
+		template: 'main',
+		yieldTemplates: {
+			'components_header': 	{to: 'header'},
+			'views_about': 			{to: 'content'}
+		}
+
+	}, {where: 'client'});
+
 });

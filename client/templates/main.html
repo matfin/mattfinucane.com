@@ -5,6 +5,9 @@
 	</title>
 	<meta name="description" content="Berlin based iOS and Javascript developer. This is my CV and portfolio website.">
 	<meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"> 
+	<!-- Typekit fonts -->
+    <script type="text/javascript" src="//use.typekit.net/sjp2iui.js"></script>
+	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 </head>
 
 <body>
@@ -12,7 +15,11 @@
 
 <template name="main">
 	<div class="container">
-		{{> yield region="header"}}
-		{{> yield region="content"}}
+		<div class="wrapper center">
+			{{> yield region="header"}}
+		</div>
+		<div class="wrapper">
+			{{> yield region="content"}}
+		</div>
 	</div>
 </template>

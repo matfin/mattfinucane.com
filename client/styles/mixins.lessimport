@@ -1,0 +1,24 @@
+/**
+ *	Mixins
+ */
+.resetPaddingMargin {
+	padding: 0;
+	margin: 0;
+}
+
+.resetList {
+	.resetPaddingMargin;
+	list-style: none;
+}
+
+.backgroundGradient {
+	background:  repeating-linear-gradient(
+		to bottom, 
+		#f7f7f7, 
+		#f7f7f7 1px, 
+		#f5f5f5 1px, 
+		#fdfdfd 5px, 
+		#f6f6f6 8px, 
+		#ffffff 13px
+	);
+}

@@ -1,0 +1,39 @@
+body {
+	.resetPaddingMargin;
+	width: 100%;
+	height: 100%;
+	.backgroundGradient;
+	font-family: @fontFamily;
+}
+
+.container {
+	width: 100%;
+	height: 100%;
+}
+
+.wrapper {
+	display: block;
+
+	&.center {
+		margin: 0 10%;
+		width: 80%;
+	}
+
+	&.left {
+		margin: 0 0 0 10%;
+		width: 90%;
+	}
+
+	&.right {
+		margin: 0 10% 0 0;
+		width: 90%;
+	}
+}
+
+h1, h2, h3, h4 {
+	.resetPaddingMargin;
+}
+
+ol, ul {
+	.resetList;
+}
