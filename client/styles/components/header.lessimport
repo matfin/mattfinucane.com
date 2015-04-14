@@ -15,7 +15,7 @@ header {
 
 	nav {
 		float: right;
-		width: @gridSpacing * 27.5;
+		width: 50%;
 		
 		ol {
 			float: right;
@@ -29,11 +29,11 @@ header {
 					text-align: left;
 					color: @turquoise;
 					font-size: @mediumFontSize;
-					line-height: @baseFontSize + 1;
+					line-height: @baseFontSize - 1;
 					text-decoration: none;
 					border-bottom: 4px solid @turquoise;
 					.box-sizing(border-box);
-					padding-bottom: 2px;
+					padding-bottom: 3px;
 				}
 
 				&:nth-child(1) {
