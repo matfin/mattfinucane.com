@@ -1,0 +1,60 @@
+header {
+	display: inline-block;
+	width: 100%;
+	padding: @gridSpacing * 2 + 5 0;
+
+	h1, h2 {
+		font-size: @largeFontSize;
+		color: @turquoise;
+		float: left;
+	}
+
+	h2 {
+		clear: left;
+	}
+
+	nav {
+		float: right;
+		width: 50%;
+		
+		ol {
+			float: right;
+			width: 100%;
+			li {
+				display: inline-block;
+				width: 100%;
+				a {
+					display: block;
+					float: right;
+					text-align: left;
+					color: @turquoise;
+					font-size: @mediumFontSize;
+					line-height: @baseFontSize - 1;
+					text-decoration: none;
+					border-bottom: 4px solid @turquoise;
+					.box-sizing(border-box);
+					padding-bottom: 3px;
+				}
+
+				&:nth-child(1) {
+					a {
+						width: 33%;
+					}
+				}
+				
+				&:nth-child(2) {
+					a {
+						width: 66%;
+					}
+				}
+
+				&:nth-child(3) {
+					a {
+						width: 100%;
+					}
+				}		
+			}
+		}
+	}
+
+}

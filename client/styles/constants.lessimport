@@ -1,0 +1,21 @@
+/** 
+ *	Dimensions
+ */
+@gridSpacing: 16px;
+@maxWidth: 1280px;
+
+/**
+ *	Colors
+ */
+@black: 		#131313;
+@turquoise: 	#0cd3d1;
+@white: 		#fff;
+@grey:			#bdbdbd;
+
+/**
+ *	Fonts
+ */
+@fontFamily: "camingodos-web", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+@baseFontSize: 16px;
+@mediumFontSize: @baseFontSize * 1.5;
+@largeFontSize: @baseFontSize * 2;
