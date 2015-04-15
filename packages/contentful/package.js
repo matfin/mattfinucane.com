@@ -18,9 +18,10 @@ Package.onUse(function(api) {
 		'mongo',
 		'http',
 		'ejson',
-		'aramk:q',
 		'underscore',
-		'matfin:helpers'
+		'aramk:q',
+		'matfin:helpers',
+		'meteorhacks:npm'
 	], 'server');
 
 	/**

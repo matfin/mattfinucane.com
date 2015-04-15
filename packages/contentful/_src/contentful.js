@@ -88,8 +88,6 @@ Contentful = {
  					message: 	'Could not connect to the endpoint',
  					data: 		error
  				});
-
- 				console.log(url);
  			}
  			else {
  				/**
@@ -147,7 +145,7 @@ Contentful = {
  					 *	Then publish the assets
  					 */
  					Meteor.publish('cf_assets', function() {
- 						return Server.collections.assets.find({});
+ 						return self.collections.assets.find({});
  					});
 
  					/**
@@ -167,5 +165,259 @@ Contentful = {
 		 *	Then return the promise resolved or rejected
 		 */
 		return deferred.promise;
+	},
+
+	/**
+	 *	Set up listeners for incoming updates from Contentful.
+	 *	These will be fired when content is updated, and they will be used to
+	 *	update collections automatically. This ties into the hooks feature of
+	 *	contentful. 
+	 *
+	 *	Please note that this function requires the package meteorhacks:npm
+	 *
+	 *	@method 	listenForContentChanges
+	 *	@return 	undefined - returns nothing
+	 */
+	listenForContentChanges: function() {
+
+		if(!Meteor.npmRequire) {
+			console.log('Meteor npmRequire not recognised. Aborting.');
+			return;
+		}
+
+		/**
+		 *	Required NPM modules
+		 */
+		var connect 	= Meteor.npmRequire('connect'),
+			bodyParser	= Meteor.npmRequire('body-parser'),
+			self		= this;
+
+		WebApp.connectHandlers
+		.use(bodyParser.json({type: 'application/json'}))
+		.use(bodyParser.json({type: 'application/vnd.contentful.management.v1+json'}))
+		/**
+		 *	Handling incoming requests from Contentful webhooks
+		 */
+		.use('/hooks/contentful', function(req, res, next) {
+
+			/**
+			 *	Checking credentials
+			 */
+			if(!self.checkCredentials(req)) {
+				self.makeResponse(res, {
+					statusCode: 403,
+					contentType: 'application/json',
+					data: {
+						status: 'error',
+						message: 'Invalid credentials'
+					}
+				});
+			}
+			else {
+				/**
+				 *	Call on the Contentful object to handle this request
+				 */
+				self.handleRequest(req).then(function(result) {
+					/**
+					 *	Success
+					 */
+					self.makeResponse(res, {
+						statusCode: 200,
+						contentType: 'application/json',
+						data: result
+					});
+				}).fail(function(error) {
+					/**
+					 *	Fail
+					 */
+					self.makeResponse(res, {
+						statusCode: 200,
+						contentType: 'application/json',
+						data: error
+					});
+				});
+			}
+		});
+	},
+
+	/**
+	 *	Function to handle incoming requests from the Contentful API
+	 *	This function examines an incoming requests, looking at the 
+	 *	headers and body and calls the appropriate function.
+	 *	
+	 *	@method 	handleRequest()
+	 *	@param 		{Object} request - the incoming request object
+	 *	@return 	{Object} - a resolved or rejected promise
+	 */
+	handleRequest: function(request) {
+		/**
+		 *	Determine if we are updating or deleting content
+		 */
+		switch(request.headers['x-contentful-topic']) {
+			case 'ContentManagement.Entry.publish':
+			case 'ContentManagement.Asset.publish': {
+				return this.contentPublish(request.body);
+				break;
+			}
+			case 'ContentManagement.Entry.unpublish':
+			case 'ContentManagement.Asset.unpublish': {
+				return this.contentUnpublish(request.body);
+				break;
+			}
+			default: {
+				var deferred = Q.defer();
+				deferred.resolve({
+					status: 'ok',
+					messahe: 'No content has been changed.'
+				});
+				return deferred.promise;
+				break;
+			}
+		}
+	},
+
+	/**
+	 *	Function to unpublish or delete Assets and Entries for 
+	 *	Contentful data.
+	 *
+	 *	@method 	contentUnpublish
+	 *	@param 		{Object} requestBody - the request body
+	 *	@return 	{Object} - A promise resolved or rejected
+	 */
+	contentUnpublish: function(requestBody) {
+		var deferred = Q.defer(),
+			self = this,
+			entry = requestBody,
+			collection;
+
+		/**
+		 *	Check to see if we have the correct entry type
+		 *	and load the correct collection to be updated
+		 */
+		switch(entry.sys.type) {
+			case 'DeletedEntry': {
+				collection = this.collections.cf_entries;
+				break;
+			}
+			case 'DeletedAsset': {
+				collection = this.collections.cf_assets;
+				break;
+			}
+			default: {
+				deferred.reject({
+					status: 'error',
+					message: 'Entry type does not exist. Exiting'
+				});
+			}
+		}
+
+		/**
+		 *	If we have a collection to update
+		 */
+		if(typeof collection !== 'undefined') {
+			/**
+			 *	Call the delete function from within a Fiber
+			 */
+			this.Fiber(function() {
+
+				/**
+				 *	Remove the item from the collection
+				 */
+				collection.remove({
+					'sys.id': entry.sys.id
+				});
+
+			}).run();
+		}
+
+		return deferred.promise;
+	},
+
+	/**
+	 *	Function to update Assets and entries for Contentful data
+	 *
+	 *	@method 	contentPublish()
+	 *	@param 		{Object} requestBody - the request body with content payload 
+	 *	@return 	{Object} - A promise resolved or rejected
+	 */
+	contentPublish: function(requestBody) {
+
+		var deferred 	= Q.defer(),
+			self 		= this,
+			entry 		= requestBody,
+			collection;
+
+		/**
+		 *	Check to see if we have the correct entry type
+		 *	and load the correct collection to be updated
+		 */
+		switch(entry.sys.type) {
+			case 'Entry': {
+				collection = this.collections.cf_entries;
+				break;
+			}
+			case 'Asset': {
+				collection = this.collections.cf_assets;
+				break;
+			}
+			default: {
+				deferred.reject({
+					status: 'error',
+					message: 'Entry type does not exist. Exiting'
+				});
+			}
+		}
+
+		/**
+		 *	If we have a collection to update
+		 */
+		if(typeof collection !== 'undefined') {
+			/**
+			 *	Call the updte function from within a Fiber
+			 */
+
+			this.Fiber(function() {
+
+				collection.update(
+					{
+						'sys.id': entry.sys.id
+					},
+					{
+						fields: Helpers.flattenObjects(entry.fields, 'en-IE'),
+						sys: entry.sys,
+						contentTypeName: self.contentTypeName(entry)
+					},
+					{
+						upsert: true
+					}	
+				);
+
+				deferred.resolve({
+					status: 'ok',
+					message: 'Contentful content updated ok'
+				})
+
+			}).run();
+		}
+		
+		return deferred.promise;
+	},
+
+	/**
+	 *	Function to write a response message to a request
+	 *	
+	 *	@method 	makeResponse
+	 *	@param		{Object} res 			- a http response object
+	 *	@param 		{Object} responseData	- response data to return to the client
+	 *	@return 	undefined - returns nothing
+	 */
+	makeResponse: function(res, responseData) {
+		res.writeHead(responseData.statusCode, responseData.contentType);
+		if(responseData.contentType === 'application/json') {
+			res.end(JSON.stringify(responseData.data));
+		}
+		else {
+			res.end(responseData.data);
+		}
 	}
 };
