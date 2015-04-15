@@ -11,3 +11,7 @@ underscore
 http
 jquery
 ejson
+matfin:contentful
+matfin:helpers
+
+npm-container
