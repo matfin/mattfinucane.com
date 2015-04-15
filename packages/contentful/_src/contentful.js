@@ -28,7 +28,7 @@ Contentful = {
 	 */
 	checkCFCredentials: function(request) {
 		return 	Helpers.checkNested(request, 'headers', 'authorization')
-				&& request.headers.authorization === CFSettings.callbackAuthKey;
+				&& request.headers.authorization === CFConfig.callbackAuthKey;
 	},
 
 	/**
@@ -203,7 +203,7 @@ Contentful = {
 			/**
 			 *	Checking credentials
 			 */
-			if(!self.checkCredentials(req)) {
+			if(!self.checkCFCredentials(req)) {
 				self.makeResponse(res, {
 					statusCode: 403,
 					contentType: 'application/json',
@@ -268,7 +268,7 @@ Contentful = {
 				var deferred = Q.defer();
 				deferred.resolve({
 					status: 'ok',
-					messahe: 'No content has been changed.'
+					message: 'No content has been changed.'
 				});
 				return deferred.promise;
 				break;
