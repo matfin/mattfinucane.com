@@ -204,6 +204,7 @@ Contentful = {
 			 *	Checking credentials
 			 */
 			if(!self.checkCFCredentials(req)) {
+
 				self.makeResponse(res, {
 					statusCode: 403,
 					contentType: 'application/json',
@@ -214,6 +215,7 @@ Contentful = {
 				});
 			}
 			else {
+
 				/**
 				 *	Call on the Contentful object to handle this request
 				 */
@@ -253,6 +255,7 @@ Contentful = {
 		/**
 		 *	Determine if we are updating or deleting content
 		 */
+
 		switch(request.headers['x-contentful-topic']) {
 			case 'ContentManagement.Entry.publish':
 			case 'ContentManagement.Asset.publish': {
@@ -296,11 +299,11 @@ Contentful = {
 		 */
 		switch(entry.sys.type) {
 			case 'DeletedEntry': {
-				collection = this.collections.cf_entries;
+				collection = this.collections.entries;
 				break;
 			}
 			case 'DeletedAsset': {
-				collection = this.collections.cf_assets;
+				collection = this.collections.assets;
 				break;
 			}
 			default: {
@@ -329,6 +332,12 @@ Contentful = {
 
 			}).run();
 		}
+		else {
+			deferred.reject({
+				status: 'error',
+				message: 'Specified collection does not exist.'
+			});
+		}
 
 		return deferred.promise;
 	},
@@ -353,11 +362,11 @@ Contentful = {
 		 */
 		switch(entry.sys.type) {
 			case 'Entry': {
-				collection = this.collections.cf_entries;
+				collection = this.collections.entries;
 				break;
 			}
 			case 'Asset': {
-				collection = this.collections.cf_assets;
+				collection = this.collections.assets;
 				break;
 			}
 			default: {
@@ -383,7 +392,7 @@ Contentful = {
 						'sys.id': entry.sys.id
 					},
 					{
-						fields: Helpers.flattenObjects(entry.fields, 'en-IE'),
+						fields: Helpers.flattenObjects(entry.fields, 'en-US'),
 						sys: entry.sys,
 						contentTypeName: self.contentTypeName(entry)
 					},
@@ -399,6 +408,12 @@ Contentful = {
 
 			}).run();
 		}
+		else {
+			deferred.reject({
+				status: 'error',
+				message: 'Specified collection does not exist.'
+			});
+		}
 		
 		return deferred.promise;
 	},
@@ -412,6 +427,7 @@ Contentful = {
 	 *	@return 	undefined - returns nothing
 	 */
 	makeResponse: function(res, responseData) {
+
 		res.writeHead(responseData.statusCode, responseData.contentType);
 		if(responseData.contentType === 'application/json') {
 			res.end(JSON.stringify(responseData.data));
