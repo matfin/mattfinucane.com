@@ -3,6 +3,6 @@ Meteor.startup(function() {
 
 	}
 	if(Meteor.isServer) {
-		
+		Contentful.fetchAndPopulate();
 	}
 });

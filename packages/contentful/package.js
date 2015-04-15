@@ -17,7 +17,10 @@ Package.onUse(function(api) {
 	api.use([
 		'mongo',
 		'http',
-		'underscore'
+		'ejson',
+		'aramk:q',
+		'underscore',
+		'matfin:helpers'
 	], 'server');
 
 	/**
@@ -32,7 +35,7 @@ Package.onUse(function(api) {
 		'_src/contentful.js'
 	], 'server');
 
-	api.export('CFSettings');
+	api.export('CFConfig');
 	api.export('Contentful');
 
 });
