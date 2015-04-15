@@ -4,25 +4,16 @@
 			<h2>
 				{{fields.title}}
 			</h2>
-			<p>
-				{{fields.description}}
-			</p>
+			{{#markdown}}{{fields.description}}{{/markdown}}
 			<h3>
 				Skills
 			</h3>
 			<ol>
-				<li>
-					Meteor JS
-				</li>
-				<li>
-					Localisation
-				</li>
-				<li>
-					Nginx
-				</li>
-				<li>
-					Responsive
-				</li>
+				{{#each skills}}
+					<li>
+						{{fields.title}}
+					</li>
+				{{/each}}
 			</ol>
 		</div>
 		<div class="image">

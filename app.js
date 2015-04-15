@@ -6,8 +6,6 @@ Meteor.startup(function() {
 				cf_assets: new Mongo.Collection('cf_assets')
 			}	
 		};
-
-		console.log(App);
 	}
 	if(Meteor.isServer) {
 		Contentful.fetchAndPopulate().then(function(result) {

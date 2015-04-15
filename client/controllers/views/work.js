@@ -5,7 +5,7 @@
  *	@method created
  */
 Template.views_work.created = function() {
-	Meteor.subscribe('portfolio_item');
+	this.subscribe('portfolio_item');
 };
 
 /**
