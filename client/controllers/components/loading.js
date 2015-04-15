@@ -4,7 +4,7 @@
  *
  *	@method created
  */
-Template['components_loading'].created = function() {
+Template.components_loading.created = function() {
 
 };
 
@@ -14,7 +14,7 @@ Template['components_loading'].created = function() {
  *
  *	@method rendered
  */
-Template['components_loading'].rendered = function() {
+Template.components_loading.rendered = function() {
 	
 };
 
@@ -24,7 +24,7 @@ Template['components_loading'].rendered = function() {
  *
  *	@method destroyed
  */
-Template['components_loading'].destroyed = function() {
+Template.components_loading.destroyed = function() {
 	
 };
 
