@@ -1,23 +1,27 @@
 <template name="cards_portfolio_item">
-	<section class="portfolioItem">
-		<div class="info">
-			<h2>
-				{{fields.title}}
-			</h2>
-			{{#markdown}}{{fields.description}}{{/markdown}}
-			<h3>
-				Skills
-			</h3>
-			<ol>
-				{{#each skills}}
-					<li>
-						{{fields.title}}
-					</li>
-				{{/each}}
-			</ol>
-		</div>
-		<div class="image">
-			<img src="//images.contentful.com/tp5q3aqoi66v/1EXrXD53V6gom4wcscyCqa/13acf6693b647ed26fd3eef4edbb1f9d/annachristoffer.jpg" />
-		</div>
-	</section>
+	{{#if Template.subscriptionsReady}}
+		<section class="portfolioItem">
+			<div class="info">
+				<h2>
+					{{fields.title}}
+				</h2>
+				{{#markdown}}{{fields.description}}{{/markdown}}
+				<h3>
+					Skills
+				</h3>
+				<ol>
+					{{#each skills}}
+						<li>
+							{{fields.title}}
+						</li>
+					{{/each}}
+				</ol>
+			</div>
+			<div class="image">
+				{{#with images}}
+					{{> cards_image}}
+				{{/with}}
+			</div>	
+		</section>
+	{{/if}}
 </template>

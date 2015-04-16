@@ -33,6 +33,9 @@ Template.cards_portfolio_item.destroyed = function() {
  */
 Template.cards_portfolio_item.helpers({
 
+	/**
+	 *	Fetching the skills for a portfolio item
+ 	 */
 	skills: function() {
 
 		/**
@@ -57,9 +60,38 @@ Template.cards_portfolio_item.helpers({
 			},
 			skills = App.collections.cf_entries.find(query).fetch();
 
-			console.log(skills);
-
 			return skills;
+		}
+
+		/**
+		 *	Or we return an empty array
+		 */
+		return [];
+	},
+
+	/**
+	 *	Fetching the detailed entries for related images
+	 */
+	images: function() {
+		/**
+		 *	Checking to see if associated images exist
+		 */
+		if(Helpers.checkNested(this, 'fields', 'images')) {
+
+			/**
+			 *	Preparing the query
+			 */
+			var imageIds = [];
+			_.each(this.fields.images, function(image) {
+				imageIds.push(image.sys.id);
+			});
+
+			var query = {
+				'sys.id': {$in: imageIds}
+			},
+			images = App.collections.cf_entries.find(query).fetch();
+
+			return images;
 		}
 
 		/**

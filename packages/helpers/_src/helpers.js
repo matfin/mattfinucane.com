@@ -7,6 +7,25 @@
 Helpers = {
 	
 	/**
+	 *	Function that calculates device screen capabilities
+	 *
+	 *	@method 	deviceClass()
+	 *	@return 	{Object} - an object containing a list of boolean attributes
+	 */
+	deviceClass: function() {
+		var viewportWidth 	= window.innerWidth,
+			pixelRatio		= window.devicePixelRatio;
+
+		return {
+			isDesktop:  	viewportWidth >= 1280,
+			isLaptop: 		viewportWidth > 1024 && viewportWidth < 1280,
+			isTablet: 		viewportWidth <= 1024 && viewportWidth > 640,
+			isMobile: 		viewportWidth <= 640,
+			isRetina: 		pixelRatio > 1
+		};
+	},
+
+	/**
 	 *	Function to check deply nested objects to see if they 
 	 *	exist.
 	 *

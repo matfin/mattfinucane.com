@@ -30,7 +30,7 @@ Meteor.startup(function() {
 				});
 			});
 			
-			Meteor.publish('assets', function() {
+			Meteor.publish('cf_assets', function() {
 				return Contentful.collections.assets.find({});
 			});
 
