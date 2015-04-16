@@ -37,10 +37,8 @@ Meteor.startup(function() {
 					return Contentful.collections.entries.find({'contentTypeName': contentType.name});
 				});
 			});
-			
-			Meteor.publish('cf_assets', function() {
-				return Contentful.collections.assets.find({});
-			});
+
+			ImageProcessor.init();
 
 			/**
 			 *	Then we listen for incoming changes from Contentful,

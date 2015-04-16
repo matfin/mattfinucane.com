@@ -39,6 +39,14 @@ CFConfig = {
 	spaceID: "<your space ID>",
 
 	/**
+	 *	Collection name for processed Contentful Images
+	 *
+	 *	@property 	processedImageCollectionName
+	 *	@type 		{String}
+	 */
+	processedImageCollectionName: "ac_images",
+
+	/**
 	 *	Callback authorisation key, for when Contentful post data to us
 	 *	on update to an entry
 	 *
@@ -57,6 +65,29 @@ CFConfig = {
 		{
 			"name": "<content type name>",
 			"id": 	"<content type id>"
+		}
+	],
+
+	/**
+	 *	Image settings sizes for transforming image assets
+	 *
+	 *	@property 	imageSizes
+	 *	@type 		{Array}
+	 */
+	imageSizes: [
+		{
+			"suffix": "desktop-retina",
+			"size": {
+				"width": "1440",
+				"height": "1080"
+			}
+		},
+		{
+			"suffix": "desktop",
+			"size": {
+				"width": "720",
+				"height": "540"
+			}
 		}
 	]
 }
