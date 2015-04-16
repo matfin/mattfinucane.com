@@ -38,6 +38,11 @@ Template.cards_image.helpers({
 	 */
 	imageAsset: function() {
 
+		/**
+		 *	Making this function reactive
+		 */
+		Dependencies.resized.depend();
+
 		var deviceClass = Helpers.deviceClass();
 
 		/**
@@ -74,8 +79,6 @@ Template.cards_image.helpers({
 			'sys.id': {$in: assetIds}
 		}
 		image = App.collections.cf_assets.findOne(query);
-
-		console.log(image);
 
 		return image;
 	}

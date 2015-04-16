@@ -1,11 +1,19 @@
 Meteor.startup(function() {
 	if(Meteor.isClient) {
+		/**
+		 *	Set up the client side Mongo collections
+		 */
 		App = {
 			collections: {
 				cf_entries: new Mongo.Collection('cf_entries'),
 				cf_assets: new Mongo.Collection('cf_assets')
 			}	
 		};
+
+		/**
+		 *	Kick off the Depencencies for reactivity
+		 */
+		Dependencies.start();
 	}
 	if(Meteor.isServer) {
 		Contentful.fetchAndPopulate().then(function(result) {

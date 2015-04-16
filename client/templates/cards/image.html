@@ -1,3 +1,5 @@
 <template name="cards_image">
-	<img src="{{imageAsset.fields.file.url}}" width="{{imageAsset.fields.file.details.image.width}}" height="{{imageAsset.fields.file.details.height}}" alt="{{imageAssets.fields.description}}" />
+	{{#if Template.subscriptionsReady}}
+		<img src="{{imageAsset.fields.file.url}}" width="{{imageAsset.fields.file.details.image.width}}" height="{{imageAsset.fields.file.details.image.height}}" alt="{{imageAssets.fields.description}}" />
+	{{/if}}
 </template>
