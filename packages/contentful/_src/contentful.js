@@ -125,13 +125,6 @@ Contentful = {
  					});
 
  					/**
- 					 *	Publish the entries collection
- 					 */
- 					Meteor.publish('cf_entries', function() {
- 						return self.collections.entries.find({});
- 					});	
-
- 					/**
  					 *	Loop through each asset
  					 */
  					_.each(data.includes.Asset, function(asset) {
@@ -139,13 +132,6 @@ Contentful = {
  						 *	Inserting the asset to the collection
  						 */
  						self.collections.assets.insert(asset);
- 					});
-
- 					/**
- 					 *	Then publish the assets
- 					 */
- 					Meteor.publish('cf_assets', function() {
- 						return self.collections.assets.find({});
  					});
 
  					/**

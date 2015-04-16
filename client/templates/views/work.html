@@ -1,7 +1,9 @@
 <template name="views_work">
-	{{> cards_portfolio_item}}
-
-	{{> cards_portfolio_item}}
-
-	{{> cards_portfolio_item}}
+	{{#if Template.subscriptionsReady}}
+		{{#each portfolioItems}}
+			{{> cards_portfolio_item}}
+		{{/each}}
+	{{else}}
+		<span>Loading..</span>
+	{{/if}}
 </template>

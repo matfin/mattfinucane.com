@@ -4,8 +4,8 @@
  *
  *	@method created
  */
-Template['views_work'].created = function() {
-	console.log('Loaded views_work');
+Template.views_work.created = function() {
+	this.subscribe('portfolio_item');
 };
 
 /**
@@ -14,8 +14,7 @@ Template['views_work'].created = function() {
  *
  *	@method rendered
  */
-Template['views_work'].rendered = function() {
-	
+Template.views_work.rendered = function() {
 };
 
 /**
@@ -24,7 +23,17 @@ Template['views_work'].rendered = function() {
  *
  *	@method destroyed
  */
-Template['views_work'].destroyed = function() {
-	
+Template.views_work.destroyed = function() {
 };
 
+/**
+ *	Template - views_work
+ *	Helpers
+ */
+Template.views_work.helpers({
+
+	portfolioItems: function() {
+		return App.collections.cf_entries.find({contentTypeName: 'portfolio_item'}).fetch();
+	}
+
+});

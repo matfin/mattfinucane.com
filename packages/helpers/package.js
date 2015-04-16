@@ -21,7 +21,7 @@ Package.onUse(function(api) {
 	 */
 	api.addFiles([
 		'_src/helpers.js'
-	], 'server');
+	], ['client' ,'server']);
 
 	api.export('Helpers');
 
