@@ -35,6 +35,9 @@ ImageProcessor = {
 	 */
 	init: function() {
 
+		/**
+		 *	Required meteor npm modules
+		 */
 		this.Fiber = Meteor.npmRequire('fibers');
 		this.Imagemagick = Meteor.npmRequire('node-imagemagick');
 
@@ -67,18 +70,64 @@ ImageProcessor = {
 
 		var self 		= this,
 			assetId 	= asset.sys.id,
-			sourceUrl 	= asset.fields.file.url;
+			sourceUrl 	= asset.fields.file.url,
+			fs 			= Meteor.npmRequire('fs');
 
 		this.readRemoteFileFromUrl(sourceUrl)
 		.then(function(result) {
 
-			self.writeFile(result.data, '/var/www/mattfinucane.com', Date.now() + '.jpg');			
+			/**
+			 *	Resize the fetched image
+			 */
+			self.Imagemagick.resize({
+				srcData: result.data,
+				width: 256
+			}, function(error, stdout, stderr) {
+
+				if(error || stderr) throw error;
+
+				//fs.writeFileSync('/var/www/mattfinucane.com/' + Date.now() + '.jpg', stdout, 'binary');
+				self.writeFile(stdout, '/var/www/mattfinucane.com', Date.now() + '.jpg');
+			});
+
 
 		}).fail(function(error) {
 
-			console.log(error);
+			console.log('Image asset save failed.')
 
 		});
+	},
+
+	/**
+	 *	Function to write out data to the filesystem
+	 *
+	 *	@method 	writeFile
+	 *	@param   	{Object} data - the data to be written
+	 *	@param 		{String} path - the filesystem path
+	 *	@param 		{String} name - the filename
+	 *	@return 	{Object} a promise resolved or rejected
+	 */
+	writeFile: function(data, path, name) {
+
+		var deferred 	= Q.defer(),
+			fs 			= Npm.require('fs');
+
+		fs.writeFileSync(path + '/' + name, data, 'binary', function(error) {
+			if(error) {
+				deferred.reject({
+					status: 'error',
+					data: error
+				});
+			}
+			else {
+				end = Date.now();
+				deferred.resolve({
+					status: 'ok'
+				});
+			}
+		});
+
+		return deferred.promise;
 	},
 
 	/**
@@ -102,19 +151,29 @@ ImageProcessor = {
 			/**
 			 *	Buffer to store incoming stream of data
 			 */ 
-			var buffer = new Buffer('', 'binary');
+			//var buffer = new Buffer('', 'binary');
+			var data = '';
+
+			/**
+			 *	Expecting a binary encoded response
+			 */
+			response.setEncoding('binary');
 
 			/**
 			 *	When data comes in, ammend the buffer
 			 */
 			response.on('data', function(chunk) {	
-				buffer = Buffer.concat([buffer, chunk]);
+				//buffer = Buffer.concat([buffer, chunk]);
+				data += chunk;
 			});
 
 			/**
 			 *	If there was an error
 			 */
 			response.on('error', function(error) {
+
+				console.log('image fetch error');
+
 				deferred.reject({
 					status: 'error',
 					data: error
@@ -127,49 +186,11 @@ ImageProcessor = {
 			response.on('end', function() {
 				deferred.resolve({
 					status: 'ok',
-					data: buffer
+					data: data
 				});
 			});
 		});
 
 		return deferred.promise;
-	},
-
-	/**
-	 *	Function to write out data to the filesystem
-	 *
-	 *	@method 	writeFile
-	 *	@param   	{Object} data - the data to be written
-	 *	@param 		{String} path - the filesystem path
-	 *	@param 		{String} name - the filename
-	 *	@return 	{Object} a promise resolved or rejected
-	 */
-	writeFile: function(data, path, name) {
-
-		var deferred 	= Q.defer(),
-			fs 			= Npm.require('fs'),
-			start 		= Date.now(),
-			end; 
-
-		fs.writeFile(path + '/' + name, data, function(error) {
-			if(error) {
-				deferred.reject({
-					status: 'error',
-					data: error
-				});
-			}
-			else {
-				end = Date.now();
-				deferred.resolve({
-					status: 'ok',
-					data: {
-						time: (end - start) + ' milliseconds'
-					}
-				});
-			}
-		});
-
-		return deferred.promise;
 	}
-
 };
