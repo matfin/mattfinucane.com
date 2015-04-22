@@ -48,14 +48,61 @@ ImageProcessor = {
 		var self = this;
 
 		this.Fiber(function() {
+
+			/**
+			 *	Get a reference to each contentful asset
+			 */
 			this.contentfulAssets = Contentful.collections.assets.find({}).fetch();
+			/**
+			 *	Then loop through each row in the cursor, processing and resizing images 
+			 *	for each
+			 */
 			_.each(this.contentfulAssets, function(asset) {
 
+				/**
+				 *	Save the resized image, then update the collection
+				 */
 				self.saveImagesFromAsset(asset, function(result) {
-					console.log(result);
+					self.updateImagesCollection(result);
 				});
-
 			});
+			/**
+			 *	Then publish the image collection
+			 */
+			Meteor.publish(CFConfig.processedImageCollectionName, function() {
+				return self.imageCollection.find({});
+			});
+
+		}).run();
+	},
+
+	/**
+	 *	Function to update the collection with image data
+	 *
+	 *	@method 	updateImagesCollection
+	 *	@param 		{Object} imageData - the image data
+	 */
+	updateImagesCollection: function(imageData) {
+
+		var self = this
+
+		/**
+		 *	Collection updates need to be run within a Fiber
+		 */
+		this.Fiber(function() {
+			self.imageCollection.update(
+				{
+					assetId: imageData.assetId
+				},
+				{
+					suffix: imageData.suffix,
+					filename: imageData.filename,
+					assetId: imageData.assetId
+				},
+				{
+					upsert: true
+				}
+			);
 		}).run();
 	},
 
@@ -77,31 +124,40 @@ ImageProcessor = {
 		this.readRemoteFileFromUrl(sourceUrl)
 		.then(function(result) {
 
+			/**
+			 *	Call the resize function, which will execute a callback
+			 */
 			self.resizeImagesFromAsset(result.data, function(res, error) {
 
-				var filename = assetId + '-' + res.size.suffix + '.jpg';
+				/**
+				 *	Grab the filename and write the file
+				 */
+				var path 	 = CFConfig.imageProcessor.path, 
+					filename = assetId + '-' + res.size.suffix + '.jpg';
 
-				self.writeFile(res.data, CFConfig.imageProcessor.path, filename);
+				/**
+				 *	Write the file and then execute the optional callback on success
+				 */
+				fs.writeFile(path + '/' + filename, res.data, {encoding: 'binary'}, function() {
+
+					if(error) {
+						console.log('Could not write file');
+					}
+					else {
+						if(typeof callback === 'function') {
+							callback({
+								suffix: res.size.suffix,
+								filename: filename,
+								assetId: assetId
+							});
+						}
+					}
+
+				});
 			});
 
-			// /**
-			//  *	Resize the fetched image
-			//  */
-			// self.Imagemagick.resize({
-			// 	srcData: result.data,
-			// 	width: 256
-			// }, function(error, stdout, stderr) {
-
-			// 	if(error || stderr) throw error;
-
-			// 	self.writeFile(stdout, '/var/www/mattfinucane.com', Date.now() + '.jpg');
-			// });
-
-
 		}).fail(function(error) {
-
 			console.log('Image asset save failed.')
-
 		});
 	},
 
@@ -120,7 +176,8 @@ ImageProcessor = {
 			self.Imagemagick.resize({
 				srcData: data,
 				width: size.dimension.width,
-				height: size.dimension.height
+				height: size.dimension.height,
+				quality: CFConfig.imageProcessor.quality,
 			}, function(err, stdout, stderr) {
 
 				if(typeof callback === 'function') {
@@ -137,38 +194,6 @@ ImageProcessor = {
 				}
 			});
 		});
-	},
-
-	/**
-	 *	Function to write out data to the filesystem
-	 *
-	 *	@method 	writeFile
-	 *	@param   	{Object} data - the data to be written
-	 *	@param 		{String} path - the filesystem path
-	 *	@param 		{String} name - the filename
-	 *	@return 	{Object} a promise resolved or rejected
-	 */
-	writeFile: function(data, path, name) {
-
-		var deferred 	= Q.defer(),
-			fs 			= Npm.require('fs');
-
-		fs.writeFileSync(path + '/' + name, data, 'binary', function(error) {
-			if(error) {
-				deferred.reject({
-					status: 'error',
-					data: error
-				});
-			}
-			else {
-				end = Date.now();
-				deferred.resolve({
-					status: 'ok'
-				});
-			}
-		});
-
-		return deferred.promise;
 	},
 
 	/**

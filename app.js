@@ -6,7 +6,7 @@ Meteor.startup(function() {
 		App = {
 			collections: {
 				cf_entries: new Mongo.Collection('cf_entries'),
-				cf_assets: new Mongo.Collection('cf_assets')
+				mf_images: new Mongo.Collection('mf_images')
 			}	
 		};
 

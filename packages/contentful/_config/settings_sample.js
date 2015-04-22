@@ -75,7 +75,8 @@ CFConfig = {
 	 *	@type 		{Array}
 	 */
 	imageProcessor: {
-		path: '<your_media_path>',
+		path: '<local destination filesystem path>',
+		quality: 0.9,
 		sizes: [
 			{
 				"suffix": "desktop-retina",
@@ -88,6 +89,13 @@ CFConfig = {
 				"suffix": "desktop",
 				"dimension": {
 					"width": "720",
+					"height": "540"
+				}
+			},
+			{
+				"suffix": "laptop",
+				"dimension": {
+					"width": "480",
 					"height": "540"
 				}
 			}
