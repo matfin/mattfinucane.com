@@ -60,7 +60,7 @@ ImageProcessor = {
 	},
 
 	/**
-	 *	Function to process an image, creating resized copies and saving them to disk
+	 *	Function to save image asset(s), calling a resize function and then writing to disk
 	 *
 	 *	@method 	saveImageFromAsset
 	 *	@param  	{Object} asset - the Conteontful assset 
@@ -71,30 +71,71 @@ ImageProcessor = {
 		var self 		= this,
 			assetId 	= asset.sys.id,
 			sourceUrl 	= asset.fields.file.url,
+			destPath 	= CFConfig.imageProcessor.path,
 			fs 			= Meteor.npmRequire('fs');
 
 		this.readRemoteFileFromUrl(sourceUrl)
 		.then(function(result) {
 
-			/**
-			 *	Resize the fetched image
-			 */
-			self.Imagemagick.resize({
-				srcData: result.data,
-				width: 256
-			}, function(error, stdout, stderr) {
+			self.resizeImagesFromAsset(result.data, function(res, error) {
 
-				if(error || stderr) throw error;
+				var filename = assetId + '-' + res.size.suffix + '.jpg';
 
-				//fs.writeFileSync('/var/www/mattfinucane.com/' + Date.now() + '.jpg', stdout, 'binary');
-				self.writeFile(stdout, '/var/www/mattfinucane.com', Date.now() + '.jpg');
+				self.writeFile(res.data, CFConfig.imageProcessor.path, filename);
 			});
+
+			// /**
+			//  *	Resize the fetched image
+			//  */
+			// self.Imagemagick.resize({
+			// 	srcData: result.data,
+			// 	width: 256
+			// }, function(error, stdout, stderr) {
+
+			// 	if(error || stderr) throw error;
+
+			// 	self.writeFile(stdout, '/var/www/mattfinucane.com', Date.now() + '.jpg');
+			// });
 
 
 		}).fail(function(error) {
 
 			console.log('Image asset save failed.')
 
+		});
+	},
+
+	/**
+	 *	Function to batch resize images
+	 *
+	 *	@method 	resizeImagesFromAsset
+	 *	@param 		{Object} data - the source data for the image to be resized
+	 *	@param 		{Object} callback - optional callback to be executed
+	 */
+	resizeImagesFromAsset: function(data, callback) {
+
+		var self = this;
+
+		_.each(CFConfig.imageProcessor.sizes, function(size) {
+			self.Imagemagick.resize({
+				srcData: data,
+				width: size.dimension.width,
+				height: size.dimension.height
+			}, function(err, stdout, stderr) {
+
+				if(typeof callback === 'function') {
+
+					if(err || stderr) {
+						callback(err);
+					}
+					else {
+						callback({
+							size: size,
+							data: stdout
+						}, null);
+					}
+				}
+			});
 		});
 	},
 

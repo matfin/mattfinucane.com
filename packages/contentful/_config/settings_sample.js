@@ -69,25 +69,28 @@ CFConfig = {
 	],
 
 	/**
-	 *	Image settings sizes for transforming image assets
+	 *	Image settings and sizes for transforming image assets
 	 *
-	 *	@property 	imageSizes
+	 *	@property 	imageProcessor
 	 *	@type 		{Array}
 	 */
-	imageSizes: [
-		{
-			"suffix": "desktop-retina",
-			"size": {
-				"width": "1440",
-				"height": "1080"
+	imageProcessor: {
+		path: '<your_media_path>',
+		sizes: [
+			{
+				"suffix": "desktop-retina",
+				"dimension": {
+					"width": "1440",
+					"height": "1080"
+				}
+			},
+			{
+				"suffix": "desktop",
+				"dimension": {
+					"width": "720",
+					"height": "540"
+				}
 			}
-		},
-		{
-			"suffix": "desktop",
-			"size": {
-				"width": "720",
-				"height": "540"
-			}
-		}
-	]
+		]
+	}
 }
