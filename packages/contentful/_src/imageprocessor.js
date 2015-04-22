@@ -10,7 +10,12 @@ ImageProcessor = {
 	/**
 	 *	Meteor Fiber needed for making async calls
 	 */
-	Fiber: Npm.require('fibers'),
+	Fiber: false,
+
+	/**
+	 *	Imagemagick module for resizing images
+	 */
+	Imagemagick: false,
 
 	/**
 	 *	Server side collection to store information about
@@ -29,6 +34,13 @@ ImageProcessor = {
 	 *	@method 	init
 	 */
 	init: function() {
+
+		this.Fiber = Meteor.npmRequire('fibers');
+		this.Imagemagick = Meteor.npmRequire('node-imagemagick');
+
+		if(!Meteor.npmRequire) {
+			console.log('Image processor init, meteor npm require not found.');
+		}
 
 		var self = this;
 
