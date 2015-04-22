@@ -6,6 +6,7 @@ Meteor.startup(function() {
 		App = {
 			collections: {
 				cf_entries: new Mongo.Collection('cf_entries'),
+				cf_assets: new Mongo.Collection('cf_assets'),
 				mf_images: new Mongo.Collection('mf_images')
 			}	
 		};
@@ -38,6 +39,18 @@ Meteor.startup(function() {
 				});
 			});
 
+			/**
+			 *	Publish the contentful assets collection, which we will need to
+			 *	source the resized images later.
+			 */
+			Meteor.publish('cf_assets', function() {
+				return Contentful.collections.assets.find({});
+			});
+
+			/**
+			 *	When the app is booted, we need to process the images
+			 *	from the Contentful source
+			 */
 			ImageProcessor.init();
 
 			/**

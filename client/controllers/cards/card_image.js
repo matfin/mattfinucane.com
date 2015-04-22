@@ -5,7 +5,6 @@
  *	@method created
  */
 Template.cards_image.created = function() {
-	this.subscribe('cf_assets');
 };
 
 /**
@@ -49,38 +48,34 @@ Template.cards_image.helpers({
 		 *	Setting up the filters
 		 */
 		var device = function() {
+
+			var deviceString = '';
+
 			if(deviceClass.isMobile) {
-				return 'mobile';
+				deviceString = 'mobile';
 			}
 			else if(deviceClass.isTablet) {
-				return 'tablet';
+				deviceString = 'tablet';
 			}
 			else {
-				return 'desktop';
+				deviceString = 'desktop';
 			}
+
+			if(deviceClass.isRetina) {
+				deviceString =+ '@2x';
+			}
+
+			return deviceString;
 		};
 
-		/** 
-		 *	Filter the incoming images to fetch the one we need
-		 *	and add the asset id to the filter.
+		/**
+		 *	With the device class determined, pick out the image we need
 		 */
-		var assetIds = [];
-		_.filter(this, function(item) {
-			if(		item.fields.device === device() 
-					&& item.fields.isRetina === Helpers.deviceClass().isRetina) {
-				assetIds.push(item.fields.imageAsset.sys.id);
-			}
+		var imageAsset = _.find(this, function(item) {
+			return item.size.suffix === device();
 		});
 
-		/**
-		 *	Generating the query
-		 */
-		var query = {
-			'sys.id': {$in: assetIds}
-		}
-		image = App.collections.cf_assets.findOne(query);
-
-		return image;
+		return imageAsset;
 	}
 
 });

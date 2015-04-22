@@ -84,19 +84,21 @@ ImageProcessor = {
 	 */
 	updateImagesCollection: function(imageData) {
 
-		var self = this
+		var self = this;
 
 		/**
 		 *	Collection updates need to be run within a Fiber
 		 */
 		this.Fiber(function() {
+
 			self.imageCollection.update(
 				{
-					assetId: imageData.assetId
+					assetId: imageData.assetId,
+					'size.suffix': imageData.size.suffix
 				},
 				{
-					suffix: imageData.suffix,
-					filename: imageData.filename,
+					size: imageData.size,
+					url: CFConfig.imageProcessor.baseUrl + '/' + imageData.filename,
 					assetId: imageData.assetId
 				},
 				{
@@ -146,7 +148,7 @@ ImageProcessor = {
 					else {
 						if(typeof callback === 'function') {
 							callback({
-								suffix: res.size.suffix,
+								size: res.size,
 								filename: filename,
 								assetId: assetId
 							});

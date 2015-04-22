@@ -20,7 +20,7 @@ CFConfig = {
 	 *	@property	authorisationHeader
 	 *	@type		{String}
 	 */
-	authorisationHeader: "Bearer <Your auth id>",
+	authorisationHeader: 'Bearer <Your auth id>',
 
 	/**
 	 *	Content type header
@@ -28,7 +28,7 @@ CFConfig = {
 	 *	@property	contentTypeHeader
 	 *	@type 		{String}
 	 */
-	contentTypeHeader: "application/vnd.contentful.delivery.v1+json",
+	contentTypeHeader: 'application/vnd.contentful.delivery.v1+json',
 
 	/**
 	 *	Space ID
@@ -36,7 +36,7 @@ CFConfig = {
 	 *	@property	spaceID
 	 *	@type 		{String}
 	 */
-	spaceID: "<your space ID>",
+	spaceID: '<your space ID>',
 
 	/**
 	 *	Collection name for processed Contentful Images
@@ -44,7 +44,7 @@ CFConfig = {
 	 *	@property 	processedImageCollectionName
 	 *	@type 		{String}
 	 */
-	processedImageCollectionName: "ac_images",
+	processedImageCollectionName: 'ac_images',
 
 	/**
 	 *	Callback authorisation key, for when Contentful post data to us
@@ -53,7 +53,7 @@ CFConfig = {
 	 *	@property	callbackAuthKey
 	 *	@type 		{String}
 	 */
-	callbackAuthKey: "<Optional callback auth key>",
+	callbackAuthKey: '<Optional callback auth key>',
 
 	/**
 	 *	Array of content type objects with their name and associated ID
@@ -63,8 +63,8 @@ CFConfig = {
 	 */
 	contentTypes: [
 		{
-			"name": "<content type name>",
-			"id": 	"<content type id>"
+			'name': '<content type name>',
+			'id': 	'<content type id>'
 		}
 	],
 
@@ -76,27 +76,28 @@ CFConfig = {
 	 */
 	imageProcessor: {
 		path: '<local destination filesystem path>',
+		baseUrl: 'http://media.somewhere.tld/path/to/images',
 		quality: 0.9,
 		sizes: [
 			{
-				"suffix": "desktop-retina",
-				"dimension": {
-					"width": "1440",
-					"height": "1080"
+				'suffix': 'desktop-retina',
+				'dimension': {
+					'width': '1440',
+					'height': '1080'
 				}
 			},
 			{
-				"suffix": "desktop",
-				"dimension": {
-					"width": "720",
-					"height": "540"
+				'suffix': 'desktop',
+				'dimension': {
+					'width': '720',
+					'height': '540'
 				}
 			},
 			{
-				"suffix": "laptop",
-				"dimension": {
-					"width": "480",
-					"height": "540"
+				'suffix': 'laptop',
+				'dimension': {
+					'width': '480',
+					'height': '540'
 				}
 			}
 		]

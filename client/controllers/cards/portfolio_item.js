@@ -6,7 +6,8 @@
  */
 Template.cards_portfolio_item.created = function() {
 	this.subscribe('skill');
-	this.subscribe('image');
+	this.subscribe('cf_assets');
+	this.subscribe('mf_images');
 };
 
 /**
@@ -76,22 +77,14 @@ Template.cards_portfolio_item.helpers({
 		/**
 		 *	Checking to see if associated images exist
 		 */
-		if(Helpers.checkNested(this, 'fields', 'images')) {
-
+		if(Helpers.checkNested(this, 'fields', 'productScreenshot', 'sys', 'id')) {
 			/**
 			 *	Preparing the query
 			 */
-			var imageIds = [];
-			_.each(this.fields.images, function(image) {
-				imageIds.push(image.sys.id);
-			});
+			var imageId = this.fields.productScreenshot.sys.id,
+				imageAssets = App.collections.mf_images.find({assetId: imageId}).fetch();
 
-			var query = {
-				'sys.id': {$in: imageIds}
-			},
-			images = App.collections.cf_entries.find(query).fetch();
-
-			return images;
+			return imageAssets;
 		}
 
 		/**
