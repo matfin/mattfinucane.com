@@ -27,8 +27,17 @@ Contentful = {
 	 *	@return 	{Boolean}		 - true if credentials are valid 	
 	 */
 	checkCFCredentials: function(request) {
-		return 	Helpers.checkNested(request, 'headers', 'authorization')
-				&& request.headers.authorization === CFConfig.callbackAuthKey;
+		var granted = 	Helpers.checkNested(request, 'headers', 'authorization')
+					&& request.headers.authorization === CFConfig.callbackAuthKey;
+
+		if(!granted) {
+			console.log('Invalid access credentials for hook provided');
+		}
+		else {
+			console.log('Valid access credentials for hook provided');
+		}
+
+		return granted;
 	},
 
 	/**

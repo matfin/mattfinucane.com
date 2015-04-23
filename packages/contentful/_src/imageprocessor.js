@@ -89,7 +89,6 @@ ImageProcessor = {
 					});
 				},
 				removed: function(id, asset) {
-					console.log('Asset removed.');
 					console.log('Asset unpublished: ', id);
 					console.log(id, asset);
 				}
