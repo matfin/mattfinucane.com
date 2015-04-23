@@ -68,6 +68,8 @@ Template.cards_image.helpers({
 			return deviceString;
 		};
 
+		console.log(device());
+
 		/**
 		 *	With the device class determined, pick out the image we need
 		 */

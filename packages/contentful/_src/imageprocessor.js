@@ -18,6 +18,11 @@ ImageProcessor = {
 	Imagemagick: false,
 
 	/**
+	 *	Node FS module for filesystem access
+	 */
+	FS: false,
+
+	/**
 	 *	Server side collection to store information about
 	 *	processed image assets
 	 */
@@ -36,14 +41,28 @@ ImageProcessor = {
 	init: function() {
 
 		/**
-		 *	Required meteor npm modules
+		 *	This module requires access to npm modules.
+		 */
+		if(!Meteor.npmRequire) {
+			console.log('Image processor init, meteor npm require not found.');
+			return;
+		}
+
+		/**
+		 *	Required meteor node npm modules
 		 */
 		this.Fiber = Meteor.npmRequire('fibers');
 		this.Imagemagick = Meteor.npmRequire('node-imagemagick');
+		this.FS = Meteor.npmRequire('fs');
+	},
 
-		if(!Meteor.npmRequire) {
-			console.log('Image processor init, meteor npm require not found.');
-		}
+	/**
+	 *	Function to kick off processing of the images 
+	 *
+	 *	@method 	startProcessing
+	 *	@return 	{Object} - a resolved or rejected promise
+	 */
+	process: function() {
 
 		var self = this;
 
@@ -52,12 +71,13 @@ ImageProcessor = {
 			/**
 			 *	Get a reference to each contentful asset
 			 */
-			this.contentfulAssets = Contentful.collections.assets.find({}).fetch();
+			self.contentfulAssets = Contentful.collections.assets.find({}).fetch();
+
 			/**
 			 *	Then loop through each row in the cursor, processing and resizing images 
 			 *	for each
 			 */
-			_.each(this.contentfulAssets, function(asset) {
+			_.each(self.contentfulAssets, function(asset) {
 
 				/**
 				 *	Save the resized image, then update the collection
@@ -66,15 +86,10 @@ ImageProcessor = {
 					self.updateImagesCollection(result);
 				});
 			});
-			/**
-			 *	Then publish the image collection
-			 */
-			Meteor.publish(CFConfig.processedImageCollectionName, function() {
-				return self.imageCollection.find({});
-			});
 
 		}).run();
 	},
+
 
 	/**
 	 *	Function to update the collection with image data
@@ -120,8 +135,7 @@ ImageProcessor = {
 		var self 		= this,
 			assetId 	= asset.sys.id,
 			sourceUrl 	= asset.fields.file.url,
-			destPath 	= CFConfig.imageProcessor.path,
-			fs 			= Meteor.npmRequire('fs');
+			destPath 	= CFConfig.imageProcessor.path;
 
 		this.readRemoteFileFromUrl(sourceUrl)
 		.then(function(result) {
@@ -140,7 +154,7 @@ ImageProcessor = {
 				/**
 				 *	Write the file and then execute the optional callback on success
 				 */
-				fs.writeFile(path + '/' + filename, res.data, {encoding: 'binary'}, function() {
+				self.FS.writeFile(path + '/' + filename, res.data, {encoding: 'binary'}, function() {
 
 					if(error) {
 						console.log('Could not write file');

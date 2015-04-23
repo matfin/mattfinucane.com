@@ -44,6 +44,7 @@ Meteor.startup(function() {
 			 *	source the resized images later.
 			 */
 			Meteor.publish('cf_assets', function() {
+				console.log('Publishing assets');
 				return Contentful.collections.assets.find({});
 			});
 
@@ -52,6 +53,14 @@ Meteor.startup(function() {
 			 *	from the Contentful source
 			 */
 			ImageProcessor.init();
+			ImageProcessor.process();
+			/**
+			 *	Publish the image collection
+			 */
+			Meteor.publish(CFConfig.processedImageCollectionName, function() {
+				console.log('Publishing images');
+				return ImageProcessor.imageCollection.find({});
+			});
 
 			/**
 			 *	Then we listen for incoming changes from Contentful,
