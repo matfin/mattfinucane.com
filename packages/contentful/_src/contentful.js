@@ -124,10 +124,15 @@ Contentful = {
 
  					});
 
+ 					if(data.errors) {
+ 						console.log('Asset error encountered:');
+ 						console.log(data.errors);
+ 					}
+
  					/**
  					 *	Loop through each asset if they exist with an entity
  					 */
- 					if(Helpers.checkNested(data, 'includes', 'Assets')) {
+ 					if(Helpers.checkNested(data, 'includes', 'Asset')) {
 
  						_.each(data.includes.Asset, function(asset) {
 	 						/**
