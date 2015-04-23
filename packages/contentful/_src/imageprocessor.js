@@ -88,14 +88,13 @@ ImageProcessor = {
 						self.updateImagesCollection(result);
 					});
 				},
-				removed: function(id, asset) {
-					console.log('Asset unpublished: ', id);
-					console.log(id, asset);
+				removed: function(id) {
+					console.log('Asset unpublished.');
+					self.imageCollection.remove({assetId: id});
 				}
 			})
 
 		}).run();
-
 	},
 
 	/**
