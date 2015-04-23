@@ -53,7 +53,7 @@ Meteor.startup(function() {
 			 *	from the Contentful source
 			 */
 			ImageProcessor.init();
-			ImageProcessor.process();
+
 			/**
 			 *	Publish the image collection
 			 */

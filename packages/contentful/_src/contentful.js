@@ -125,14 +125,17 @@ Contentful = {
  					});
 
  					/**
- 					 *	Loop through each asset
+ 					 *	Loop through each asset if they exist with an entity
  					 */
- 					_.each(data.includes.Asset, function(asset) {
- 						/**
- 						 *	Inserting the asset to the collection
- 						 */
- 						self.collections.assets.insert(asset);
- 					});
+ 					if(Helpers.checkNested(data, 'includes', 'Assets')) {
+
+ 						_.each(data.includes.Asset, function(asset) {
+	 						/**
+	 						 *	Inserting the asset to the collection
+	 						 */
+	 						self.collections.assets.insert(asset);
+	 					});
+ 					}
 
  					/**
  					 *	Resolved promise

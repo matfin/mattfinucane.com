@@ -54,42 +54,50 @@ ImageProcessor = {
 		this.Fiber = Meteor.npmRequire('fibers');
 		this.Imagemagick = Meteor.npmRequire('node-imagemagick');
 		this.FS = Meteor.npmRequire('fs');
+
+		/**
+		 *	Observe changes to the asset collection so we can update
+		 *	the image collection here.
+		 */
+		this.observeAssetChanges();
 	},
 
 	/**
-	 *	Function to kick off processing of the images 
+	 *	Function to observe changes to the assets collection
 	 *
-	 *	@method 	startProcessing
-	 *	@return 	{Object} - a resolved or rejected promise
+	 *	@method 	observeAssetChanges
 	 */
-	process: function() {
+	observeAssetChanges: function() {
+
+		console.log('Observing asset changes');
 
 		var self = this;
 
 		this.Fiber(function() {
 
-			/**
-			 *	Get a reference to each contentful asset
-			 */
-			self.contentfulAssets = Contentful.collections.assets.find({}).fetch();
-
-			/**
-			 *	Then loop through each row in the cursor, processing and resizing images 
-			 *	for each
-			 */
-			_.each(self.contentfulAssets, function(asset) {
-
-				/**
-				 *	Save the resized image, then update the collection
-				 */
-				self.saveImagesFromAsset(asset, function(result) {
-					self.updateImagesCollection(result);
-				});
-			});
+			Contentful.collections.assets.find({}).observeChanges({
+				added: function(id, asset) {
+					console.log('Asset added.');
+					self.saveImagesFromAsset(asset, function(result) {
+						self.updateImagesCollection(result);
+					});
+				},
+				changed: function(id, asset) {
+					console.log('Asset changed.');
+					self.saveImagesFromAsset(asset, function(result) {
+						self.updateImagesCollection(result);
+					});
+				},
+				removed: function(id, asset) {
+					console.log('Asset removed.');
+					console.log('Asset unpublished: ', id);
+					console.log(id, asset);
+				}
+			})
 
 		}).run();
-	},
 
+	},
 
 	/**
 	 *	Function to update the collection with image data
@@ -148,13 +156,12 @@ ImageProcessor = {
 				/**
 				 *	Grab the filename and write the file
 				 */
-				var path 	 = CFConfig.imageProcessor.path, 
-					filename = assetId + '-' + res.size.suffix + '.jpg';
+				var filename = assetId + '-' + res.size.suffix + '.jpg';
 
 				/**
 				 *	Write the file and then execute the optional callback on success
 				 */
-				self.FS.writeFile(path + '/' + filename, res.data, {encoding: 'binary'}, function() {
+				self.FS.writeFile(destPath + '/' + filename, res.data, {encoding: 'binary'}, function() {
 
 					if(error) {
 						console.log('Could not write file');
