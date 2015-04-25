@@ -385,7 +385,7 @@ Contentful = {
 		 */
 		if(typeof collection !== 'undefined') {
 			/**
-			 *	Call the updte function from within a Fiber
+			 *	Call the upadte function from within a Fiber
 			 */
 
 			this.Fiber(function() {

@@ -141,20 +141,29 @@ ImageProcessor = {
 		var self 		= this,
 			assetId 	= asset.sys.id,
 			sourceUrl 	= asset.fields.file.url,
+			imageType 	= asset.fields.description,
 			destPath 	= CFConfig.imageProcessor.path;
 
 		this.readRemoteFileFromUrl(sourceUrl)
 		.then(function(result) {
 
 			/**
+			 *	Image type and data.
+			 */
+			var image = {
+				type: imageType,
+				data: result.data
+			};
+
+			/**
 			 *	Call the resize function, which will execute a callback
 			 */
-			self.resizeImagesFromAsset(result.data, function(res, error) {
+			self.resizeImageFromAsset(image, function(res, error) {
 
 				/**
 				 *	Grab the filename and write the file
 				 */
-				var filename = assetId + '-' + res.size.suffix + '.jpg';
+				var filename = assetId + '-' + res.size.device + res.pixelDensity.prefix + '.jpg';
 
 				/**
 				 *	Write the file and then execute the optional callback on success
@@ -186,33 +195,48 @@ ImageProcessor = {
 	 *	Function to batch resize images
 	 *
 	 *	@method 	resizeImagesFromAsset
-	 *	@param 		{Object} data - the source data for the image to be resized
+	 *	@param 		{Object} image - the image type and the source data for the image and to be resized
 	 *	@param 		{Object} callback - optional callback to be executed
 	 */
-	resizeImagesFromAsset: function(data, callback) {
+	resizeImageFromAsset: function(image, callback) {
 
-		var self = this;
+		var self 			= this,
+			sizes 			= CFConfig.imageProcessor.imageTypes[image.type].sizes,
+			pixelDensities	= CFConfig.imageProcessor.pixelDensities,
+			quality 		= CFConfig.imageProcessor.quality;
 
-		_.each(CFConfig.imageProcessor.sizes, function(size) {
-			self.Imagemagick.resize({
-				srcData: data,
-				width: size.dimension.width,
-				height: size.dimension.height,
-				quality: CFConfig.imageProcessor.quality,
-			}, function(err, stdout, stderr) {
+		/**
+		 *	Loop through each size 
+		 */
+		_.each(sizes, function(size) {
 
-				if(typeof callback === 'function') {
+			/** 
+			 *	Then loop through the given pixel densities
+			 */
+			_.each(pixelDensities, function(pixelDensity) {
 
-					if(err || stderr) {
-						callback(err);
+				self.Imagemagick.resize({
+					srcData: image.data,
+					width: size.width * pixelDensity.multiplier,
+					height: size.height * pixelDensity.multiplier,
+					quality: quality,
+				}, function(err, stdout, stderr) {
+
+					if(typeof callback === 'function') {
+
+						if(err || stderr) {
+							callback(err);
+						}
+						else {
+							callback({
+								size: size,
+								pixelDensity: pixelDensity,
+								data: stdout
+							}, null);
+						}
 					}
-					else {
-						callback({
-							size: size,
-							data: stdout
-						}, null);
-					}
-				}
+				});
+
 			});
 		});
 	},
@@ -238,7 +262,6 @@ ImageProcessor = {
 			/**
 			 *	Buffer to store incoming stream of data
 			 */ 
-			//var buffer = new Buffer('', 'binary');
 			var data = '';
 
 			/**
@@ -250,7 +273,6 @@ ImageProcessor = {
 			 *	When data comes in, ammend the buffer
 			 */
 			response.on('data', function(chunk) {	
-				//buffer = Buffer.concat([buffer, chunk]);
 				data += chunk;
 			});
 
@@ -258,9 +280,6 @@ ImageProcessor = {
 			 *	If there was an error
 			 */
 			response.on('error', function(error) {
-
-				console.log('image fetch error');
-
 				deferred.reject({
 					status: 'error',
 					data: error

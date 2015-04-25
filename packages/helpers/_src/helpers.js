@@ -7,7 +7,7 @@
 Helpers = {
 	
 	/**
-	 *	Function that calculates device screen capabilities
+	 *	Function that calculates device screen size and capabilities
 	 *
 	 *	@method 	deviceClass()
 	 *	@return 	{Object} - an object containing a list of boolean attributes

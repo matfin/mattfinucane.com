@@ -26,15 +26,13 @@ Meteor.startup(function() {
 			 *	using its name
 			 */
 			_.each(CFConfig.contentTypes, function(contentType) {
-				
-				console.log('Publishing: ', contentType.name);
-				Contentful.collections[contentType.name] = new Mongo.Collection(contentType.name);
 				/**
 				 *	Give the name of the collection the same name as 
 				 *	the content type name and also use it as a filter
 				 *	parameter.
 				 */
 				Meteor.publish(contentType.name, function() {
+					console.log('Publishing:', contentType.name);
 					return Contentful.collections.entries.find({'contentTypeName': contentType.name});
 				});
 			});
@@ -44,7 +42,7 @@ Meteor.startup(function() {
 			 *	source the resized images later.
 			 */
 			Meteor.publish('cf_assets', function() {
-				console.log('Publishing assets');
+				console.log('Publishing: assets');
 				return Contentful.collections.assets.find({});
 			});
 
@@ -58,7 +56,7 @@ Meteor.startup(function() {
 			 *	Publish the image collection
 			 */
 			Meteor.publish(CFConfig.processedImageCollectionName, function() {
-				console.log('Publishing images');
+				console.log('Publishing: images');
 				return ImageProcessor.imageCollection.find({});
 			});
 
