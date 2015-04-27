@@ -49,30 +49,27 @@ Template.cards_image.helpers({
 		 */
 		var device = function() {
 
-			var deviceString = '';
+			var device = {};
 
 			if(deviceClass.isMobile) {
-				deviceString = 'mobile';
+				device.name = 'mobile'
 			}
 			else if(deviceClass.isTablet) {
-				deviceString = 'tablet';
+				device.name = 'tablet';
 			}
 			else {
-				deviceString = 'desktop';
+				device.name = 'desktop';
 			}
 
-			if(deviceClass.isRetina) {
-				deviceString =+ '@2x';
-			}
-
-			return deviceString;
+			return device;
 		};
 
 		/**
 		 *	With the device class determined, pick out the image we need
 		 */
 		var imageAsset = _.find(this, function(item) {
-			return item.size.suffix === device();
+			return 	item.size.device === device().name &&
+					item.pixelDensity.multiplier === Helpers.deviceClass().pixelDensity
 		});
 
 		return imageAsset;

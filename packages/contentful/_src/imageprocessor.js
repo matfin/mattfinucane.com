@@ -126,7 +126,8 @@ ImageProcessor = {
 			self.imageCollection.update(
 				{
 					assetId: imageData.assetId,
-					'size.device': imageData.size.device
+					'size.device': imageData.size.device,
+					'pixelDensity.multiplier': imageData.pixelDensity.multiplier
 				},
 				{
 					size: imageData.size,
