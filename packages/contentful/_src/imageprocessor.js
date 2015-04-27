@@ -126,7 +126,7 @@ ImageProcessor = {
 			self.imageCollection.update(
 				{
 					assetId: imageData.assetId,
-					'size.suffix': imageData.size.suffix
+					'size.device': imageData.size.device
 				},
 				{
 					size: imageData.size,
@@ -155,11 +155,13 @@ ImageProcessor = {
 
 		var self = this,
 			path = CFConfig.imageProcessor.path,
-			filename = assetId + sizeParam.size.device + sizeParam.pixelDensity.prefix + '.jpg';
+			filename = assetId + '-' + sizeParam.size.device + sizeParam.pixelDensity.prefix + '.jpg';
 
 		this.FS.writeFile(path + '/' + filename, data, {encoding: 'binary'}, function() {
 			if(typeof callback === 'function') {
-				callback();
+				callback({
+					filename: filename
+				});
 			}	
 		});
 	},
@@ -192,7 +194,7 @@ ImageProcessor = {
 				}
 			}
 			else {
-
+				callback(null);
 			}
 		});
 
@@ -221,24 +223,45 @@ ImageProcessor = {
 				 *	which qill contain the resized image data.
 				 */
 				self.getResizedImageData(data, resizeParam, function(resultData) {
-					/**
-					 *	Write the resulting data to file
-					 */
-					console.log('Write asset with id: ', asset.sys.id);
-					self.writeToFileSystem(resultData, asset.sys.id, resizeParam, function() {
 
-						/**
-						 *	Once we have resized the image based on the resizeParams,
-						 *	we drop the processing job from the queue
-						 */
+					/**
+					 *	If the resulting data was null, pop the job from 
+					 *	the operations queue anyway
+					 */
+					if(resultData === null) {
 						resizeParams.splice(0, 1);
-						
-						/**
-						 *	Execute this function again for remaining size params
-						 *	in the Queue
-					 	 */
 						runloop();
-					});
+					}
+					else {
+						/**
+						 *	Write the resulting data to file
+						 */
+						self.writeToFileSystem(resultData, asset.sys.id, resizeParam, function(result) {
+
+							/**
+							 *	Update the images collection once the sized image has been 
+							 *	written to the filesystem
+							 */
+							self.updateImagesCollection({
+								assetId: asset.sys.id,
+								size: resizeParam.size,
+								pixelDensity: resizeParam.pixelDensity,
+								filename: result.filename
+							});
+
+							/**
+							 *	Once we have resized the image based on the resizeParams,
+							 *	we drop the processing job from the queue
+							 */
+							resizeParams.splice(0, 1);
+							
+							/**
+							 *	Execute this function again for remaining size params
+							 *	in the Queue
+						 	 */
+							runloop();
+						});
+					}
 				});
 			}
 			else {
@@ -300,11 +323,20 @@ ImageProcessor = {
 				 */
 				self.readRemoteFileFromUrl(assetUrl).then(function(result) {
 
-					console.log('Image data read from: ', assetUrl);
-
+					/**
+					 *	Start processing the resulting image data
+					 */
 					self.processImages(result.data, asset).then(function() {
 
+						/**
+						 *	When finished, pop the image resize job from
+						 *	the operation queue
+						 */
 						self.imageOperationQueue.splice(0, 1);
+
+						/**
+						 *	Call the runloop function again
+						 */
 						runloop();
 
 					});
@@ -382,12 +414,7 @@ ImageProcessor = {
 			});
 		});
 
-		/**
-		 *	Then add the resize operation to the image operation queue
-		 */
-		
 		return deferred.promise;
-
 	},
 
 	/**
