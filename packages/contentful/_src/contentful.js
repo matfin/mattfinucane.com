@@ -27,8 +27,17 @@ Contentful = {
 	 *	@return 	{Boolean}		 - true if credentials are valid 	
 	 */
 	checkCFCredentials: function(request) {
-		return 	Helpers.checkNested(request, 'headers', 'authorization')
-				&& request.headers.authorization === CFConfig.callbackAuthKey;
+		var granted = 	Helpers.checkNested(request, 'headers', 'authorization')
+					&& request.headers.authorization === CFConfig.callbackAuthKey;
+
+		if(!granted) {
+			console.log('Invalid access credentials for hook provided');
+		}
+		else {
+			console.log('Valid access credentials for hook provided');
+		}
+
+		return granted;
 	},
 
 	/**
@@ -124,15 +133,23 @@ Contentful = {
 
  					});
 
+ 					if(data.errors) {
+ 						console.log('Asset error encountered:');
+ 						console.log(data.errors);
+ 					}
+
  					/**
- 					 *	Loop through each asset
+ 					 *	Loop through each asset if they exist with an entity
  					 */
- 					_.each(data.includes.Asset, function(asset) {
- 						/**
- 						 *	Inserting the asset to the collection
- 						 */
- 						self.collections.assets.insert(asset);
- 					});
+ 					if(Helpers.checkNested(data, 'includes', 'Asset')) {
+
+ 						_.each(data.includes.Asset, function(asset) {
+	 						/**
+	 						 *	Inserting the asset to the collection
+	 						 */
+	 						self.collections.assets.insert(asset);
+	 					});
+ 					}
 
  					/**
  					 *	Resolved promise
@@ -368,7 +385,7 @@ Contentful = {
 		 */
 		if(typeof collection !== 'undefined') {
 			/**
-			 *	Call the updte function from within a Fiber
+			 *	Call the upadte function from within a Fiber
 			 */
 
 			this.Fiber(function() {

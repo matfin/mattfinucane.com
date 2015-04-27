@@ -7,21 +7,21 @@
 Helpers = {
 	
 	/**
-	 *	Function that calculates device screen capabilities
+	 *	Function that calculates device screen size and capabilities
 	 *
 	 *	@method 	deviceClass()
 	 *	@return 	{Object} - an object containing a list of boolean attributes
 	 */
 	deviceClass: function() {
 		var viewportWidth 	= window.innerWidth,
-			pixelRatio		= window.devicePixelRatio;
+			pixelDensity	= window.devicePixelRatio;
 
 		return {
 			isDesktop:  	viewportWidth >= 1280,
 			isLaptop: 		viewportWidth > 1024 && viewportWidth < 1280,
 			isTablet: 		viewportWidth <= 1024 && viewportWidth > 640,
 			isMobile: 		viewportWidth <= 640,
-			isRetina: 		pixelRatio > 1
+			pixelDensity: 	Math.round(pixelDensity)
 		};
 	},
 

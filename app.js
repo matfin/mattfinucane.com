@@ -6,7 +6,8 @@ Meteor.startup(function() {
 		App = {
 			collections: {
 				cf_entries: new Mongo.Collection('cf_entries'),
-				cf_assets: new Mongo.Collection('cf_assets')
+				cf_assets: new Mongo.Collection('cf_assets'),
+				mf_images: new Mongo.Collection('mf_images')
 			}	
 		};
 
@@ -25,21 +26,38 @@ Meteor.startup(function() {
 			 *	using its name
 			 */
 			_.each(CFConfig.contentTypes, function(contentType) {
-				
-				console.log('Publishing: ', contentType.name);
-				Contentful.collections[contentType.name] = new Mongo.Collection(contentType.name);
 				/**
 				 *	Give the name of the collection the same name as 
 				 *	the content type name and also use it as a filter
 				 *	parameter.
 				 */
 				Meteor.publish(contentType.name, function() {
+					console.log('Publishing:', contentType.name);
 					return Contentful.collections.entries.find({'contentTypeName': contentType.name});
 				});
 			});
-			
+
+			/**
+			 *	Publish the contentful assets collection, which we will need to
+			 *	source the resized images later.
+			 */
 			Meteor.publish('cf_assets', function() {
+				console.log('Publishing: assets');
 				return Contentful.collections.assets.find({});
+			});
+
+			/**
+			 *	When the app is booted, we need to process the images
+			 *	from the Contentful source
+			 */
+			ImageProcessor.init();
+
+			/**
+			 *	Publish the image collection
+			 */
+			Meteor.publish(CFConfig.processedImageCollectionName, function() {
+				console.log('Publishing: images');
+				return ImageProcessor.imageCollection.find({});
 			});
 
 			/**

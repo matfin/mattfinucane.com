@@ -14,5 +14,10 @@ ejson
 matfin:contentful
 matfin:helpers
 
-npm-container
 markdown
+
+
+meteorhacks:npm
+
+
+npm-container

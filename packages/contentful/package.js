@@ -33,10 +33,12 @@ Package.onUse(function(api) {
 	 */
 	api.addFiles([
 		'_config/settings.js',
-		'_src/contentful.js'
+		'_src/contentful.js',
+		'_src/imageprocessor.js'
 	], 'server');
 
 	api.export('CFConfig');
 	api.export('Contentful');
+	api.export('ImageProcessor');
 
 });
