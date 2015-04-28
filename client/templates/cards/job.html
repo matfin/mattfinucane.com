@@ -4,9 +4,23 @@
 			<h1>
 				{{fields.title}}
 			</h1>
+			<!-- startDate -->
+			<time datetime="{{timestamp fields.startDate}}">
+				{{formattedDate fields.startDate 'MMM YYYY'}} &ndash;
+			</time>
+			<!-- endDate -->
+			{{#if variableExists fields.endDate}}
+				<time datetime="{{timestamp fields.endDate}}">
+					{{formattedDate fields.endDate 'MMM YYYY'}}
+				</time>
+			{{else}}
+				<span>
+					Present
+				</span>
+			{{/if}}
 			<!-- This markdown should generate an unordered list -->
 			{{#markdown}}{{fields.description}}{{/markdown}}
-			
+
 			{{#with images}}
 				{{>cards_image}}
 			{{/with}}

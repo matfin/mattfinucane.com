@@ -6,7 +6,6 @@
 
 	.slider {
 		position: relative;
-		width: 500%;
 		.display(flex);
 		.flex(1);
 

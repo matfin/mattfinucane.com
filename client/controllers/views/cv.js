@@ -38,6 +38,15 @@ Template.views_cv.helpers({
 
 	jobs: function() {
 		return App.collections.cf_entries.find({contentTypeName: 'job'}, {sort: {'fields.startDate': -1}}).fetch();
+	},
+
+	/**
+	 *	Grab the number of slides and multiply the total by 50 to get a percentage. 
+	 *	This matches up to setting two slides side by side, giving them each a total
+	 *	width of 50%.
+	 */
+	sliderWidth: function() {
+		return App.collections.cf_entries.find({contentTypeName: 'job'}).count() * 50;
 	}
 
 });

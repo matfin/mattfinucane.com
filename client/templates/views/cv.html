@@ -1,7 +1,7 @@
 <template name="views_cv">
 	<div class="wrapper">
 		<div class="sliderContainer">
-			<div class="slider">
+			<div class="slider" style="width: {{sliderWidth}}%">
 				{{#if Template.subscriptionsReady}}
 					{{#each jobs}}
 						<div class="slide">
