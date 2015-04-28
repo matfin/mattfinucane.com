@@ -13,15 +13,20 @@
 		
 		@media @laptop {
 			margin-left: @wrapperPadding;
+			padding-right: @wrapperPadding;
 		}
 		@media @desktop {
 			margin-left: 10%;
+			padding-right: 10%;
 			width: 90%;
 		}
 
 		section.portfolioItem {
 			.portfolioContent {
 				.flex-direction(row);
+			}
+			> a {
+				float: right;
 			}
 		}
 	}
@@ -30,6 +35,7 @@
 
 		@media @laptop {
 			margin-right: @wrapperPadding;
+			padding-left: @wrapperPadding;
 		}
 		@media @desktop {
 			margin-right: 10%;
@@ -51,6 +57,12 @@ section.portfolioItem {
 	display: inline-block;
 	max-width: @maxWidth;
 
+	> a {
+		color: @turquoise;
+		font-size: @mediumFontSize - 1;
+		text-decoration: none;
+	}
+
 	.portfolioContent {
 
 		.display(flex);
@@ -61,25 +73,32 @@ section.portfolioItem {
 
 			h2 {
 				text-align: center;
-				font-size: @mediumFontSize;
+				font-size: @mediumFontSize - 1;
 			}
 
 			p {
-				font-weight: 300;
+				font-size: @baseFontSize;
+				line-height: @baseFontSize + 3;
 			}
 
 			h3 {
 				padding: @gridSpacing / 2 0;
 				text-align: center;
-				font-size: @mediumFontSize;
+				font-size: @mediumFontSize - 1;
 			}
 
 			ol {
-				.display(flex);
 				li {
-					.flex(1);
-					font-size: @baseFontSize + 2;
-					text-align: center;
+					display: inline;
+					font-size: @baseFontSize;
+					&:after {
+						content: "/"
+					}
+					&:last-child {
+						&:after {
+							content: none;
+						}
+					}
 				}
 			}
 		}

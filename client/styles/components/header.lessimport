@@ -4,13 +4,20 @@ header {
 	max-width: @maxWidth;
 
 	h1, h2 {
-		font-size: @largeFontSize;
-		color: @turquoise;
 		float: left;
+	}
+
+	h1 {
+		font-size: @mediumFontSize + 2;
+		color: @turquoise;
 	}
 
 	h2 {
 		clear: left;
+		color: @grey;
+		font-size: @baseFontSize + 4;
+		line-height: @baseFontSize + 3;
+		width: @gridSpacing * 9;
 	}
 
 	nav {
@@ -28,7 +35,7 @@ header {
 					float: right;
 					text-align: left;
 					color: @turquoise;
-					font-size: @mediumFontSize;
+					font-size: @mediumFontSize + 2;
 					line-height: @baseFontSize - 1;
 					text-decoration: none;
 					border-bottom: 4px solid @turquoise;
