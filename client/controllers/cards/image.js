@@ -72,8 +72,6 @@ Template.cards_image.helpers({
 					item.pixelDensity.multiplier === Helpers.deviceClass().pixelDensity
 		});
 
-		console.log(imageAssets);
-
 		return imageAssets;
 	}
 

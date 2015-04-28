@@ -1,0 +1,19 @@
+.sliderContainer {
+	position: relative;
+	width: 100%;
+	overflow: hidden;
+	.user-select(none);
+
+	.slider {
+		position: relative;
+		width: 500%;
+		.display(flex);
+		.flex(1);
+
+		.slide {
+			.display(flex);
+			.flex(1);
+			width: 100%;
+		}
+	}
+}

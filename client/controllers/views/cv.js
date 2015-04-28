@@ -15,6 +15,10 @@ Template.views_cv.created = function() {
  *	@method rendered
  */
 Template.views_cv.rendered = function() {
+
+	var sliderContainer = document.getElementsByClassName('sliderContainer').item();
+	this.slider = Slider.setup(sliderContainer, {concurrentSlides: 2});
+	console.log(this.slider);
 };
 
 /**
