@@ -1,2 +1,9 @@
 <template name="views_cv">
+	{{#if Template.subscriptionsReady}}
+		<div class="cv">
+			{{#each jobs}}
+				{{>cards_job}}
+			{{/each}}
+		</div>
+	{{/if}}
 </template>

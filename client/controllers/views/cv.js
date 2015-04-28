@@ -25,3 +25,15 @@ Template.views_cv.rendered = function() {
  */
 Template.views_cv.destroyed = function() {
 };
+
+/**
+ *	Template - views_cv
+ *	Helpers 
+ */
+Template.views_cv.helpers({
+
+	jobs: function() {
+		return App.collections.cf_entries.find({contentTypeName: 'job'}, {sort: {'fields.startDate': -1}}).fetch();
+	}
+
+});

@@ -1,0 +1,15 @@
+<template name="cards_job">
+	{{#if Template.subscriptionsReady}}
+		<section class="job">
+			<h1>
+				{{fields.title}}
+			</h1>
+			<!-- This markdown should generate an unordered list -->
+			{{#markdown}}{{fields.description}}{{/markdown}}
+			
+			{{#with images}}
+				{{>cards_image}}
+			{{/with}}
+		</section>
+	{{/if}}
+</template>
