@@ -22,11 +22,12 @@
 		}
 
 		section.portfolioItem {
-			.portfolioContent {
+			.portfolioContent,
+			.portfolioLinks {
 				.flex-direction(row);
-			}
-			> a {
-				float: right;
+				a:last-child {
+					text-align: right;
+				}
 			}
 		}
 	}
@@ -44,10 +45,10 @@
 		}
 
 		section.portfolioItem {
-			.portfolioContent {
+			.portfolioContent,
+			.portfolioLinks {
 				.flex-direction(row-reverse);
 			}
-			
 		}		
 	}
 }
@@ -57,23 +58,34 @@ section.portfolioItem {
 	display: inline-block;
 	max-width: @maxWidth;
 
-	> a {
-		color: @turquoise;
-		font-size: @mediumFontSize - 1;
-		text-decoration: none;
-	}
-
 	.portfolioContent {
 
 		.display(flex);
 		.box-sizing(border-box);
 
 		.info {
+			.display(flex);
+			.flex-direction(column);
+			.box-sizing(border-box);
 			.flex(3);
+			padding: @gridSpacing + 4 @gridSpacing - 4;
+
+
+			h2, h3, p {
+				margin-bottom: @gridSpacing + 4;
+			}
 
 			h2 {
 				text-align: center;
 				font-size: @mediumFontSize - 1;
+				.echelon;
+			}
+
+			h3 {
+				padding: @gridSpacing / 2 0;
+				text-align: center;
+				font-size: @mediumFontSize - 1;
+				.echelon;
 			}
 
 			p {
@@ -81,13 +93,8 @@ section.portfolioItem {
 				line-height: @baseFontSize + 3;
 			}
 
-			h3 {
-				padding: @gridSpacing / 2 0;
-				text-align: center;
-				font-size: @mediumFontSize - 1;
-			}
-
 			ol {
+				text-align: center;
 				li {
 					display: inline;
 					font-size: @baseFontSize;
@@ -107,10 +114,35 @@ section.portfolioItem {
 			.flex(5);
 			.display(flex);
 			.align-items(center);
-
+			padding-top: @gridSpacing + 4;
 			img {
 				width: 100%;
 				height: auto;
+			}
+		}
+	}
+
+	.portfolioLinks {
+		.display(flex);
+		a {
+			color: @turquoise;
+			font-size: @mediumFontSize - 1;
+			height: @gridSpacing * 2.5;
+			line-height: @gridSpacing * 2.5;
+			&:first-child {
+				.flex(3);
+				text-align: center;
+			}
+			&:last-child {
+				.flex(5);
+			}
+			&.icon-github {
+				font-size: @baseFontSize * 2.5;
+				.animateWithProperties(transform);
+				&:hover {
+					text-decoration: none;
+					.scale(1.2);
+				}
 			}
 		}
 	}

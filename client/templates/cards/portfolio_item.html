@@ -8,7 +8,7 @@
 					</h2>
 					{{#markdown}}{{fields.description}}{{/markdown}}
 					<h3>
-						Skills
+						Code / Skills
 					</h3>
 					<ol>
 						{{#each skills}}
@@ -24,9 +24,13 @@
 					{{/with}}
 				</div>	
 			</div>
-			<a href="{{fields.productionUrl}}" title="{{fields.title}}">
-				{{fields.productionUrl}}
-			</a>
+			<div class="portfolioLinks">
+				<a href="{{fields.githubUrl}}" class="icon-github" title="See {{fields.title}} on GitHub">
+				</a>
+				<a href="{{fields.productionUrl}}" title="{{fields.title}}">
+					{{fields.productionUrl}}
+				</a>
+			</div>
 		</section>
 	{{/if}}
 </template>

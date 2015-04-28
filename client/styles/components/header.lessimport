@@ -2,6 +2,7 @@ header {
 	display: inline-block;
 	width: 100%;
 	max-width: @maxWidth;
+	padding: (@gridSpacing * 2) + 2 0;
 
 	h1, h2 {
 		float: left;
@@ -22,7 +23,7 @@ header {
 
 	nav {
 		float: right;
-		width: 50%;
+		width: 25%;
 		
 		ol {
 			float: right;

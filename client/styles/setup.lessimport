@@ -39,3 +39,7 @@ a {
 		text-decoration: underline;
 	}
 }
+
+p {
+	.resetPaddingMargin;
+}
