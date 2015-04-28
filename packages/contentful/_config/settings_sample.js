@@ -97,23 +97,23 @@ CFConfig = {
 				sizes: [
 					{
 						device: 'desktop',
-						width: 720,
-						height: 432
+						width: 685,
+						height: 405
 					},
 					{
 						device: 'laptop',
-						width: 500,
-						height: 300
+						width: 548,
+						height: 324
 					},
 					{
 						device: 'tablet',
-						width: 720,
-						height: 432
+						width: 768,
+						height: 454
 					},
 					{
 						device: 'mobile',
 						width: 640,
-						height: 384
+						height: 378
 					}
 				]
 			},

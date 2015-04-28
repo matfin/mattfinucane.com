@@ -15,11 +15,12 @@
 
 <template name="main">
 	<div class="container">
+		<!-- Header -->
 		<div class="wrapper center">
 			{{> yield region="header"}}
 		</div>
-		<div class="wrapper">
-			{{> yield region="content"}}
-		</div>
+		<!-- Content -->
+		{{> yield region="content"}}
+		
 	</div>
 </template>

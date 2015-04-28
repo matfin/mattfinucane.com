@@ -3,6 +3,7 @@
  */
 @gridSpacing: 16px;
 @maxWidth: 1280px;
+@wrapperPadding: (@gridSpacing * 2) + 3;
 
 /**
  *	Colors
@@ -19,3 +20,8 @@
 @baseFontSize: 16px;
 @mediumFontSize: @baseFontSize * 1.5;
 @largeFontSize: @baseFontSize * 2;
+
+/**
+ *	Transitions and animations
+ */
+@transitionDuration: 250ms;

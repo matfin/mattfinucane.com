@@ -1,7 +1,9 @@
 <template name="views_work">
 	{{#if Template.subscriptionsReady}}
 		{{#each portfolioItems}}
-			{{> cards_portfolio_item}}
+			<div class="wrapper portfolio">
+				{{> cards_portfolio_item}}
+			</div>
 		{{/each}}
 	{{else}}
 		<span>Loading..</span>

@@ -12,21 +12,16 @@ body {
 }
 
 .wrapper {
+
 	display: block;
 
 	&.center {
-		margin: 0 10%;
-		width: 80%;
-	}
-
-	&.left {
-		margin: 0 0 0 10%;
-		width: 90%;
-	}
-
-	&.right {
-		margin: 0 10% 0 0;
-		width: 90%;
+		@media @laptop {
+			margin: 0 @wrapperPadding;
+		}
+		@media @desktop {
+			margin: 0 10%;
+		}
 	}
 }
 

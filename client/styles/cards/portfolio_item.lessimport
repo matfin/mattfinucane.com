@@ -1,67 +1,98 @@
-section.portfolioItem {
-	.display(flex);
+.wrapper.portfolio {
+
+	display: inline-block;
 	border-top: 4px solid @grey;
-	margin: @gridSpacing * 2.5 0;
-	padding: @gridSpacing * 1.25;
 	background-color: @white;
-	width: 90%;
+	margin-bottom: @gridSpacing * 2.5;
 	.box-sizing(border-box);
 
-	.info {
-		.flex(3);
+	.transition-property(margin);
+	.transition-duration(@transitionDuration);
 
-		h2 {
-			text-align: center;
-			font-size: @mediumFontSize;
+	&:nth-child(even) {
+		
+		@media @laptop {
+			margin-left: @wrapperPadding;
+		}
+		@media @desktop {
+			margin-left: 10%;
+			width: 90%;
 		}
 
-		p {
-			font-weight: 300;
-		}
-
-		h3 {
-			padding: @gridSpacing / 2 0;
-			text-align: center;
-			font-size: @mediumFontSize;
-		}
-
-		ol {
-			.display(flex);
-			li {
-				.flex(1);
-				font-size: @baseFontSize + 2;
-				text-align: center;
+		section.portfolioItem {
+			.portfolioContent {
+				.flex-direction(row);
 			}
 		}
 	}
 
-	.image {
-		.flex(5);
-		.display(flex);
-		.align-items(center);
-
-		img {
-			width: 100%;
-			height: auto;
-		}
-	}
-
 	&:nth-child(odd) {
-		margin-left: 10%;
-		padding-right: 10%;
-		.flex-direction(row);
-		p {
-			padding-right: @gridSpacing;
+
+		@media @laptop {
+			margin-right: @wrapperPadding;
+		}
+		@media @desktop {
+			margin-right: 10%;
+			padding-left: 10%;
+			width: 90%;
+		}
+
+		section.portfolioItem {
+			.portfolioContent {
+				.flex-direction(row-reverse);
+			}
+			
+		}		
+	}
+}
+
+section.portfolioItem {
+	
+	display: inline-block;
+	max-width: @maxWidth;
+
+	.portfolioContent {
+
+		.display(flex);
+		.box-sizing(border-box);
+
+		.info {
+			.flex(3);
+
+			h2 {
+				text-align: center;
+				font-size: @mediumFontSize;
+			}
+
+			p {
+				font-weight: 300;
+			}
+
+			h3 {
+				padding: @gridSpacing / 2 0;
+				text-align: center;
+				font-size: @mediumFontSize;
+			}
+
+			ol {
+				.display(flex);
+				li {
+					.flex(1);
+					font-size: @baseFontSize + 2;
+					text-align: center;
+				}
+			}
+		}
+
+		.image {
+			.flex(5);
+			.display(flex);
+			.align-items(center);
+
+			img {
+				width: 100%;
+				height: auto;
+			}
 		}
 	}
-
-	&:nth-child(even) {
-		margin-right: 10%;
-		padding-left: 10%;
-		.flex-direction(row-reverse);
-		p {
-			padding-left: @gridSpacing;
-		}
-	}
-
 }

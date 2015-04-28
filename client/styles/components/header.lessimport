@@ -1,7 +1,7 @@
 header {
 	display: inline-block;
 	width: 100%;
-	padding: @gridSpacing * 2 + 5 0;
+	max-width: @maxWidth;
 
 	h1, h2 {
 		font-size: @largeFontSize;
