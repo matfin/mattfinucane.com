@@ -3,11 +3,13 @@
  */
 @gridSpacing: 16px;
 @maxWidth: 1280px;
+@wrapperPadding: (@gridSpacing * 2) + 3;
 
 /**
  *	Colors
  */
 @black: 		#131313;
+@grey:			#bbb;
 @turquoise: 	#0cd3d1;
 @white: 		#fff;
 @grey:			#bdbdbd;
@@ -15,7 +17,12 @@
 /**
  *	Fonts
  */
-@fontFamily: "camingodos-web", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+@fontFamily: "Source Sans Pro", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 @baseFontSize: 16px;
 @mediumFontSize: @baseFontSize * 1.5;
 @largeFontSize: @baseFontSize * 2;
+
+/**
+ *	Transitions and animations
+ */
+@transitionDuration: 250ms;

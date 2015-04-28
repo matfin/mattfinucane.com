@@ -1,0 +1,4 @@
+@desktop:	~"only screen and (min-width: 1280px)";
+@laptop: 	~"only screen and (min-width: 1025px) and (max-width: 1279px)";
+@tablet:	~"only screen and (min-width: 641px) and (max-width: 1024px)";
+@mobile: 	~"only screen and (max-width: 640px)";

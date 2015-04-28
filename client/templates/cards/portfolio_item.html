@@ -1,27 +1,36 @@
 <template name="cards_portfolio_item">
 	{{#if Template.subscriptionsReady}}
 		<section class="portfolioItem">
-			<div class="info">
-				<h2>
-					{{fields.title}}
-				</h2>
-				{{#markdown}}{{fields.description}}{{/markdown}}
-				<h3>
-					Skills
-				</h3>
-				<ol>
-					{{#each skills}}
-						<li>
-							{{fields.title}}
-						</li>
-					{{/each}}
-				</ol>
+			<div class="portfolioContent">
+				<div class="info">
+					<h2>
+						{{fields.title}}
+					</h2>
+					{{#markdown}}{{fields.description}}{{/markdown}}
+					<h3>
+						Code / Skills
+					</h3>
+					<ol>
+						{{#each skills}}
+							<li>
+								{{fields.title}}
+							</li>
+						{{/each}}
+					</ol>
+				</div>
+				<div class="image">
+					{{#with images}}
+						{{> cards_image}}
+					{{/with}}
+				</div>	
 			</div>
-			<div class="image">
-				{{#with images}}
-					{{> cards_image}}
-				{{/with}}
-			</div>	
+			<div class="portfolioLinks">
+				<a href="{{fields.githubUrl}}" class="icon-github" title="See {{fields.title}} on GitHub">
+				</a>
+				<a href="{{fields.productionUrl}}" title="{{fields.title}}">
+					{{fields.productionUrl}}
+				</a>
+			</div>
 		</section>
 	{{/if}}
 </template>

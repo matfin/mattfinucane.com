@@ -75,31 +75,73 @@ CFConfig = {
 	 *	@type 		{Array}
 	 */
 	imageProcessor: {
-		path: '<local destination filesystem path>',
-		baseUrl: 'http://media.somewhere.tld/path/to/images',
+		path: '<local filesystem path>',
+		baseUrl: 'http://sub.example.tld',
 		quality: 0.9,
-		sizes: [
+		pixelDensities: [
 			{
-				'suffix': 'desktop-retina',
-				'dimension': {
-					'width': '1440',
-					'height': '1080'
-				}
+				prefix: "",
+				multiplier: 1
 			},
 			{
-				'suffix': 'desktop',
-				'dimension': {
-					'width': '720',
-					'height': '540'
-				}
+				prefix: "@2x",
+				multiplier: 2
 			},
 			{
-				'suffix': 'laptop',
-				'dimension': {
-					'width': '480',
-					'height': '540'
-				}
+				prefix: "@3x",
+				multiplier: 3
 			}
-		]
+		],
+		imageTypes: {
+			portfolio: {
+				sizes: [
+					{
+						device: 'desktop',
+						width: 685,
+						height: 405
+					},
+					{
+						device: 'laptop',
+						width: 548,
+						height: 324
+					},
+					{
+						device: 'tablet',
+						width: 768,
+						height: 454
+					},
+					{
+						device: 'mobile',
+						width: 640,
+						height: 378
+					}
+				]
+			},
+			logo: {
+				sizes: [
+					{
+						device: 'desktop',
+						width: 80,
+						height: 80
+					},
+					{
+						device: 'laptop',
+						width: 80,
+						height: 80
+					},
+					{
+						device: 'tablet',
+						width: 70,
+						height: 70
+					},
+					{
+						device: 'mobile',
+						width: 50,
+						height: 50
+					}
+				]
+			}
+		}
+	}
 	}
 }
