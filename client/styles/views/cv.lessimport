@@ -32,7 +32,7 @@
 
 	.dates {
 		font-style: italic;
-		margin: @gridSpacing 0;
+		margin: @gridSpacing / 2 0;
 	}
 
 	ul {
