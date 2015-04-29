@@ -19,11 +19,13 @@
 
 .job {
 
-	margin: 0 (@gridSpacing * 4) - 4;
+	// margin: 0 (@gridSpacing * 4) - 4;
 
 	.display(flex);
 	.flex-direction(column);
 	.align-items(center);
+
+	.flex(1);
 
 	h1 {
 		font-size: @mediumFontSize - 1;

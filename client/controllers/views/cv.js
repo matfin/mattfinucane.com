@@ -16,7 +16,7 @@ Template.views_cv.created = function() {
  */
 Template.views_cv.rendered = function() {
 	var sliderContainer = document.getElementsByClassName('sliderContainer').item();
-	this.slider = Slider.setup(sliderContainer, {concurrentSlides: 2});
+	this.slider = Slider.setup(sliderContainer);
 };
 
 /**
@@ -35,10 +35,20 @@ Template.views_cv.destroyed = function() {
 Template.views_cv.helpers({
 
 	/**
-	 *	Fetch jobs, sorted by their start date in descending order
+	 *	Fetch jobs, sorted by their start date in descending order. In this case,
+	 *	we want two jobs per slide, so we will group them into items of two.
 	 */
-	jobs: function() {
-		return App.collections.cf_entries.find({contentTypeName: 'job'}, {sort: {'fields.startDate': -1}}).fetch();
+	groupedJobs: function() {
+		var jobs = App.collections.cf_entries.find({contentTypeName: 'job'}, {sort: {'fields.startDate': -1}}).fetch(),
+			asGrouped = function() {
+				var grouped = [],
+					size = 2;
+				while(jobs.length > 0) {
+					grouped.push(jobs.splice(0, size));
+				}
+				return grouped;
+			};
+		return asGrouped();
 	},
 
 	/**
@@ -46,7 +56,8 @@ Template.views_cv.helpers({
 	 */
 	timelineData: function() {
 		return {
-			concurrentJobs: 2
+			concurrentJobs: 2,
+			jobs: App.collections.cf_entries.find({contentTypeName: 'job'}, {sort: {'fields.startDate': -1}}).fetch()
 		};
 	},
 
@@ -56,7 +67,7 @@ Template.views_cv.helpers({
 	 *	width of 50%.
 	 */
 	sliderWidth: function() {
-		return App.collections.cf_entries.find({contentTypeName: 'job'}).count() * 50;
+		return Math.round(App.collections.cf_entries.find({contentTypeName: 'job'}).count() / 2) * 100;
 	}
 
 });

@@ -4,9 +4,13 @@
 		<div class="sliderContainer">
 			<div class="slider" style="width: {{sliderWidth}}%">
 				{{#if Template.subscriptionsReady}}
-					{{#each jobs}}
+					{{#each groupedJobs}}
 						<div class="slide">
-							{{>cards_job}}
+							{{#each this}}
+								
+								{{>cards_job}}
+								
+							{{/each}}
 						</div>
 					{{/each}}
 				{{/if}}
