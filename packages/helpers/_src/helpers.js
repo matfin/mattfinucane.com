@@ -81,24 +81,19 @@ Helpers = {
 	 *	Function to return an object containing a formatted datestring and timestamp
 	 *	
 	 *	@method 	formattedDateObject
-	 *	@param 		{String} dateString - a date string formatted for example '2015-04-28'
-	 *	@param 		{String} dateFormat - desired format for example 'YYYY MM DD'
+	 *	@param 		{Mixed} date - a date string formatted for example '2015-04-28' or a date object
+	 *	@param 		{String} format - desired format for example 'YYYY MM DD'
 	 *	@return  	{Object} - an object containing a formatted date string and timestamp
 	 */	
-	formattedDate: function(dateString, dateFormat) {
+	formattedDate: function(date, format) {
 
-		var momentDate 	= moment(dateString),
-			isValid 	= momentDate.isValid();
+		var momentDate 	= moment(date),
+			string 		= momentDate.format(format),
+			timestamp 	= (typeof date === 'object') ? date.getTime() : new Date(date).getTime();
 
-		if(!isValid) {
-			return {
-				string: dateString,
-				timestamp: 0
-			};
-		}
 		return {
-			string: momentDate.format(dateFormat),
-			timestamp: new Date(dateString).getTime()
+			string: string,
+			timestamp: timestamp
 		};
 	}
 };

@@ -34,8 +34,20 @@ Template.views_cv.destroyed = function() {
  */
 Template.views_cv.helpers({
 
+	/**
+	 *	Fetch jobs, sorted by their start date in descending order
+	 */
 	jobs: function() {
 		return App.collections.cf_entries.find({contentTypeName: 'job'}, {sort: {'fields.startDate': -1}}).fetch();
+	},
+
+	/**
+	 *	Number of concurrent jobs showing - used for the timeline
+	 */
+	timelineData: function() {
+		return {
+			concurrentJobs: 2
+		};
 	},
 
 	/**
@@ -48,16 +60,3 @@ Template.views_cv.helpers({
 	}
 
 });
-
-/** 
- *	Template - views_cv
- *	Events
- */
-Template.views_cv.events = {
-
-	'slidecomplete .sliderContainer': function(e, template) {
-		// console.log(e);
-		console.log('slide complete');
-	}
-
-};

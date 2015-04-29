@@ -1,5 +1,6 @@
 <template name="views_cv">
 	<div class="wrapper">
+		{{>components_timeline timelineData}}
 		<div class="sliderContainer">
 			<div class="slider" style="width: {{sliderWidth}}%">
 				{{#if Template.subscriptionsReady}}
