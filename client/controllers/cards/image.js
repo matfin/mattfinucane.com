@@ -35,7 +35,7 @@ Template.cards_image.helpers({
 	 *	Reactive function to load the image asset path given 
 	 *	screen size and pixel density
 	 */
-	imageAsset: function() {
+	imageAssets: function() {
 
 		/**
 		 *	Making this function reactive
@@ -67,12 +67,12 @@ Template.cards_image.helpers({
 		/**
 		 *	With the device class determined, pick out the image we need
 		 */
-		var imageAsset = _.find(this, function(item) {
+		var imageAssets = _.filter(this, function(item) {
 			return 	item.size.device === device().name &&
 					item.pixelDensity.multiplier === Helpers.deviceClass().pixelDensity
 		});
 
-		return imageAsset;
+		return imageAssets;
 	}
 
 });

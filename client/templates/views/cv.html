@@ -1,2 +1,15 @@
 <template name="views_cv">
+	<div class="wrapper">
+		<div class="sliderContainer">
+			<div class="slider" style="width: {{sliderWidth}}%">
+				{{#if Template.subscriptionsReady}}
+					{{#each jobs}}
+						<div class="slide">
+							{{>cards_job}}
+						</div>
+					{{/each}}
+				{{/if}}
+			</div>
+		</div>
+	</div>
 </template>

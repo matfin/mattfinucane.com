@@ -75,5 +75,30 @@ Helpers = {
 			}
 		});
 		return filtered;
+	},
+
+	/**
+	 *	Function to return an object containing a formatted datestring and timestamp
+	 *	
+	 *	@method 	formattedDateObject
+	 *	@param 		{String} dateString - a date string formatted for example '2015-04-28'
+	 *	@param 		{String} dateFormat - desired format for example 'YYYY MM DD'
+	 *	@return  	{Object} - an object containing a formatted date string and timestamp
+	 */	
+	formattedDate: function(dateString, dateFormat) {
+
+		var momentDate 	= moment(dateString),
+			isValid 	= momentDate.isValid();
+
+		if(!isValid) {
+			return {
+				string: dateString,
+				timestamp: 0
+			};
+		}
+		return {
+			string: momentDate.format(dateFormat),
+			timestamp: new Date(dateString).getTime()
+		};
 	}
 };

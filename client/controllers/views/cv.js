@@ -15,6 +15,8 @@ Template.views_cv.created = function() {
  *	@method rendered
  */
 Template.views_cv.rendered = function() {
+	var sliderContainer = document.getElementsByClassName('sliderContainer').item();
+	this.slider = Slider.setup(sliderContainer, {concurrentSlides: 2});
 };
 
 /**
@@ -24,4 +26,38 @@ Template.views_cv.rendered = function() {
  *	@method destroyed
  */
 Template.views_cv.destroyed = function() {
+};
+
+/**
+ *	Template - views_cv
+ *	Helpers 
+ */
+Template.views_cv.helpers({
+
+	jobs: function() {
+		return App.collections.cf_entries.find({contentTypeName: 'job'}, {sort: {'fields.startDate': -1}}).fetch();
+	},
+
+	/**
+	 *	Grab the number of slides and multiply the total by 50 to get a percentage. 
+	 *	This matches up to setting two slides side by side, giving them each a total
+	 *	width of 50%.
+	 */
+	sliderWidth: function() {
+		return App.collections.cf_entries.find({contentTypeName: 'job'}).count() * 50;
+	}
+
+});
+
+/** 
+ *	Template - views_cv
+ *	Events
+ */
+Template.views_cv.events = {
+
+	'slidecomplete .sliderContainer': function(e, template) {
+		// console.log(e);
+		console.log('slide complete');
+	}
+
 };

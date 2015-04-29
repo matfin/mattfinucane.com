@@ -21,3 +21,5 @@ meteorhacks:npm
 
 
 npm-container
+momentjs:moment
+matfin:slider
