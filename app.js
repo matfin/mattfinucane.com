@@ -50,7 +50,7 @@ Meteor.startup(function() {
 			 *	When the app is booted, we need to process the images
 			 *	from the Contentful source
 			 */
-			ImageProcessor.init();
+			//ImageProcessor.init();
 
 			/**
 			 *	Publish the image collection
