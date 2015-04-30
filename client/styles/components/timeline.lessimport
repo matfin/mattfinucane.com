@@ -1,0 +1,31 @@
+.timeline {
+
+	@colorEven: #a6ebeb;
+	@colorOdd: #7edcd9;
+	@colorHighlighted: #20bfba;
+
+	.display(flex);
+	.flex-direction(row);
+	border-top: @gridSpacing / 2 solid @grey;
+
+	> button {
+		.flex(1);
+		.box-sizing(border-box);
+		padding: @gridSpacing / 4;
+
+		font-size: @baseFontSize + 4;
+		line-height: @baseFontSize + 4;
+
+		background-color: @white;
+
+		&:nth-child(even) {
+			border-top: @gridSpacing / 2 solid @colorEven;
+		}
+		&:nth-child(odd) {
+			border-top: @gridSpacing / 2 solid @colorOdd;
+		}
+		&.highlighted {
+			border-top: @gridSpacing / 2 solid @colorHighlighted;
+		}
+	} 
+}

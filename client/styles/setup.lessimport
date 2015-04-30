@@ -43,3 +43,7 @@ a {
 p {
 	.resetPaddingMargin;
 }
+
+button {
+	.resetButton;
+}

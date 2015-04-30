@@ -1,5 +1,9 @@
 <template name="components_timeline">
-	{{#if Template.subscriptionsReady}}
-		{{years}}
-	{{/if}}
+	<div class="timeline">
+		{{#each yearGroups}}
+			<button>
+				{{to}} &ndash; {{from}}
+			</button>
+		{{/each}}
+	</div>
 </template>

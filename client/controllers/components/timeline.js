@@ -31,27 +31,34 @@ Template.components_timeline.destroyed = function() {
  */
 Template.components_timeline.helpers({
 
-	years: function() {
-		
+	yearGroups: function() {
 		var years = _.map(this.jobs, function(job, index) {
-
 			return {
-				startDate: Helpers.formattedDate(job.fields.startDate, 'YYYY'),
+				startDate: Helpers.formattedDate(job.fields.startDate, 'YYYY').string,
 				endDate: 	(typeof job.fields.endDate !== 'undefined') ?
-							Helpers.formattedDate(job.fields.endDate, 'YYYY') :
-							Helpers.formattedDate(new Date(), 'YYYY')
+							Helpers.formattedDate(job.fields.endDate, 'YYYY').string :
+							Helpers.formattedDate(new Date(), 'YYYY').string
 			};
 		}),
-			groups = [],
-			size = this.concurrentJobs;
+		groups = [],
+		yearGroups = [],
+		size = this.concurrentJobs;
 
 		while(years.length > 0) {
 			groups.push(years.splice(0, size));
 		}
-		
-		console.log(groups);
 
-		//return years;
+		_.each(groups, function(group) {
+
+			console.log(group);
+
+			yearGroups.push({
+				to: _.first(group).endDate,
+				from: _.last(group).startDate
+			});
+		});
+
+		return yearGroups;
 	},
 
 });
