@@ -15,8 +15,24 @@ Template.views_cv.created = function() {
  *	@method rendered
  */
 Template.views_cv.rendered = function() {
-	var sliderContainer = document.getElementsByClassName('sliderContainer').item();
+	var sliderContainer = document.getElementsByClassName('sliderContainer').item(),
+		self = this;
 	this.slider = Slider.setup(sliderContainer);
+
+
+	/** 
+	 *	Autorun this tracker to listen for changes to the
+	 *	slideNumber Session variable, so we can update 
+	 *	the slider position here. 
+	 */
+	Tracker.autorun(function() {
+		var slide = Session.get('slideNumber');
+
+		if(typeof slide !== 'undefined') {
+			self.slider.goToSlide(slide);
+			Session.set('slideNumber', undefined);
+		}
+	});
 };
 
 /**

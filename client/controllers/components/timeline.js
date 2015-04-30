@@ -62,6 +62,25 @@ Template.components_timeline.helpers({
 		});
 
 		return yearGroups;
-	},
+	}
 
 });
+
+/**
+ *	Template - components_timeline
+ *	Events
+ */
+Template.components_timeline.events = {
+
+	'click button': function(e, template) {
+		/**
+		 *	Clicking on the button should store the 
+		 *	result in a reactive session. This is the
+		 *	only way for now to communicate events
+		 *	between templates cleanly in Meteor.
+		 */
+		var button = $(e.currentTarget);
+		Session.set('slideNumber', button.index());
+	}
+
+};
