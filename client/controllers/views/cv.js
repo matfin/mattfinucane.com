@@ -71,3 +71,19 @@ Template.views_cv.helpers({
 	}
 
 });
+
+/** 
+ *	Template views_cv
+ *	Events
+ */
+Template.views_cv.events = {
+
+	'slidecomplete .sliderContainer': function(e, template) {
+		var currentSlide = e.originalEvent.data.currentSlide;
+
+		$('button', '.timeline').removeClass('highlighted');
+
+		$('button', '.timeline').get(currentSlide).className = 'highlighted';
+	}
+
+};

@@ -16,6 +16,9 @@
 	background-color: transparent;
 	text-align: left;
 	border: none;
+	&:active {
+		outline: none;
+	}
 }
 
 .backgroundGradient {

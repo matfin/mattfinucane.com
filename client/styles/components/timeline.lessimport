@@ -17,6 +17,9 @@
 		line-height: @baseFontSize + 4;
 
 		background-color: @white;
+		color: @turquoise;
+
+		.animateWithProperties(border);
 
 		&:nth-child(even) {
 			border-top: @gridSpacing / 2 solid @colorEven;
@@ -26,6 +29,7 @@
 		}
 		&.highlighted {
 			border-top: @gridSpacing / 2 solid @colorHighlighted;
+			color: @colorHighlighted;
 		}
 	} 
 }

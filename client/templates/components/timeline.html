@@ -1,9 +1,15 @@
 <template name="components_timeline">
 	<div class="timeline">
 		{{#each yearGroups}}
-			<button>
-				{{to}} &ndash; {{from}}
-			</button>
+			{{#if highlighted}}
+				<button class="highlighted">
+					{{to}} &ndash; {{from}}
+				</button>
+			{{else}}
+				<button>
+					{{to}} &ndash; {{from}}
+				</button>
+			{{/if}}
 		{{/each}}
 	</div>
 </template>

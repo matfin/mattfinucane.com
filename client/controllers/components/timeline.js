@@ -31,6 +31,11 @@ Template.components_timeline.destroyed = function() {
  */
 Template.components_timeline.helpers({
 
+	/** 
+	 *	Get the beginning and the end in terms of years
+	 *	for each group of two projects sitting together
+	 *	in the slider.
+	 */
 	yearGroups: function() {
 		var years = _.map(this.jobs, function(job, index) {
 			return {
@@ -48,11 +53,9 @@ Template.components_timeline.helpers({
 			groups.push(years.splice(0, size));
 		}
 
-		_.each(groups, function(group) {
-
-			console.log(group);
-
+		_.each(groups, function(group, index) {
 			yearGroups.push({
+				highlighted: index === 0,
 				to: _.first(group).endDate,
 				from: _.last(group).startDate
 			});
@@ -62,16 +65,3 @@ Template.components_timeline.helpers({
 	},
 
 });
-
-/** 
- *	Template components_timeline
- *	Events
- */
-Template.components_timeline.events = {
-
-	'slidecomplete .sliderContainer': function(e, template) {
-		// console.log(e);
-		console.log('slide complete');
-	}
-
-};
