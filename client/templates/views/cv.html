@@ -1,5 +1,9 @@
 <template name="views_cv">
-	<div class="wrapper center">
+	<div class="wrapper center cv">
+		<button class="paddle hidden icon-arrow-left" data-direction="previous">
+		</button>
+		<button class="paddle icon-arrow-right" data-direction="next">
+		</button>
 		{{>components_timeline timelineData}}
 		<div class="sliderContainer">
 			<div class="slider" style="width: {{sliderWidth}}%">
@@ -7,9 +11,7 @@
 					{{#each groupedJobs}}
 						<div class="slide">
 							{{#each this}}
-								
 								{{>cards_job}}
-								
 							{{/each}}
 						</div>
 					{{/each}}

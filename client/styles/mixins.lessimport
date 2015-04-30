@@ -16,7 +16,8 @@
 	background-color: transparent;
 	text-align: left;
 	border: none;
-	&:active {
+	&:active,
+	&:focus {
 		outline: none;
 	}
 }

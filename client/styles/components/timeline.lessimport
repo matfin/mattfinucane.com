@@ -18,6 +18,7 @@
 
 		background-color: @white;
 		color: @turquoise;
+		cursor: pointer;
 
 		.animateWithProperties(border);
 
