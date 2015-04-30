@@ -72,7 +72,7 @@ Template.components_timeline.helpers({
  */
 Template.components_timeline.events = {
 
-	'click button': function(e, template) {
+	'click .year': function(e, template) {
 		/**
 		 *	Clicking on the button should store the 
 		 *	result in a reactive session. This is the

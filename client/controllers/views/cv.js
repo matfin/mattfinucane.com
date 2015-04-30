@@ -25,12 +25,10 @@ Template.views_cv.rendered = function() {
 	 *	slideNumber Session variable, so we can update 
 	 *	the slider position here. 
 	 */
-	Tracker.autorun(function() {
+	this.sliderEvent = Tracker.autorun(function() {
 		var slide = Session.get('slideNumber');
-
-		if(typeof slide !== 'undefined') {
+		if(slide !== undefined) {
 			self.slider.goToSlide(slide);
-			Session.set('slideNumber', undefined);
 		}
 	});
 };
@@ -42,6 +40,7 @@ Template.views_cv.rendered = function() {
  *	@method destroyed
  */
 Template.views_cv.destroyed = function() {
+	Session.set('slideNumber', undefined);
 };
 
 /**
@@ -97,7 +96,7 @@ Template.views_cv.events = {
 	'slidecomplete .sliderContainer': function(e, template) {
 		var currentSlide = e.originalEvent.data.currentSlide;
 		$('button', '.timeline').removeClass('highlighted');
-		$('button', '.timeline').get(currentSlide).className = 'highlighted';
+		$('button', '.timeline').get(currentSlide).className = 'year highlighted';
 
 		if(template.slider.currentSlide === 0) {
 			template.$('.icon-arrow-left').addClass('hidden');
