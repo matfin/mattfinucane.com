@@ -21,11 +21,13 @@
 				{{/if}}
 			</div>
 			<!-- This markdown should generate an unordered list -->
-			{{#markdown}}{{fields.description}}{{/markdown}}
-			<div class="images">
-				{{#with images}}
-					{{>cards_image}}
-				{{/with}}
+			<div class="description">
+				{{#markdown}}{{fields.description}}{{/markdown}}
+				<div class="images">
+					{{#with images}}
+						{{>cards_image}}
+					{{/with}}
+				</div>
 			</div>
 		</section>
 	{{/if}}

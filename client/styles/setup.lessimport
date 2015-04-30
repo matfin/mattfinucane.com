@@ -16,11 +16,14 @@ body {
 	display: block;
 
 	&.center {
+		max-width: @maxWidth;
+
 		@media @laptop {
 			margin: 0 @wrapperPadding;
 		}
 		@media @desktop {
-			margin: 0 10%;
+			// margin: 0 10%;
+			margin: 0 auto;
 		}
 	}
 }
@@ -42,4 +45,8 @@ a {
 
 p {
 	.resetPaddingMargin;
+}
+
+button {
+	.resetButton;
 }
