@@ -5,7 +5,7 @@
  *	@method created
  */
 Template.cards_ghday.created = function() {
-	console.log(this);
+	console.log(this.data);
 };
 
 /**

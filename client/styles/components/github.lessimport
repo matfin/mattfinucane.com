@@ -1,9 +1,12 @@
 .github {
 	.display(flex);
+	.box-sizing(border-box);
+
+	border: 2px solid @turquoise;
+
 	> time {
 		.flex(1);
-
-		background-color: grey;
+		background-color: transparent;
 		color: black;
 	}
 }

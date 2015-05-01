@@ -40,8 +40,17 @@ Template.components_github.helpers({
 			days = [];
 
 		for(var i = 6; i >= 0; i--) {
+			var end 	= new Date().getTime() - (i * 86400000),
+				start	= new Date().getTime() - ((i + 1) * 86400000);
+				events 	= _.filter(entries, function(entry) {
+					var entry_timestamp = new Date(entry.created_at).getTime();
+					return entry_timestamp <= end && entry_timestamp >= start;
+				});
+
 			days.push({
-				timestamp: new Date().getTime() - (i * 86400000)
+				end: end,
+				start: start,
+				events: events
 			});
 		}
 		
