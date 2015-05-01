@@ -1,7 +1,7 @@
 /**
  *	Class for fetching data from the Contentful content delivery API
  *	
- *	@class contentful
+ *	@class Contentful
  *	@static
  */
 Contentful = {

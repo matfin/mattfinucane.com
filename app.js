@@ -7,7 +7,8 @@ Meteor.startup(function() {
 			collections: {
 				cf_entries: new Mongo.Collection('cf_entries'),
 				cf_assets: new Mongo.Collection('cf_assets'),
-				mf_images: new Mongo.Collection('mf_images')
+				mf_images: new Mongo.Collection('mf_images'),
+				gh_entries: new Mongo.Collection('gh_entries')
 			}	
 		};
 
@@ -68,6 +69,23 @@ Meteor.startup(function() {
 
 		}).fail(function(error) {
 			console.log(error.message);
+		});
+
+		/**
+		 *	Fetch public events data from Github
+		 *	and then publish the collection for these.
+		 */
+		GitHub.fetchAndPopulate('events').then(function() {
+			/**
+			 *	Publish GitHub entries
+			 */
+			Meteor.publish('gh_entries', function() {
+				console.log('Publishing: github entries');
+				return GitHub.collections.entries.find({});
+			});
+
+		}).fail(function() {
+			console.log('Failed to fetch GitHub data');
 		});
 	}
 });
