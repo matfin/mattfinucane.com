@@ -1,0 +1,9 @@
+.github {
+	.display(flex);
+	> time {
+		.flex(1);
+
+		background-color: grey;
+		color: black;
+	}
+}

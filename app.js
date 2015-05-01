@@ -81,7 +81,7 @@ Meteor.startup(function() {
 			 */
 			Meteor.publish('gh_entries', function() {
 				console.log('Publishing: github entries');
-				return GitHub.collections.entries.find({});
+				return GitHub.collections.entries.find({type: "PushEvent"});
 			});
 
 		}).fail(function() {

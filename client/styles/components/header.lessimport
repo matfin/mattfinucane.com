@@ -1,29 +1,37 @@
 header {
-	display: inline-block;
-	width: 100%;
+	//display: inline-block;
+	// width: 100%;
+	// padding: (@gridSpacing * 2) + 2 0;
+	.display(flex);
 	padding: (@gridSpacing * 2) + 2 0;
 
-	h1, h2 {
-		float: left;
+	.title {
+		.flex(1);
+		h1, h2 {
+			float: left;
+		}
+
+		h1 {
+			font-size: @mediumFontSize + 2;
+			color: @turquoise;
+		}
+
+		h2 {
+			clear: left;
+			color: @grey;
+			font-size: @baseFontSize + 4;
+			line-height: @baseFontSize + 3;
+			width: @gridSpacing * 9;
+		}
 	}
 
-	h1 {
-		font-size: @mediumFontSize + 2;
-		color: @turquoise;
-	}
-
-	h2 {
-		clear: left;
-		color: @grey;
-		font-size: @baseFontSize + 4;
-		line-height: @baseFontSize + 3;
-		width: @gridSpacing * 9;
+	.github {
+		.flex(4);
 	}
 
 	nav {
-		float: right;
-		width: 25%;
-		
+		.align-self(flex-end);
+		.flex(1);
 		ol {
 			float: right;
 			width: 100%;
