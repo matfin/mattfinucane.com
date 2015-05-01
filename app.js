@@ -70,13 +70,22 @@ Meteor.startup(function() {
 		}).fail(function(error) {
 			console.log(error.message);
 		});
-	}
 
-	/**
-	 *	Fetch public events data from Github
-	 *	and then publish the collection for these.
-	 */
-	GitHub.fetchAndPopulate('events').then(function() {
-		
-	});
+		/**
+		 *	Fetch public events data from Github
+		 *	and then publish the collection for these.
+		 */
+		GitHub.fetchAndPopulate('events').then(function() {
+			/**
+			 *	Publish GitHub entries
+			 */
+			Meteor.publish('gh_entries', function() {
+				console.log('Publishing: github entries');
+				return GitHub.collections.entries.find({});
+			});
+
+		}).fail(function() {
+			console.log('Failed to fetch GitHub data');
+		});
+	}
 });
