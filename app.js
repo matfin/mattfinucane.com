@@ -7,7 +7,8 @@ Meteor.startup(function() {
 			collections: {
 				cf_entries: new Mongo.Collection('cf_entries'),
 				cf_assets: new Mongo.Collection('cf_assets'),
-				mf_images: new Mongo.Collection('mf_images')
+				mf_images: new Mongo.Collection('mf_images'),
+				gh_entries: new Mongo.Collection('gh_entries')
 			}	
 		};
 
@@ -50,7 +51,7 @@ Meteor.startup(function() {
 			 *	When the app is booted, we need to process the images
 			 *	from the Contentful source
 			 */
-			//ImageProcessor.init();
+			ImageProcessor.init();
 
 			/**
 			 *	Publish the image collection
@@ -70,4 +71,12 @@ Meteor.startup(function() {
 			console.log(error.message);
 		});
 	}
+
+	/**
+	 *	Fetch public events data from Github
+	 *	and then publish the collection for these.
+	 */
+	GitHub.fetchAndPopulate('events').then(function() {
+		
+	});
 });

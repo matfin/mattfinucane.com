@@ -19,6 +19,8 @@ Package.onUse(function(api) {
 		'mongo',
 		'ejson',
 		'underscore',
+		'http',
+		'aramk:q',
 		'meteorhacks:npm'
 	], 'server');
 
@@ -31,9 +33,9 @@ Package.onUse(function(api) {
 	api.addFiles([
 		'_config/settings.js',
 		'_src/github.js'
-	]);
+	], 'server');
 
 	api.export('GHConfig');
 	api.export('GitHub');
-	
+
 });
