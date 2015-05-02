@@ -3,17 +3,18 @@
 	@colorEven: #a6ebeb;
 	@colorOdd: #7edcd9;
 	@colorHighlighted: #20bfba;
+	@borderHeight: @gridSpacing / 4;
 
 	.display(flex);
 	.flex-direction(row);
-	border-top: @gridSpacing / 2 solid @grey;
+	border-top: @borderHeight solid @grey;
 
 	> button {
 		.flex(1);
 		.box-sizing(border-box);
 		padding: @gridSpacing / 4;
 
-		font-size: @baseFontSize + 4;
+		font-size: @baseFontSize + 2;
 		line-height: @baseFontSize + 4;
 
 		background-color: @white;
@@ -23,13 +24,13 @@
 		.animateWithProperties(border);
 
 		&:nth-child(even) {
-			border-top: @gridSpacing / 2 solid @colorEven;
+			border-top: @borderHeight + 2 solid @colorEven;
 		}
 		&:nth-child(odd) {
-			border-top: @gridSpacing / 2 solid @colorOdd;
+			border-top: @borderHeight + 2 solid @colorOdd;
 		}
 		&.highlighted {
-			border-top: @gridSpacing / 2 solid @colorHighlighted;
+			border-top: @borderHeight + 2 solid @colorHighlighted;
 			color: @colorHighlighted;
 		}
 	} 

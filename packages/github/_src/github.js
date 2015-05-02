@@ -37,7 +37,8 @@ GitHub = {
 		HTTP.call('GET', url, {
 			headers: {
 				'User-Agent': 'com.mattfinucane.meteorjs',
-				'Content-Type': 'application/json'
+				'Content-Type': 'application/json',
+				'Authorization': 'token ' + GHConfig.apiToken
 			}
 		}, function(error, result) {
 

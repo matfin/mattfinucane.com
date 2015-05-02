@@ -1,5 +1,18 @@
 <template name="cards_ghday">
-	<time datetime="{{this.end}}">
-		{{formattedDate this.end "dd"}}
-	</time>
+	<div class="day">
+		<svg xmlns="http://www.w3.org/2000/svg"
+			 width="100%"
+			 height="100%"
+			 viewbox="0 0 100 60">
+
+			 {{points}}
+
+			 {{#each testData.points}}
+			 	<circle cx="{{this.x}}" cy="{{this.y}}" r="4" />
+			 {{/each}}
+		</svg>
+		<time datetime="{{this.end}}">
+			{{formattedDate this.end "dd"}}
+		</time>
+	</div>
 </template>

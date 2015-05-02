@@ -5,7 +5,7 @@
  *	@method created
  */
 Template.cards_ghday.created = function() {
-	console.log(this.data);
+	
 };
 
 /**
@@ -27,3 +27,29 @@ Template.cards_ghday.rendered = function() {
 Template.cards_ghday.destroyed = function() {
 	
 };
+
+/**
+ *	Template - cards_ghday
+ *	Helpers
+ */
+Template.cards_ghday.helpers({
+
+	points: function() {
+		console.log(this);
+	},
+
+	testData: function() {
+		return {
+			points: [
+				{
+					x: 10,
+					y: 40
+				},
+				{
+					x: 20,
+					y: 20
+				}
+			]
+		}
+	}
+});
