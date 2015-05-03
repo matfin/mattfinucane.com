@@ -89,18 +89,24 @@ ImageProcessor = {
 			Contentful.collections.assets.find({}).observeChanges({
 				added: function(id, asset) {
 					self.addImageJob(asset).then(function() {
-						console.log('Processing queue: Asset added.');
+						Logger.log('collection', {
+							message: 'Asset added'
+						});
 						self.startImageOpQueue();
 					});
 				},
 				changed: function(id, asset) {
 					self.addImageJob(asset).then(function() {
-						console.log('Processing queue: Asset changed.');
+						Logger.log('collection', {
+							message: 'Asset changed'
+						});
 						self.startImageOpQueue();
 					});
 				},
 				removed: function(id) {
-					console.log('Asset unpublished.');
+					Logger.log('collection', {
+						message: 'Asset removed'
+					});
 					self.imageCollection.remove({assetId: id});
 				}
 			})
@@ -154,10 +160,11 @@ ImageProcessor = {
 	 */
 	writeToFileSystem: function(data, assetId, sizeParam, callback) {
 
-		var self = this,
-			path = CFConfig.imageProcessor.path,
-			filename = assetId + '-' + sizeParam.size.device + sizeParam.pixelDensity.prefix + '.jpg';
+		var self 		= this,
+			path 		= CFConfig.imageProcessor.path,
+			filename 	= assetId + '-' + sizeParam.size.device + sizeParam.pixelDensity.prefix + '.jpg';
 
+		
 		this.FS.writeFile(path + '/' + filename, data, {encoding: 'binary'}, function() {
 			if(typeof callback === 'function') {
 				callback({
@@ -195,6 +202,13 @@ ImageProcessor = {
 				}
 			}
 			else {
+				Logger.log('error', {
+					message: 'Resizing image',
+					data: {
+						err: err,
+						stderr: stderr
+					}
+				});
 				callback(null);
 			}
 		});
@@ -230,6 +244,9 @@ ImageProcessor = {
 					 *	the operations queue anyway
 					 */
 					if(resultData === null) {
+						Logger.log('error', {
+							message: 'Processing image, result data null'
+						});
 						resizeParams.splice(0, 1);
 						runloop();
 					}
@@ -342,12 +359,18 @@ ImageProcessor = {
 
 					});
 					
-				}).fail(function() {
+				}).fail(function(error) {
 					/**
 					 *	Drop the job from the operations queue
 					 *	even if it failed.
 					 */
-					console.log('Image data failed from: ', assetUrl);
+					Logger.log('error', {
+						message: 'Error fetching remote resource',
+						data: {
+							assetUrl: assetUrl,
+							error: error
+						}
+					});
 					self.imageOperationQueue.splice(0, 1);
 					runloop();
 				});

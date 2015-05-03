@@ -39,8 +39,6 @@ Template.cards_ghday.helpers({
 		var points = [],
 			start = this.start;
 
-		console.log(start);
-
 		_.each(this.events, function(item) {
 			for(var i = 0; i < 4; i++) {
 				var eventTimestamp = new Date(item.created_at);

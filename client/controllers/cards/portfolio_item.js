@@ -77,20 +77,30 @@ Template.cards_portfolio_item.helpers({
 		/**
 		 *	Checking to see if associated images exist
 		 */
-		if(Helpers.checkNested(this, 'fields', 'productScreenshot', 'sys', 'id')) {
+		if(Helpers.checkNested(this, 'fields', 'screenshots')) {
 			/**
 			 *	Preparing the query
 			 */
-			var imageId = this.fields.productScreenshot.sys.id,
-				imageAssets = App.collections.mf_images.find({assetId: imageId}).fetch();
+			var imageIds = _.map(this.fields.screenshots, function(screenshot) {
+					return screenshot.sys.id;
+				});
+				imageAssets = App.collections.mf_images.find({assetId: {$in: imageIds}}).fetch();
 
-			return imageAssets;
+			console.log(this.fields.title, imageAssets.length);
+
+			return {
+				useSlider: imageAssets.length > 1,
+				collection: imageAssets
+			}
 		}
 
 		/**
 		 *	Or we return an empty array
 		 */
-		return [];
+		return {
+			useSlider: false,
+			collection: []
+		};
 	}
 
 });
