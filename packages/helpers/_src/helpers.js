@@ -95,5 +95,21 @@ Helpers = {
 			string: string,
 			timestamp: timestamp
 		};
+	},
+
+	/**
+	 *	Function to get a timestamp as a percentage of elapsed time from the beginning of its day
+	 *	ie: 12:00 (noon) on a day would be 50% through that day.
+	 *
+	 *	@method 	percentageThroughDay
+	 *	@param 		{Number} timestamp - timestamp for a given time
+	 *	@retrn 		{Number} - the percentage of the time elapsed from midnight that day
+	 */
+	percentageThroughDay: function(timestamp) {
+		var midnightTimestamp = new Date(moment(timestamp).startOf('day'));
+			difference = timestamp - midnightTimestamp,
+			percentage = (difference / 86400000) * 100;
+
+		return percentage;
 	}
 };

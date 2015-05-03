@@ -36,12 +36,16 @@ Template.components_github.helpers({
 
 	dayGroups: function() {
 
-		var entries = App.collections.gh_entries.find({},{sort: {'created_at': -1}}).fetch();
-			days = [];
+		var entries 	= App.collections.gh_entries.find({},{sort: {'created_at': -1}}).fetch();
+			days 		= [],
+			startTs 	= moment().startOf('day'),
+			endTs 		= moment().endOf('day');
 
 		for(var i = 6; i >= 0; i--) {
-			var end 	= new Date().getTime() - (i * 86400000),
-				start	= new Date().getTime() - ((i + 1) * 86400000);
+
+			var	end 	= new Date(endTs).getTime() - (i * 86400000),
+				start	= new Date(startTs).getTime() - (i * 86400000);
+
 				events 	= _.filter(entries, function(entry) {
 					var entry_timestamp = new Date(entry.created_at).getTime();
 					return entry_timestamp <= end && entry_timestamp >= start;
