@@ -1,0 +1,9 @@
+<template name="components_github">
+	<div class="github">
+		{{#if Template.subscriptionsReady}}
+			{{#each dayGroups}}
+				{{>cards_ghday}}
+			{{/each}}
+		{{/if}}
+	</div>
+</template>

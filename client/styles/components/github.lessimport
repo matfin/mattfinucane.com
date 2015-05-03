@@ -1,0 +1,36 @@
+.github {
+	.display(flex);
+	.box-sizing(border-box);
+
+	border: 2px solid @grey;
+
+	.day {
+		position: relative;
+		.flex(1);
+		.display(flex);
+		.flex-direction(column);
+		background-color: transparent;
+		color: black;
+		border-right: 2px solid @grey;
+
+		&:last-child {
+			border-right: none;
+		}
+
+		time {
+			position: absolute;
+			bottom: @gridSpacing / 4;
+			left: @gridSpacing / 4;
+			color: @grey;
+			font-size: @baseFontSize;
+			font-weight: 600;
+		}
+
+		svg {
+			.flex(1);
+			circle {
+				fill: @turquoise;
+			}
+		}
+	}
+}

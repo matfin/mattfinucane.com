@@ -12,12 +12,22 @@ Meteor.startup(function() {
 			}	
 		};
 
+		// var x = new Mongo.Collection('logs');
+		// Meteor.subscribe('logs');
+		// x.find({type: 'error'}).fetch();
+
 		/**
 		 *	Kick off the Depencencies for reactivity
 		 */
 		Dependencies.start();
 	}
 	if(Meteor.isServer) {
+
+		/**
+		 *	Initialise the logger
+		 */
+		Logger.initAndPublish();
+
 		Contentful.fetchAndPopulate().then(function(result) {
 			/**
 			 *	Once content is fetched and stored in the 
@@ -81,7 +91,7 @@ Meteor.startup(function() {
 			 */
 			Meteor.publish('gh_entries', function() {
 				console.log('Publishing: github entries');
-				return GitHub.collections.entries.find({});
+				return GitHub.collections.entries.find({type: "PushEvent"});
 			});
 
 		}).fail(function() {

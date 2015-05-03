@@ -19,9 +19,13 @@
 					</ol>
 				</div>
 				<div class="image">
-					{{#with images}}
-						{{> cards_image}}
-					{{/with}}
+					{{#if images.useSlider}}
+						<p>Slider here</p>
+					{{else}}
+						{{#with images}}
+							{{> cards_image}}
+						{{/with}}
+					{{/if}}					
 				</div>	
 			</div>
 			<div class="portfolioLinks">
