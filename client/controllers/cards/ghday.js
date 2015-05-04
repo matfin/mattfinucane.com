@@ -57,7 +57,7 @@ Template.cards_ghday.helpers({
 
 		});
 
-
+		console.log(points);
 
 		return {
 			asCollection: points,

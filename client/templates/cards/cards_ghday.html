@@ -6,7 +6,7 @@
 			 viewbox="0 0 100 60">
 
 			 {{#each points.asCollection}}
-			 	<circle cx="{{this.x}}" cy="30" r="4">
+			 	<circle cx="{{this.x}}" cy="30" r="3">
 				 	<animate 	attributeName="cy" 
 				 				attributeType="XML"
 				 				from="30"
@@ -31,7 +31,7 @@
 
 		</svg>
 		<time datetime="{{this.end}}">
-			{{formattedDate this.end "dd"}}
+			{{formattedDate this.end "dd"}} {{formattedDate this.end "DD/MM"}}
 		</time>
 	</div>
 </template>
