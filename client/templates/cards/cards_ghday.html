@@ -6,7 +6,16 @@
 			 viewbox="0 0 100 60">
 
 			 {{#each points}}
-			 	<circle cx="{{this.x}}" cy="{{this.y}}" r="4" />
+			 	<circle cx="{{this.x}}" cy="40" r="4">
+				 	<animate 	attributeName="cy" 
+				 				attributeType="XML"
+				 				from="40"
+				 				to="{{this.y}}"
+				 				begin="500ms"
+				 				dur="250ms"
+				 				fill="freeze"
+				 				repeatCount="1" />
+				</circle>
 			 {{/each}}
 		</svg>
 		<time datetime="{{this.end}}">
