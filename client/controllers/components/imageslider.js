@@ -43,3 +43,32 @@ Template.components_imageslider.helpers({
 	}
 
 });
+
+/**
+ *	Template - components_imageslider
+ *	Events 
+ */
+Template.components_imageslider.events = {
+
+	'slidecomplete .sliderContainer': function(e, template) {
+		var currentSlide = e.originalEvent.data.currentSlide;
+		
+		if(template.slider.currentSlide === 0) {
+			template.$('.icon-arrow-left').addClass('hidden');
+		}
+		else {
+			template.$('.icon-arrow-left').removeClass('hidden');
+		}
+
+		if(template.slider.currentSlide === (template.slider.slides.length - 1)) {
+			template.$('.icon-arrow-right').addClass('hidden');
+		}
+		else {
+			template.$('.icon-arrow-right').removeClass('hidden');
+		}
+	},
+	'click .paddle': function(e, template) {
+		var direction = $(e.currentTarget).data('direction');	
+		template.slider.go(direction);
+	}
+};

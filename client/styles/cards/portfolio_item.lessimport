@@ -118,6 +118,7 @@ section.portfolioItem {
 			img {
 				width: 100%;
 				height: auto;
+				.align-self(center);
 			}
 		}
 
@@ -126,6 +127,11 @@ section.portfolioItem {
 			.align-items(center);
 		}
 
+		.imageSlider {
+			img {
+				cursor: pointer;
+			}
+		}
 	}
 
 	.portfolioLinks {
