@@ -110,14 +110,26 @@ section.portfolioItem {
 			}
 		}
 
-		.image {
+		.image,
+		.imageSlider {
 			.flex(5);
-			.display(flex);
-			.align-items(center);
+			
 			padding-top: @gridSpacing + 4;
 			img {
 				width: 100%;
 				height: auto;
+				.align-self(center);
+			}
+		}
+
+		.image {
+			.display(flex);
+			.align-items(center);
+		}
+
+		.imageSlider {
+			img {
+				cursor: pointer;
 			}
 		}
 	}

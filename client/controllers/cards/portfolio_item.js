@@ -79,19 +79,22 @@ Template.cards_portfolio_item.helpers({
 		 */
 		if(Helpers.checkNested(this, 'fields', 'screenshots')) {
 			/**
-			 *	Preparing the query
+			 *	Preparing the query and returning grouped image assets.
 			 */
 			var imageIds = _.map(this.fields.screenshots, function(screenshot) {
 					return screenshot.sys.id;
 				});
-				imageAssets = App.collections.mf_images.find({assetId: {$in: imageIds}}).fetch();
+				imageAssets = App.collections.mf_images.find({assetId: {$in: imageIds}}).fetch(),
+				grouped = _.groupBy(imageAssets, function(imageAsset) {
+					return imageAsset.assetId;
+				});
 
-			console.log(this.fields.title, imageAssets.length);
+				grouped = _.toArray(grouped);
 
 			return {
-				useSlider: imageAssets.length > 12,
-				collection: imageAssets
-			}
+				useSlider: grouped.length > 1,
+				collection: grouped
+			};
 		}
 
 		/**

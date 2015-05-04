@@ -1,0 +1,15 @@
+<template name="components_imageslider">
+	<button class="paddle hidden icon-arrow-left" data-direction="previous">
+	</button>
+	<button class="paddle icon-arrow-right" data-direction="next">
+	</button>
+	<div class="sliderContainer">
+		<div class="slider" style="width: {{sliderWidth}}%;">
+			{{#each this}}
+				<div class="slide">
+					{{> cards_image}}
+				</div>
+			{{/each}}
+		</div>
+	</div>
+</template>

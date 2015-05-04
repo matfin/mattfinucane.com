@@ -1,0 +1,51 @@
+.sliderContainer {
+	position: relative;
+	width: 100%;
+	overflow: hidden;
+	padding-top: @gridSpacing * 2;
+	background-color: @white;
+	.user-select(none);
+
+	.slider {
+		position: relative;
+		.display(flex);
+		.flex(1);
+
+		.slide {
+			.display(flex);
+			.flex(1);
+			width: 100%;
+		}
+	}
+}
+
+.cv,
+.imageSlider {
+	
+	position: relative;
+
+	> button {
+		.resetButton;
+		z-index: 1;
+		position: absolute;
+		width: @gridSpacing * 4;
+		font-size: @gridSpacing * 3;
+		height: 100%;
+		color: @turquoise;
+		text-align: center;
+		cursor: pointer;
+		.animateWithProperties(opacity);
+
+		&.icon-arrow-left {
+			left: 0;
+		}
+
+		&.icon-arrow-right {
+			right: 0;
+		}
+
+		&.hidden {
+			.opacity(0);
+		}
+	}
+}
