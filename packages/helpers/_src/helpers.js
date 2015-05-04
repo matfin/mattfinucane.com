@@ -111,5 +111,27 @@ Helpers = {
 			percentage = (difference / 86400000) * 100;
 
 		return percentage;
+	},
+
+	/**
+	 *	Function to determine the division a value is in
+	 *
+	 *	@method 	inDivision
+	 *	@param 		{Number} givenNumber - the number to check
+	 *	@param 		{Number} rangeTo 	 - maximum range
+	 *	@param   	{Number} numberOfDivisions - total number of spliced divisions
+	 *	@return 	{Number} the number of the division the number was found in
+	 */
+	inDivision: function(givenNumber, rangeTo, numberOfDivisions) {
+
+		var rangeStep = Math.floor(rangeTo / numberOfDivisions);
+
+		for(var i = 1; i <= numberOfDivisions; i++) {
+			if(givenNumber < (rangeStep * i)) {
+				return i - 1;
+			}
+		}
+
+		return 0;
 	}
 };
