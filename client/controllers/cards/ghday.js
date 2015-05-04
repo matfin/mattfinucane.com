@@ -36,13 +36,11 @@ Template.cards_ghday.helpers({
 
 	points: function() {
 
-		console.log(this.events);
-
 		var points 	= [
-				{x: 0, y: 40},
+				{x: -1, y: 40},
 				{x: 33, y: 40},
 				{x: 66, y: 40},
-				{x: 100, y: 40}
+				{x: 101, y: 40}
 			],
 			start  	= this.start,
 			end 	= this.end,
@@ -57,6 +55,13 @@ Template.cards_ghday.helpers({
 
 		});
 
-		return points;
+
+
+		return {
+			asCollection: points,
+			asString: _.map(points, function(point) {
+				return point.x + ',' + point.y + ' ';
+			})
+		};
 	}
 });

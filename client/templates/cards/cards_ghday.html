@@ -5,7 +5,7 @@
 			 height="100%"
 			 viewbox="0 0 100 60">
 
-			 {{#each points}}
+			 {{#each points.asCollection}}
 			 	<circle cx="{{this.x}}" cy="40" r="4">
 				 	<animate 	attributeName="cy" 
 				 				attributeType="XML"
@@ -17,6 +17,18 @@
 				 				repeatCount="1" />
 				</circle>
 			 {{/each}}
+
+			 <polyline points="-1,40 33,40 66,40 101,40">
+			 	<animate	attributeName="points"
+			 				attributeType="XML"
+			 				from="-1,40 33,40 66,40 101,40"
+			 				to="{{points.asString}}"
+			 				begin="500ms"
+			 				dur="250ms"
+			 				fill="freeze"
+			 				repeatCount="1" />
+			 </polyline>
+
 		</svg>
 		<time datetime="{{this.end}}">
 			{{formattedDate this.end "dd"}}
