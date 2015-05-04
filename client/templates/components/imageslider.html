@@ -1,0 +1,11 @@
+<template name="components_imageslider">
+	<div class="sliderContainer">
+		<div class="slider" style="width: {{sliderWidth}}%;">
+			{{#each this}}
+				<div class="slide">
+					{{> cards_image}}
+				</div>
+			{{/each}}
+		</div>
+	</div>
+</template>

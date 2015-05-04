@@ -18,15 +18,23 @@
 						{{/each}}
 					</ol>
 				</div>
-				<div class="image">
-					{{#if images.useSlider}}
-						<p>Slider here</p>
-					{{else}}
+			
+				{{#if images.useSlider}}
+					<div class="imageSlider">
 						{{#with images.collection}}
-							{{> cards_image}}
+							{{> components_imageslider}}
 						{{/with}}
-					{{/if}}					
-				</div>	
+					</div>
+				{{else}}
+					<div class="image">
+						{{#with images.collection}}
+							{{#each this}}
+								{{> cards_image}}
+							{{/each}}
+						{{/with}}
+					</div>
+				{{/if}}					
+				
 			</div>
 			<div class="portfolioLinks">
 				<a href="{{fields.githubUrl}}" class="icon-github" title="See {{fields.title}} on GitHub">

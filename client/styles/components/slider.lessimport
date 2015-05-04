@@ -1,0 +1,20 @@
+.sliderContainer {
+	position: relative;
+	width: 100%;
+	overflow: hidden;
+	padding-top: @gridSpacing * 2;
+	background-color: @white;
+	.user-select(none);
+
+	.slider {
+		position: relative;
+		.display(flex);
+		.flex(1);
+
+		.slide {
+			.display(flex);
+			.flex(1);
+			width: 100%;
+		}
+	}
+}
