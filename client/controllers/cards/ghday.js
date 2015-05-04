@@ -37,10 +37,11 @@ Template.cards_ghday.helpers({
 	points: function() {
 
 		var points 	= [
-				{x: -1, y: 40},
-				{x: 33, y: 40},
-				{x: 66, y: 40},
-				{x: 101, y: 40}
+				{x: -1, y: 30, gh_events: []},
+				{x: 25, y: 30, gh_events: []},
+				{x: 50, y: 30, gh_events: []},
+				{x: 75, y: 30, gh_events: []},
+				{x: 100, y: 30, gh_events: []}
 			],
 			start  	= this.start,
 			end 	= this.end,
@@ -49,9 +50,10 @@ Template.cards_ghday.helpers({
 		_.each(events, function(gh_event) {
 
 			var hour = new Date(gh_event.created_at).getHours(),
-				division = Helpers.inDivision(hour, 24, points.length);
+				division = Helpers.inDivision(hour, 24, points.length - 1);
 
-			points[division].y -= (7.5);
+			points[division].gh_events.push(gh_event);
+			points[division].y -= (6);
 
 		});
 
@@ -65,3 +67,13 @@ Template.cards_ghday.helpers({
 		};
 	}
 });
+
+/**
+ *	Template - cards_ghday
+ *	Events
+ */
+Template.cards_ghday.events = {
+	'mouseover circle': function(e, template) {
+		console.log(e);
+	}
+}

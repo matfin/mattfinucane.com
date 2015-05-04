@@ -6,10 +6,10 @@
 			 viewbox="0 0 100 60">
 
 			 {{#each points.asCollection}}
-			 	<circle cx="{{this.x}}" cy="40" r="4">
+			 	<circle cx="{{this.x}}" cy="30" r="4">
 				 	<animate 	attributeName="cy" 
 				 				attributeType="XML"
-				 				from="40"
+				 				from="30"
 				 				to="{{this.y}}"
 				 				begin="500ms"
 				 				dur="250ms"
@@ -18,10 +18,10 @@
 				</circle>
 			 {{/each}}
 
-			 <polyline points="-1,40 33,40 66,40 101,40">
+			 <polyline points="-1,30 25,30 50,30 75,30 101,30">
 			 	<animate	attributeName="points"
 			 				attributeType="XML"
-			 				from="-1,40 33,40 66,40 101,40"
+			 				from="-1,30 25,30 50,30 75,30 101,30"
 			 				to="{{points.asString}}"
 			 				begin="500ms"
 			 				dur="250ms"
