@@ -22,7 +22,7 @@
 					{{#if images.useSlider}}
 						<p>Slider here</p>
 					{{else}}
-						{{#with images}}
+						{{#with images.collection}}
 							{{> cards_image}}
 						{{/with}}
 					{{/if}}					

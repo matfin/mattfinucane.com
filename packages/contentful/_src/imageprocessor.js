@@ -169,13 +169,10 @@ ImageProcessor = {
 				/**
 				 *	Grab the first item in the queue
 				 */
-				var resizeParam 		= resizeParams[0],
-					destinationFilePath = 	CFConfig.imageProcessor.path + 
-											'processed/' + 
-											asset.sys.id + '-' 
-											+ resizeParam.size.device 
-											+ resizeParam.pixelDensity.prefix 
-											+ '.' + resizeParam.fileType;
+				var resizeParam 		=	resizeParams[0],
+					destinationFileName = 	asset.sys.id + '-' + resizeParam.size.device + resizeParam.pixelDensity.prefix + '.' + resizeParam.fileType,
+					destinationFilePath = 	CFConfig.imageProcessor.path + 'processed/'; 
+											
 
 				/**
 				 *	Create resized image, writing it to the filesystem
@@ -183,7 +180,7 @@ ImageProcessor = {
 				self.GM(sourceFilePath)
 					.setFormat(resizeParam.fileType)
 					.resize(resizeParam.size.width * resizeParam.pixelDensity.multiplier)
-					.write(destinationFilePath, function(err) {
+					.write(destinationFilePath + destinationFileName, function(err) {
 
 						/**
 						 *	Log any errors
@@ -202,7 +199,7 @@ ImageProcessor = {
 							assetId: asset.sys.id,
 							size: resizeParam.size,
 							pixelDensity: resizeParam.pixelDensity,
-							filename: destinationFilePath
+							filename: destinationFileName
 						});
 
 						/**
@@ -264,7 +261,7 @@ ImageProcessor = {
 				 */
 				var asset 			= self.imageOperationQueue[0],
 					assetUrl 		= asset.fields.file.url,
-					assetFilePath 	= CFConfig.imageProcessor.path + 'source/' + asset.sys.id + '.jpg';
+					assetFilePath 	= CFConfig.imageProcessor.path + 'source/' + asset.sys.id;
 
 				/**
 				 *	Sequentially read in the image data from the asset source.

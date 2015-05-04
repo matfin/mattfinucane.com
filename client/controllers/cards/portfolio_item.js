@@ -89,7 +89,7 @@ Template.cards_portfolio_item.helpers({
 			console.log(this.fields.title, imageAssets.length);
 
 			return {
-				useSlider: imageAssets.length > 1,
+				useSlider: imageAssets.length > 12,
 				collection: imageAssets
 			}
 		}
