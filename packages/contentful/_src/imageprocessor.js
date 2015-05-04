@@ -170,12 +170,18 @@ ImageProcessor = {
 				 *	Grab the first item in the queue
 				 */
 				var resizeParam 		= resizeParams[0],
-					destinationFilePath = CFConfig.imageProcessor.path + 'processed/' + asset.sys.id + '-' + resizeParam.size.device + resizeParam.pixelDensity.prefix + '.jpg';
+					destinationFilePath = 	CFConfig.imageProcessor.path + 
+											'processed/' + 
+											asset.sys.id + '-' 
+											+ resizeParam.size.device 
+											+ resizeParam.pixelDensity.prefix 
+											+ '.' + resizeParam.fileType;
 
 				/**
 				 *	Create resized image, writing it to the filesystem
 				 */
 				self.GM(sourceFilePath)
+					.setFormat(resizeParam.fileType)
 					.resize(resizeParam.size.width * resizeParam.pixelDensity.multiplier)
 					.write(destinationFilePath, function(err) {
 
@@ -337,7 +343,8 @@ ImageProcessor = {
 
 		var self 			= this,
 			deferred 		= Q.defer(),		
-			type 			= asset.fields.description
+			type 			= asset.fields.description,
+			fileType		= CFConfig.imageProcessor.imageTypes[type].fileType,
 			sizes 			= CFConfig.imageProcessor.imageTypes[type].sizes,
 			pixelDensities	= CFConfig.imageProcessor.pixelDensities,
 			iteration 		= pixelDensities.length * sizes.length;
@@ -362,7 +369,8 @@ ImageProcessor = {
 				 */
 				var imageResizeParam = {
 					size: size,
-					pixelDensity: pixelDensity
+					pixelDensity: pixelDensity,
+					fileType: fileType
 				};
 				asset.imageResizeParams.push(imageResizeParam);
 				
