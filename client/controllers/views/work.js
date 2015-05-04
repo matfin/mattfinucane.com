@@ -33,7 +33,7 @@ Template.views_work.destroyed = function() {
 Template.views_work.helpers({
 
 	portfolioItems: function() {
-		return App.collections.cf_entries.find({contentTypeName: 'portfolio_item'}).fetch();
+		return App.collections.cf_entries.find({contentTypeName: 'portfolio_item'}, {sort: {'fields.dateCreated': -1}}).fetch();
 	}
 
 });

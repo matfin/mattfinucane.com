@@ -39,3 +39,7 @@
 		}
 	}
 }
+
+.gh_events {
+	display: none;
+}
