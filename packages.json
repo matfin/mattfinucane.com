@@ -1,5 +1,5 @@
 {
 	"connect": 		"3.3.4",
 	"body-parser":  "1.10.2",
-	"node-imagemagick": "0.1.8"
+	"gm":			"1.17.0"
 }

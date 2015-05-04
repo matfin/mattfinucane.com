@@ -13,9 +13,9 @@ ImageProcessor = {
 	Fiber: false,
 
 	/**
-	 *	Imagemagick module for resizing images
+	 *	GM module for resizing images
 	 */
-	Imagemagick: false,
+	GM: false,
 
 	/**
 	 *	Node FS module for filesystem access
@@ -63,7 +63,7 @@ ImageProcessor = {
 		 *	Required meteor node npm modules
 		 */
 		this.Fiber = Meteor.npmRequire('fibers');
-		this.Imagemagick = Meteor.npmRequire('node-imagemagick');
+		this.GM = Meteor.npmRequire('gm');
 		this.FS = Meteor.npmRequire('fs');
 
 		/**
@@ -148,77 +148,15 @@ ImageProcessor = {
 		}).run();
 	},
 
-
-	/**
-	 *	Function to write image assets to the local filesystem
-	 *
-	 *	@method 	writeToFileSystem
-	 *	@param 		{String} data - binary image data represented as a string
-	 *	@param 		{String} assetId - the assetId for the image
-	 *	@param 		{Object} sizeParam - object representing the image size
-	 *	@param 		{Function} callback - callback to execute 
-	 */
-	writeToFileSystem: function(data, assetId, sizeParam, callback) {
-
-		var self 		= this,
-			path 		= CFConfig.imageProcessor.path,
-			filename 	= assetId + '-' + sizeParam.size.device + sizeParam.pixelDensity.prefix + '.jpg';
-
-		
-		this.FS.writeFile(path + '/' + filename, data, {encoding: 'binary'}, function() {
-			if(typeof callback === 'function') {
-				callback({
-					filename: filename
-				});
-			}	
-		});
-	},
-
-
-	/**
-	 *	Function to return resized image data from source data
-	 *
-	 *	@method 	getResizedImageData
-	 *	@param 		{String} data - the image data
-	 *	@param 		{Object} resizeParam - object containing source image data and sizing information
-	 *	@param 		{Function} callback - callback function to execute on resize
-	 *	@return  	{Object} - a promise, resolved or rejected
-	 */
-	getResizedImageData: function(data, resizeParam, callback) {
-		var self = this,
-			deferred = Q.defer(),
-			quality = CFConfig.imageProcessor.quality;
-
-		this.Imagemagick.resize({
-			srcData: data,
-			width: resizeParam.size.width * resizeParam.pixelDensity.multiplier,
-			height: resizeParam.size.height * resizeParam.pixelDensity.multiplier,
-			quality: quality,
-		}, function(err, stdout, stderr) {
-
-			if(!err && !stderr) {
-				if(typeof callback === 'function') {
-					callback(stdout);
-				}
-			}
-			else {
-				Logger.log('error', {
-					message: 'Resizing image',
-					data: {
-						err: err,
-						stderr: stderr
-					}
-				});
-				callback(null);
-			}
-		});
-
-	},
-
 	/**
 	 *	Function to resize, then write images to the filesystem
+	 *
+	 *	@method 	processImages
+	 *	@param 		{String} sourceFilePath - the source file to process
+	 *	@param 		{Object} asset - asset representing the file
+	 *	@return 	{Object} - a promise resolved or rejected
 	 */
-	processImages: function(data, asset) {
+	processImages: function(sourceFilePath, asset) {
 
 		var self = this,
 			deferred = Q.defer(),
@@ -231,56 +169,45 @@ ImageProcessor = {
 				/**
 				 *	Grab the first item in the queue
 				 */
-				var resizeParam = resizeParams[0];
+				var resizeParam 		=	resizeParams[0],
+					destinationFileName = 	asset.sys.id + '-' + resizeParam.size.device + resizeParam.pixelDensity.prefix + '.' + resizeParam.fileType,
+					destinationFilePath = 	CFConfig.imageProcessor.path + 'processed/'; 
+											
 
 				/**
-				 *	Then call the resize function on the data, passing in our callback
-				 *	which qill contain the resized image data.
+				 *	Create resized image, writing it to the filesystem
 				 */
-				self.getResizedImageData(data, resizeParam, function(resultData) {
+				self.GM(sourceFilePath)
+					.setFormat(resizeParam.fileType)
+					.resize(resizeParam.size.width * resizeParam.pixelDensity.multiplier)
+					.write(destinationFilePath + destinationFileName, function(err) {
 
-					/**
-					 *	If the resulting data was null, pop the job from 
-					 *	the operations queue anyway
-					 */
-					if(resultData === null) {
-						Logger.log('error', {
-							message: 'Processing image, result data null'
-						});
-						resizeParams.splice(0, 1);
-						runloop();
-					}
-					else {
 						/**
-						 *	Write the resulting data to file
+						 *	Log any errors
 						 */
-						self.writeToFileSystem(resultData, asset.sys.id, resizeParam, function(result) {
-
-							/**
-							 *	Update the images collection once the sized image has been 
-							 *	written to the filesystem
-							 */
-							self.updateImagesCollection({
-								assetId: asset.sys.id,
-								size: resizeParam.size,
-								pixelDensity: resizeParam.pixelDensity,
-								filename: result.filename
+						if(err) {
+							Logger.log('error', {
+								message: 'Could not save resized image.',
+								data: err
 							});
+						}
 
-							/**
-							 *	Once we have resized the image based on the resizeParams,
-							 *	we drop the processing job from the queue
-							 */
-							resizeParams.splice(0, 1);
-							
-							/**
-							 *	Execute this function again for remaining size params
-							 *	in the Queue
-						 	 */
-							runloop();
+						/**
+						 *	Update the processed images collection
+						 */
+						self.updateImagesCollection({
+							assetId: asset.sys.id,
+							size: resizeParam.size,
+							pixelDensity: resizeParam.pixelDensity,
+							filename: destinationFileName
 						});
-					}
-				});
+
+						/**
+						 *	And continue on anyway
+						 */
+						resizeParams.splice(0,1);
+						runloop();
+					});		
 			}
 			else {
 				/**
@@ -332,8 +259,9 @@ ImageProcessor = {
 				/**
 				 *	Starting at the first job
 				 */
-				var asset = self.imageOperationQueue[0],
-					assetUrl = asset.fields.file.url;
+				var asset 			= self.imageOperationQueue[0],
+					assetUrl 		= asset.fields.file.url,
+					assetFilePath 	= CFConfig.imageProcessor.path + 'source/' + asset.sys.id;
 
 				/**
 				 *	Sequentially read in the image data from the asset source.
@@ -342,23 +270,37 @@ ImageProcessor = {
 				self.readRemoteFileFromUrl(assetUrl).then(function(result) {
 
 					/**
-					 *	Start processing the resulting image data
+					 *	Write the original file to the filesystem
 					 */
-					self.processImages(result.data, asset).then(function() {
+					self.FS.writeFile(assetFilePath, result.data, {encoding: 'binary'}, function(err) {
 
-						/**
-						 *	When finished, pop the image resize job from
-						 *	the operation queue
-						 */
-						self.imageOperationQueue.splice(0, 1);
+						if(err) {
+							Logger.log('error', {
+								message: 'Could not save source image.',
+								data: err
+							});
+						}
+						else {
+							/**
+							 *	Given the source file, start resizing the images sequentially
+							 *	and continue on with the processing queue no matter what the 
+							 *	outcome of processing is.
+							 */
+							self.processImages(assetFilePath, asset).then(function() {
 
-						/**
-						 *	Call the runloop function again
-						 */
-						runloop();
+								self.imageOperationQueue.splice(0, 1);
+								runloop();
 
+							}).fail(function() {
+
+								self.imageOperationQueue.splice(0, 1);
+								runloop();
+
+							});
+						}
 					});
-					
+
+
 				}).fail(function(error) {
 					/**
 					 *	Drop the job from the operations queue
@@ -398,7 +340,8 @@ ImageProcessor = {
 
 		var self 			= this,
 			deferred 		= Q.defer(),		
-			type 			= asset.fields.description
+			type 			= asset.fields.description,
+			fileType		= CFConfig.imageProcessor.imageTypes[type].fileType,
 			sizes 			= CFConfig.imageProcessor.imageTypes[type].sizes,
 			pixelDensities	= CFConfig.imageProcessor.pixelDensities,
 			iteration 		= pixelDensities.length * sizes.length;
@@ -423,7 +366,8 @@ ImageProcessor = {
 				 */
 				var imageResizeParam = {
 					size: size,
-					pixelDensity: pixelDensity
+					pixelDensity: pixelDensity,
+					fileType: fileType
 				};
 				asset.imageResizeParams.push(imageResizeParam);
 				

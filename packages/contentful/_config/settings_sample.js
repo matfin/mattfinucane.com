@@ -94,6 +94,7 @@ CFConfig = {
 		],
 		imageTypes: {
 			portfolio: {
+				fileType: 'jpg',
 				sizes: [
 					{
 						device: 'desktop',
@@ -118,6 +119,7 @@ CFConfig = {
 				]
 			},
 			logo: {
+				fileType: 'png',
 				sizes: [
 					{
 						device: 'desktop',
