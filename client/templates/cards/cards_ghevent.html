@@ -1,24 +1,29 @@
 <template name="cards_ghevent">
-	<div class="gh_events" data-index="{{atIndex}}">
+	<div class="gh_eventCard" data-index="{{atIndex}}">
 		<h2>
-			GitGub Event
+			GitHub Event
 		</h2>
-		<dl>
-			<dt>
+		<ul>
+			<li>
 				{{#if repositories.isSingle}}
-					Project
+					<strong>Project:</strong>
 				{{else}}
-					Projects
+					<strong>Projects:</strong>
 				{{/if}}
-			</dt>
-			{{#each repositories.collection}}
-				<dd>
+				{{#each repositories.collection}}
 					<a href="{{url}}" title="{{name}}">
 						{{name}}
 					</a>
-				</dd>
-			{{/each}}
-		</dl>
-
+				{{/each}}
+			</li>
+			<li>
+				<strong>Commits: </strong>
+				<span>{{commits.size}}</span>
+			</li>
+			<li>
+				{{formattedDate lastEvent.created_at "DD[.] MMM YYYY [at] h:mm a"}}
+			</li>
+		</ul>
+		
 	</div>
 </template>

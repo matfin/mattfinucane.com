@@ -44,6 +44,7 @@ Template.cards_ghevent.helpers({
 		var uniqueByRepo = _.uniq(this.gh_events, function(gh_event) {
 			return gh_event.repo.name;
 		});
+
 		/**
 		 *	Then create a mapping function to pull out the repository
 		 *	data.
@@ -59,6 +60,29 @@ Template.cards_ghevent.helpers({
 			collection: repositories,
 			isSingle: repositories.length === 1
 		};
-	}
+	},
 
+	/**
+	 *	Get the total number of commits for the events
+	 */
+	commits: function() {
+		var commits 	= [],
+			commitMap 	= _.map(this.gh_events, function(item) {
+			_.each(item.payload.commits, function(commit) {
+				commits.push(commit);
+			});
+		});
+
+		return {
+			collection: commits,
+			size: commits.length
+		};
+	},
+
+	/**
+	 *	Getting the date for the latest event
+	 */
+	lastEvent: function() {
+		return _.last(this.gh_events);
+	}	
 });

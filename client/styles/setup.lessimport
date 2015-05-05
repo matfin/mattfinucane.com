@@ -37,6 +37,13 @@ ol, ul {
 	.resetList;
 }
 
+dl {
+	.resetList;
+	dd {
+		.resetPaddingMargin;
+	}
+}
+
 a {
 	text-decoration: none;
 	&:hover {

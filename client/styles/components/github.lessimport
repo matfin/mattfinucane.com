@@ -43,11 +43,56 @@
 	}
 }
 
-.gh_events {
-	display: none;
+.gh_eventCard {
+	z-index: 3;
 	position: absolute;
-	top: 20px;
-	left: 20px;
-	width: 200px;
-	height: 200px;
+	display: none;
+	padding: @gridSpacing / 2;
+	
+	background-color: @white;
+	border: 2px solid @grey;
+	font-size: @baseFontSize;
+	color: @grey;
+
+	.arrow(@white, @grey);
+
+	.opacity(0);
+	.animateWithProperties(opacity);
+
+	h2 {
+		font-size: @baseFontSize;
+		font-weight: 300;
+	}
+
+	ul {
+		li {
+			.display(flex);
+		}
+	}
+
+	a {
+		margin-left: @gridSpacing / 4;
+		color: @grey;
+		&:hover {
+			text-decoration: underline;
+		}
+		&:after {
+			content: ",";
+		}
+		&:last-child {
+			&:after {
+				content: none;
+			}
+		}
+	}
+
+	span {
+		margin: 0 @gridSpacing / 4;
+	}
+
+	&.revealed {
+		display: block;
+		.opacity(1.0);
+	}
+
 }
