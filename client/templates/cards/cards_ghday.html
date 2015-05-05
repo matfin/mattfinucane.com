@@ -3,13 +3,13 @@
 		<svg xmlns="http://www.w3.org/2000/svg"
 			 width="100%"
 			 height="100%"
-			 viewbox="0 0 100 60">
+			 viewbox="0 0 100 75">
 			<g>
 				{{#each points.asCollection}}
-				 	<circle cx="{{this.x}}" cy="30" r="3">
+				 	<circle cx="{{this.x}}" cy="40" r="3">
 					 	<animate 	attributeName="cy" 
 					 				attributeType="XML"
-					 				from="30"
+					 				from="40"
 					 				to="{{this.y}}"
 					 				begin="500ms"
 					 				dur="250ms"
@@ -19,10 +19,10 @@
 					<rect x="{{offset this.x 15}}" y="{{offset this.y 15}}" width="15" height="15" />
 				{{/each}}
 	 
-				<polyline points="0,30 25,30 50,30 75,30 100,30">
+				<polyline points="0,40 25,40 50,40 75,40 100,40">
 				 	<animate	attributeName="points"
 				 				attributeType="XML"
-				 				from="0,30 25,30 50,30 75,30 100,30"
+				 				from="0,40 25,40 50,40 75,40 100,40"
 				 				to="{{points.asString}}"
 				 				begin="500ms"
 				 				dur="250ms"
@@ -34,10 +34,5 @@
 		<time datetime="{{this.end}}">
 			{{formattedDate this.end "dd"}} {{formattedDate this.end "DD/MM"}}
 		</time>
-		{{#each points.asCollection}}
-			{{#if this.hasEntries}}
-				{{>cards_ghevent}}
-			{{/if}}
-		{{/each}}
 	</div>
 </template>

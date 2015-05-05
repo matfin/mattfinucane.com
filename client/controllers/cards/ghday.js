@@ -44,11 +44,11 @@ Template.cards_ghday.helpers({
 		 *	Setting up points with their default positioning
 		 */
 		var points 	= [
-				{x: 0, y: 30, gh_events: []},
-				{x: 25, y: 30, gh_events: []},
-				{x: 50, y: 30, gh_events: []},
-				{x: 75, y: 30, gh_events: []},
-				{x: 100, y: 30, gh_events: []}
+				{x: 0, y: 40, gh_events: []},
+				{x: 25, y: 40, gh_events: []},
+				{x: 50, y: 40, gh_events: []},
+				{x: 75, y: 40, gh_events: []},
+				{x: 100, y: 40, gh_events: []}
 			],
 			start  	= this.start,
 			end 	= this.end,
@@ -89,27 +89,30 @@ Template.cards_ghday.helpers({
  */
 Template.cards_ghday.events = {
 	'click g rect': function(e, template) {
-		var rect 				= e.currentTarget,
-			selectedIndex 		= Helpers.indexForNodeOfType(rect),
-			allEventCards 		= document.getElementsByClassName('gh_eventCard'),
-			templateEventCards 	= template.firstNode.getElementsByClassName('gh_eventCard'),
-			eventCard 			= 	_.find(templateEventCards, function(card) {
-									return card.getAttribute('data-index') == selectedIndex;
-								});
 
-		/**
-		 *	We need to hide any other event cards showing
-		 */
-		_.each(allEventCards, function(card) {
-			card.className = 'gh_eventCard';
-		});
+		Session.set('githubEvents', this);
 
-		console.log(e.offsetX, e.offsetY);
+		$('.githubDetail').addClass('revealed');
 
-		if(typeof eventCard !== 'undefined') {
-			eventCard.style.top 	= (e.offsetY - 18) + 'px';
-			eventCard.style.left 	= (e.offsetX + 20) + 'px';
-			eventCard.className 	= 'gh_eventCard revealed';
-		}
+		// var rect 				= e.currentTarget,
+		// 	selectedIndex 		= Helpers.indexForNodeOfType(rect),
+		// 	allEventCards 		= document.getElementsByClassName('gh_eventCard'),
+		// 	templateEventCards 	= template.firstNode.getElementsByClassName('gh_eventCard'),
+		// 	eventCard 			= 	_.find(templateEventCards, function(card) {
+		// 							return card.getAttribute('data-index') == selectedIndex;
+		// 						});
+
+		
+		// _.each(allEventCards, function(card) {
+		// 	card.className = 'gh_eventCard';
+		// });
+
+		// console.log(e.offsetX, e.offsetY);
+
+		// if(typeof eventCard !== 'undefined') {
+		// 	eventCard.style.top 	= (e.offsetY - 18) + 'px';
+		// 	eventCard.style.left 	= (e.offsetX + 20) + 'px';
+		// 	eventCard.className 	= 'gh_eventCard revealed';
+		// }
 	}
 }
