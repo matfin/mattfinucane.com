@@ -39,3 +39,35 @@
 	.transition-property(@properties);
 	.transition-duration(@transitionDuration);
 }
+
+.arrow(@backgroundColor, @borderColor) {
+
+	background: @backgroundColor;
+	border: 2px solid @borderColor;
+
+	&:after,
+	&:before {
+		right: 100%;
+		top: @gridSpacing;
+		border: solid transparent;
+		content: " ";
+		height: 0;
+		width: 0;
+		position: absolute;
+		pointer-events: none;
+	}
+
+	&:after {
+		border-color: rgba(255, 255, 255, 0);
+		border-right-color: @backgroundColor;
+		border-width: 16px;
+		margin-top: -16px;
+	}
+
+	&:before {
+		border-color: rgba(204, 204, 204, 0);
+		border-right-color: @borderColor;
+		border-width: 19px;
+		margin-top: -19px;
+	}
+}

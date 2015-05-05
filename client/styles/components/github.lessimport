@@ -1,41 +1,107 @@
 .github {
-	.display(flex);
+	position: relative;
+	overflow: hidden;
 	.box-sizing(border-box);
+	border: 1px solid @grey;	
+	
+	.days {
+		.display(flex);
 
-	border: 2px solid @grey;
+		.day {
+			position: relative;
+			.flex(1);
+			.display(flex);
+			.flex-direction(column);
+			background-color: transparent;
+			color: black;
+			border-right: 1px solid @grey;
 
-	.day {
-		position: relative;
-		.flex(1);
+			&:last-child {
+				border-right: none;
+			}
+
+			time {
+				position: absolute;
+				bottom: @gridSpacing / 4;
+				left: @gridSpacing / 4;
+				color: @grey;
+				font-size: @baseFontSize;
+			}
+
+			svg {
+				.flex(1);
+				rect {
+					fill: transparent;
+					cursor: pointer;
+				}
+				circle {
+					fill: @turquoise;
+				}
+				polyline {
+					stroke: @turquoise;
+					fill: none;
+					stroke-width: 2px;
+				}
+			}
+		}
+	}
+}
+
+.githubDetail {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: @white;
+	color: @grey;
+	padding: @gridSpacing / 4 @gridSpacing / 2;
+	.transform(translateY(100%));
+	.box-sizing(border-box);
+	.display(flex);
+	.flex-direction(row);
+	.animateWithProperties(transform);
+
+	.activity {
+		.flex(2);
 		.display(flex);
 		.flex-direction(column);
-		background-color: transparent;
-		color: black;
-		border-right: 2px solid @grey;
+		.box-sizing(border-box);
 
-		&:last-child {
-			border-right: none;
-		}
-
+		h2, 
 		time {
-			position: absolute;
-			bottom: @gridSpacing / 4;
-			left: @gridSpacing / 4;
-			color: @grey;
-			font-size: @baseFontSize;
-			font-weight: 600;
-		}
-
-		svg {
 			.flex(1);
-			circle {
-				fill: @turquoise;
-			}
-			polyline {
-				stroke: @turquoise;
-				fill: none;
-				stroke-width: 2px;
+			font-size: @baseFontSize;
+			font-weight: 300;
+		}
+		h3 {
+			.flex(2);
+			font-size: @mediumFontSize;
+			.display(flex);
+			.align-items(center);
+		}
+	}
+	.messages {
+		.flex(4);
+		.display(flex);
+		.flex-direction(column);
+
+		li {
+			.display(flex);
+			.align-items(center);
+			.flex(1);
+			a {
+				display: block;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+				width: 100%;
+				color: @grey;
 			}
 		}
+	}
+
+	&.revealed {
+		.transform(translateY(0));
 	}
 }

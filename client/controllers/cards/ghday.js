@@ -34,30 +34,45 @@ Template.cards_ghday.destroyed = function() {
  */
 Template.cards_ghday.helpers({
 
+	offset: function(pos, offset) {
+		return Math.round(pos - (offset / 2));
+	},
+
 	points: function() {
 
+		/**
+		 *	Setting up points with their default positioning
+		 */
 		var points 	= [
-				{x: -1, y: 30, gh_events: []},
-				{x: 25, y: 30, gh_events: []},
-				{x: 50, y: 30, gh_events: []},
-				{x: 75, y: 30, gh_events: []},
-				{x: 100, y: 30, gh_events: []}
+				{x: 0, y: 40, gh_events: []},
+				{x: 25, y: 40, gh_events: []},
+				{x: 50, y: 40, gh_events: []},
+				{x: 75, y: 40, gh_events: []},
+				{x: 100, y: 40, gh_events: []}
 			],
 			start  	= this.start,
 			end 	= this.end,
 			events 	= this.events;
 
+		/**
+		 *	Assigning events to points - each point representing
+		 *	one quarter of a day.
+		 */
 		_.each(events, function(gh_event) {
-
 			var hour = new Date(gh_event.created_at).getHours(),
 				division = Helpers.inDivision(hour, 24, points.length - 1);
 
 			points[division].gh_events.push(gh_event);
 			points[division].y -= (6);
-
 		});
 
-
+		/**
+		 *	Mark those points with more data
+		 */
+		_.each(points, function(point, index) {
+			point.hasEntries = (point.gh_events.length > 0),
+			point.atIndex = index
+		});
 
 		return {
 			asCollection: points,
@@ -73,7 +88,8 @@ Template.cards_ghday.helpers({
  *	Events
  */
 Template.cards_ghday.events = {
-	'mouseover circle': function(e, template) {
-		console.log(e);
+	'click g rect': function(e, template) {
+		Session.set('githubEvents', this);
+		$('.githubDetail').addClass('revealed');
 	}
 }

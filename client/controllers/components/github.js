@@ -41,7 +41,7 @@ Template.components_github.helpers({
 			startTs 	= moment().startOf('day'),
 			endTs 		= moment().endOf('day');
 
-		for(var i = 6; i >= 0; i--) {
+		for(var i = 4; i >= 0; i--) {
 
 			var	end 	= new Date(endTs).getTime() - (i * 86400000),
 				start	= new Date(startTs).getTime() - (i * 86400000);

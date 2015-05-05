@@ -1,0 +1,34 @@
+<template name="cards_github_detail">
+	<div class="githubDetail">
+		<div class="activity">
+			<h2>
+				GitHub Activity
+			</h2>
+			<h3>
+				{{#if commits.itemsPresent}}
+					{{#if commits.isSingle}}
+						{{commits.size}} Commit
+					{{else}}
+						{{commits.size}} Commits
+					{{/if}}
+				{{else}}
+					No commits
+				{{/if}}
+			</h3>
+			<time datetime="">
+				{{#if commits.itemsPresent}}
+					{{formattedDate commits.lastEvent.created_at "DD[/]MM [at] h:mm a"}}
+				{{/if}}
+			</time> 
+		</div>
+		<ul class="messages">
+			{{#each commits.collection}}
+				<li>
+					<a href="{{url}}" title="Go to commit message">
+						{{message}}
+					</a>
+				</li>
+			{{/each}}
+		</ul>
+	</div>
+</template>

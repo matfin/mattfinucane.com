@@ -3,35 +3,36 @@
 		<svg xmlns="http://www.w3.org/2000/svg"
 			 width="100%"
 			 height="100%"
-			 viewbox="0 0 100 60">
-
-			 {{#each points.asCollection}}
-			 	<circle cx="{{this.x}}" cy="30" r="4">
-				 	<animate 	attributeName="cy" 
+			 viewbox="0 0 100 75">
+			<g>
+				{{#each points.asCollection}}
+				 	<circle cx="{{this.x}}" cy="40" r="3">
+					 	<animate 	attributeName="cy" 
+					 				attributeType="XML"
+					 				from="40"
+					 				to="{{this.y}}"
+					 				begin="500ms"
+					 				dur="250ms"
+					 				fill="freeze"
+					 				repeatCount="1" />
+					</circle>
+					<rect x="{{offset this.x 15}}" y="{{offset this.y 15}}" width="15" height="15" />
+				{{/each}}
+	 
+				<polyline points="0,40 25,40 50,40 75,40 100,40">
+				 	<animate	attributeName="points"
 				 				attributeType="XML"
-				 				from="30"
-				 				to="{{this.y}}"
+				 				from="0,40 25,40 50,40 75,40 100,40"
+				 				to="{{points.asString}}"
 				 				begin="500ms"
 				 				dur="250ms"
 				 				fill="freeze"
 				 				repeatCount="1" />
-				</circle>
-			 {{/each}}
-
-			 <polyline points="-1,30 25,30 50,30 75,30 101,30">
-			 	<animate	attributeName="points"
-			 				attributeType="XML"
-			 				from="-1,30 25,30 50,30 75,30 101,30"
-			 				to="{{points.asString}}"
-			 				begin="500ms"
-			 				dur="250ms"
-			 				fill="freeze"
-			 				repeatCount="1" />
-			 </polyline>
-
+				</polyline>
+			</g>
 		</svg>
 		<time datetime="{{this.end}}">
-			{{formattedDate this.end "dd"}}
+			{{formattedDate this.end "dd"}} {{formattedDate this.end "DD/MM"}}
 		</time>
 	</div>
 </template>
