@@ -42,9 +42,14 @@ Router.map(function() {
 	this.route('about', {
 		path: '/about',
 		template: 'main',
+		data: function() {
+			return {
+				page: 'about'
+			};
+		},
 		yieldTemplates: {
 			'components_header': 	{to: 'header'},
-			'views_about': 			{to: 'content'}
+			'views_content': 		{to: 'content'}
 		}
 
 	}, {where: 'client'});
