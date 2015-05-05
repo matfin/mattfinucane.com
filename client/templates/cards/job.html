@@ -2,8 +2,11 @@
 	{{#if Template.subscriptionsReady}}
 		<section class="job">
 			<h1>
-				{{fields.title}}
+				{{fields.organisation}}
 			</h1>
+			<h2>
+				{{fields.role}}, {{fields.location}}
+			</h2>
 			<div class="dates">
 				<!-- startDate -->
 				<time datetime="{{timestamp fields.startDate}}">
