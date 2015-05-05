@@ -5,9 +5,19 @@
 		</h2>
 		<dl>
 			<dt>
-				Project:
+				{{#if repositories.isSingle}}
+					Project
+				{{else}}
+					Projects
+				{{/if}}
 			</dt>
-			{{repositoryInfo}}
+			{{#each repositories.collection}}
+				<dd>
+					<a href="{{url}}" title="{{name}}">
+						{{name}}
+					</a>
+				</dd>
+			{{/each}}
 		</dl>
 
 	</div>

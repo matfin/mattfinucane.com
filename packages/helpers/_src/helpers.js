@@ -133,5 +133,30 @@ Helpers = {
 		}
 
 		return 0;
+	},
+
+	/**
+	 *	Function to get the index of a particular node within another node
+	 *
+	 *	@method		indexForNodeOfType
+	 *	@param 		{Object} node - the DOM node being checked		
+	 *	@return  	{Number} - the index of the dom node
+	 */
+	indexForNodeOfType: function(node) {
+		var index = 0;
+		if(typeof node !== 'object') {
+			return index;
+		}
+
+		var nodeName = node.nodeName;
+	
+		while((node = node.previousSibling)) {
+			if(node.nodeType === 1 && node.nodeName === nodeName) {
+				index++;
+			}
+		}
+
+		return index;
 	}
+
 };

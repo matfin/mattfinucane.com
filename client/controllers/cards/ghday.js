@@ -34,6 +34,10 @@ Template.cards_ghday.destroyed = function() {
  */
 Template.cards_ghday.helpers({
 
+	offset: function(pos, offset) {
+		return Math.round(pos - (offset / 2));
+	},
+
 	points: function() {
 
 		/**
@@ -84,7 +88,11 @@ Template.cards_ghday.helpers({
  *	Events
  */
 Template.cards_ghday.events = {
-	'mouseover circle': function(e, template) {
-		console.log(e);
+	'click g rect': function(e, template) {
+		var rect 			= e.currentTarget,
+			selectedIndex 	= Helpers.indexForNodeOfType(rect);
+
+		console.log(selectedIndex);
+
 	}
 }

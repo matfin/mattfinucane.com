@@ -36,12 +36,29 @@ Template.cards_ghevent.helpers({
 	/**
 	 *	Get the name and url for the repositories
 	 */
-	repositoryInfo: function() {
-		var repositories = _.uniq(this.gh_events, function(gh_event) {
+	repositories: function() {
+		/**
+		 *	From all events associated with a point, grab the 
+		 *	unique repositories
+		 */
+		var uniqueByRepo = _.uniq(this.gh_events, function(gh_event) {
 			return gh_event.repo.name;
 		});
+		/**
+		 *	Then create a mapping function to pull out the repository
+		 *	data.
+		 */
+		repositories = _.map(uniqueByRepo, function(item) {
+			return {
+				name: item.repo.name,
+				url: item.repo.url
+			};
+		});
 
-		console.log(repositories);
+		return {
+			collection: repositories,
+			isSingle: repositories.length === 1
+		};
 	}
 
 });
