@@ -89,30 +89,7 @@ Template.cards_ghday.helpers({
  */
 Template.cards_ghday.events = {
 	'click g rect': function(e, template) {
-
 		Session.set('githubEvents', this);
-
 		$('.githubDetail').addClass('revealed');
-
-		// var rect 				= e.currentTarget,
-		// 	selectedIndex 		= Helpers.indexForNodeOfType(rect),
-		// 	allEventCards 		= document.getElementsByClassName('gh_eventCard'),
-		// 	templateEventCards 	= template.firstNode.getElementsByClassName('gh_eventCard'),
-		// 	eventCard 			= 	_.find(templateEventCards, function(card) {
-		// 							return card.getAttribute('data-index') == selectedIndex;
-		// 						});
-
-		
-		// _.each(allEventCards, function(card) {
-		// 	card.className = 'gh_eventCard';
-		// });
-
-		// console.log(e.offsetX, e.offsetY);
-
-		// if(typeof eventCard !== 'undefined') {
-		// 	eventCard.style.top 	= (e.offsetY - 18) + 'px';
-		// 	eventCard.style.left 	= (e.offsetX + 20) + 'px';
-		// 	eventCard.className 	= 'gh_eventCard revealed';
-		// }
 	}
 }
