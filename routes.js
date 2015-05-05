@@ -13,7 +13,7 @@ Router.map(function() {
 	/**
 	 *	Landing page - client side routing
 	 */
-	this.route('work', {
+	this.route('portfolio', {
 		path: '/',
 		template: 'main',
 		yieldTemplates: {
@@ -26,8 +26,8 @@ Router.map(function() {
 	/**
 	 *	CV - client side routing
 	 */
-	this.route('cv', {
-		path: '/cv',
+	this.route('experience', {
+		path: '/experience',
 		template: 'main',
 		yieldTemplates: {
 			'components_header': 	{to: 'header'},

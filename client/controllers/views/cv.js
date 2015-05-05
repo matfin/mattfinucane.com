@@ -99,17 +99,17 @@ Template.views_cv.events = {
 		$('button', '.timeline').get(currentSlide).className = 'year highlighted';
 
 		if(template.slider.currentSlide === 0) {
-			template.$('.icon-arrow-left').addClass('hidden');
+			template.$('.arrow-left').addClass('hidden');
 		}
 		else {
-			template.$('.icon-arrow-left').removeClass('hidden');
+			template.$('.arrow-left').removeClass('hidden');
 		}
 
 		if(template.slider.currentSlide === (template.slider.slides.length - 1)) {
-			template.$('.icon-arrow-right').addClass('hidden');
+			template.$('.arrow-right').addClass('hidden');
 		}
 		else {
-			template.$('.icon-arrow-right').removeClass('hidden');
+			template.$('.arrow-right').removeClass('hidden');
 		}
 	},
 	'click .paddle': function(e, template) {
