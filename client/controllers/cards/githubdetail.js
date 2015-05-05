@@ -50,16 +50,23 @@ Template.cards_github_detail.helpers({
 			events 		= session.gh_events,
 		 	commits 	= [],
 			commitMap 	= _.map(events, function(item) {
-			_.each(item.payload.commits, function(commit) {
-				commits.push(commit);
-			});
-		});
+				_.each(item.payload.commits, function(commit) {
+					commits.push(commit);
+				})
+			}),
+			collection = commits.splice(0, 3);
 
-		return {
-			collection: commits.splice(0, 3),
-			size: commits.length,
+
+
+		var commits = {
+			collection: collection,
+			size: collection.length,
+			itemsPresent: collection.length > 0,
+			isSingle: collection.length === 1,
 			lastEvent: _.last(events)
 		};
+
+		return commits;
 	},
 });
 
@@ -76,7 +83,6 @@ Template.cards_github_detail.events = {
 	},
 
 	'mouseover .githubDetail': function(e, template) {
-		console.log(template.hideTimeout);
 		Meteor.clearTimeout(template.hideTimeout);
 	}
 

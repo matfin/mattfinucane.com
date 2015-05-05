@@ -5,10 +5,20 @@
 				GitHub Activity
 			</h2>
 			<h3>
-				{{commits.size}} Commits
+				{{#if commits.itemsPresent}}
+					{{#if commits.isSingle}}
+						{{commits.size}} Commit
+					{{else}}
+						{{commits.size}} Commits
+					{{/if}}
+				{{else}}
+					No commits
+				{{/if}}
 			</h3>
 			<time datetime="">
-				{{formattedDate commits.lastEvent.created_at "DD[/]MM [at] h:mm a"}}
+				{{#if commits.itemsPresent}}
+					{{formattedDate commits.lastEvent.created_at "DD[/]MM [at] h:mm a"}}
+				{{/if}}
 			</time> 
 		</div>
 		<ul class="messages">
