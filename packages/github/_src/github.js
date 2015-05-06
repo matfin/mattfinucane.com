@@ -116,7 +116,8 @@ GitHub = {
 	 *	Function to listen for incoming changes from GitHub,
 	 *	using their hook functionality.
 	 *	GitHub will send us a push request when a push event
-	 *	occurs.
+	 *	occurs. We will then use this to trigger an update 
+	 *	to fetch the freshest content.
 	 *
 	 *	@method		listenForContentChanges
 	 */
@@ -151,12 +152,22 @@ GitHub = {
 				});
 			}
 			else {
-
 				/**
 				 *	Handle the push request from the body
 				 */
 				self.handlePushRequest(req).then(function() {
 					
+					/**
+					 *	Trigger the fetch and populate function to get
+					 *	the latest GitHub events.
+					 */
+					GitHub.fetchAndPopulate('events').then(function() {
+						console.log('Github: event fetch triggered');
+					});
+
+					/**
+					 *	Then make the response to the Github webhook
+					 */
 					self.makeResponse(res, {
 						statusCode: 200,
 						contentType: 'application/json',
@@ -180,28 +191,6 @@ GitHub = {
 				});
 			}
 		});
-	},
-
-	/**
-	 *	Function to deal with incoming push requests from Github
-	 *	
-	 *	@method 	handlePushRequest
-	 *	@param 		{Object} request - the request containing the push data in the body
-	 *	@return 	{Object} - a promise resolved or rejected
-	 */
-	handlePushRequest: function(request) {
-		var self 		= this,
-			deferred 	= Q.defer();
-
-		this.Fiber(function() {
-
-			console.log(request.body);
-
-			deferred.resolve({});
-
-		}).run();
-
-		return deferred.promise;
 	},
 
 	/**
