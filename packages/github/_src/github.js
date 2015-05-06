@@ -153,42 +153,24 @@ GitHub = {
 			}
 			else {
 				/**
-				 *	Handle the push request from the body
+				 *	Trigger the fetch and populate function to get
+				 *	the latest GitHub events.
 				 */
-				self.handlePushRequest(req).then(function() {
-					
-					/**
-					 *	Trigger the fetch and populate function to get
-					 *	the latest GitHub events.
-					 */
-					GitHub.fetchAndPopulate('events').then(function() {
-						console.log('Github: event fetch triggered');
-					});
-
-					/**
-					 *	Then make the response to the Github webhook
-					 */
-					self.makeResponse(res, {
-						statusCode: 200,
-						contentType: 'application/json',
-						data: {
-							status: 'ok',
-							message: 'All good'
-						}
-					});
-
-				}).fail(function() {
-
-					self.makeResponse(res, {
-						statusCode: 500,
-						contentType: 'application/json',
-						data: {
-							status: 'error',
-							message: 'General malaise happened here.'
-						}
-					});
-
+				GitHub.fetchAndPopulate('events').then(function() {
+					console.log('Github: event fetch triggered');
 				});
+
+				/**
+				 *	Then make the response to the Github webhook
+				 */
+				self.makeResponse(res, {
+					statusCode: 200,
+					contentType: 'application/json',
+					data: {
+						status: 'ok',
+						message: 'All good'
+					}
+				});				
 			}
 		});
 	},
