@@ -55,7 +55,6 @@ ImageProcessor = {
 		 *	This module requires access to npm modules.
 		 */
 		if(!Meteor.npmRequire) {
-			console.log('Image processor init, meteor npm require not found.');
 			return;
 		}
 
@@ -80,16 +79,16 @@ ImageProcessor = {
 	 */
 	observeAssetChanges: function() {
 
-		console.log('Observing asset changes');
-
 		var self = this;
 
 		this.Fiber(function() {
 
 			Contentful.collections.assets.find({}).observeChanges({
 				added: function(id, asset) {
+							
 					console.log('Asset added');
-					self.addImageJob(asset).then(function() {
+
+					self.addImageJob(asset, false).then(function() {
 						Logger.log('collection', {
 							message: 'Asset added'
 						});
@@ -97,8 +96,10 @@ ImageProcessor = {
 					});
 				},
 				changed: function(id, asset) {
+					
 					console.log('Asset changed');
-					self.addImageJob(asset).then(function() {
+					
+					self.addImageJob(asset, true).then(function() {
 						Logger.log('collection', {
 							message: 'Asset changed'
 						});
@@ -106,7 +107,9 @@ ImageProcessor = {
 					});
 				},
 				removed: function(id, asset) {
-					console.log('Asset removed: ', asset);
+
+					console.log('Asset removed');
+
 					Logger.log('collection', {
 						message: 'Asset removed'
 					});
@@ -231,6 +234,24 @@ ImageProcessor = {
 		return deferred.promise;
 	},
 
+	/**
+	 *	Function to check if a source image already exists, 
+	 *	so it is not repeatedly processed
+	 *	
+	 *	@method 	sourceFileExists
+	 *	@param 		{String} fullPath - source image file name
+	 *	@param 		{Object} callback - callback to run on checking file
+	 */
+	sourceFileExists: function(fullPath, callback) {
+		var exists 	= this.FS.open(fullPath, 'r', function(err, fd) {
+			if(err) {
+				callback(false);	
+			}
+			else {
+				callback(true);
+			}
+		});
+	},
 
 	/**
 	 *	Function to sequentially process images inside the operations queue
@@ -267,57 +288,75 @@ ImageProcessor = {
 					assetFilePath 	= CFConfig.imageProcessor.path + 'source/' + asset.sys.id;
 
 				/**
-				 *	Sequentially read in the image data from the asset source.
-				 *	We should only do this once at a time
-				 */
-				self.readRemoteFileFromUrl(assetUrl).then(function(result) {
+				 *	Check and see if the image has already been processed, then
+				 *	stop at this point if it has, only if an overwrite is not forced.
+				 */				
+				self.sourceFileExists(assetFilePath, function(exists) {
+					if(exists && !asset.forceOverwrite) {
+						/**
+						 *	If the file exists and should not be overwritten, 
+						 *	pop the image processing job from the queue
+						 *	and then move onto the next job.
+						 */
+						console.log('File exists - skipping processing.');
+						self.imageOperationQueue.splice(0, 1);
+						runloop();
+						return;
+					}
+					else {
+						/**
+						 *	Sequentially read in the image data from the asset source.
+						 *	We should only do this once at a time
+						 */
+						self.readRemoteFileFromUrl(assetUrl).then(function(result) {
 
-					/**
-					 *	Write the original file to the filesystem
-					 */
-					self.FS.writeFile(assetFilePath, result.data, {encoding: 'binary'}, function(err) {
-
-						if(err) {
-							Logger.log('error', {
-								message: 'Could not save source image.',
-								data: err
-							});
-						}
-						else {
 							/**
-							 *	Given the source file, start resizing the images sequentially
-							 *	and continue on with the processing queue no matter what the 
-							 *	outcome of processing is.
+							 *	Write the original file to the filesystem
 							 */
-							self.processImages(assetFilePath, asset).then(function() {
+							self.FS.writeFile(assetFilePath, result.data, {encoding: 'binary'}, function(err) {
 
-								self.imageOperationQueue.splice(0, 1);
-								runloop();
+								if(err) {
+									Logger.log('error', {
+										message: 'Could not save source image.',
+										data: err
+									});
+								}
+								else {
+									/**
+									 *	Given the source file, start resizing the images sequentially
+									 *	and continue on with the processing queue no matter what the 
+									 *	outcome of processing is.
+									 */
+									self.processImages(assetFilePath, asset).then(function() {
 
-							}).fail(function() {
+										self.imageOperationQueue.splice(0, 1);
+										runloop();
 
-								self.imageOperationQueue.splice(0, 1);
-								runloop();
+									}).fail(function() {
 
+										self.imageOperationQueue.splice(0, 1);
+										runloop();
+
+									});
+								}
 							});
-						}
-					});
 
-
-				}).fail(function(error) {
-					/**
-					 *	Drop the job from the operations queue
-					 *	even if it failed.
-					 */
-					Logger.log('error', {
-						message: 'Error fetching remote resource',
-						data: {
-							assetUrl: assetUrl,
-							error: error
-						}
-					});
-					self.imageOperationQueue.splice(0, 1);
-					runloop();
+						}).fail(function(error) {
+							/**
+							 *	Drop the job from the operations queue
+							 *	even if it failed.
+							 */
+							Logger.log('error', {
+								message: 'Error fetching remote resource',
+								data: {
+									assetUrl: assetUrl,
+									error: error
+								}
+							});
+							self.imageOperationQueue.splice(0, 1);
+							runloop();
+						});
+					}
 				});
 			}
 			else {
@@ -336,10 +375,11 @@ ImageProcessor = {
 	 *	Function to batch resize images
 	 *
 	 *	@method 	addImageJob
-	 *	@param 		{Object} asset - the image asset type and the source data for the image
-	 *	@param 		{Object} callback - optional callback to be executed
+	 *	@param 		{Object} 	asset - the image asset type and the source data for the image
+	 *	@param 		{Boolean} 	forceOverwrite - force overwrite of an existing image
+	 *	@param 		{Object} 	callback - optional callback to be executed
 	 */
-	addImageJob: function(asset) {
+	addImageJob: function(asset, forceOverwrite) {
 
 		var self 			= this,
 			deferred 		= Q.defer(),		
@@ -350,9 +390,11 @@ ImageProcessor = {
 			iteration 		= pixelDensities.length * sizes.length;
 
 		/**
-		 *	Attach resize params to the asset
+		 *	Attach resize params to the asset and whether 
+		 *	or not to force an overwrite of existing images.
 		 */
 		asset.imageResizeParams = [];
+		asset.forceOverwrite = forceOverwrite;
 
 		/**
 		 *	Loop through each size 
