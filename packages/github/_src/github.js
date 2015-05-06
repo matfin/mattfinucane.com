@@ -78,6 +78,8 @@ GitHub = {
 						 */
 						item.activityTag = activity;
 
+						console.log('Updating gh item with id: ', item.id);
+
 						/**
 						 *	Call an upsert to the collection, updating an item
 						 *	if it exists or inserting it if it doesn't
@@ -162,7 +164,7 @@ GitHub = {
 					GitHub.fetchAndPopulate('events').then(function() {
 						console.log('Github: event fetch triggered');
 					});
-					
+
 				}).run();
 				
 				/**

@@ -19,6 +19,12 @@ Meteor.startup(function() {
 	}
 	if(Meteor.isServer) {
 
+		// Meteor.methods({
+		// 	'deleteGH': function(id) {
+		// 		GitHub.collections.entries.remove({id: id});
+		// 	}
+		// });
+
 		Contentful.fetchAndPopulate().then(function(result) {
 			/**
 			 *	Once content is fetched and stored in the 
