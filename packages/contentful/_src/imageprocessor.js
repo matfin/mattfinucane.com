@@ -88,6 +88,7 @@ ImageProcessor = {
 
 			Contentful.collections.assets.find({}).observeChanges({
 				added: function(id, asset) {
+					console.log('Asset added');
 					self.addImageJob(asset).then(function() {
 						Logger.log('collection', {
 							message: 'Asset added'
@@ -96,6 +97,7 @@ ImageProcessor = {
 					});
 				},
 				changed: function(id, asset) {
+					console.log('Asset changed');
 					self.addImageJob(asset).then(function() {
 						Logger.log('collection', {
 							message: 'Asset changed'
@@ -103,13 +105,14 @@ ImageProcessor = {
 						self.startImageOpQueue();
 					});
 				},
-				removed: function(id) {
+				removed: function(id, asset) {
+					console.log('Asset removed: ', asset);
 					Logger.log('collection', {
 						message: 'Asset removed'
 					});
 					self.imageCollection.remove({assetId: id});
 				}
-			})
+			});
 
 		}).run();
 	},

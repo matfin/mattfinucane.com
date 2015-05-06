@@ -110,27 +110,29 @@ Contentful = {
  				 */
  				self.Fiber(function() {
 
- 					/** 
- 					 *	Clear out the old data on boot
- 					 */
- 					self.collections.assets.remove({});
- 					self.collections.entries.remove({});
-
  					/**
  					 *	Loop through each entry
  					 */
  					_.each(data.items, function(entry) {
 
  						/**
- 						 *	Attach the content type name to the entry
+ 						 *	Carrying out an upsert for the entry and attaching 
+ 						 *	the content type name. Only update if the revision
+ 						 *	number is greater than the one already stored.
  						 */
- 						entry.contentTypeName = self.contentTypeName(entry);
-
- 						/**
- 						 *	Then insert it to the collection
- 						 */
- 						self.collections.entries.insert(entry);
-
+ 						self.collections.entries.update(
+ 							{
+ 								'sys.id': entry.sys.id
+ 							},
+ 							{
+ 								fields: entry.fields,
+ 								sys: entry.sys,
+ 								contentTypeName: self.contentTypeName(entry)
+ 							},
+ 							{
+ 								upsert: true
+ 							}
+ 						);
  					});
 
  					if(data.errors) {
@@ -147,7 +149,18 @@ Contentful = {
 	 						/**
 	 						 *	Inserting the asset to the collection
 	 						 */
-	 						self.collections.assets.insert(asset);
+	 						self.collections.assets.update(
+	 							{
+	 								'sys.id': asset.sys.id
+	 							},
+	 							{
+	 								fields: asset.fields,
+	 								sys: asset.sys
+	 							},
+	 							{
+	 								upsert: true
+	 							}
+	 						);
 	 					});
  					}
 
@@ -357,6 +370,7 @@ Contentful = {
 		var deferred 	= Q.defer(),
 			self 		= this,
 			entry 		= requestBody,
+			updateData  = {},
 			collection;
 
 		/**
@@ -366,10 +380,19 @@ Contentful = {
 		switch(entry.sys.type) {
 			case 'Entry': {
 				collection = this.collections.entries;
+				updateData = {
+					fields: Helpers.flattenObjects(entry.fields, 'en-US'),
+					sys: entry.sys,
+					contentTypeName: self.contentTypeName(entry)
+				};
 				break;
 			}
 			case 'Asset': {
 				collection = this.collections.assets;
+				updateData = {
+					fields: Helpers.flattenObjects(entry.fields, 'en-US'),
+					sys: entry.sys
+				};
 				break;
 			}
 			default: {
@@ -390,15 +413,12 @@ Contentful = {
 
 			this.Fiber(function() {
 
+
 				collection.update(
 					{
 						'sys.id': entry.sys.id
 					},
-					{
-						fields: Helpers.flattenObjects(entry.fields, 'en-US'),
-						sys: entry.sys,
-						contentTypeName: self.contentTypeName(entry)
-					},
+					updateData,
 					{
 						upsert: true
 					}	
