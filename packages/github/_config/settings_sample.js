@@ -10,20 +10,20 @@ GHConfig = {
 	/**
 	 *	Api access token
 	 */
-	apiToken: '<application_api_token>',
+	apiToken: 	'<application_api_token>',
 
 	/**
 	 *	The Github username to fetch data for
 	 */
-	username: 'matfin',
+	username: 	'<your_username>',
 
 	/**
 	 *	GitHub api endpoint
 	 */
-	endpoint: 'https://api.github.com',
+	endpoint: 	'https://api.github.com',
 
 	/**
-	 *	Authorization callback url
+	 *	Webhook secret
 	 */
-	authCallbackUrl: '<your_url>/hooks/github'
+	secret: 	'<your_repo_webhook_secret>'
 };

@@ -19,11 +19,6 @@ Meteor.startup(function() {
 	}
 	if(Meteor.isServer) {
 
-		/**
-		 *	Initialise the logger
-		 */
-		Logger.initAndPublish();
-
 		Contentful.fetchAndPopulate().then(function(result) {
 			/**
 			 *	Once content is fetched and stored in the 
@@ -89,6 +84,11 @@ Meteor.startup(function() {
 				console.log('Publishing: github entries');
 				return GitHub.collections.entries.find({type: "PushEvent"});
 			});
+
+			/**
+			 *	Listen for incoming activity from Github
+			 */
+			GitHub.listenForContentChanges();
 
 		}).fail(function() {
 			console.log('Failed to fetch GitHub data');

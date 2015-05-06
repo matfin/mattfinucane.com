@@ -70,6 +70,14 @@ ImageProcessor = {
 		 *	the image collection here.
 		 */
 		this.observeAssetChanges();
+
+		/**
+		 *	Log the current status of the processed image collection
+		 */
+		var self = this;
+		this.Fiber(function(){
+			console.log('Size of processed images collection: ', self.imageCollection.find({}).count());
+		}).run();
 	},
 
 	/**
@@ -86,8 +94,6 @@ ImageProcessor = {
 			Contentful.collections.assets.find({}).observeChanges({
 				added: function(id, asset) {
 							
-					console.log('Asset added');
-
 					self.addImageJob(asset, false).then(function() {
 						Logger.log('collection', {
 							message: 'Asset added'
@@ -96,9 +102,7 @@ ImageProcessor = {
 					});
 				},
 				changed: function(id, asset) {
-					
-					console.log('Asset changed');
-					
+										
 					self.addImageJob(asset, true).then(function() {
 						Logger.log('collection', {
 							message: 'Asset changed'
@@ -107,8 +111,6 @@ ImageProcessor = {
 					});
 				},
 				removed: function(id, asset) {
-
-					console.log('Asset removed');
 
 					Logger.log('collection', {
 						message: 'Asset removed'
@@ -298,7 +300,6 @@ ImageProcessor = {
 						 *	pop the image processing job from the queue
 						 *	and then move onto the next job.
 						 */
-						console.log('File exists - skipping processing.');
 						self.imageOperationQueue.splice(0, 1);
 						runloop();
 						return;

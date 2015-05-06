@@ -13,6 +13,11 @@ GitHub = {
 	Fiber: Npm.require('fibers'),
 
 	/**
+	 *	Node Crypto module for checking SHA1 HMAC Digest
+	 */
+	Crypto: Npm.require('crypto'),
+
+	/**
 	 *	Server side Mongo Collections
 	 */
 	collections: {
@@ -62,11 +67,6 @@ GitHub = {
 				self.Fiber(function() {
 
 					/**
-					 *	Clear out old collections
-					 */
-					self.collections.entries.remove({});
-
-					/**
 					 *	Parse each item, preparting it for the collection
 					 */
 					_.each(items, function(item) {
@@ -77,7 +77,20 @@ GitHub = {
 						 *	we can insert it.
 						 */
 						item.activityTag = activity;
-						self.collections.entries.insert(item);
+
+						/**
+						 *	Call an upsert to the collection, updating an item
+						 *	if it exists or inserting it if it doesn't
+						 */
+						self.collections.entries.update(
+							{
+								id: item.id
+							},
+							item,
+							{
+								upsert: true
+							}
+						);
 
 					});
 
@@ -97,5 +110,155 @@ GitHub = {
 		});
 
 		return deferred.promise;
+	},
+
+	/**
+	 *	Function to listen for incoming changes from GitHub,
+	 *	using their hook functionality.
+	 *	GitHub will send us a push request when a push event
+	 *	occurs.
+	 *
+	 *	@method		listenForContentChanges
+	 */
+	listenForContentChanges: function() {
+
+		if(!Meteor.npmRequire) {
+			return;
+		}
+
+		console.log('Github: Listen for content changes.');
+
+		/**
+		 *	NPM modules needed
+		 */
+		var connect 	= Meteor.npmRequire('connect'),
+			bodyParser	= Meteor.npmRequire('body-parser'),
+			self 		= this;
+
+		WebApp.connectHandlers
+		.use(bodyParser.json({type: 'application/json'}))
+		.use('/hooks/github', function(req, res, next) {
+
+			
+			if(!self.checkGHCredentials(req)) {
+				self.makeResponse(res, {
+					statusCode: 403,
+					contentType: 'application/json',
+					data: {
+						status: 'forbidden',
+						message: 'Stand in front of a mirror and say \'Candyman\' five times, then come back to me'
+					}
+				});
+			}
+			else {
+
+				/**
+				 *	Handle the push request from the body
+				 */
+				self.handlePushRequest(req).then(function() {
+					
+					self.makeResponse(res, {
+						statusCode: 200,
+						contentType: 'application/json',
+						data: {
+							status: 'ok',
+							message: 'All good'
+						}
+					});
+
+				}).fail(function() {
+
+					self.makeResponse(res, {
+						statusCode: 500,
+						contentType: 'application/json',
+						data: {
+							status: 'error',
+							message: 'General malaise happened here.'
+						}
+					});
+
+				});
+			}
+		});
+	},
+
+	/**
+	 *	Function to deal with incoming push requests from Github
+	 *	
+	 *	@method 	handlePushRequest
+	 *	@param 		{Object} request - the request containing the push data in the body
+	 *	@return 	{Object} - a promise resolved or rejected
+	 */
+	handlePushRequest: function(request) {
+		var self 		= this,
+			deferred 	= Q.defer();
+
+		this.Fiber(function() {
+
+			console.log(request.body);
+
+			deferred.resolve({});
+
+		}).run();
+
+		return deferred.promise;
+	},
+
+	/**
+	 *	Function to check the incoming request header and 
+	 *	see if it is a valid payload from Github
+	 *
+	 *	@method 	checkGHCredentials
+	 *	@param 		{Object} request - the request 
+	 *	@return 	{Boolean} - true if the headers authentication is valid
+	 */
+	checkGHCredentials: function(request) {
+		/**
+		 *	Grabbing what we need to decrypt the signature
+		 */
+		var headers 	= request.headers,
+			body 		= request.body,
+			algorithm	= 'sha1',
+			secret 		= GHConfig.secret,
+			ghSignature = (function() {
+				if(Helpers.checkNested(headers, 'x-hub-signature')) {
+					return headers['x-hub-signature'];
+				}
+				else {
+					return false;
+				}
+			})(),
+			hmac 		= this.Crypto.createHmac(algorithm, secret); 
+
+		/**
+		 *	This will allow us to get the sha1 signature 
+		 */
+		hmac.update(JSON.stringify(body));
+
+		var calculatedSignature = 'sha1=' + hmac.digest('hex');
+		
+		/**
+		 *	Return true if they match
+		 */
+		return headers['x-hub-signature'] === calculatedSignature;
+	},
+
+	/**
+	 *	Function to write a response message to a request
+	 *	
+	 *	@method 	makeResponse
+	 *	@param		{Object} res 			- a http response object
+	 *	@param 		{Object} responseData	- response data to return to the client
+	 *	@return 	undefined - returns nothing
+	 */
+	makeResponse: function(res, responseData) {
+
+		res.writeHead(responseData.statusCode, responseData.contentType);
+		if(responseData.contentType === 'application/json') {
+			res.end(JSON.stringify(responseData.data));
+		}
+		else {
+			res.end(responseData.data);
+		}
 	}
 };
