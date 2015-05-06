@@ -201,6 +201,8 @@ Contentful = {
 			return;
 		}
 
+		console.log('Contentful: Listen for content changes.');
+
 		/**
 		 *	Required NPM modules
 		 */

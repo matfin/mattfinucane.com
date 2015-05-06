@@ -18,6 +18,11 @@ Logger = {
 	logCollection: new Mongo.Collection('logs'),
 
 	/**
+	 *	Only log if the logger has been activated
+	 */
+	isActive: false,
+
+	/**
 	 *	Function to log to the collection
 	 *
 	 *	@method		log
@@ -26,6 +31,8 @@ Logger = {
 	 */
 	log: function(type, item) {
 		var self = this;
+
+		if(!self.isActive) return;
 
 		this.Fiber(function() {
 
@@ -46,6 +53,8 @@ Logger = {
 	 */
 	initAndPublish: function() {
 		var self = this;
+		
+		this.isActive = true;
 		this.Fiber = Meteor.npmRequire('fibers');
 
 		Meteor.publish('logs', function() {
