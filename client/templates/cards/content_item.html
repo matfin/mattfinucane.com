@@ -1,6 +1,6 @@
 <template name="cards_content_item">
 	{{#if Template.subscriptionsReady}}
-		<section class="contentItem">
+		<section class="contentItem {{asClassName fields.title}}">
 			<div class="staticContent">
 				<div class="text">
 					<h2>
@@ -10,9 +10,17 @@
 				</div>
 				{{#if images.useSlider}}
 					<div class="imageSlider">
+						{{#with images.collection}}
+							{{> components_imageslider}}
+						{{/with}}
 					</div>
 				{{else}}
 					<div class="image">
+						{{#with images.collection}}
+							{{#each this}}
+								{{> cards_image}}
+							{{/each}}
+						{{/with}}
 					</div>
 				{{/if}}
 			</div>

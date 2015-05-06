@@ -23,14 +23,10 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
+.icon-twitter:before {
+	content: "\ea91";
+}
+
 .icon-github:before {
 	content: "\eab4";
-}
-
-.icon-arrow-left:before {
-	content: "\e60d";
-}
-
-.icon-arrow-right:before {
-	content: "\e614";
 }

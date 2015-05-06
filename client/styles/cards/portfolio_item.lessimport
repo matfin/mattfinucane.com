@@ -1,6 +1,5 @@
 section.portfolioItem {
 	
-	//display: inline-block;
 	max-width: @maxWidth;
 
 	.portfolioContent {
@@ -58,7 +57,7 @@ section.portfolioItem {
 		.imageSlider {
 			.flex(5);
 			
-			padding-top: @gridSpacing + 4;
+			padding: @gridSpacing + 4 0;
 			img {
 				width: 100%;
 				height: auto;
@@ -80,6 +79,7 @@ section.portfolioItem {
 
 	.portfolioLinks {
 		.display(flex);
+		margin-bottom: @gridSpacing * 2;
 		a {
 			color: @turquoise;
 			font-size: @mediumFontSize - 1;
@@ -94,10 +94,9 @@ section.portfolioItem {
 			}
 			&.icon-github {
 				font-size: @baseFontSize * 2.5;
-				.animateWithProperties(transform);
+				
 				&:hover {
 					text-decoration: none;
-					.scale(1.2);
 				}
 			}
 		}

@@ -38,3 +38,14 @@ UI.registerHelper('timestamp', function(dateString) {
 UI.registerHelper('variableExists', function(variable) {
 	return typeof variable !== 'undefined' && variable.length > 0;
 });
+
+/**
+ *	Function to turn a string of text into a lower case classname friendly string
+ *
+ *	@method 	asClassName
+ *	@param 		{String} sourceString - the source string
+ *	@return 	{String} - the classname friendly string
+ */
+UI.registerHelper('asClassName', function(sourceString) {
+	return Helpers.asClassName(sourceString);
+});

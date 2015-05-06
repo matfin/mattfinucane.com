@@ -40,7 +40,7 @@ section.contentItem {
 		.imageSlider {
 			.flex(5);
 			
-			padding-top: @gridSpacing + 4;
+			padding: @gridSpacing + 4 0;
 			img {
 				width: 100%;
 				height: auto;
