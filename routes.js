@@ -18,7 +18,7 @@ Router.map(function() {
 		template: 'main',
 		yieldTemplates: {
 			'components_header': 	{to: 'header'},
-			'views_work': 			{to: 'content'}
+			'views_portfolio': 		{to: 'content'}
 		}
 
 	}, {where: 'client'});
@@ -31,7 +31,7 @@ Router.map(function() {
 		template: 'main',
 		yieldTemplates: {
 			'components_header': 	{to: 'header'},
-			'views_cv': 			{to: 'content'}
+			'views_experience': 	{to: 'content'}
 		}
 
 	}, {where: 'client'});

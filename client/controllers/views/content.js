@@ -35,7 +35,7 @@ Template.views_content.destroyed = function() {
 Template.views_content.helpers({
 
 	contentItems: function() {
-
+		return App.collections.cf_entries.find({contentTypeName: 'content_item', 'fields.page': this.page}, {sort: {'fields.order': -1}}).fetch();
 	}
 
 });
