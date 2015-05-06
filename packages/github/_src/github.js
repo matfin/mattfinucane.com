@@ -154,12 +154,17 @@ GitHub = {
 			else {
 				/**
 				 *	Trigger the fetch and populate function to get
-				 *	the latest GitHub events.
+				 *	the latest GitHub events. This needs to be run 
+				 *	inside a Fiber.
 				 */
-				GitHub.fetchAndPopulate('events').then(function() {
-					console.log('Github: event fetch triggered');
-				});
+				self.Fiber(function() {
 
+					GitHub.fetchAndPopulate('events').then(function() {
+						console.log('Github: event fetch triggered');
+					});
+					
+				}).run();
+				
 				/**
 				 *	Then make the response to the Github webhook
 				 */
