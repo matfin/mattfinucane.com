@@ -1,19 +1,17 @@
-section.portfolioItem {
-	
-	//display: inline-block;
+section.contentItem {
+
 	max-width: @maxWidth;
 
-	.portfolioContent {
+	.staticContent {
 		.display(flex);
 		.box-sizing(border-box);
 
-		.info {
+		.text {
 			.display(flex);
 			.flex-direction(column);
 			.box-sizing(border-box);
 			.flex(3);
 			padding: @gridSpacing + 4 @gridSpacing - 4;
-
 
 			h2, h3, p {
 				margin-bottom: @gridSpacing + 4;
@@ -35,22 +33,6 @@ section.portfolioItem {
 			p {
 				font-size: @baseFontSize;
 				line-height: @baseFontSize + 3;
-			}
-
-			ol {
-				text-align: center;
-				li {
-					display: inline;
-					font-size: @baseFontSize;
-					&:after {
-						content: "/"
-					}
-					&:last-child {
-						&:after {
-							content: none;
-						}
-					}
-				}
 			}
 		}
 
@@ -74,31 +56,6 @@ section.portfolioItem {
 		.imageSlider {
 			img {
 				cursor: pointer;
-			}
-		}
-	}
-
-	.portfolioLinks {
-		.display(flex);
-		a {
-			color: @turquoise;
-			font-size: @mediumFontSize - 1;
-			height: @gridSpacing * 2.5;
-			line-height: @gridSpacing * 2.5;
-			&:first-child {
-				.flex(3);
-				text-align: center;
-			}
-			&:last-child {
-				.flex(5);
-			}
-			&.icon-github {
-				font-size: @baseFontSize * 2.5;
-				.animateWithProperties(transform);
-				&:hover {
-					text-decoration: none;
-					.scale(1.2);
-				}
 			}
 		}
 	}
