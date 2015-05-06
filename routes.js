@@ -13,12 +13,12 @@ Router.map(function() {
 	/**
 	 *	Landing page - client side routing
 	 */
-	this.route('work', {
+	this.route('portfolio', {
 		path: '/',
 		template: 'main',
 		yieldTemplates: {
 			'components_header': 	{to: 'header'},
-			'views_work': 			{to: 'content'}
+			'views_portfolio': 		{to: 'content'}
 		}
 
 	}, {where: 'client'});
@@ -26,12 +26,12 @@ Router.map(function() {
 	/**
 	 *	CV - client side routing
 	 */
-	this.route('cv', {
-		path: '/cv',
+	this.route('experience', {
+		path: '/experience',
 		template: 'main',
 		yieldTemplates: {
 			'components_header': 	{to: 'header'},
-			'views_cv': 			{to: 'content'}
+			'views_experience': 	{to: 'content'}
 		}
 
 	}, {where: 'client'});
@@ -42,9 +42,14 @@ Router.map(function() {
 	this.route('about', {
 		path: '/about',
 		template: 'main',
+		data: function() {
+			return {
+				page: 'about'
+			};
+		},
 		yieldTemplates: {
 			'components_header': 	{to: 'header'},
-			'views_about': 			{to: 'content'}
+			'views_content': 		{to: 'content'}
 		}
 
 	}, {where: 'client'});

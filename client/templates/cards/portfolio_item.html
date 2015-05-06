@@ -36,13 +36,19 @@
 				{{/if}}					
 				
 			</div>
-			<div class="portfolioLinks">
-				<a href="{{fields.githubUrl}}" class="icon-github" title="See {{fields.title}} on GitHub">
-				</a>
-				<a href="{{fields.productionUrl}}" title="{{fields.title}}">
-					{{fields.productionUrl}}
-				</a>
-			</div>
+			{{#if linksExist.some}}
+				<div class="portfolioLinks">
+					{{#if linksExist.githubUrl}}
+						<a href="{{fields.githubUrl}}" class="icon-github" title="See {{fields.title}} on GitHub">
+						</a>
+					{{/if}}
+					{{#if linksExist.productionUrl}}
+						<a href="{{fields.productionUrl}}" title="{{fields.title}}">
+							{{fields.productionUrl}}
+						</a>
+					{{/if}}
+				</div>
+			{{/if}}
 		</section>
 	{{/if}}
 </template>

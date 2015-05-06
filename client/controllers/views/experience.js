@@ -1,20 +1,20 @@
 /**
- *	Template - views_cv
+ *	Template - views_experience
  *	Callback function called automatically when the template has been created
  *
  *	@method created
  */
-Template.views_cv.created = function() {
+Template.views_experience.created = function() {
 	this.subscribe('job');
 };
 
 /**
- *	Template - views_cv
+ *	Template - views_experience
  *	Callback function called automatically when the template has been rendered
  *
  *	@method rendered
  */
-Template.views_cv.rendered = function() {
+Template.views_experience.rendered = function() {
 	var sliderContainer = document.getElementsByClassName('sliderContainer').item(),
 		self = this;
 	this.slider = Slider.setup(sliderContainer);
@@ -34,20 +34,20 @@ Template.views_cv.rendered = function() {
 };
 
 /**
- *	Template - views_cv
+ *	Template - views_experience
  *	Callback function called automatically when the template has been destroyed
  *
  *	@method destroyed
  */
-Template.views_cv.destroyed = function() {
+Template.views_experience.destroyed = function() {
 	Session.set('slideNumber', undefined);
 };
 
 /**
- *	Template - views_cv
+ *	Template - views_experience
  *	Helpers 
  */
-Template.views_cv.helpers({
+Template.views_experience.helpers({
 
 	/**
 	 *	Fetch jobs, sorted by their start date in descending order. In this case,
@@ -88,10 +88,10 @@ Template.views_cv.helpers({
 });
 
 /** 
- *	Template views_cv
+ *	Template views_experience
  *	Events
  */
-Template.views_cv.events = {
+Template.views_experience.events = {
 
 	'slidecomplete .sliderContainer': function(e, template) {
 		var currentSlide = e.originalEvent.data.currentSlide;
@@ -99,17 +99,17 @@ Template.views_cv.events = {
 		$('button', '.timeline').get(currentSlide).className = 'year highlighted';
 
 		if(template.slider.currentSlide === 0) {
-			template.$('.icon-arrow-left').addClass('hidden');
+			template.$('.arrow-left').addClass('hidden');
 		}
 		else {
-			template.$('.icon-arrow-left').removeClass('hidden');
+			template.$('.arrow-left').removeClass('hidden');
 		}
 
 		if(template.slider.currentSlide === (template.slider.slides.length - 1)) {
-			template.$('.icon-arrow-right').addClass('hidden');
+			template.$('.arrow-right').addClass('hidden');
 		}
 		else {
-			template.$('.icon-arrow-right').removeClass('hidden');
+			template.$('.arrow-right').removeClass('hidden');
 		}
 	},
 	'click .paddle': function(e, template) {

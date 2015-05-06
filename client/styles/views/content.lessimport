@@ -1,0 +1,58 @@
+&.profile {
+	ul {
+		.display(flex);
+		.flex-direction(row);
+
+		li {
+			.flex(1);
+			.display(flex);
+			.align-items(center);
+		}
+	}
+
+	a {
+		color: @turquoise;
+		font-size: @largeFontSize;
+		margin: 0 auto;
+
+		&:hover {
+			text-decoration: none;
+		}
+
+		&[href*="github"],
+		&[href*="twitter"],
+		&[href*="mailto"] {
+			&:before {
+				font-family: 'mattfinucane';
+			}
+		}
+
+		&[href*="github"] {
+			&:before {
+				content: "\eab4";
+			}
+		}
+		&[href*="mailto"] {
+			&:before {
+				content: "@"
+			}
+		}
+		&[href*="twitter"] {
+			&:before {
+				content: "\ea91"
+			}
+		}
+	}
+}
+
+.skills,
+.interests {
+	ul {
+		list-style-type: decimal;
+		padding-left: @gridSpacing;
+
+		li {
+			margin: @gridSpacing / 2 0;
+		}
+	}
+}

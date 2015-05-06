@@ -1,0 +1,11 @@
+<template name="views_content">
+	{{#if Template.subscriptionsReady}}
+		{{#each contentItems}}
+			<div class="wrapper content">
+				{{>cards_content_item}}
+			</div>
+		{{/each}}
+	{{else}}
+		<span>Loading..</span>
+	{{/if}}
+</template>

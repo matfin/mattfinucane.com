@@ -49,9 +49,12 @@ Template.cards_github_detail.helpers({
 		var session  	= Session.get('githubEvents'),
 			events 		= session.gh_events,
 		 	commits 	= [],
+		 	index  		= 1,
 			commitMap 	= _.map(events, function(item) {
 				_.each(item.payload.commits, function(commit) {
+					commit.index = index;
 					commits.push(commit);
+					index++;
 				})
 			}),
 			collection = commits.splice(0, 3);
@@ -79,7 +82,7 @@ Template.cards_github_detail.events = {
 	'mouseleave .githubDetail': function(e, template) {
 		template.hideTimeout = Meteor.setTimeout(function() {
 			$(e.currentTarget).removeClass('revealed');
-		}, 1000);	
+		}, 200);	
 	},
 
 	'mouseover .githubDetail': function(e, template) {

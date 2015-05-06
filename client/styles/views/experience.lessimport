@@ -11,7 +11,7 @@
 		margin-right: @gridSpacing * 4;
 	}
 
-	h1 {
+	h1, h2 {
 		font-size: @mediumFontSize - 1;
 		text-align: center;
 	}

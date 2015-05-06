@@ -157,6 +157,17 @@ Helpers = {
 		}
 
 		return index;
+	},
+
+	/**
+	 *	Function to turn a string of text into a lower case classname friendly string
+	 *
+	 *	@method 	asClassName
+	 *	@param 		{String} sourceString - the source string
+	 *	@return 	{String} - the classname friendly string
+	 */
+	asClassName: function(sourceString) {
+		return sourceString.replace(/\s/g, '-').toLowerCase();
 	}
 
 };

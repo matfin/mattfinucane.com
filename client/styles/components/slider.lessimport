@@ -34,18 +34,37 @@
 		color: @turquoise;
 		text-align: center;
 		cursor: pointer;
+		.opacity(0.4);
 		.animateWithProperties(opacity);
 
-		&.icon-arrow-left {
+		&.arrow-left {
 			left: 0;
+
+			&:before {
+				content: "<";
+			}
 		}
 
-		&.icon-arrow-right {
+		&.arrow-right {
 			right: 0;
+
+			&:before {
+				content: ">";
+			}
 		}
 
 		&.hidden {
 			.opacity(0);
+		}
+	}
+
+	&:hover {
+		> button {
+			.opacity(1.0);
+
+			&.hidden {
+				.opacity(0.0);
+			}
 		}
 	}
 }

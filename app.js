@@ -12,10 +12,6 @@ Meteor.startup(function() {
 			}	
 		};
 
-		// var x = new Mongo.Collection('logs');
-		// Meteor.subscribe('logs');
-		// x.find({type: 'error'}).fetch();
-
 		/**
 		 *	Kick off the Depencencies for reactivity
 		 */

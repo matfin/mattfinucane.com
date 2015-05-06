@@ -1,0 +1,29 @@
+<template name="cards_content_item">
+	{{#if Template.subscriptionsReady}}
+		<section class="contentItem {{asClassName fields.title}}">
+			<div class="staticContent">
+				<div class="text">
+					<h2>
+						{{fields.title}}
+					</h2>
+					{{#markdown}}{{fields.content}}{{/markdown}}
+				</div>
+				{{#if images.useSlider}}
+					<div class="imageSlider">
+						{{#with images.collection}}
+							{{> components_imageslider}}
+						{{/with}}
+					</div>
+				{{else}}
+					<div class="image">
+						{{#with images.collection}}
+							{{#each this}}
+								{{> cards_image}}
+							{{/each}}
+						{{/with}}
+					</div>
+				{{/if}}
+			</div>
+		</section>
+	{{/if}}
+</template>

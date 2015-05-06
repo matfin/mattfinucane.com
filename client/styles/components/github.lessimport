@@ -55,19 +55,19 @@
 	height: 100%;
 	background-color: @white;
 	color: @grey;
-	padding: @gridSpacing / 4 @gridSpacing / 2;
 	.transform(translateY(100%));
 	.box-sizing(border-box);
 	.display(flex);
 	.flex-direction(row);
 	.animateWithProperties(transform);
+	padding: @gridSpacing / 2;
 
 	.activity {
 		.flex(2);
 		.display(flex);
 		.flex-direction(column);
 		.box-sizing(border-box);
-
+	
 		h2, 
 		time {
 			.flex(1);
@@ -75,17 +75,16 @@
 			font-weight: 300;
 		}
 		h3 {
-			.flex(2);
-			font-size: @mediumFontSize;
+			.flex(1);
+			font-size: @baseFontSize + 4;
 			.display(flex);
 			.align-items(center);
 		}
 	}
 	.messages {
-		.flex(4);
+		.flex(5);
 		.display(flex);
 		.flex-direction(column);
-
 		li {
 			.display(flex);
 			.align-items(center);
@@ -96,7 +95,7 @@
 				text-overflow: ellipsis;
 				white-space: nowrap;
 				width: 100%;
-				color: @grey;
+				color: @turquoise;
 			}
 		}
 	}
