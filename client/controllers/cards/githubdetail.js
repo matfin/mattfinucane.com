@@ -14,6 +14,7 @@ Template.cards_github_detail.created = function() {
  *	@method rendered
  */
 Template.cards_github_detail.rendered = function() {
+	this.$('a[rel="external"]').prop('target', '_blank');
 };
 
 /**

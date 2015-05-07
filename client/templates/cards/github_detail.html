@@ -17,14 +17,14 @@
 			</h3>
 			<time datetime="">
 				{{#if commits.itemsPresent}}
-					{{formattedDate commits.lastEvent.created_at "DD[/]MM [at] h:mm a"}}
+					{{formattedDate commits.lastEvent.created_at "dddd, DD[/]MM"}}
 				{{/if}}
 			</time> 
 		</div>
 		<ul class="messages">
 			{{#each commits.toDisplay}}
 				<li>
-					<a href="{{url}}" title="{{message}}">
+					<a href="{{url}}" title="{{message}}" rel="external">
 						{{message}}
 					</a>
 				</li>

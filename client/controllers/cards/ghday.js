@@ -68,19 +68,6 @@ Template.cards_ghday.helpers({
 			points[division].y -= 3;
 		});
 
-		/**
-		 *	Given that SVG animations only run once, they cannot
-		 *	be updated reactively without manually triggering the 
-		 *	animation. We need to do this in here.
-		 */
-		var animations = document.getElementsByTagName('animate');
-					
-		_.each(animations, function(animation) {
-			Meteor.setTimeout(function() {
-				animation.beginElement();
-			}, 1000);
-		});
-		
 		return {
 			asCollection: points,
 			asString: _.map(points, function(point) {
