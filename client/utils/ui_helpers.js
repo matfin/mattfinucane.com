@@ -49,3 +49,18 @@ UI.registerHelper('variableExists', function(variable) {
 UI.registerHelper('asClassName', function(sourceString) {
 	return Helpers.asClassName(sourceString);
 });
+
+/**
+ *	Function to call the deviceClass inside a template
+ *
+ *	@method 	deviceClass
+ *	@return 	{Object} - object containing parameters for the device capabilities
+ */
+UI.registerHelper('deviceClass', function() {
+	/**
+	 *	This needs to be reactive to when the window size changes
+ 	 */
+	Dependencies.resized.depend();
+
+	return Helpers.deviceClass();
+});

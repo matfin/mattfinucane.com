@@ -56,6 +56,9 @@
 			.staticContent,
 			.portfolioLinks {
 				.flex-direction(row-reverse);
+				a:last-child {
+					text-align: left;
+				}
 			}
 		}		
 	}

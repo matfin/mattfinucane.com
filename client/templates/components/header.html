@@ -2,13 +2,15 @@
 	<header>
 		<div class="title">
 			<h1>
-				Matt Finucane
+				Matt Finucane 
 			</h1>
 			<h2>
 				MeteorJS and iOS Developer
 			</h2>
 		</div>
-		{{> components_github}}
+		{{#if showGithubTimeline}}
+			{{> components_github}}
+		{{/if}}
 		<nav>
 			<ol>
 				<li>
