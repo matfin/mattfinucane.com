@@ -21,7 +21,7 @@ GitHub = {
 	 *	Server side Mongo Collections
 	 */
 	collections: {
-		entries: 	new Mongo.Collection('gh_entries')
+		commits: 	new Mongo.Collection('gh_commits')
 	},
 
 	/**
@@ -67,31 +67,30 @@ GitHub = {
 				self.Fiber(function() {
 
 					/**
-					 *	Parse each item, preparting it for the collection
+					 *	Parse each item, preparing it for the collection
 					 */
 					_.each(items, function(item) {
 
 						/**
-						 *	Set the given activity to the item
-						 *	so we can use this tag later, then
-						 *	we can insert it.
+						 *	Grab the commits for the entry item
 						 */
-						item.activityTag = activity;
+						var commits = self.mapFromPull(item);
 
 						/**
-						 *	Call an upsert to the collection, updating an item
-						 *	if it exists or inserting it if it doesn't
+						 *	Loop through them, upserting data
 						 */
-						self.collections.entries.update(
-							{
-								id: item.id
-							},
-							item,
-							{
-								upsert: true
-							}
-						);
+						_.each(commits, function(commit) {
 
+							self.collections.commits.update(
+								{
+									id: commit.id
+								},
+								commit,
+								{
+									upsert: true
+								}
+							);
+						});		
 					});
 
 					/**
@@ -110,6 +109,50 @@ GitHub = {
 		});
 
 		return deferred.promise;
+	},
+
+	/**
+	 *	Function to map a Github collection entry from fetched events
+	 *
+	 *	@method		mapFromPull
+	 *	@param 		{Array} entryItem - an array containing github entries
+	 *	@return 	{Array} - remapped commits from the entry item
+	 */
+	mapFromPull: function(entryItem) {
+
+		return _.map(entryItem.payload.commits, function(commit) {
+			return {
+				author: 		commit.author,
+				message: 		commit.message,
+				id: 			commit.sha,
+				url: 			'https://github.com/' + entryItem.repo.name + '/commit/' + commit.sha,
+				created_at:  	entryItem.created_at,
+				created_at_ts: 	new Date(entryItem.created_at).getTime()
+			};
+		});
+
+	},
+
+	/**
+	 *	Function to map an incoming Gitgub push event 
+	 *
+	 *	@method 	mapFromPush
+	 *	@param 		{Array} pushItem - the pushed data from the webhook
+	 *	@return 	{Array} - remapped commits from the pushed data
+	 */
+	mapFromPush: function(pushItem) {
+
+		return _.map(pushItem.commits, function(commit) {
+			return {
+				author: 		commit.author,
+				message: 		commit.message,
+				id: 			commit.id,
+				url: 			commit.url,
+				created_at: 	commit.timestamp,
+				created_at_ts: 	new Date(commit.timestamp).getTime()
+			}
+		});
+
 	},
 
 	/**
@@ -159,8 +202,28 @@ GitHub = {
 				 */
 				self.Fiber(function() {
 
-					GitHub.fetchAndPopulate('events').then(function() {
-						console.log('Github: event fetch triggered');
+					/**
+					 *	Grab the mapped commits
+					 */
+					var commits = self.mapFromPush(req.body);
+
+					_.each(commits, function(commit) {
+
+						/**
+						 *	Loop through them, upserting data
+						 */
+						_.each(commits, function(commit) {
+
+							self.collections.commits.update(
+								{
+									id: commit.id
+								},
+								commit,
+								{
+									upsert: true
+								}
+							);
+						});	
 					});
 
 				}).run();

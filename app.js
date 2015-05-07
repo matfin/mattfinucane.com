@@ -8,7 +8,7 @@ Meteor.startup(function() {
 				cf_entries: new Mongo.Collection('cf_entries'),
 				cf_assets: new Mongo.Collection('cf_assets'),
 				mf_images: new Mongo.Collection('mf_images'),
-				gh_entries: new Mongo.Collection('gh_entries')
+				gh_commits: new Mongo.Collection('gh_commits')
 			}	
 		};
 
@@ -78,11 +78,13 @@ Meteor.startup(function() {
 		 */
 		GitHub.fetchAndPopulate('events').then(function() {
 			/**
-			 *	Publish GitHub entries
+			 *	Publish GitHub entries, filtering out only those that 
+			 *	are less than six days old.
 			 */
-			Meteor.publish('gh_entries', function() {
-				console.log('Publishing: github entries');
-				return GitHub.collections.entries.find({type: "PushEvent"});
+			Meteor.publish('gh_commits', function() {	
+				console.log('Publishing: Github commits');	
+				var from = moment().subtract(6, 'days').toDate().getTime();
+				return GitHub.collections.commits.find({created_at_ts: {$gte: from}});
 			});
 
 			/**
@@ -92,6 +94,13 @@ Meteor.startup(function() {
 
 		}).fail(function() {
 			console.log('Failed to fetch GitHub data');
+		});
+
+		Meteor.methods({
+			'clearCommits': function() {
+				console.log('Clear the commits');
+				GitHub.collections.commits.remove({});
+			}
 		});
 	}
 });
