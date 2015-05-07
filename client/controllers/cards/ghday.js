@@ -42,6 +42,8 @@ Template.cards_ghday.helpers({
 		var commits = App.collections.gh_commits.find({created_at_ts: {$gte: this.start, $lte: this.end}}).fetch(),
 			points = [];
 
+		this.commits = commits;
+
 		/**
 		 *	Create the points that will represent the dots on the SVG chart
 		 */
@@ -93,8 +95,9 @@ Template.cards_ghday.helpers({
  *	Events
  */
 Template.cards_ghday.events = {
-	'click g rect': function(e, template) {
-		Session.set('githubCommits', this);
+
+	'click': function(e, template) {
+		Session.set('githubCommits', this.commits);
 		$('.githubDetail').addClass('revealed');
 	}
 }

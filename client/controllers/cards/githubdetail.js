@@ -5,7 +5,6 @@
  *	@method created
  */
 Template.cards_github_detail.created = function() {
-
 };
 
 /**
@@ -15,7 +14,6 @@ Template.cards_github_detail.created = function() {
  *	@method rendered
  */
 Template.cards_github_detail.rendered = function() {
-	
 };
 
 /**
@@ -25,7 +23,6 @@ Template.cards_github_detail.rendered = function() {
  *	@method destroyed
  */
 Template.cards_github_detail.destroyed = function() {
-	
 };
 
 /**
@@ -39,26 +36,22 @@ Template.cards_github_detail.helpers({
 	 */
 	commits: function() {
 
-		if(typeof Session.get('githubEvents') === 'undefined') {
+		if(typeof Session.get('githubCommits') === 'undefined') {
 			/**
 			 *	No events, return
 			 */
 			return
 		}
 
-		var session 	= Session.get('githubCommits'),
-			commits  	= session.commits;
-			toDisplay 	= commits.splice(0, 3);
-
-		var data = {
-			toDisplay: 		toDisplay,
-			isSingle: 		commits.length === 1,
-			itemsPresent: 	commits.length > 0,
-			size: 			commits.length,
-			lastEvent: 		_.last(commits)
-		};
-
-		console.log(commits, commits.length);
+		var commits 	= Session.get('githubCommits'),
+			toDisplay 	= commits.slice(0, 3),
+			data = {
+				toDisplay: 		toDisplay,
+				isSingle: 		commits.length === 1,
+				itemsPresent: 	commits.length > 0,
+				size: 			commits.length,
+				lastEvent: 		_.last(commits)
+			};
 
 		return data;
 	},
