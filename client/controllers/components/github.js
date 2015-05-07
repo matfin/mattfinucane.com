@@ -5,7 +5,6 @@
  *	@method created
  */
 Template.components_github.created = function() {
-	this.subscribe('gh_entries');
 };
 
 /**
@@ -34,31 +33,18 @@ Template.components_github.destroyed = function() {
  */
 Template.components_github.helpers({
 
-	dayGroups: function() {
+	days: function() {
 
-		var entries 	= App.collections.gh_entries.find({},{sort: {'created_at': -1}}).fetch();
-			days 		= [],
-			startTs 	= moment().startOf('day'),
-			endTs 		= moment().endOf('day');
+		var days = []
 
 		for(var i = 4; i >= 0; i--) {
 
-			var	end 	= new Date(endTs).getTime() - (i * 86400000),
-				start	= new Date(startTs).getTime() - (i * 86400000);
-
-				events 	= _.filter(entries, function(entry) {
-					var entry_timestamp = new Date(entry.created_at).getTime();
-					return entry_timestamp <= end && entry_timestamp >= start;
-				});
-
 			days.push({
-				end: end,
-				start: start,
-				events: events
+				start: 	parseInt(moment().startOf('day').subtract(i, 'day').format('x')),
+				end: 	parseInt(moment().endOf('day').subtract(i, 'day').format('x'))
 			});
+
 		}
-		
 		return days;
 	}
-
 });

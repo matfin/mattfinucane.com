@@ -160,6 +160,19 @@ Helpers = {
 	},
 
 	/**
+	 *	Function to return bool if a number is in a range
+	 *
+	 *	@method 	isBetween
+	 *	@param 		{Number} check
+	 *	@param 		{Number} start
+	 *	@param 		{Number} end
+	 *	@return 	{Boolean} - true if value is in range or false
+	 */
+	isBetween: function(check, start, end) {
+		return check >= start && check <= end;
+	},
+
+	/**
 	 *	Function to turn a string of text into a lower case classname friendly string
 	 *
 	 *	@method 	asClassName

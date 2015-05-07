@@ -46,30 +46,21 @@ Template.cards_github_detail.helpers({
 			return
 		}
 
-		var session  	= Session.get('githubEvents'),
-			events 		= session.gh_events,
-		 	commits 	= [],
-		 	index  		= 1,
-			commitMap 	= _.map(events, function(item) {
-				_.each(item.payload.commits, function(commit) {
-					commit.index = index;
-					commits.push(commit);
-					index++;
-				})
-			}),
-			collection = commits.splice(0, 3);
+		var session 	= Session.get('githubCommits'),
+			commits  	= session.commits;
+			toDisplay 	= commits.splice(0, 3);
 
-
-
-		var commits = {
-			collection: collection,
-			size: collection.length,
-			itemsPresent: collection.length > 0,
-			isSingle: collection.length === 1,
-			lastEvent: _.last(events)
+		var data = {
+			toDisplay: 		toDisplay,
+			isSingle: 		commits.length === 1,
+			itemsPresent: 	commits.length > 0,
+			size: 			commits.length,
+			lastEvent: 		_.last(commits)
 		};
 
-		return commits;
+		console.log(commits, commits.length);
+
+		return data;
 	},
 });
 
