@@ -39,7 +39,7 @@ Template.cards_ghday.helpers({
 		/**
 		 *	Grab all the commits for the given day
 		 */
-		var commits = App.collections.gh_commits.find({created_at_ts: {$gte: this.start, $lte: this.end}}).fetch(),
+		var commits = App.collections.gh_commits.find({created_at_ts: {$gte: this.start, $lte: this.end}}, {sort: {'created_at_ts': -1}}).fetch(),
 			points = [];
 
 		this.commits = commits;
