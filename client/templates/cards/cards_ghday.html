@@ -1,38 +1,39 @@
 <template name="cards_ghday">
 	<div class="day">
-		<svg xmlns="http://www.w3.org/2000/svg"
-			 width="100%"
-			 height="100%"
-			 viewbox="0 0 100 75">
-			<g>
-				{{#each points.asCollection}}
-				 	<circle cx="{{this.x}}" cy="40" r="3">
-					 	<animate 	attributeName="cy" 
+		{{#if Template.subscriptionsReady}}
+			<svg xmlns="http://www.w3.org/2000/svg"
+				 width="100%"
+				 height="100%"
+				 viewbox="0 0 100 100">
+				<g>
+					{{#each points.asCollection}}
+					 	<circle cx="{{this.x}}" cy="60" r="3">
+						 	<animate 	attributeName="cy" 
+						 				attributeType="XML"
+						 				from="60"
+						 				to="{{this.y}}"
+						 				begin="indefinite"
+						 				dur="500ms"
+						 				fill="freeze"
+						 				repeatCount="1" />
+						</circle>
+					{{/each}}
+		 
+					<polyline points="0,60 25,60 50,60 75,60 100,60">
+					 	<animate	attributeName="points"
 					 				attributeType="XML"
-					 				from="40"
-					 				to="{{this.y}}"
-					 				begin="500ms"
-					 				dur="250ms"
+					 				from="0,60 25,60 50,60 75,60 100,60"
+					 				to="{{points.asString}}"
+					 				begin="indefinite"
+					 				dur="500ms"
 					 				fill="freeze"
 					 				repeatCount="1" />
-					</circle>
-					<rect x="{{offset this.x 15}}" y="{{offset this.y 15}}" width="15" height="15" />
-				{{/each}}
-	 
-				<polyline points="0,40 25,40 50,40 75,40 100,40">
-				 	<animate	attributeName="points"
-				 				attributeType="XML"
-				 				from="0,40 25,40 50,40 75,40 100,40"
-				 				to="{{points.asString}}"
-				 				begin="500ms"
-				 				dur="250ms"
-				 				fill="freeze"
-				 				repeatCount="1" />
-				</polyline>
-			</g>
-		</svg>
-		<time datetime="{{this.end}}">
-			{{formattedDate this.end "dd"}} {{formattedDate this.end "DD/MM"}}
-		</time>
+					</polyline>
+				</g>
+			</svg>
+			<time datetime="{{this.end}}">
+				{{formattedDate this.end "dd"}} {{formattedDate this.end "DD/MM"}}
+			</time>
+		{{/if}}
 	</div>
 </template>

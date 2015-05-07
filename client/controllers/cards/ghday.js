@@ -5,7 +5,7 @@
  *	@method created
  */
 Template.cards_ghday.created = function() {
-	
+	this.subscribe('gh_commits');
 };
 
 /**
@@ -34,46 +34,53 @@ Template.cards_ghday.destroyed = function() {
  */
 Template.cards_ghday.helpers({
 
-	offset: function(pos, offset) {
-		return Math.round(pos - (offset / 2));
-	},
-
 	points: function() {
+		
+		/**
+		 *	Grab all the commits for the given day
+		 */
+		var commits = App.collections.gh_commits.find({created_at_ts: {$gte: this.start, $lte: this.end}}).fetch(),
+			points = [];
+
+		this.commits = commits;
 
 		/**
-		 *	Setting up points with their default positioning
+		 *	Create the points that will represent the dots on the SVG chart
 		 */
-		var points 	= [
-				{x: 0, y: 40, gh_events: []},
-				{x: 25, y: 40, gh_events: []},
-				{x: 50, y: 40, gh_events: []},
-				{x: 75, y: 40, gh_events: []},
-				{x: 100, y: 40, gh_events: []}
-			],
-			start  	= this.start,
-			end 	= this.end,
-			events 	= this.events;
+		for(var i = 0; i < 5; i++){
+
+			points.push({
+				x: i * 25,
+				y: 60,
+				commits: []
+			});
+		}
 
 		/**
-		 *	Assigning events to points - each point representing
-		 *	one quarter of a day.
+		 *	Since each dot represents a quarter of a day, assign each commit 
+		 *	to a dot based on the time of day it was pushed
 		 */
-		_.each(events, function(gh_event) {
-			var hour = new Date(gh_event.created_at).getHours(),
+		_.each(commits, function(commit) {
+			var hour 	= new Date(commit.created_at_ts).getHours(),
 				division = Helpers.inDivision(hour, 24, points.length - 1);
 
-			points[division].gh_events.push(gh_event);
-			points[division].y -= (6);
+			points[division].commits.push(commit);
+			points[division].y -= 3;
 		});
 
 		/**
-		 *	Mark those points with more data
+		 *	Given that SVG animations only run once, they cannot
+		 *	be updated reactively without manually triggering the 
+		 *	animation. We need to do this in here.
 		 */
-		_.each(points, function(point, index) {
-			point.hasEntries = (point.gh_events.length > 0),
-			point.atIndex = index
+		var animations = document.getElementsByTagName('animate');
+					
+		_.each(animations, function(animation) {
+			Meteor.setTimeout(function() {
+				animation.beginElement();
+			}, 1000);
 		});
-
+		
 		return {
 			asCollection: points,
 			asString: _.map(points, function(point) {
@@ -88,8 +95,9 @@ Template.cards_ghday.helpers({
  *	Events
  */
 Template.cards_ghday.events = {
-	'click g rect': function(e, template) {
-		Session.set('githubEvents', this);
+
+	'click': function(e, template) {
+		Session.set('githubCommits', this.commits);
 		$('.githubDetail').addClass('revealed');
 	}
 }

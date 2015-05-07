@@ -16,6 +16,8 @@
 			color: black;
 			border-right: 1px solid @grey;
 
+			cursor: pointer;
+
 			&:last-child {
 				border-right: none;
 			}

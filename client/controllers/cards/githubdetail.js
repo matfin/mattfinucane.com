@@ -5,7 +5,6 @@
  *	@method created
  */
 Template.cards_github_detail.created = function() {
-
 };
 
 /**
@@ -15,7 +14,6 @@ Template.cards_github_detail.created = function() {
  *	@method rendered
  */
 Template.cards_github_detail.rendered = function() {
-	
 };
 
 /**
@@ -25,7 +23,6 @@ Template.cards_github_detail.rendered = function() {
  *	@method destroyed
  */
 Template.cards_github_detail.destroyed = function() {
-	
 };
 
 /**
@@ -39,37 +36,24 @@ Template.cards_github_detail.helpers({
 	 */
 	commits: function() {
 
-		if(typeof Session.get('githubEvents') === 'undefined') {
+		if(typeof Session.get('githubCommits') === 'undefined') {
 			/**
 			 *	No events, return
 			 */
 			return
 		}
 
-		var session  	= Session.get('githubEvents'),
-			events 		= session.gh_events,
-		 	commits 	= [],
-		 	index  		= 1,
-			commitMap 	= _.map(events, function(item) {
-				_.each(item.payload.commits, function(commit) {
-					commit.index = index;
-					commits.push(commit);
-					index++;
-				})
-			}),
-			collection = commits.splice(0, 3);
+		var commits 	= Session.get('githubCommits'),
+			toDisplay 	= commits.slice(0, 3),
+			data = {
+				toDisplay: 		toDisplay,
+				isSingle: 		commits.length === 1,
+				itemsPresent: 	commits.length > 0,
+				size: 			commits.length,
+				lastEvent: 		_.last(commits)
+			};
 
-
-
-		var commits = {
-			collection: collection,
-			size: collection.length,
-			itemsPresent: collection.length > 0,
-			isSingle: collection.length === 1,
-			lastEvent: _.last(events)
-		};
-
-		return commits;
+		return data;
 	},
 });
 

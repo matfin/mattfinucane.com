@@ -22,10 +22,10 @@
 			</time> 
 		</div>
 		<ul class="messages">
-			{{#each commits.collection}}
+			{{#each commits.toDisplay}}
 				<li>
-					<a href="{{url}}" title="Go to commit message">
-						{{index}} &ndash; {{message}}
+					<a href="{{url}}" title="{{message}}">
+						{{message}}
 					</a>
 				</li>
 			{{/each}}
