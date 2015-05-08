@@ -44,12 +44,12 @@
 			</svg>
 
 		</button>
-		{{>components_nav}}
 	</header>
+	{{>components_nav "touch"}}
 </template>
 
 <template name="components_nav">
-	<nav>
+	<nav class="{{this}}">
 		<ol>
 			<li>
 				<a href="{{pathFor 'portfolio'}}" title="Work">

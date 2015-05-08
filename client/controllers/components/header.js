@@ -33,7 +33,6 @@ Template.components_header.destroyed = function() {
  */
 Template.components_header.helpers({
 
-
 	/**
 	 *	Restrict the display of the github timelime to specific device classes
 	 */
@@ -62,3 +61,16 @@ Template.components_header.helpers({
 	}
 
 });
+
+/**
+ *	Template - components_header
+ *	Events
+ */
+Template.components_header.events = {
+
+	'click button': function(e, template) {
+		template.$('button').toggleClass('revealed');
+		$('.top').toggleClass('revealed');
+	}
+
+};

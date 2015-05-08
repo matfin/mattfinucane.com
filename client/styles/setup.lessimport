@@ -16,7 +16,8 @@ body {
 	display: block;
 	.animateWithProperties(margin);
 
-	&.center {
+	&.center,
+	&.top {
 		max-width: @maxWidth;
 
 		@media @laptop {
