@@ -6,6 +6,14 @@ Router.configure({
 });
 
 /**
+ *	If the nav is showing, hide it
+ */
+Router.onBeforeAction(function() {
+	TemplateHelpers.hideNavMenu();
+	this.next();
+});
+
+/**
  *	Router mapping - setting up the views and components
  */
 Router.map(function() {

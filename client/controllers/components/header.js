@@ -15,6 +15,15 @@ Template.components_header.created = function() {
  */
 Template.components_header.rendered = function() {
 	
+	/**
+	 *	Set up so that when the user scrolls with the 
+	 *	mobile nav showing - we hide the nav automtically.
+	 */
+	Tracker.autorun(function() {
+		Dependencies.scrolled.depend();
+		TemplateHelpers.hideNavMenu();
+	});
+
 };
 
 /**
@@ -68,7 +77,7 @@ Template.components_header.helpers({
  */
 Template.components_header.events = {
 
-	'click button': function(e, template) {
+	'touchstart button': function(e, template) {
 		template.$('button').toggleClass('revealed');
 		$('.top').toggleClass('revealed');
 	}
