@@ -1,42 +1,71 @@
 <template name="components_header">
-	<header>
+	{{#if navigationType.showClickNav}}
+		{{>components_click_header}}
+	{{else}}
+		{{>components_touch_header}}
+	{{/if}}
+</template>
+
+<template name="components_click_header">
+	<header class="click">
 		<div class="title">
-			{{#if deviceClass.isMobile}}
-				<h1>
-					Matt Finucane iOS Developer
-				</h1>
-			{{else}}
-				<h1>
-					Matt Finucane 
-				</h1>
-				<h2>
-					MeteorJS and iOS Developer
-				</h2>
-			{{/if}}
+			<h1>
+				Matt Finucane 
+			</h1>
+			<h2>
+				MeteorJS and iOS Developer
+			</h2>
 		</div>
-		{{#if showGithubTimeline}}
-			{{> components_github}}
-		{{/if}}
-		{{#if deviceClass.isDesktop}}
-			<nav>
-				<ol>
-					<li>
-						<a href="{{pathFor 'portfolio'}}" title="Work">
-							Portfolio
-						</a>
-					</li>
-					<li>
-						<a href="{{pathFor 'experience'}}" title="CV">
-							Experience
-						</a>
-					</li>
-					<li>
-						<a href="{{pathFor 'about'}}" title="About">
-							About
-						</a>
-					</li>
-				</ol>
-			</nav>
-		{{/if}}
+		{{>components_github}}
+		{{>components_nav}}
 	</header>
+</template>
+
+<template name="components_touch_header">
+	<header class="touch">
+		<div class="title">
+			<h1>
+				Matt Finucane
+			</h1> 
+			<h2>
+				iOS Developer
+			</h2>
+		</div>
+		<button>
+			<svg 	xmlns="http://www.w3.org/2000/svg"
+					xmlns:xlink="http://www.w3.org/1999/xlink"
+					version="1.1"
+					viewbox="0 0 48 32">
+				<g>
+					<rect width="48" height="5" />
+					<rect y="14" width="48" height="5" />
+					<rect y="27" width="48" height="5" />
+				</g>
+			</svg>
+
+		</button>
+		{{>components_nav}}
+	</header>
+</template>
+
+<template name="components_nav">
+	<nav>
+		<ol>
+			<li>
+				<a href="{{pathFor 'portfolio'}}" title="Work">
+					Portfolio
+				</a>
+			</li>
+			<li>
+				<a href="{{pathFor 'experience'}}" title="CV">
+					Experience
+				</a>
+			</li>
+			<li>
+				<a href="{{pathFor 'about'}}" title="About">
+					About
+				</a>
+			</li>
+		</ol>
+	</nav>
 </template>

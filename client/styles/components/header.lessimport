@@ -1,5 +1,43 @@
 header {
-	.display(flex);
+	&.click {
+		.display(flex);
+		padding: (@gridSpacing * 2) 0;
+	}
+
+	&.touch {
+		.display(flex);
+		padding: @gridSpacing / 2 @gridSpacing;
+	}
+}
+
+header.touch {
+
+	.title {
+		.flex(3);
+
+		h1, h2 {
+			font-size: @mediumFontSize;
+			line-height: @mediumFontSize;
+			color: @turquoise;
+		}
+	}
+
+	button {
+		.flex(1);
+		svg {
+			float: right;
+			width: 48px;
+			height: 32px;
+
+			rect {
+				fill: @turquoise;
+			}
+		}
+	}
+}
+
+header.click {
+	
 	padding: (@gridSpacing * 2) + 2 0;
 
 	.title {
@@ -73,5 +111,4 @@ header {
 			}
 		}
 	}
-
 }
