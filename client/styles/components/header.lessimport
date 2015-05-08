@@ -31,6 +31,37 @@ header.touch {
 
 			rect {
 				fill: @turquoise;
+				.transform-origin(initial);
+				.transform(
+					translate3d(0, 0, 0)
+					rotate3d(0, 0, 1, 0deg)
+				);
+				.animateWithProperties(transform);
+			}
+		}
+
+		&.revealed {
+			svg {
+				rect {
+					&:nth-child(1) {
+						.transform(
+							translate3d(0, @gridSpacing - 2, 0)
+							rotate3d(0, 0, 1, 45deg)
+						);
+					}
+					&:nth-child(2) {
+						.transform(
+							translate3d(0, 0, 0)
+							rotate3d(0, 0, 1, 45deg)
+						);
+					}
+					&:nth-child(3) {
+						.transform(
+							translate3d(0, 0 - @gridSpacing + 2, 0)
+							rotate3d(0, 0, 1, -45deg)
+						);
+					}
+				}
 			}
 		}
 	}
