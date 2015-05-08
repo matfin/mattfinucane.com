@@ -1,7 +1,6 @@
 .wrapper.portfolio,
 .wrapper.content {
 
-	display: inline-block;
 	border-top: 4px solid @grey;
 	background-color: @white;
 	margin-bottom: @gridSpacing * 2.5;
@@ -10,8 +9,18 @@
 	.transition-property(margin);
 	.transition-duration(@transitionDuration);
 
+	&:last-child {
+		@media @tablet {
+			margin-bottom: 0;
+		}
+
+		@media @mobile {
+			margin-bottom: 0;
+		}
+	}
+
 	&:nth-child(even) {
-		
+
 		@media @laptop {
 			margin-left: @wrapperPadding;
 			padding-right: @wrapperPadding;
@@ -28,10 +37,23 @@
 			.portfolioContent,
 			.staticContent,
 			.portfolioLinks {
-
 				.flex-direction(row);
+
+				@media @mobile {
+					.flex-direction(column-reverse);
+				}
+				@media @tablet {
+					.flex-direction(column-reverse);
+				}
+
 				a:last-child {
 					text-align: right;
+					@media @mobile {
+						text-align: center;
+					}
+					@media @tablet {
+						text-align: center;
+					}
 				}
 			}
 		}
@@ -56,8 +78,22 @@
 			.staticContent,
 			.portfolioLinks {
 				.flex-direction(row-reverse);
+
+				@media @mobile {
+					.flex-direction(column-reverse);
+				}
+				@media @tablet {
+					.flex-direction(column-reverse);
+				}
+
 				a:last-child {
 					text-align: left;
+					@media @mobile {
+						text-align: center;
+					}
+					@media @tablet {
+						text-align: center;
+					}
 				}
 			}
 		}		

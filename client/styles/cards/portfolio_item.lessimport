@@ -1,3 +1,4 @@
+
 section.portfolioItem {
 	
 	max-width: @maxWidth;
@@ -34,6 +35,14 @@ section.portfolioItem {
 			p {
 				font-size: @baseFontSize;
 				line-height: @baseFontSize + 3;
+
+				@media @tablet {
+					padding: 0 @gridSpacing * 2;
+				}
+
+				@media @mobile {
+					padding: 0 @gridSpacing;
+				}
 			}
 
 			ol {
@@ -101,4 +110,5 @@ section.portfolioItem {
 			}
 		}
 	}
+
 }
