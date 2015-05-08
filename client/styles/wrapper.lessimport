@@ -9,6 +9,14 @@
 	.transition-property(margin);
 	.transition-duration(@transitionDuration);
 
+	@media @tablet {
+		margin-bottom: 0;
+	}
+
+	@media @mobile {
+		margin-bottom: 0;
+	}
+
 	&:last-child {
 		@media @tablet {
 			margin-bottom: 0;

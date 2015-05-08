@@ -1,18 +1,29 @@
 div.wrapper.top {
 	@media @tablet {
+		z-index: 2;
+		position: fixed;
+		top: 0;
 		max-height: @gridSpacing * 4;
+		width: 100%;
 		overflow: hidden;
+		border-bottom: @gridSpacing / 4 solid @grey;
+		.backgroundGradient;
 	}
 	@media @mobile {
+		z-index: 2;
+		position: fixed;
+		top: 0;
 		max-height: @gridSpacing * 4;
+		width: 100%;
 		overflow: hidden;
+		border-bottom: @gridSpacing / 4 solid @grey;
+		.backgroundGradient;
 	}
 
 	.animateWithProperties(max-height);
 
 	&.revealed {
 		max-height: 200px;
-		color: red;
 	}
 }
 
@@ -168,8 +179,10 @@ nav.touch {
 				font-size: @mediumFontSize;
 				font-weight: 600;
 				color: @turquoise;
-				text-align: center;
+				text-align: left;
 				margin: @gridSpacing / 2 0;
+				padding-left: @gridSpacing;
+				.box-sizing(border-box);
 			}
 		}
 	}
