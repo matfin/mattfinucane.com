@@ -21,14 +21,14 @@
 
 	&:nth-child(even) {
 
-		@media @laptop {
-			margin-left: @wrapperPadding;
-			padding-right: @wrapperPadding;
-		}
 		@media @desktop {
 			margin-left: 10%;
 			padding-right: 10%;
 			width: 90%;
+		}
+		@media @laptop {
+			margin-left: @wrapperPadding;
+			padding-right: @wrapperPadding;
 		}
 
 		section.portfolioItem,
@@ -61,14 +61,14 @@
 
 	&:nth-child(odd) {
 
-		@media @laptop {
-			margin-right: @wrapperPadding;
-			padding-left: @wrapperPadding;
-		}
 		@media @desktop {
 			margin-right: 10%;
 			padding-left: 10%;
 			width: 90%;
+		}
+		@media @laptop {
+			margin-right: @wrapperPadding;
+			padding-left: @wrapperPadding;
 		}
 
 		section.portfolioItem,
