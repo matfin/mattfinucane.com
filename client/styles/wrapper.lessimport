@@ -1,7 +1,6 @@
 .wrapper.portfolio,
 .wrapper.content {
 
-	display: inline-block;
 	border-top: 4px solid @grey;
 	background-color: @white;
 	margin-bottom: @gridSpacing * 2.5;
@@ -10,16 +9,26 @@
 	.transition-property(margin);
 	.transition-duration(@transitionDuration);
 
-	&:nth-child(even) {
-		
-		@media @laptop {
-			margin-left: @wrapperPadding;
-			padding-right: @wrapperPadding;
+	&:last-child {
+		@media @tablet {
+			margin-bottom: 0;
 		}
+
+		@media @mobile {
+			margin-bottom: 0;
+		}
+	}
+
+	&:nth-child(even) {
+
 		@media @desktop {
 			margin-left: 10%;
 			padding-right: 10%;
 			width: 90%;
+		}
+		@media @laptop {
+			margin-left: @wrapperPadding;
+			padding-right: @wrapperPadding;
 		}
 
 		section.portfolioItem,
@@ -28,10 +37,23 @@
 			.portfolioContent,
 			.staticContent,
 			.portfolioLinks {
-
 				.flex-direction(row);
+
+				@media @mobile {
+					.flex-direction(column-reverse);
+				}
+				@media @tablet {
+					.flex-direction(column-reverse);
+				}
+
 				a:last-child {
 					text-align: right;
+					@media @mobile {
+						text-align: center;
+					}
+					@media @tablet {
+						text-align: center;
+					}
 				}
 			}
 		}
@@ -39,14 +61,14 @@
 
 	&:nth-child(odd) {
 
-		@media @laptop {
-			margin-right: @wrapperPadding;
-			padding-left: @wrapperPadding;
-		}
 		@media @desktop {
 			margin-right: 10%;
 			padding-left: 10%;
 			width: 90%;
+		}
+		@media @laptop {
+			margin-right: @wrapperPadding;
+			padding-left: @wrapperPadding;
 		}
 
 		section.portfolioItem,
@@ -56,6 +78,23 @@
 			.staticContent,
 			.portfolioLinks {
 				.flex-direction(row-reverse);
+
+				@media @mobile {
+					.flex-direction(column-reverse);
+				}
+				@media @tablet {
+					.flex-direction(column-reverse);
+				}
+
+				a:last-child {
+					text-align: left;
+					@media @mobile {
+						text-align: center;
+					}
+					@media @tablet {
+						text-align: center;
+					}
+				}
 			}
 		}		
 	}

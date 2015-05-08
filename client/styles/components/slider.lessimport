@@ -19,6 +19,11 @@
 	}
 }
 
+.imageSlider {
+	.display(flex);
+	.align-items(center);
+}
+
 .cv,
 .imageSlider {
 	
@@ -28,6 +33,7 @@
 		.resetButton;
 		z-index: 1;
 		position: absolute;
+		top: 0;
 		width: @gridSpacing * 4;
 		font-size: @gridSpacing * 3;
 		height: 100%;

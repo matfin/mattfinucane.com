@@ -34,6 +34,14 @@ section.portfolioItem {
 			p {
 				font-size: @baseFontSize;
 				line-height: @baseFontSize + 3;
+
+				@media @tablet {
+					padding: 0 @gridSpacing * 2;
+				}
+
+				@media @mobile {
+					padding: 0 @gridSpacing;
+				}
 			}
 
 			ol {
@@ -79,7 +87,7 @@ section.portfolioItem {
 
 	.portfolioLinks {
 		.display(flex);
-		margin-bottom: @gridSpacing * 2;
+		padding-bottom: @gridSpacing;
 		a {
 			color: @turquoise;
 			font-size: @mediumFontSize - 1;
@@ -101,4 +109,5 @@ section.portfolioItem {
 			}
 		}
 	}
+
 }
