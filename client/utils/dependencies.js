@@ -35,7 +35,7 @@ Dependencies = {
 		 */
 		window.addEventListener('scroll', _.throttle(function() {
 			self.scrolled.changed();
-		}, 250));
+		}, 500));
 
 		/**
 		 *	Call changed on the resized dependency when the viewport scrolls

@@ -9,6 +9,13 @@ body {
 .container {
 	width: 100%;
 	height: 100%;
+
+	@media @tablet {
+		padding-top: (@gridSpacing * 4) - 4;
+	}
+	@media @mobile {
+		padding-top: (@gridSpacing * 4) - 4;
+	}
 }
 
 .wrapper {
@@ -16,7 +23,8 @@ body {
 	display: block;
 	.animateWithProperties(margin);
 
-	&.center {
+	&.center,
+	&.top {
 		max-width: @maxWidth;
 
 		@media @laptop {
@@ -24,7 +32,6 @@ body {
 		}
 		@media @desktop {
 			margin: 0 10%;
-			//margin: 0 auto;
 		}
 	}
 }

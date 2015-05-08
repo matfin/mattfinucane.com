@@ -15,6 +15,15 @@ Template.components_header.created = function() {
  */
 Template.components_header.rendered = function() {
 	
+	/**
+	 *	Set up so that when the user scrolls with the 
+	 *	mobile nav showing - we hide the nav automtically.
+	 */
+	Tracker.autorun(function() {
+		Dependencies.scrolled.depend();
+		TemplateHelpers.hideNavMenu();
+	});
+
 };
 
 /**
@@ -33,6 +42,9 @@ Template.components_header.destroyed = function() {
  */
 Template.components_header.helpers({
 
+	/**
+	 *	Restrict the display of the github timelime to specific device classes
+	 */
 	showGithubTimeline: function() {
 		/**
 		 *	This is a reactive function
@@ -40,6 +52,34 @@ Template.components_header.helpers({
 		Dependencies.resized.depend();
 		var deviceClass = Helpers.deviceClass();
 		return deviceClass.isDesktop || deviceClass.isLaptop;
+	},
+
+	/**
+	 *	Control the display of navigation by device
+	 */
+	navigationType: function() {
+		/**
+		 *	This is a reactive function
+		 */
+		Dependencies.resized.depend();
+		var deviceClass = Helpers.deviceClass();
+		return {
+			showClickNav: deviceClass.isDesktop || deviceClass.isLaptop,
+			showTouchNav: deviceClass.isTablet || deviceClass.isMobile
+		};
 	}
 
 });
+
+/**
+ *	Template - components_header
+ *	Events
+ */
+Template.components_header.events = {
+
+	'touchstart button': function(e, template) {
+		template.$('button').toggleClass('revealed');
+		$('.top').toggleClass('revealed');
+	}
+
+};
