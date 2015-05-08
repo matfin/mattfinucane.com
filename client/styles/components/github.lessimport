@@ -6,6 +6,7 @@
 	
 	.days {
 		.display(flex);
+		.flex-direction(row);
 
 		.day {
 			position: relative;
@@ -31,7 +32,6 @@
 			}
 
 			svg {
-				.flex(1);
 				rect {
 					fill: transparent;
 					cursor: pointer;

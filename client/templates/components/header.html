@@ -1,34 +1,42 @@
 <template name="components_header">
 	<header>
 		<div class="title">
-			<h1>
-				Matt Finucane 
-			</h1>
-			<h2>
-				MeteorJS and iOS Developer
-			</h2>
+			{{#if deviceClass.isMobile}}
+				<h1>
+					Matt Finucane iOS Developer
+				</h1>
+			{{else}}
+				<h1>
+					Matt Finucane 
+				</h1>
+				<h2>
+					MeteorJS and iOS Developer
+				</h2>
+			{{/if}}
 		</div>
 		{{#if showGithubTimeline}}
 			{{> components_github}}
 		{{/if}}
-		<nav>
-			<ol>
-				<li>
-					<a href="{{pathFor 'portfolio'}}" title="Work">
-						Portfolio
-					</a>
-				</li>
-				<li>
-					<a href="{{pathFor 'experience'}}" title="CV">
-						Experience
-					</a>
-				</li>
-				<li>
-					<a href="{{pathFor 'about'}}" title="About">
-						About
-					</a>
-				</li>
-			</ol>
-		</nav>
+		{{#if deviceClass.isDesktop}}
+			<nav>
+				<ol>
+					<li>
+						<a href="{{pathFor 'portfolio'}}" title="Work">
+							Portfolio
+						</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'experience'}}" title="CV">
+							Experience
+						</a>
+					</li>
+					<li>
+						<a href="{{pathFor 'about'}}" title="About">
+							About
+						</a>
+					</li>
+				</ol>
+			</nav>
+		{{/if}}
 	</header>
 </template>

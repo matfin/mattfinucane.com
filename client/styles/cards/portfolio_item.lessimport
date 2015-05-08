@@ -1,7 +1,6 @@
 section.portfolioItem {
 	
 	max-width: @maxWidth;
-	display: inline-block;
 
 	.portfolioContent {
 		.display(flex);
@@ -88,7 +87,7 @@ section.portfolioItem {
 
 	.portfolioLinks {
 		.display(flex);
-		margin-bottom: @gridSpacing;
+		padding-bottom: @gridSpacing;
 		a {
 			color: @turquoise;
 			font-size: @mediumFontSize - 1;
