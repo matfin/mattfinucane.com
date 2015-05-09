@@ -4,7 +4,9 @@
 		</button>
 		<button class="paddle arrow-right" data-direction="next">
 		</button>
-		{{>components_timeline timelineData}}
+		{{#if showTimeline}}
+			{{>components_timeline timelineData}}
+		{{/if}}
 		<div class="sliderContainer">
 			<div class="slider">
 				{{#if Template.subscriptionsReady}}

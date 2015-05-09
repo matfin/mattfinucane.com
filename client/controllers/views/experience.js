@@ -32,6 +32,11 @@ Template.views_experience.rendered = function() {
 		}
 	});
 
+	/**
+	 *	Grab the number of slides and multiply the total by 50 to get a percentage. 
+	 *	This matches up to setting two slides side by side, giving them each a total
+	 *	width of 50%.
+	 */
 	this.resizeEvent = Tracker.autorun(function() {
 
 		Dependencies.resized.depend();
@@ -93,15 +98,16 @@ Template.views_experience.helpers({
 	},
 
 	/**
-	 *	Grab the number of slides and multiply the total by 50 to get a percentage. 
-	 *	This matches up to setting two slides side by side, giving them each a total
-	 *	width of 50%.
+	 *	Show or hide the timelime depending on screen size
 	 */
-	sliderWidth: function() {
-
-
+	showTimeline: function() {
+		/**
+		 *	Make this reactive
+		 */
+		Dependencies.resized.depend();
+		var deviceClass = Helpers.deviceClass();
+		return deviceClass.isDesktop || deviceClass.isLaptop;
 	}
-
 });
 
 /** 
@@ -111,9 +117,12 @@ Template.views_experience.helpers({
 Template.views_experience.events = {
 
 	'slidecomplete .sliderContainer': function(e, template) {
-		var currentSlide = e.originalEvent.data.currentSlide;
-		$('button', '.timeline').removeClass('highlighted');
-		$('button', '.timeline').get(currentSlide).className = 'year highlighted';
+
+		if($('button', '.timeline').length > 0) {
+			var currentSlide = e.originalEvent.data.currentSlide;
+			$('button', '.timeline').removeClass('highlighted');
+			$('button', '.timeline').get(currentSlide).className = 'year highlighted';
+		}
 
 		if(template.slider.currentSlide === 0) {
 			template.$('.arrow-left').addClass('hidden');
