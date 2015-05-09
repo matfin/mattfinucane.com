@@ -31,6 +31,19 @@ Template.views_experience.rendered = function() {
 			self.slider.goToSlide(slide);
 		}
 	});
+
+	this.resizeEvent = Tracker.autorun(function() {
+
+		Dependencies.resized.depend();
+
+		var numberOfSlides  = TemplateHelpers.numberOfItemsInSlide(),
+			numberOfJobs 	= App.collections.cf_entries.find({contentTypeName: 'job'}).count(),
+			sliderWidth 	= Math.round(numberOfJobs / numberOfSlides) * 100;
+
+		self.$('.slider').css({
+			width: sliderWidth + '%'
+		});
+	});
 };
 
 /**
@@ -54,10 +67,12 @@ Template.views_experience.helpers({
 	 *	we want two jobs per slide, so we will group them into items of two.
 	 */
 	groupedJobs: function() {
-		var jobs = App.collections.cf_entries.find({contentTypeName: 'job'}, {sort: {'fields.startDate': -1}}).fetch(),
+
+		var self = this,
+			jobs = App.collections.cf_entries.find({contentTypeName: 'job'}, {sort: {'fields.startDate': -1}}).fetch(),
 			asGrouped = function() {
 				var grouped = [],
-					size = 2;
+					size = TemplateHelpers.numberOfItemsInSlide();
 				while(jobs.length > 0) {
 					grouped.push(jobs.splice(0, size));
 				}
@@ -70,8 +85,9 @@ Template.views_experience.helpers({
 	 *	Number of concurrent jobs showing - used for the timeline
 	 */
 	timelineData: function() {
+		var self = this;
 		return {
-			concurrentJobs: 2,
+			concurrentJobs: TemplateHelpers.numberOfItemsInSlide(),
 			jobs: App.collections.cf_entries.find({contentTypeName: 'job'}, {sort: {'fields.startDate': -1}}).fetch()
 		};
 	},
@@ -82,7 +98,8 @@ Template.views_experience.helpers({
 	 *	width of 50%.
 	 */
 	sliderWidth: function() {
-		return Math.round(App.collections.cf_entries.find({contentTypeName: 'job'}).count() / 2) * 100;
+
+
 	}
 
 });
