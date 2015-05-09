@@ -51,10 +51,20 @@ header.touch {
 	}
 
 	button {
+
+		.display(flex);
+		.flex-direction(column);
+
+		span {
+			text-transform: uppercase;
+			font-size: @baseFontSize;
+			color: @turquoise;
+			margin-top: 4px;
+		}
+
 		svg {
-			float: right;
 			width: 48px;
-			height: 32px;
+			height: 24px;
 
 			rect {
 				fill: @turquoise;
@@ -72,7 +82,7 @@ header.touch {
 				rect {
 					&:nth-child(1) {
 						.transform(
-							translate3d(0, @gridSpacing - 2, 0)
+							translate3d(0, @gridSpacing - 5, 0)
 							rotate3d(0, 0, 1, 45deg)
 						);
 					}
@@ -84,7 +94,7 @@ header.touch {
 					}
 					&:nth-child(3) {
 						.transform(
-							translate3d(0, 0 - @gridSpacing + 2, 0)
+							translate3d(0, 0 - @gridSpacing + 5, 0)
 							rotate3d(0, 0, 1, -45deg)
 						);
 					}
