@@ -11,9 +11,22 @@
 		margin-right: @gridSpacing * 4;
 	}
 
+	@media @mobile {
+		&:first-child,
+		&:last-child {
+			margin-left: @gridSpacing * 1.5;
+			margin-right: @gridSpacing * 1.5;
+		}
+	}
+
 	h1, h2 {
 		font-size: @mediumFontSize - 1;
 		text-align: center;
+
+		@media @mobile {
+			width: 75%;
+			margin: 0 auto;
+		}
 	}
 
 	.dates {

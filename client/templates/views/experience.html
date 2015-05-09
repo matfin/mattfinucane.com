@@ -4,9 +4,11 @@
 		</button>
 		<button class="paddle arrow-right" data-direction="next">
 		</button>
-		{{>components_timeline timelineData}}
+		{{#if showTimeline}}
+			{{>components_timeline timelineData}}
+		{{/if}}
 		<div class="sliderContainer">
-			<div class="slider" style="width: {{sliderWidth}}%">
+			<div class="slider">
 				{{#if Template.subscriptionsReady}}
 					{{#each groupedJobs}}
 						<div class="slide">

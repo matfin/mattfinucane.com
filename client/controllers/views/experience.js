@@ -15,8 +15,10 @@ Template.views_experience.created = function() {
  *	@method rendered
  */
 Template.views_experience.rendered = function() {
-	var sliderContainer = document.getElementsByClassName('sliderContainer').item(),
+
+	var sliderContainer = document.getElementsByClassName('sliderContainer').item(0),
 		self = this;
+
 	this.slider = Slider.setup(sliderContainer);
 
 
@@ -30,6 +32,24 @@ Template.views_experience.rendered = function() {
 		if(slide !== undefined) {
 			self.slider.goToSlide(slide);
 		}
+	});
+
+	/**
+	 *	Grab the number of slides and multiply the total by 50 to get a percentage. 
+	 *	This matches up to setting two slides side by side, giving them each a total
+	 *	width of 50%.
+	 */
+	this.resizeEvent = Tracker.autorun(function() {
+
+		Dependencies.resized.depend();
+
+		var numberOfSlides  = TemplateHelpers.numberOfItemsInSlide(),
+			numberOfJobs 	= App.collections.cf_entries.find({contentTypeName: 'job'}).count(),
+			sliderWidth 	= Math.round(numberOfJobs / numberOfSlides) * 100;
+
+		self.$('.slider').css({
+			width: sliderWidth + '%'
+		});
 	});
 };
 
@@ -54,10 +74,12 @@ Template.views_experience.helpers({
 	 *	we want two jobs per slide, so we will group them into items of two.
 	 */
 	groupedJobs: function() {
-		var jobs = App.collections.cf_entries.find({contentTypeName: 'job'}, {sort: {'fields.startDate': -1}}).fetch(),
+
+		var self = this,
+			jobs = App.collections.cf_entries.find({contentTypeName: 'job'}, {sort: {'fields.startDate': -1}}).fetch(),
 			asGrouped = function() {
 				var grouped = [],
-					size = 2;
+					size = TemplateHelpers.numberOfItemsInSlide();
 				while(jobs.length > 0) {
 					grouped.push(jobs.splice(0, size));
 				}
@@ -70,21 +92,24 @@ Template.views_experience.helpers({
 	 *	Number of concurrent jobs showing - used for the timeline
 	 */
 	timelineData: function() {
+		var self = this;
 		return {
-			concurrentJobs: 2,
+			concurrentJobs: TemplateHelpers.numberOfItemsInSlide(),
 			jobs: App.collections.cf_entries.find({contentTypeName: 'job'}, {sort: {'fields.startDate': -1}}).fetch()
 		};
 	},
 
 	/**
-	 *	Grab the number of slides and multiply the total by 50 to get a percentage. 
-	 *	This matches up to setting two slides side by side, giving them each a total
-	 *	width of 50%.
+	 *	Show or hide the timelime depending on screen size
 	 */
-	sliderWidth: function() {
-		return Math.round(App.collections.cf_entries.find({contentTypeName: 'job'}).count() / 2) * 100;
+	showTimeline: function() {
+		/**
+		 *	Make this reactive
+		 */
+		Dependencies.resized.depend();
+		var deviceClass = Helpers.deviceClass();
+		return deviceClass.isDesktop || deviceClass.isLaptop;
 	}
-
 });
 
 /** 
@@ -94,9 +119,12 @@ Template.views_experience.helpers({
 Template.views_experience.events = {
 
 	'slidecomplete .sliderContainer': function(e, template) {
-		var currentSlide = e.originalEvent.data.currentSlide;
-		$('button', '.timeline').removeClass('highlighted');
-		$('button', '.timeline').get(currentSlide).className = 'year highlighted';
+
+		if($('button', '.timeline').length > 0) {
+			var currentSlide = e.originalEvent.data.currentSlide;
+			$('button', '.timeline').removeClass('highlighted');
+			$('button', '.timeline').get(currentSlide).className = 'year highlighted';
+		}
 
 		if(template.slider.currentSlide === 0) {
 			template.$('.arrow-left').addClass('hidden');
