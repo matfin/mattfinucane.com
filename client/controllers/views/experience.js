@@ -15,8 +15,10 @@ Template.views_experience.created = function() {
  *	@method rendered
  */
 Template.views_experience.rendered = function() {
-	var sliderContainer = document.getElementsByClassName('sliderContainer').item(),
+
+	var sliderContainer = document.getElementsByClassName('sliderContainer').item(0),
 		self = this;
+
 	this.slider = Slider.setup(sliderContainer);
 
 
