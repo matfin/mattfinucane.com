@@ -46,6 +46,16 @@
 		ul {
 			font-size: @gridSpacing;
 			line-height: @gridSpacing + 3;
+
+			@media @mobile {
+				list-style: disc;
+				padding-left: @gridSpacing;
+			}
+			@media @tablet {
+				list-style: disc;
+				padding-left: @gridSpacing;
+			}
+
 			li {
 				margin: @gridSpacing / 2 0;
 			}

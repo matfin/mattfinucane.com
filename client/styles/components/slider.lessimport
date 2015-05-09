@@ -87,3 +87,11 @@
 	}			
 }
 
+@media @tablet {
+	.cv {
+		> button {
+			height: @gridSpacing * 10;
+		}
+	}			
+}
+
