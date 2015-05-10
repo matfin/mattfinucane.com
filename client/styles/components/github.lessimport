@@ -2,17 +2,20 @@
 	position: relative;
 	overflow: hidden;
 	.box-sizing(border-box);
-	border: 1px solid @grey;	
+	border: 1px solid @grey;
+	.display(flex);	
 	
 	.days {
 		.display(flex);
+		.flex(1);
 		.flex-direction(row);
 
 		.day {
 			position: relative;
 			.flex(1);
 			.display(flex);
-			.flex-direction(column);
+			.flex-direction(row);
+			.align-items(flex-end);
 			background-color: transparent;
 			color: black;
 			border-right: 1px solid @grey;
@@ -23,27 +26,21 @@
 				border-right: none;
 			}
 
+			.commits {
+				.flex(1);
+				margin-right: 1px;
+				.indicator {
+					background-color: @turquoise;
+					.opacity(0.3);
+				}
+			}
+
 			time {
 				position: absolute;
-				bottom: @gridSpacing / 4;
+				top: @gridSpacing / 8;
 				left: @gridSpacing / 4;
 				color: @grey;
 				font-size: @baseFontSize;
-			}
-
-			svg {
-				rect {
-					fill: transparent;
-					cursor: pointer;
-				}
-				circle {
-					fill: @turquoise;
-				}
-				polyline {
-					stroke: @turquoise;
-					fill: none;
-					stroke-width: 2px;
-				}
 			}
 		}
 	}

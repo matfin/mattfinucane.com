@@ -47,7 +47,7 @@ Template.views_experience.rendered = function() {
 			numberOfJobs 	= App.collections.cf_entries.find({contentTypeName: 'job'}).count(),
 			sliderWidth 	= Math.round(numberOfJobs / numberOfSlides) * 100;
 
-		self.$('.slider').css({
+		$('.slider').css({
 			width: sliderWidth + '%'
 		});
 	});

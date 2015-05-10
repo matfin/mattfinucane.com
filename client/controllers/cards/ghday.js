@@ -47,11 +47,10 @@ Template.cards_ghday.helpers({
 		/**
 		 *	Create the points that will represent the dots on the SVG chart
 		 */
-		for(var i = 0; i < 5; i++){
+		for(var i = 0; i < 4; i++){
 
 			points.push({
-				x: i * 25,
-				y: 60,
+				y: 20,
 				commits: []
 			});
 		}
@@ -64,8 +63,11 @@ Template.cards_ghday.helpers({
 			var hour 	= new Date(commit.created_at_ts).getHours(),
 				division = Helpers.inDivision(hour, 24, points.length - 1);
 
+			if(points[division].y < 50) {
+				points[division].y += 5;
+			}
+			
 			points[division].commits.push(commit);
-			points[division].y -= 3;
 		});
 
 		return {
