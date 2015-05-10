@@ -50,7 +50,7 @@ Template.cards_ghday.helpers({
 		for(var i = 0; i < 4; i++){
 
 			points.push({
-				y: 20,
+				y: 10,
 				commits: []
 			});
 		}
@@ -71,10 +71,7 @@ Template.cards_ghday.helpers({
 		});
 
 		return {
-			asCollection: points,
-			asString: _.map(points, function(point) {
-				return point.x + ',' + point.y + ' ';
-			})
+			asCollection: points
 		};
 	}
 });

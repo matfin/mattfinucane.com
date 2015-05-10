@@ -32,6 +32,11 @@
 				.indicator {
 					background-color: @turquoise;
 					.opacity(0.3);
+					.animateWithProperties(height opacity);
+
+					&:hover {
+						.opacity(1.0);
+					}
 				}
 			}
 
