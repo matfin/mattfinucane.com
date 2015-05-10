@@ -1,17 +1,14 @@
 <template name="cards_ghday">
 	<div class="day">
 		{{#if Template.subscriptionsReady}}
-			<svg xmlns="http://www.w3.org/2000/svg"
-				 preserveAspectRatio="xMinYMin meet"
-				 viewbox="0 0 100 75">
-				<g>
-					{{#each points.asCollection}}
-					 	<circle cx="{{this.x}}" cy="{{this.y}}" r="3" />
-					{{/each}}
-		 
-					<polyline points="{{points.asString}}" />
-				</g>
-			</svg>
+
+			{{#each points.asCollection}}
+				<div class="commits">
+					<div class="indicator" style="height: {{this.y}}px;">
+					</div>
+				</div>
+			{{/each}}
+
 			<time datetime="{{this.end}}">
 				{{formattedDate this.end "dd"}} {{formattedDate this.end "DD/MM"}}
 			</time>
