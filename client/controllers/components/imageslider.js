@@ -15,6 +15,11 @@ Template.components_imageslider.created = function() {
  *	@method rendered
  */
 Template.components_imageslider.rendered = function() {
+
+	if(this.$('.item', '.sliderIndicator').length > 0) {
+		this.$('.item', '.sliderIndicator').get(0).className = 'item highlighted';
+	}
+	
 	var sliderContainer = this.$('.sliderContainer').get(0);
 	this.slider = Slider.setup(sliderContainer);
 };
@@ -40,6 +45,27 @@ Template.components_imageslider.helpers({
 	 */
 	sliderWidth: function() {
 		return this.length * 100;
+	},
+
+	/**
+	 *	Show slider paddles for desktop and laptop 
+	 */
+	showPaddles: function() {
+		/**
+		 *	Making this function reactive
+		 */
+		Dependencies.resized.depend();
+		var deviceClass = Helpers.deviceClass();
+		return deviceClass.isDesktop || deviceClass.isLaptop;
+	},
+
+	showIndicator: function() {
+		/**
+		 *	Making this function reactive
+		 */
+		Dependencies.resized.depend();
+		var deviceClass = Helpers.deviceClass();
+		return deviceClass.isTablet || deviceClass.isMobile;
 	}
 
 });
@@ -51,8 +77,15 @@ Template.components_imageslider.helpers({
 Template.components_imageslider.events = {
 
 	'slidecomplete .sliderContainer': function(e, template) {
-		var currentSlide = e.originalEvent.data.currentSlide;
 		
+		var currentSlide = e.originalEvent.data.currentSlide;
+
+		if(template.$('.item', '.sliderIndicator').length > 0) {
+			var currentSlide = e.originalEvent.data.currentSlide;
+			template.$('.item', '.sliderIndicator').removeClass('highlighted');
+			template.$('.item', '.sliderIndicator').get(currentSlide).className = 'item highlighted';
+		}
+
 		if(template.slider.currentSlide === 0) {
 			template.$('.arrow-left').addClass('hidden');
 		}
@@ -70,5 +103,5 @@ Template.components_imageslider.events = {
 	'click .paddle': function(e, template) {
 		var direction = $(e.currentTarget).data('direction');	
 		template.slider.go(direction);
-	}
+	},
 };

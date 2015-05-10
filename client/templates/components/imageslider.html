@@ -1,8 +1,10 @@
 <template name="components_imageslider">
-	<button class="paddle hidden arrow-left" data-direction="previous">
-	</button>
-	<button class="paddle arrow-right" data-direction="next">
-	</button>
+	{{#if showPaddles}}
+		<button class="paddle hidden arrow-left" data-direction="previous">
+		</button>
+		<button class="paddle arrow-right" data-direction="next">
+		</button>
+	{{/if}}
 	<div class="sliderContainer">
 		<div class="slider" style="width: {{sliderWidth}}%;">
 			{{#each this}}
@@ -11,5 +13,13 @@
 				</div>
 			{{/each}}
 		</div>
+		{{#if showIndicator}}
+			<div class="sliderIndicator">
+				{{#each this}}
+					<div class="item">
+					</div>
+				{{/each}}
+			</div>
+		{{/if}}
 	</div>
 </template>

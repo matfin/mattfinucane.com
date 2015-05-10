@@ -79,6 +79,37 @@
 	}
 }
 
+.sliderIndicator {
+
+	@colorEven: #a6ebeb;
+	@colorOdd: #7edcd9;
+	@colorHighlighted: #20bfba;
+
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	.display(flex);
+
+	.item {
+		.flex(1);
+		height: @gridSpacing / 2;
+		.animateWithProperties(background-color);
+
+		&:nth-child(odd) {
+			background-color: @colorOdd;
+		}
+
+		&:nth-child(even) {
+			background-color: @colorEven;
+		}
+
+		&.highlighted {
+			background-color: @colorHighlighted;
+		}
+	}
+}
+
 @media @mobile {
 	.cv {
 		> button {

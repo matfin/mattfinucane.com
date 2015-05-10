@@ -1,7 +1,7 @@
 <template name="cards_image">
 	{{#if Template.subscriptionsReady}}
 		{{#each imageAssets}}
-			<img src="{{this.url}}" width="{{this.size.dimension.width}}" height="{{this.size.dimension.height}}" alt="{{../fields.title}}" />
+			<img src="{{this.url}}" width="{{this.size.width}}" height="{{this.size.height}}" alt="{{../fields.title}}" />
 		{{/each}}
 	{{/if}}
 </template>
