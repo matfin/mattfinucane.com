@@ -49,7 +49,7 @@
 		text-align: center;
 		cursor: pointer;
 		.opacity(0.4);
-		.animateWithProperties(opacity);
+		.animateWithProperties(opacity color);
 
 		&.arrow-left {
 			left: 0;
@@ -78,6 +78,7 @@
 
 	&:hover {
 		> button {
+			color: @darkGreen;
 			.opacity(1.0);
 
 			&.hidden {
@@ -123,6 +124,7 @@
 		> button {
 			height: @gridSpacing * 10;
 		}
+		padding-top: @gridSpacing;
 	}			
 }
 
@@ -131,6 +133,7 @@
 		> button {
 			height: @gridSpacing * 10;
 		}
+		padding-top: @gridSpacing;
 	}			
 }
 

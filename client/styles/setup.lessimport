@@ -4,6 +4,7 @@ body {
 	height: 100%;
 	.backgroundGradient;
 	font-family: @fontFamily;
+	color: @darkGrey;
 }
 
 .container {
@@ -53,8 +54,11 @@ dl {
 
 a {
 	text-decoration: none;
+	color: @turquoise;
+	.animateWithProperties(color);
 	&:hover {
 		text-decoration: underline;
+		color: @darkGreen;
 	}
 }
 

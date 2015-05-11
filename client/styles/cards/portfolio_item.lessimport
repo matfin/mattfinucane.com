@@ -15,11 +15,11 @@ section.portfolioItem {
 			padding: @gridSpacing + 4 @gridSpacing - 4;
 
 			@media @tablet {
-				padding: @gridSpacing 0;
+				padding: (@gridSpacing * 2) 0;
 			}
 
 			@media @mobile {
-				padding: @gridSpacing 0;
+				padding: (@gridSpacing * 2) 0;
 			}
 
 			h2, h3, p {
@@ -30,6 +30,14 @@ section.portfolioItem {
 				text-align: center;
 				font-size: @mediumFontSize - 1;
 				.echelon;
+
+				@media @tablet {
+					text-indent: @textIndent;
+				}
+
+				@media @mobile {
+					text-indent: @textIndent;
+				}
 			}
 
 			h3 {
@@ -64,7 +72,6 @@ section.portfolioItem {
 
 			ol {
 				text-align: center;
-
 				li {
 					display: inline;
 					font-size: @baseFontSize;
@@ -81,9 +88,9 @@ section.portfolioItem {
 
 			> .production-url {
 				width: 100%;
+				margin-top: @gridSpacing;
 				font-size: @mediumFontSize;
 				font-weight: 600;
-				color: @turquoise;
 				text-align: center;
 			}
 		}
@@ -136,11 +143,9 @@ section.portfolioItem {
 
 	a.icon-github,
 	a.production-url {
-		color: @turquoise;
 		height: @gridSpacing * 2.5;
 		line-height: @gridSpacing * 2.5;
 		
-
 		&:hover {
 			text-decoration: none;
 		}

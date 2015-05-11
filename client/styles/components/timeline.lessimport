@@ -44,7 +44,7 @@
 		color: @turquoise;
 		cursor: pointer;
 
-		.animateWithProperties(border);
+		.animateWithProperties(border color);
 
 		&:nth-child(even) {
 			border-top: @borderHeight + 2 solid @colorEven;
@@ -55,6 +55,10 @@
 		&.highlighted {
 			border-top: @borderHeight + 2 solid @colorHighlighted;
 			color: @colorHighlighted;
+		}
+
+		&:hover {
+			color: @darkGreen;
 		}
 	} 
 }
