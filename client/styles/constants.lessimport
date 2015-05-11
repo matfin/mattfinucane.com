@@ -11,6 +11,7 @@
 @black: 		#131313;
 @grey:			#bbb;
 @turquoise: 	#0cd3d1;
+@darkGreen:		#009a96;
 @white: 		#fff;
 @grey:			#bdbdbd;
 

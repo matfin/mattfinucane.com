@@ -83,7 +83,6 @@ section.portfolioItem {
 				width: 100%;
 				font-size: @mediumFontSize;
 				font-weight: 600;
-				color: @turquoise;
 				text-align: center;
 			}
 		}
@@ -136,11 +135,9 @@ section.portfolioItem {
 
 	a.icon-github,
 	a.production-url {
-		color: @turquoise;
 		height: @gridSpacing * 2.5;
 		line-height: @gridSpacing * 2.5;
 		
-
 		&:hover {
 			text-decoration: none;
 		}
