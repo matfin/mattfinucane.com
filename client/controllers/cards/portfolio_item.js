@@ -17,6 +17,7 @@ Template.cards_portfolio_item.created = function() {
  *	@method rendered
  */
 Template.cards_portfolio_item.rendered = function() {
+	this.$('a.production-url, a.icon-github').prop('target', '_blank');
 };
 
 /**

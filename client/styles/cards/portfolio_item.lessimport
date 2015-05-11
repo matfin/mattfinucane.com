@@ -78,6 +78,14 @@ section.portfolioItem {
 					}
 				}
 			}
+
+			> .production-url {
+				width: 100%;
+				font-size: @mediumFontSize;
+				font-weight: 600;
+				color: @turquoise;
+				text-align: center;
+			}
 		}
 
 		.image,
@@ -149,20 +157,5 @@ section.portfolioItem {
 	}
 	a.production-url {
 		font-size: @mediumFontSize;
-	}
-}
-
-.imageSlider,
-.image {
-	.production-url {
-
-		position: absolute;
-		bottom: @gridSpacing / 2;
-		left: 0;
-		width: 100%;
-		font-size: @mediumFontSize;
-		line-height: @mediumFontSize + 4;
-		font-weight: 600;
-		color: @turquoise;
 	}
 }

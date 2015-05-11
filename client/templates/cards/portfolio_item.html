@@ -44,6 +44,7 @@
 				{{#markdown}}{{fields.description}}{{/markdown}}
 				{{#with this}}
 					{{>portfolio_images}}
+					{{>item_production_url}}
 					{{>portfolio_skills}}
 					{{>item_github_url}}
 				{{/with}}
@@ -59,11 +60,11 @@
 			{{#with images.collection}}
 				{{> components_imageslider}}
 			{{/with}}
-			{{#if images.includeProductionUrl}}
+			<!-- {{#if images.includeProductionUrl}}
 				{{#with this}}
 					{{>item_production_url}}
 				{{/with}}
-			{{/if}}
+			{{/if}} -->
 		</div>
 	{{else}}
 		<div class="image">
@@ -72,11 +73,11 @@
 					{{> cards_image}}
 				{{/each}}
 			{{/with}}
-			{{#if images.includeProductionUrl}}
+			<!-- {{#if images.includeProductionUrl}}
 				{{#with this}}
 					{{>item_production_url}}
 				{{/with}}
-			{{/if}}
+			{{/if}} -->
 		</div>
 	{{/if}}	
 </template>
