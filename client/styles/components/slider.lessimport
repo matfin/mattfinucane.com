@@ -3,6 +3,14 @@
 	width: 100%;
 	overflow: hidden;
 	padding-top: @gridSpacing * 2;
+
+	@media @tablet {
+		padding: 0;
+	}
+	@media @mobile {
+		padding: 0;
+	}
+
 	background-color: @white;
 	.user-select(none);
 

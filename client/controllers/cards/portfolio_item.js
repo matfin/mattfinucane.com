@@ -72,12 +72,15 @@ Template.portfolio_images.helpers({
 				imageAssets = App.collections.mf_images.find({assetId: {$in: imageIds}}).fetch(),
 				grouped = _.groupBy(imageAssets, function(imageAsset) {
 					return imageAsset.assetId;
-				});
+				}),
+				deviceClass = Helpers.deviceClass(),
+				includeProductionUrl = (deviceClass.isTablet || deviceClass.isMobile);
 
 				grouped = _.toArray(grouped);
 
 			return {
 				useSlider: grouped.length > 1,
+				includeProductionUrl: includeProductionUrl,
 				collection: grouped
 			};
 		}

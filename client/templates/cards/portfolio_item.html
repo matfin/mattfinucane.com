@@ -27,11 +27,9 @@
 					{{>portfolio_images}}
 				{{/with}}		
 			</div>
-
 			{{#with this}}
 				{{>portfolio_links}}
 			{{/with}}
-
 		</section>
 	{{/if}}
 </template>
@@ -46,6 +44,8 @@
 				{{#markdown}}{{fields.description}}{{/markdown}}
 				{{#with this}}
 					{{>portfolio_images}}
+					{{>portfolio_skills}}
+					{{>item_github_url}}
 				{{/with}}
 			</div>
 		</div>
@@ -53,11 +53,17 @@
 </template>
 
 <template name="portfolio_images">
+
 	{{#if images.useSlider}}
 		<div class="imageSlider">
 			{{#with images.collection}}
 				{{> components_imageslider}}
 			{{/with}}
+			{{#if images.includeProductionUrl}}
+				{{#with this}}
+					{{>item_production_url}}
+				{{/with}}
+			{{/if}}
 		</div>
 	{{else}}
 		<div class="image">
@@ -66,6 +72,11 @@
 					{{> cards_image}}
 				{{/each}}
 			{{/with}}
+			{{#if images.includeProductionUrl}}
+				{{#with this}}
+					{{>item_production_url}}
+				{{/with}}
+			{{/if}}
 		</div>
 	{{/if}}	
 </template>
@@ -83,18 +94,28 @@
 	</ol>
 </template>
 
+<template name="item_production_url">
+	{{#if exists fields.productionUrl}}
+		<a href="{{fields.productionUrl}}" class="production-url" title="{{fields.urlTitle}}">
+			{{fields.urlTitle}}
+		</a>
+	{{/if}}
+</template>
+
+<template name="item_github_url">
+	{{#if exists fields.githubUrl}}
+		<a href="{{fields.githubUrl}}" class="icon-github" title="See {{fields.title}} on GitHub">
+		</a>
+	{{/if}}
+</template>
+
 <template name="portfolio_links">
 	{{#if linksExist.some}}
 		<div class="portfolioLinks">
-			{{#if linksExist.githubUrl}}
-				<a href="{{fields.githubUrl}}" class="icon-github" title="See {{fields.title}} on GitHub">
-				</a>
-			{{/if}}
-			{{#if linksExist.productionUrl}}
-				<a href="{{fields.productionUrl}}" title="{{fields.urlTitle}}">
-					{{fields.urlTitle}}
-				</a>
-			{{/if}}
+			{{#with this}}
+				{{>item_github_url}}
+				{{>item_production_url}}
+			{{/with}}
 		</div>
 	{{/if}}
 </template>
