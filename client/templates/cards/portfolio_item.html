@@ -1,4 +1,16 @@
 <template name="cards_portfolio_item">
+	{{#if deviceClass.isClick}}
+		{{#with this}}
+			{{>cards_click_portfolio_item}}
+		{{/with}}
+	{{else}}
+		{{#with this}}
+			{{>cards_touch_portfolio_item}}
+		{{/with}}
+	{{/if}}
+</template>
+
+<template name="cards_click_portfolio_item">
 	{{#if Template.subscriptionsReady}}
 		<section class="portfolioItem">
 			<div class="portfolioContent">
@@ -7,48 +19,104 @@
 						{{fields.title}}
 					</h2>
 					{{#markdown}}{{fields.description}}{{/markdown}}
-					<h3>
-						Code / Skills
-					</h3>
-					<ol>
-						{{#each skills}}
-							<li>
-								{{fields.title}}
-							</li>
-						{{/each}}
-					</ol>
+					{{#with this}}
+						{{>portfolio_skills}}
+					{{/with}}
 				</div>
-			
-				{{#if images.useSlider}}
-					<div class="imageSlider">
-						{{#with images.collection}}
-							{{> components_imageslider}}
-						{{/with}}
-					</div>
-				{{else}}
-					<div class="image">
-						{{#with images.collection}}
-							{{#each this}}
-								{{> cards_image}}
-							{{/each}}
-						{{/with}}
-					</div>
-				{{/if}}					
-				
+				{{#with this}}
+					{{>portfolio_images}}
+				{{/with}}		
 			</div>
-			{{#if linksExist.some}}
-				<div class="portfolioLinks">
-					{{#if linksExist.githubUrl}}
-						<a href="{{fields.githubUrl}}" class="icon-github" title="See {{fields.title}} on GitHub">
-						</a>
-					{{/if}}
-					{{#if linksExist.productionUrl}}
-						<a href="{{fields.productionUrl}}" title="{{fields.urlTitle}}">
-							{{fields.urlTitle}}
-						</a>
-					{{/if}}
-				</div>
-			{{/if}}
+			{{#with this}}
+				{{>portfolio_links}}
+			{{/with}}
 		</section>
 	{{/if}}
 </template>
+
+<template name="cards_touch_portfolio_item">
+	<section class="portfolioItem">
+		<div class="portfolioContent">
+			<div class="info">
+				<h2>
+					{{fields.title}}
+				</h2>
+				{{#markdown}}{{fields.description}}{{/markdown}}
+				{{#with this}}
+					{{>portfolio_images}}
+					{{>portfolio_skills}}
+					{{>item_github_url}}
+				{{/with}}
+			</div>
+		</div>
+	</section>
+</template>
+
+<template name="portfolio_images">
+
+	{{#if images.useSlider}}
+		<div class="imageSlider">
+			{{#with images.collection}}
+				{{> components_imageslider}}
+			{{/with}}
+			{{#if images.includeProductionUrl}}
+				{{#with this}}
+					{{>item_production_url}}
+				{{/with}}
+			{{/if}}
+		</div>
+	{{else}}
+		<div class="image">
+			{{#with images.collection}}
+				{{#each this}}
+					{{> cards_image}}
+				{{/each}}
+			{{/with}}
+			{{#if images.includeProductionUrl}}
+				{{#with this}}
+					{{>item_production_url}}
+				{{/with}}
+			{{/if}}
+		</div>
+	{{/if}}	
+</template>
+
+<template name="portfolio_skills">
+	<h3>
+		Code / Skills
+	</h3>
+	<ol>
+		{{#each skills}}
+			<li>
+				{{fields.title}}
+			</li>
+		{{/each}}
+	</ol>
+</template>
+
+<template name="item_production_url">
+	{{#if exists fields.productionUrl}}
+		<a href="{{fields.productionUrl}}" class="production-url" title="{{fields.urlTitle}}">
+			{{fields.urlTitle}}
+		</a>
+	{{/if}}
+</template>
+
+<template name="item_github_url">
+	{{#if exists fields.githubUrl}}
+		<a href="{{fields.githubUrl}}" class="icon-github" title="See {{fields.title}} on GitHub">
+		</a>
+	{{/if}}
+</template>
+
+<template name="portfolio_links">
+	{{#if linksExist.some}}
+		<div class="portfolioLinks">
+			{{#with this}}
+				{{>item_github_url}}
+				{{>item_production_url}}
+			{{/with}}
+		</div>
+	{{/if}}
+</template>
+

@@ -64,3 +64,10 @@ UI.registerHelper('deviceClass', function() {
 
 	return Helpers.deviceClass();
 });
+
+/**
+ *	Helper to determine if a value exists
+ */
+UI.registerHelper('exists', function(variable) {
+	return variable !== null && (typeof variable !== 'undefined');
+});

@@ -1,7 +1,7 @@
 section.portfolioItem {
 	
 	max-width: @maxWidth;
-
+	
 	.portfolioContent {
 		.display(flex);
 		.box-sizing(border-box);
@@ -11,8 +11,16 @@ section.portfolioItem {
 			.flex-direction(column);
 			.box-sizing(border-box);
 			.flex(3);
+
 			padding: @gridSpacing + 4 @gridSpacing - 4;
 
+			@media @tablet {
+				padding: @gridSpacing 0;
+			}
+
+			@media @mobile {
+				padding: @gridSpacing 0;
+			}
 
 			h2, h3, p {
 				margin-bottom: @gridSpacing + 4;
@@ -22,21 +30,23 @@ section.portfolioItem {
 				text-align: center;
 				font-size: @mediumFontSize - 1;
 				.echelon;
-
-				@media @mobile {
-					text-indent: 0 - (@gridSpacing * 2);
-				}
 			}
 
 			h3 {
 				padding: @gridSpacing / 2 0;
+
+				@media @tablet {
+					padding: 0;
+					margin: @gridSpacing 0;
+				}
+				@media @mobile {
+					padding: 0;
+					margin: @gridSpacing 0;
+				}
+
 				text-align: center;
 				font-size: @mediumFontSize - 1;
 				.echelon;
-
-				@media @mobile {
-					text-indent: 0 - (@gridSpacing * 2);
-				}
 			}
 
 			p {
@@ -55,10 +65,6 @@ section.portfolioItem {
 			ol {
 				text-align: center;
 
-				@media @mobile {
-					text-indent: 0 - (@gridSpacing * 2);
-				}
-				
 				li {
 					display: inline;
 					font-size: @baseFontSize;
@@ -77,8 +83,15 @@ section.portfolioItem {
 		.image,
 		.imageSlider {
 			.flex(5);
-			
 			padding: @gridSpacing + 4 0;
+
+			@media @tablet {
+				padding: 0;
+			}
+			@media @mobile {
+				padding: 0;
+			}
+
 			img {
 				width: 100%;
 				height: auto;
@@ -87,6 +100,7 @@ section.portfolioItem {
 		}
 
 		.image {
+			position: relative;
 			.display(flex);
 			.align-items(center);
 		}
@@ -102,10 +116,6 @@ section.portfolioItem {
 		.display(flex);
 		padding-bottom: @gridSpacing;
 		a {
-			color: @turquoise;
-			font-size: @mediumFontSize - 1;
-			height: @gridSpacing * 2.5;
-			line-height: @gridSpacing * 2.5;
 			&:first-child {
 				.flex(3);
 				text-align: center;
@@ -113,14 +123,46 @@ section.portfolioItem {
 			&:last-child {
 				.flex(5);
 			}
-			&.icon-github {
-				font-size: @baseFontSize * 2.5;
-				
-				&:hover {
-					text-decoration: none;
-				}
-			}
 		}
 	}
 
+	a.icon-github,
+	a.production-url {
+		color: @turquoise;
+		height: @gridSpacing * 2.5;
+		line-height: @gridSpacing * 2.5;
+		
+
+		&:hover {
+			text-decoration: none;
+		}
+	}
+
+	a.icon-github {
+		font-size: @baseFontSize * 2.5;
+		@media @tablet {
+			margin-top: @gridSpacing;
+		}
+		@media @mobile {
+			margin-top: @gridSpacing;
+		}
+	}
+	a.production-url {
+		font-size: @mediumFontSize;
+	}
+}
+
+.imageSlider,
+.image {
+	.production-url {
+
+		position: absolute;
+		bottom: @gridSpacing / 2;
+		left: 0;
+		width: 100%;
+		font-size: @mediumFontSize;
+		line-height: @mediumFontSize + 4;
+		font-weight: 600;
+		color: @turquoise;
+	}
 }
