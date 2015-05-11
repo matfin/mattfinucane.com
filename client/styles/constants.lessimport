@@ -4,12 +4,14 @@
 @gridSpacing: 16px;
 @maxWidth: 1280px;
 @wrapperPadding: (@gridSpacing * 2) + 3;
+@textIndent: -10px;
 
 /**
  *	Colors
  */
 @black: 		#131313;
 @grey:			#bbb;
+@darkGrey: 		darken(@grey, 20%);
 @turquoise: 	#0cd3d1;
 @darkGreen:		#009a96;
 @white: 		#fff;

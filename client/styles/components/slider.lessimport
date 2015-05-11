@@ -124,6 +124,7 @@
 		> button {
 			height: @gridSpacing * 10;
 		}
+		padding-top: @gridSpacing;
 	}			
 }
 
@@ -132,6 +133,7 @@
 		> button {
 			height: @gridSpacing * 10;
 		}
+		padding-top: @gridSpacing;
 	}			
 }
 
