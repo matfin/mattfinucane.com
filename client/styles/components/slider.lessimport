@@ -2,7 +2,6 @@
 	position: relative;
 	width: 100%;
 	overflow: hidden;
-	padding-top: @gridSpacing * 2;
 
 	@media @tablet {
 		padding: 0;
@@ -124,7 +123,7 @@
 		> button {
 			height: @gridSpacing * 10;
 		}
-		padding-top: @gridSpacing;
+		padding-top: @gridSpacing * 2;
 	}			
 }
 
@@ -133,7 +132,7 @@
 		> button {
 			height: @gridSpacing * 10;
 		}
-		padding-top: @gridSpacing;
+		padding-top: @gridSpacing * 2;
 	}			
 }
 

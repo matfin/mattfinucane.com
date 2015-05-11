@@ -2,7 +2,7 @@
 	position: relative;
 	overflow: hidden;
 	.box-sizing(border-box);
-	border: 1px solid @grey;
+	border: 1px solid @darkGrey;
 	.display(flex);	
 	
 	.days {
@@ -17,8 +17,7 @@
 			.flex-direction(row);
 			.align-items(flex-end);
 			background-color: transparent;
-			color: black;
-			border-right: 1px solid @grey;
+			border-right: 1px solid @darkGrey;
 
 			cursor: pointer;
 
@@ -44,7 +43,6 @@
 				position: absolute;
 				top: @gridSpacing / 8;
 				left: @gridSpacing / 4;
-				color: @grey;
 				font-size: @baseFontSize;
 			}
 		}
