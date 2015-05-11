@@ -37,6 +37,11 @@ Template.components_timeline.helpers({
 	 *	in the slider.
 	 */
 	yearGroups: function() {
+		/**
+		 *	Making this function reactive
+		 */
+		Dependencies.resized.depend();
+		
 		var years = _.map(this.jobs, function(job, index) {
 			return {
 				startDate: Helpers.formattedDate(job.fields.startDate, 'YYYY').string,

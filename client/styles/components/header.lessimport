@@ -3,7 +3,7 @@ div.wrapper.top {
 		z-index: 2;
 		position: fixed;
 		top: 0;
-		max-height: @gridSpacing * 4;
+		max-height: @gridSpacing * 5;
 		width: 100%;
 		overflow: hidden;
 		border-bottom: @gridSpacing / 4 solid @grey;
@@ -13,7 +13,7 @@ div.wrapper.top {
 		z-index: 2;
 		position: fixed;
 		top: 0;
-		max-height: @gridSpacing * 4;
+		max-height: @gridSpacing * 5;
 		width: 100%;
 		overflow: hidden;
 		border-bottom: @gridSpacing / 4 solid @grey;
@@ -37,7 +37,7 @@ header {
 		position: relative;
 		.display(flex);
 		.justify-content(space-between);
-		padding: @gridSpacing / 2 @gridSpacing;
+		padding: @gridSpacing;
 	}
 }
 
@@ -112,7 +112,6 @@ header.click {
 
 		h2 {
 			clear: left;
-			color: @grey;
 			font-size: @baseFontSize + 4;
 			line-height: @baseFontSize + 3;
 			width: @gridSpacing * 9;
