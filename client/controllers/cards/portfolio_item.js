@@ -33,42 +33,27 @@ Template.cards_portfolio_item.destroyed = function() {
  *	Helpers
  */
 Template.cards_portfolio_item.helpers({
-
 	/**
-	 *	Fetching the skills for a portfolio item
- 	 */
-	skills: function() {
-
+	 *	Getting device parameters so we can load the correct template
+	 */
+	deviceClass: function() {
 		/**
-		 *	If this entry has any associated sub entried
+		 *	Making this function reactive
 		 */
-		if(Helpers.checkNested(this, 'fields', 'skills')) {
+		Dependencies.resized.depend();
+		var deviceClass = Helpers.deviceClass();
+		return {
+			isClick: deviceClass.isDesktop || deviceClass.isLaptop,
+			isTouch: deviceClass.isTablet || deviceClass.isMobile
+		};
+	}
+});
 
-			/**
-			 *	Grab the skill ids we need to build a query
-			 *	to fetch associated skill entries
-			 */
-			var skillIds = [];
-			_.each(this.fields.skills, function(skill) {
-				skillIds.push(skill.sys.id);
-			});
-
-			/**
-			 *	Build and then execute the query
-			 */
-			var query = {
-				'sys.id': {$in: skillIds}
-			},
-			skills = App.collections.cf_entries.find(query).fetch();
-
-			return skills;
-		}
-
-		/**
-		 *	Or we return an empty array
-		 */
-		return [];
-	},
+/**
+ *	Template - portfolio_images
+ *	Helpers
+ */
+Template.portfolio_images.helpers({
 
 	/**
 	 *	Fetching the detailed entries for related images
@@ -104,8 +89,56 @@ Template.cards_portfolio_item.helpers({
 			useSlider: false,
 			collection: []
 		};
-	},
+	}
+});
 
+/**
+ *	Template - portfolio_skills
+ *	Helpers
+ */
+Template.portfolio_skills.helpers({
+	/**
+	 *	Fetching the skills for a portfolio item
+ 	 */
+	skills: function() {
+
+		/**
+		 *	If this entry has any associated sub entried
+		 */
+		if(Helpers.checkNested(this, 'fields', 'skills')) {
+
+			/**
+			 *	Grab the skill ids we need to build a query
+			 *	to fetch associated skill entries
+			 */
+			var skillIds = [];
+			_.each(this.fields.skills, function(skill) {
+				skillIds.push(skill.sys.id);
+			});
+
+			/**
+			 *	Build and then execute the query
+			 */
+			var query = {
+				'sys.id': {$in: skillIds}
+			},
+			skills = App.collections.cf_entries.find(query).fetch();
+
+			return skills;
+		}
+
+		/**
+		 *	Or we return an empty array
+		 */
+		return [];
+	}
+});
+
+/**
+ *	Template - portfolio_links
+ *	Helpers
+ */
+Template.portfolio_links.helpers({
 	/**
 	 *	Function returning whether links for the product or GitHub codebase exists
 	 */
@@ -121,5 +154,4 @@ Template.cards_portfolio_item.helpers({
 			some: 			 		hasUrls
 		};
 	}
-
 });

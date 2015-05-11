@@ -24,7 +24,7 @@ section.portfolioItem {
 				.echelon;
 
 				@media @mobile {
-					text-indent: 0 - (@gridSpacing * 2);
+					// text-indent: 0 - (@gridSpacing * 2);
 				}
 			}
 
@@ -35,7 +35,7 @@ section.portfolioItem {
 				.echelon;
 
 				@media @mobile {
-					text-indent: 0 - (@gridSpacing * 2);
+					// text-indent: 0 - (@gridSpacing * 2);
 				}
 			}
 
@@ -56,7 +56,7 @@ section.portfolioItem {
 				text-align: center;
 
 				@media @mobile {
-					text-indent: 0 - (@gridSpacing * 2);
+					// text-indent: 0 - (@gridSpacing * 2);
 				}
 				
 				li {
