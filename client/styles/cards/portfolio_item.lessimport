@@ -22,6 +22,10 @@ section.portfolioItem {
 				text-align: center;
 				font-size: @mediumFontSize - 1;
 				.echelon;
+
+				@media @mobile {
+					text-indent: 0 - (@gridSpacing * 2);
+				}
 			}
 
 			h3 {
@@ -29,6 +33,10 @@ section.portfolioItem {
 				text-align: center;
 				font-size: @mediumFontSize - 1;
 				.echelon;
+
+				@media @mobile {
+					text-indent: 0 - (@gridSpacing * 2);
+				}
 			}
 
 			p {
@@ -46,6 +54,11 @@ section.portfolioItem {
 
 			ol {
 				text-align: center;
+
+				@media @mobile {
+					text-indent: 0 - (@gridSpacing * 2);
+				}
+				
 				li {
 					display: inline;
 					font-size: @baseFontSize;

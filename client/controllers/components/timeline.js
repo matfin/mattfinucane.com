@@ -62,6 +62,18 @@ Template.components_timeline.helpers({
 		});
 
 		return yearGroups;
+	},
+
+	/**
+	 *	Show the year depending on the device screen size
+	 */
+	showYears: function() {
+		/**
+		 *	Make this function reactive
+		 */
+		Dependencies.resized.depend();
+		var deviceClass = Helpers.deviceClass();
+		return deviceClass.isDesktop || deviceClass.isLaptop;
 	}
 
 });

@@ -3,11 +3,15 @@
 		{{#each yearGroups}}
 			{{#if highlighted}}
 				<button class="year highlighted">
-					{{to}} &ndash; {{from}}
+					{{#if showYears}}
+						{{to}} &ndash; {{from}}
+					{{/if}}
 				</button>
 			{{else}}
 				<button class="year">
-					{{to}} &ndash; {{from}}
+					{{#if showYears}}
+						{{to}} &ndash; {{from}}
+					{{/if}}
 				</button>
 			{{/if}}
 		{{/each}}

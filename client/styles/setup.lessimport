@@ -11,10 +11,10 @@ body {
 	height: 100%;
 
 	@media @tablet {
-		padding-top: (@gridSpacing * 4) - 4;
+		padding-top: (@gridSpacing * 4) + 4;
 	}
 	@media @mobile {
-		padding-top: (@gridSpacing * 4) - 4;
+		padding-top: (@gridSpacing * 4) + 4;
 	}
 }
 
