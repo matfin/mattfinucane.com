@@ -52,23 +52,8 @@ Template.components_header.helpers({
 		Dependencies.resized.depend();
 		var deviceClass = Helpers.deviceClass();
 		return deviceClass.isDesktop || deviceClass.isLaptop;
-	},
-
-	/**
-	 *	Control the display of navigation by device
-	 */
-	navigationType: function() {
-		/**
-		 *	This is a reactive function
-		 */
-		Dependencies.resized.depend();
-		var deviceClass = Helpers.deviceClass();
-		return {
-			showClickNav: deviceClass.isDesktop || deviceClass.isLaptop,
-			showTouchNav: deviceClass.isTablet || deviceClass.isMobile
-		};
 	}
-
+	
 });
 
 /**

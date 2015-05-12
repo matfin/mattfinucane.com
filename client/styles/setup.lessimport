@@ -10,12 +10,14 @@ body {
 .container {
 	width: 100%;
 	height: 100%;
+	
+	padding-top: @gridSpacing * 5;
 
 	@media @tablet {
-		padding-top: (@gridSpacing * 4) + 4;
+		padding-top: @gridSpacing * 4;
 	}
 	@media @mobile {
-		padding-top: (@gridSpacing * 4) + 4;
+		padding-top: @gridSpacing * 4;
 	}
 }
 

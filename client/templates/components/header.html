@@ -1,36 +1,16 @@
 <template name="components_header">
-	{{#if navigationType.showClickNav}}
-		{{>components_click_header}}
-	{{else}}
-		{{>components_touch_header}}
-	{{/if}}
-</template>
-
-<template name="components_click_header">
-	<header class="click">
-		<div class="title">
-			<h1>
-				Matt Finucane 
-			</h1>
-			<h2>
-				MeteorJS and iOS Developer
-			</h2>
-		</div>
-		{{>components_github}}
-		{{>components_nav "click"}}
-	</header>
-</template>
-
-<template name="components_touch_header">
-	<header class="touch">
+	<header>
 		<div class="title">
 			<h1>
 				Matt Finucane
-			</h1> 
+			</h1>
 			<h2>
-				iOS Developer
+				Meteor and iOS developer
 			</h2>
 		</div>
+		<!-- {{#if showGithubTimeline}}
+			{{>components_github}}
+		{{/if}} -->
 		<button>
 			<svg 	xmlns="http://www.w3.org/2000/svg"
 					xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -43,28 +23,9 @@
 				</g>
 			</svg>
 		</button>
+		<nav>
+
+		</nav>
 	</header>
-	{{>components_nav "touch"}}
 </template>
 
-<template name="components_nav">
-	<nav class="{{this}}">
-		<ol>
-			<li>
-				<a href="{{pathFor 'portfolio'}}" title="Work">
-					Portfolio
-				</a>
-			</li>
-			<li>
-				<a href="{{pathFor 'experience'}}" title="CV">
-					Experience
-				</a>
-			</li>
-			<li>
-				<a href="{{pathFor 'about'}}" title="About">
-					About
-				</a>
-			</li>
-		</ol>
-	</nav>
-</template>
