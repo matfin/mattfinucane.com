@@ -1,60 +1,74 @@
-div.wrapper.top {
+.wrapper.top {
+	z-index: 3;
+	position: fixed;
+	top: 0;
+	left: 0;
+	overflow: hidden;
+	max-height: @gridSpacing * 8.5;
+	.backgroundGradient;
+	.animateWithProperties(max-height border);
+
+	padding: 0 10%;
+	width: 100%;
+	.box-sizing(border-box);
+	border-bottom: @gridSpacing / 4 solid @grey;
+
+	@media @laptop {
+		padding: 0 (@gridSpacing * 2) + 4;
+	}
+
+
 	@media @tablet {
-		z-index: 2;
-		position: fixed;
-		top: 0;
 		max-height: @gridSpacing * 5;
-		width: 100%;
-		overflow: hidden;
 		border-bottom: @gridSpacing / 4 solid @grey;
-		.backgroundGradient;
 	}
 	@media @mobile {
-		z-index: 2;
-		position: fixed;
-		top: 0;
 		max-height: @gridSpacing * 5;
-		width: 100%;
-		overflow: hidden;
 		border-bottom: @gridSpacing / 4 solid @grey;
-		.backgroundGradient;
 	}
 
-	.animateWithProperties(max-height);
-
 	&.revealed {
-		max-height: 200px;
+		max-height: @gridSpacing * 20;
+		border-bottom: 4px solid @darkGrey;
 	}
 }
 
 header {
-	&.click {
-		.display(flex);
-		padding: (@gridSpacing * 2) 0;
+	.display(flex);
+
+	@media @desktop {
+		padding: @gridSpacing * 2 0;
+	}
+	@media @laptop {
+		padding: @gridSpacing * 2 0;
 	}
 
-	&.touch {
-		position: relative;
-		.display(flex);
-		.justify-content(space-between);
-		padding: @gridSpacing;
+	@media @tablet {
+		padding: @gridSpacing / 2;
 	}
-}
+	@media @mobile {
+		padding: @gridSpacing / 2;
+	}
 
-header.touch {
-	.title {
-		h1, h2 {
-			font-size: @mediumFontSize;
-			line-height: @mediumFontSize;
-			color: @turquoise;
+	.github {
+		.flex(4);
+	}
+
+	.title,
+	> button {
+		.flex(2);
+
+		@media @tablet {
+			.flex(1);
 		}
-	}
-
-	button {
+		@media @mobile {
+			.flex(1);
+		}
 
 		svg {
-			width: @gridSpacing * 3;
-			height: @gridSpacing * 2;
+			float: right;
+			width: @gridSpacing * 4;
+			height: @gridSpacing * 3;
 
 			rect {
 				fill: @turquoise;
@@ -68,105 +82,74 @@ header.touch {
 		}
 
 		&.revealed {
-			svg {
-				rect {
-					&:nth-child(1) {
-						.transform(
-							translate3d(0, @gridSpacing - 2, 0)
-							rotate3d(0, 0, 1, 45deg)
-						);
-					}
-					&:nth-child(2) {
-						.transform(
-							translate3d(0, 0, 0)
-							rotate3d(0, 0, 1, 45deg)
-						);
-					}
-					&:nth-child(3) {
-						.transform(
-							translate3d(0, 0 - @gridSpacing + 2, 0)
-							rotate3d(0, 0, 1, -45deg)
-						);
-					}
+			rect {
+				&:nth-child(1) {
+					.transform(
+						translate3d(0, @gridSpacing - 2, 0)
+						rotate3d(0, 0, 1, 45deg)
+					);
+				}
+				&:nth-child(2) {
+					.transform(
+						translate3d(0, 0, 0)
+						rotate3d(0, 0, 1, 45deg)
+					);
+				}
+				&:nth-child(3) {
+					.transform(
+						translate3d(0, 0 - @gridSpacing + 2, 0)
+						rotate3d(0, 0, 1, -45deg)
+					);
 				}
 			}
 		}
 	}
-}
-
-header.click {
-	
-	padding: (@gridSpacing * 2) + 2 0;
 
 	.title {
-		.flex(2);
-		padding-right: @gridSpacing * 2;
-		h1, h2 {
-			float: left;
+		.display(flex);
+		.flex-direction(column);
+		.justify-content(space-around);
+
+		@media @tablet {
+			.flex(3);
+		}
+		@media @mobile {
+			.flex(3);
 		}
 
 		h1 {
 			font-size: @mediumFontSize + 2;
-			color: @turquoise;
 		}
-
 		h2 {
-			clear: left;
 			font-size: @baseFontSize + 4;
-			line-height: @baseFontSize + 3;
-			width: @gridSpacing * 9;
 		}
-	}
 
-	.github {
-		.flex(4);
-	}
-
-	nav.click {
-		.flex(2);
-		.display(flex);
-		ol {
-			.flex(1);
-			.display(flex);
-			.flex-direction(column);
-			.align-items(flex-end);
-			li {
-				.flex(1);
-				width: 60%;
-				a {
-					display: block;
-					width: 100%;
-					border-bottom: 3px solid @turquoise;
-					font-size: @mediumFontSize - 1;
-					.animateWithProperties(border color);
-					&:hover {
-						text-decoration: none;
-						border-bottom: 3px solid @darkGreen;
-					}
-				}
-			}
-		}
 	}
 }
 
-nav.touch {
+nav {
+	float: right;
+	text-align: right;
+
+	@media @tablet {
+		float: left;
+		text-align: left;
+		padding-left: @gridSpacing / 2;
+	}
+	@media @mobile {
+		float: left;
+		text-align: left;
+		padding-left: @gridSpacing / 2;
+	}	
+
+	padding-right: @gridSpacing;
+	margin-bottom: 16px;
 	ol {
 		li {
 			a {
-				display: block;
 				font-size: @mediumFontSize;
-				font-weight: 600;
-				color: @turquoise;
-				text-align: left;
-				margin: @gridSpacing / 2 0;
-				padding-left: @gridSpacing;
-				.box-sizing(border-box);
-
-				&:active,
-				&:hover {
-					text-decoration: none;
-				}
 			}
 		}
 	}
 }
+

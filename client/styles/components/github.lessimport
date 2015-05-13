@@ -4,6 +4,7 @@
 	.box-sizing(border-box);
 	border: 1px solid @darkGrey;
 	.display(flex);	
+	height: @gridSpacing * 5;
 	
 	.days {
 		.display(flex);
