@@ -5,47 +5,39 @@
 	left: 0;
 	overflow: hidden;
 	max-height: @gridSpacing * 8.5;
+	border-bottom: 4px solid @grey;
 	.backgroundGradient;
 	.animateWithProperties(max-height border);
-
-	padding: 0 10%;
 	width: 100%;
-	.box-sizing(border-box);
-	border-bottom: @gridSpacing / 4 solid @grey;
 
-	@media @laptop {
-		padding: 0 (@gridSpacing * 2) + 4;
-	}
-
-
-	@media @tablet {
-		max-height: @gridSpacing * 5;
-		border-bottom: @gridSpacing / 4 solid @grey;
-	}
 	@media @mobile {
-		max-height: @gridSpacing * 5;
-		border-bottom: @gridSpacing / 4 solid @grey;
+		max-height: (@gridSpacing * 4.5) + 2;
+	}
+	@media @tablet {
+		max-height: (@gridSpacing * 4.5) + 2;
 	}
 
 	&.revealed {
 		max-height: @gridSpacing * 20;
-		border-bottom: 4px solid @darkGrey;
 	}
 }
 
 header {
 	.display(flex);
 
-	max-width: @maxWidth;
-	margin: 0 auto;
-
+	@media @hd {
+		margin: 0 auto;
+		padding: @gridSpacing * 2 0;
+		max-width: @maxWidth;
+	}
 	@media @desktop {
+		margin: 0 @gridSpacing * 2;
 		padding: @gridSpacing * 2 0;
 	}
 	@media @laptop {
+		margin: 0 @gridSpacing * 2;
 		padding: @gridSpacing * 2 0;
 	}
-
 	@media @tablet {
 		padding: @gridSpacing / 2;
 	}
@@ -136,24 +128,35 @@ header {
 }
 
 nav {
-	text-align: right;
-	max-width: @maxWidth;
 	margin: 0 auto;
+	text-align: right;
 
-	@media @tablet {
-		float: left;
-		text-align: left;
-		padding-left: @gridSpacing / 2;
+	@media @desktop {
+		margin: 0 @gridSpacing * 2;
 	}
+
+	@media @laptop {
+		margin: 0 @gridSpacing * 2;
+	}
+	@media @tablet {
+		margin: 0 @gridSpacing;
+	}
+
+	// @media @tablet {
+	// 	float: right;
+	// 	text-align: right;
+	// 	padding-right: @gridSpacing / 2;
+	// }
 	@media @mobile {
 		float: left;
 		text-align: left;
 		padding-left: @gridSpacing / 2;
 	}	
-
-	padding-right: @gridSpacing;
-	margin-bottom: 16px;
+	
 	ol {
+		max-width: @maxWidth;
+		margin: 0 auto;
+		margin-bottom: @gridSpacing;
 		li {
 			a {
 				font-size: @mediumFontSize;

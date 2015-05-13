@@ -2,9 +2,22 @@
 .wrapper.content {
 
 	.display(flex);
+	.animateWithProperties(margin);
 
 	&:nth-child(even) {
-		.calc(margin-left, ~'(100% - 1280px) / 2');
+
+		@media @hd {
+			.calc(margin-left, ~'(100% - 1280px) / 2');
+		}
+		@media @desktop {
+			margin-left: @gridSpacing * 2;
+			padding-right: @gridSpacing * 2;
+		}
+		@media @laptop {
+			margin-left: @gridSpacing * 2;
+			padding-right: @gridSpacing * 2;
+		}
+		
 		.justify-content(flex-start);
 
 		.portfolioItem {
@@ -20,7 +33,18 @@
 		}
 	}
 	&:nth-child(odd) {
-		.calc(margin-right, ~'(100% - 1280px) / 2');
+		@media @hd {
+			.calc(margin-right, ~'(100% - 1280px) / 2');
+		}
+		@media @desktop {
+			margin-right: @gridSpacing * 2;
+			padding-left: @gridSpacing * 2;
+		}
+		@media @laptop {
+			margin-right: @gridSpacing * 2;
+			padding-left: @gridSpacing * 2;
+		}
+
 		.justify-content(flex-end);
 
 		.portfolioItem {
