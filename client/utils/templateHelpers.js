@@ -14,12 +14,14 @@ TemplateHelpers = {
 	 */
 	hideNavMenu: function() {
 
-		var button 	= $('button', 'header.touch'),
+		var button 	= $('button', 'header'),
 			wrapper = $('.top');
 
 		if(button.hasClass('revealed')) {
-			wrapper.removeClass('revealed');
-			button.removeClass('revealed');
+			Meteor.setTimeout(function() {
+				wrapper.removeClass('revealed');
+				button.removeClass('revealed');
+			}, 200);
 		}
 	},
 
