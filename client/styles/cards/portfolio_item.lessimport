@@ -1,6 +1,7 @@
 section.portfolioItem {
 	
 	max-width: @maxWidth;
+	.flex(1);
 	
 	.portfolioContent {
 		.display(flex);

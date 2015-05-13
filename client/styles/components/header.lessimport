@@ -36,6 +36,9 @@
 header {
 	.display(flex);
 
+	max-width: @maxWidth;
+	margin: 0 auto;
+
 	@media @desktop {
 		padding: @gridSpacing * 2 0;
 	}
@@ -133,8 +136,9 @@ header {
 }
 
 nav {
-	float: right;
 	text-align: right;
+	max-width: @maxWidth;
+	margin: 0 auto;
 
 	@media @tablet {
 		float: left;

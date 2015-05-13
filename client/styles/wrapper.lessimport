@@ -1,113 +1,43 @@
 .wrapper.portfolio,
 .wrapper.content {
 
-	background-color: @white;
-	margin-bottom: @gridSpacing * 2.5;
-	.box-sizing(border-box);
-	border-top: 4px solid @grey;
-
-	&:nth-child(2) {
-		border-top: 0;
-	}
-
-	.transition-property(margin);
-	.transition-duration(@transitionDuration);
-
-	@media @tablet {
-		margin-bottom: 0;
-	}
-
-	@media @mobile {
-		margin-bottom: 0;
-	}
-
-	&:last-child {
-		@media @tablet {
-			margin-bottom: 0;
-		}
-
-		@media @mobile {
-			margin-bottom: 0;
-		}
-	}
+	.display(flex);
 
 	&:nth-child(even) {
+		.calc(margin-left, ~'(100% - 1280px) / 2');
+		.justify-content(flex-start);
 
-		@media @desktop {
-			margin-left: 10%;
-			padding-right: 10%;
-			width: 90%;
-		}
-		@media @laptop {
-			margin-left: @wrapperPadding;
-			padding-right: @wrapperPadding;
-		}
-
-		section.portfolioItem,
-		section.contentItem {
-
-			.portfolioContent,
-			.staticContent,
+		.portfolioItem {
+			.portfolioContent {
+				.flex-direction(row);
+			}
 			.portfolioLinks {
 				.flex-direction(row);
-
-				@media @mobile {
-					.flex-direction(column-reverse);
-				}
-				@media @tablet {
-					.flex-direction(column-reverse);
-				}
-
-				a:last-child {
+				.production-url {
 					text-align: right;
-					@media @mobile {
-						text-align: center;
-					}
-					@media @tablet {
-						text-align: center;
-					}
 				}
 			}
 		}
 	}
-
 	&:nth-child(odd) {
+		.calc(margin-right, ~'(100% - 1280px) / 2');
+		.justify-content(flex-end);
 
-		@media @desktop {
-			margin-right: 10%;
-			padding-left: 10%;
-			width: 90%;
-		}
-		@media @laptop {
-			margin-right: @wrapperPadding;
-			padding-left: @wrapperPadding;
-		}
-
-		section.portfolioItem,
-		section.contentItem {
-
-			.portfolioContent,
-			.staticContent, 
+		.portfolioItem {
+			.portfolioContent {
+				.flex-direction(row-reverse);
+			}
 			.portfolioLinks {
 				.flex-direction(row-reverse);
-
-				@media @mobile {
-					.flex-direction(column-reverse);
-				}
-				@media @tablet {
-					.flex-direction(column-reverse);
-				}
-
-				a:last-child {
+				.production-url {
 					text-align: left;
-					@media @mobile {
-						text-align: center;
-					}
-					@media @tablet {
-						text-align: center;
-					}
 				}
 			}
-		}		
+		}
 	}
+
+	margin-bottom: @gridSpacing * 2;
+	background-color: @white;
+	border-top: @gridSpacing / 4 solid @grey;
+
 }
