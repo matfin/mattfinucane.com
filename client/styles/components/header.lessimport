@@ -4,12 +4,12 @@
 	top: 0;
 	left: 0;
 	overflow: hidden;
-	max-height: @gridSpacing * 8.5;
+	max-height: @gridSpacing * 8.75;
 	border-bottom: 4px solid @grey;
 	.backgroundGradient;
 	.animateWithProperties(max-height border);
 	width: 100%;
-
+	.box-sizing(border-box);
 	@media @mobile {
 		max-height: (@gridSpacing * 4.5) + 2;
 	}

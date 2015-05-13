@@ -8,14 +8,6 @@
 	.display(flex);
 	.flex-direction(row);
 
-	@media @desktop {
-		border-top: @borderHeight solid @grey;
-	}
-
-	@media @laptop {
-		border-top: @borderHeight solid @grey;
-	}
-
 	@media @tablet {
 		position: fixed;
 		top: (@gridSpacing * 5) + 4;

@@ -2,6 +2,19 @@
 
 	.flex(1);
 
+	padding-top: @gridSpacing * 2;
+
+	@media @hd {
+		&:first-child {
+			margin-left: @gridSpacing * 6;
+			margin-right: @gridSpacing * 2;
+		}
+		&:last-child {
+			margin-left: @gridSpacing * 2;
+			margin-right: @gridSpacing * 4;
+		}
+	}
+
 	@media @desktop {
 		&:first-child {
 			margin-left: @gridSpacing * 4;
@@ -45,6 +58,11 @@
 	.dates {
 		font-style: italic;
 		margin: @gridSpacing / 2 0;
+
+		@media @hd {
+			margin-bottom: @gridSpacing * 2;
+		}
+
 		text-align: center;
 	}
 
@@ -52,13 +70,22 @@
 		.display(flex);
 		.flex-direction(column);
 
+		@media @hd {
+			.flex-direction(row);
+		}
+
 		@media @desktop {
 			.flex-direction(row);
 		}
 
-
 		ul {
 			.flex(4);
+
+			@media @hd {
+				padding-right: @gridSpacing * 2;
+			}
+
+			text-align: justify;
 			font-size: @baseFontSize;
 			line-height: @baseFontSize + 3;
 
@@ -78,6 +105,9 @@
 
 		.images {
 			.flex(1);
+			@media @hd {
+				.flex(2);
+			}
 			margin-top: @gridSpacing;
 			.align-self(baseline);
 			img {
@@ -85,6 +115,13 @@
 				.border-radius(@gridSpacing / 2);
 			}
 
+			@media @hd {
+				margin-top: 0;
+				margin-left: @gridSpacing;
+				img {
+					margin-bottom: @gridSpacing;
+				}
+			}
 			@media @desktop {
 				margin-top: 0;
 				margin-left: @gridSpacing;
