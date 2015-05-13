@@ -87,7 +87,7 @@
 		section.contentItem {
 
 			.portfolioContent,
-			.staticContent,
+			.staticContent, 
 			.portfolioLinks {
 				.flex-direction(row-reverse);
 
