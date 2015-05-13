@@ -1,6 +1,7 @@
 section.portfolioItem {
 	
 	max-width: @maxWidth;
+	.flex(1);
 	
 	.portfolioContent {
 		.display(flex);
@@ -129,8 +130,10 @@ section.portfolioItem {
 
 	.portfolioLinks {
 		.display(flex);
+		width: 100%;
 		padding-bottom: @gridSpacing;
 		a {
+			display: block;
 			&:first-child {
 				.flex(3);
 				text-align: center;

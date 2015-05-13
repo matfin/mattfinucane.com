@@ -14,7 +14,7 @@ Helpers = {
 	 */
 	deviceClass: function() {
 		var viewportWidth 	= window.innerWidth,
-			pixelDensity	= window.devicePixelRatio;
+			pixelDensity	= window.devicePixelRatio || 1;
 
 		return {
 			isDesktop:  	viewportWidth >= 1280,

@@ -60,11 +60,6 @@
 			{{#with images.collection}}
 				{{> components_imageslider}}
 			{{/with}}
-			<!-- {{#if images.includeProductionUrl}}
-				{{#with this}}
-					{{>item_production_url}}
-				{{/with}}
-			{{/if}} -->
 		</div>
 	{{else}}
 		<div class="image">
@@ -73,11 +68,6 @@
 					{{> cards_image}}
 				{{/each}}
 			{{/with}}
-			<!-- {{#if images.includeProductionUrl}}
-				{{#with this}}
-					{{>item_production_url}}
-				{{/with}}
-			{{/if}} -->
 		</div>
 	{{/if}}	
 </template>
@@ -105,7 +95,7 @@
 
 <template name="item_github_url">
 	{{#if exists fields.githubUrl}}
-		<a href="{{fields.githubUrl}}" class="icon-github" title="See {{fields.title}} on GitHub">
+		<a href="{{fields.githubUrl}}" class="icon-github github-url" title="See {{fields.title}} on GitHub">
 		</a>
 	{{/if}}
 </template>
