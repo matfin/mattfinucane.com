@@ -45,7 +45,7 @@ Template.components_header.helpers({
 	/**
 	 *	Restrict the display of the github timelime to specific device classes
 	 */
-	showGithubTimeline: function() {
+	isDesktopOrLaptop: function() {
 		/**
 		 *	This is a reactive function
 		 */

@@ -11,7 +11,7 @@ body {
 	width: 100%;
 	height: 100%;
 	
-	padding-top: @gridSpacing * 5;
+	padding-top: @gridSpacing * 10;
 
 	@media @tablet {
 		padding-top: @gridSpacing * 4;
@@ -22,21 +22,8 @@ body {
 }
 
 .wrapper {
-
 	display: block;
 	.animateWithProperties(margin);
-
-	&.center,
-	&.top {
-		max-width: @maxWidth;
-
-		@media @laptop {
-			margin: 0 @wrapperPadding;
-		}
-		@media @desktop {
-			margin: 0 10%;
-		}
-	}
 }
 
 h1, h2, h3, h4 {

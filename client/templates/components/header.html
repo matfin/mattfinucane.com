@@ -5,12 +5,16 @@
 				Matt Finucane
 			</h1>
 			<h2>
-				Meteor and iOS developer
+				{{#if isDesktopOrLaptop}}
+					Meteor and iOS Developer
+				{{else}}
+					iOS Developer
+				{{/if}}
 			</h2>
 		</div>
-		<!-- {{#if showGithubTimeline}}
+		{{#if isDesktopOrLaptop}}
 			{{>components_github}}
-		{{/if}} -->
+		{{/if}}
 		<button>
 			<svg 	xmlns="http://www.w3.org/2000/svg"
 					xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -23,9 +27,25 @@
 				</g>
 			</svg>
 		</button>
-		<nav>
-
-		</nav>
 	</header>
+	<nav>
+		<ol>
+			<li>
+				<a href="{{pathFor 'portfolio'}}" title="Portfolio">
+					Portfolio
+				</a>
+			</li>
+			<li>
+				<a href="{{pathFor 'experience'}}" title="Experience">
+					Experience
+				</a>
+			</li>
+			<li>
+				<a href="{{pathFor 'about'}}" title="About">
+					About
+				</a>
+			</li>
+		</ol>
+	</nav>
 </template>
 
