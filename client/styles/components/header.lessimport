@@ -77,11 +77,16 @@ header {
 					translate3d(0, 0, 0)
 					rotate3d(0, 0, 1, 0deg)
 				);
+				.transform(
+					rotateZ(0deg)
+					translateY(0)
+				);
 				.animateWithProperties(transform);
 			}
 		}
 
 		&.revealed {
+
 			rect {
 				&:nth-child(1) {
 					.transform(
@@ -153,3 +158,13 @@ nav {
 	}
 }
 
+.no-smil {
+	header {
+		button.revealed {
+			svg {
+				.animateWithProperties(transform);
+				.transform(rotateZ(90deg));
+			}
+		}
+	}
+}
