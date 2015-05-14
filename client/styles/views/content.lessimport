@@ -2,11 +2,14 @@
 	ul {
 		.display(flex);
 		.flex-direction(row);
-
 		li {
 			.flex(1);
 			.display(flex);
 			.align-items(center);
+
+			a {
+				padding: @gridSpacing 0;
+			}
 		}
 	}
 
@@ -48,7 +51,15 @@
 .interests {
 	ul {
 		list-style-type: decimal;
-		padding-left: @gridSpacing;
+		margin: 0 auto;
+		max-width: @maxWidth / 2; 
+
+		padding-left: @gridSpacing * 2;
+
+		@media @tablet {
+			padding-left: 0;
+		}
+
 
 		li {
 			margin: @gridSpacing / 2 0;
