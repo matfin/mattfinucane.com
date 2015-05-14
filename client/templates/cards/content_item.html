@@ -1,29 +1,63 @@
 <template name="cards_content_item">
+	{{#if deviceClass.isClick}}
+		{{#with this}}
+			{{>cards_click_content_item}}
+		{{/with}}
+	{{else}}
+		{{#with this}}
+			{{>cards_touch_content_item}}
+		{{/with}}
+	{{/if}}
+</template>
+
+<template name="cards_click_content_item">
 	{{#if Template.subscriptionsReady}}
-		<section class="contentItem {{asClassName fields.title}}">
-			<div class="staticContent">
-				<div class="text">
+		<section class="item">
+			<div class="itemContent">
+				<div class="info">
 					<h2>
 						{{fields.title}}
 					</h2>
 					{{#markdown}}{{fields.content}}{{/markdown}}
 				</div>
-				{{#if images.useSlider}}
-					<div class="imageSlider">
-						{{#with images.collection}}
-							{{> components_imageslider}}
-						{{/with}}
-					</div>
-				{{else}}
-					<div class="image">
-						{{#with images.collection}}
-							{{#each this}}
-								{{> cards_image}}
-							{{/each}}
-						{{/with}}
-					</div>
-				{{/if}}
+				{{#with this}}
+					{{>content_images}}
+				{{/with}}		
 			</div>
 		</section>
 	{{/if}}
+</template>
+
+<template name="cards_touch_content_item">
+	<section class="item">
+		<div class="itemContent">
+			<div class="info">
+				<h2>
+					{{fields.title}}
+				</h2>
+				{{#markdown}}{{fields.content}}{{/markdown}}
+				{{#with this}}
+					{{>content_images}}
+				{{/with}}
+			</div>
+		</div>
+	</section>
+</template>
+
+<template name="content_images">
+	{{#if images.useSlider}}
+		<div class="imageSlider">
+			{{#with images.collection}}
+				{{> components_imageslider}}
+			{{/with}}
+		</div>
+	{{else}}
+		<div class="image">
+			{{#with images.collection}}
+				{{#each this}}
+					{{> cards_image}}
+				{{/each}}
+			{{/with}}
+		</div>
+	{{/if}}	
 </template>

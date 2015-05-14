@@ -1,9 +1,9 @@
-section.portfolioItem {
+section.item {
 	
 	max-width: @maxWidth;
-	.flex(1);
+	width: 100%;
 	
-	.portfolioContent {
+	.itemContent {
 		.display(flex);
 		.box-sizing(border-box);
 

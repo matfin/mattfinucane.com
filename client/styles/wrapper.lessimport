@@ -1,4 +1,3 @@
-.wrapper.portfolio,
 .wrapper.content {
 
 	.display(flex);
@@ -20,8 +19,8 @@
 		
 		.justify-content(flex-start);
 
-		.portfolioItem {
-			.portfolioContent {
+		.item {
+			.itemContent {
 				.flex-direction(row);
 			}
 			.portfolioLinks {
@@ -47,8 +46,8 @@
 
 		.justify-content(flex-end);
 
-		.portfolioItem {
-			.portfolioContent {
+		.item {
+			.itemContent {
 				.flex-direction(row-reverse);
 			}
 			.portfolioLinks {
