@@ -97,18 +97,6 @@ Template.views_experience.helpers({
 			concurrentJobs: TemplateHelpers.numberOfItemsInSlide(),
 			jobs: App.collections.cf_entries.find({contentTypeName: 'job'}, {sort: {'fields.startDate': -1}}).fetch()
 		};
-	},
-
-	/**
-	 *	Show or hide the timelime depending on screen size
-	 */
-	showTimeline: function() {
-		/**
-		 *	Make this reactive
-		 */
-		Dependencies.resized.depend();
-		var deviceClass = Helpers.deviceClass();
-		return deviceClass.isDesktop || deviceClass.isLaptop;
 	}
 });
 

@@ -36,6 +36,7 @@ TemplateHelpers = {
 		/**
 		 *	Making this a reactive function
 		 */
+		Dependencies.resized.depend();
 		var deviceClass = Helpers.deviceClass();
 		return (deviceClass.isDesktop || deviceClass.isLaptop) ? 2:1;
 	}
