@@ -8,9 +8,6 @@ section.item {
 		.box-sizing(border-box);
 
 		.info {
-			.display(flex);
-			.flex-direction(column);
-			// .justify-content(space-between);
 			.box-sizing(border-box);
 			.flex(3);
 
@@ -24,16 +21,15 @@ section.item {
 				padding: (@gridSpacing * 2) 0;
 			}
 
-			h2, h3, p {
-				margin-bottom: @gridSpacing + 4;
+			h2, h3, p {	
 				width: 100%;
-			}
+				max-width: @maxWidth / 2;
+				margin: 0 auto;
+				margin-bottom: @gridSpacing + 4;
+				.box-sizing(border-box);
 
-			ul {
-				list-style: disc;
-				padding: @gridSpacing;
-				li {
-					margin-bottom: @gridSpacing;
+				@media @mobile {
+					padding: 0 @gridSpacing;
 				}
 			}
 
@@ -51,32 +47,9 @@ section.item {
 				}
 			}
 
-			p {
-				font-size: @baseFontSize;
-				line-height: @baseFontSize + 3;
-
-				@media @tablet {
-					padding: 0 @gridSpacing * 2;
-				}
-
-				@media @mobile {
-					padding: 0 @gridSpacing;
-				}
-			}
-
 			.skills {
 				h3 {
 					padding: @gridSpacing / 2 0;
-
-					@media @tablet {
-						padding: 0;
-						margin: @gridSpacing 0;
-					}
-					@media @mobile {
-						padding: 0;
-						margin: @gridSpacing 0;
-					}
-
 					text-align: center;
 					font-size: @mediumFontSize - 1;
 					.echelon;
@@ -97,14 +70,6 @@ section.item {
 						}
 					}
 				}
-			}
-
-			> .production-url {
-				width: 100%;
-				margin-top: @gridSpacing;
-				font-size: @mediumFontSize;
-				font-weight: 600;
-				text-align: center;
 			}
 		}
 
@@ -156,26 +121,17 @@ section.item {
 		}
 	}
 
-	a.icon-github,
-	a.production-url {
-		height: @gridSpacing * 2.5;
-		line-height: @gridSpacing * 2.5;
-		
-		&:hover {
-			text-decoration: none;
-		}
+	.production-url,
+	.github-url {
+		width: 100%;
+		margin-top: @gridSpacing;
+		font-size: @mediumFontSize;
+		font-weight: 600;
+		text-align: center;
+		display: block;
 	}
 
-	a.icon-github {
-		font-size: @baseFontSize * 2.5;
-		@media @tablet {
-			margin-top: @gridSpacing;
-		}
-		@media @mobile {
-			margin-top: @gridSpacing;
-		}
-	}
-	a.production-url {
-		font-size: @mediumFontSize;
+	.github-url {
+		font-size: @largeFontSize;
 	}
 }
