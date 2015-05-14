@@ -8,8 +8,6 @@ section.item {
 		.box-sizing(border-box);
 
 		.info {
-			.display(flex);
-			.flex-direction(column);
 			.box-sizing(border-box);
 			.flex(3);
 
@@ -73,14 +71,6 @@ section.item {
 					}
 				}
 			}
-
-			> .production-url {
-				width: 100%;
-				margin-top: @gridSpacing;
-				font-size: @mediumFontSize;
-				font-weight: 600;
-				text-align: center;
-			}
 		}
 
 		.image,
@@ -131,28 +121,17 @@ section.item {
 		}
 	}
 
-	a.icon-github,
-	a.production-url {
-		height: @gridSpacing * 2.5;
-		line-height: @gridSpacing * 2.5;
-		
-		&:hover {
-			text-decoration: none;
-		}
+	.production-url,
+	.github-url {
+		width: 100%;
+		margin-top: @gridSpacing;
+		font-size: @mediumFontSize;
+		font-weight: 600;
+		text-align: center;
+		display: block;
 	}
 
-	a.icon-github {
-		font-size: @baseFontSize * 2.5;
-		@media @tablet {
-			margin-top: @gridSpacing;
-			text-align: center;
-		}
-		@media @mobile {
-			margin-top: @gridSpacing;
-			text-align: center;
-		}
-	}
-	a.production-url {
-		font-size: @mediumFontSize;
+	.github-url {
+		font-size: @largeFontSize;
 	}
 }
