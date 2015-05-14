@@ -16,7 +16,6 @@ Template.cards_content_item.created = function() {
  *	@method rendered
  */
 Template.cards_content_item.rendered = function() {
-	
 };
 
 /**
@@ -36,9 +35,32 @@ Template.cards_content_item.destroyed = function() {
 Template.cards_content_item.helpers({
 
 	/**
+	 *	Getting device parameters so we can load the correct template
+	 */
+	deviceClass: function() {
+		/**
+		 *	Making this function reactive
+		 */
+		Dependencies.resized.depend();
+		var deviceClass = Helpers.deviceClass();
+		return {
+			isClick: deviceClass.isDesktop || deviceClass.isLaptop,
+			isTouch: deviceClass.isTablet || deviceClass.isMobile
+		};
+	}
+});
+
+/**
+ *	Template - content_images
+ *	Helpers
+ */
+Template.content_images.helpers({
+
+	/**
 	 *	Fetch the images for this content item
 	 */
 	images: function() {
+
 		/**
 		 *	Checking to see if associated images exist
 		 */
