@@ -73,16 +73,18 @@
 </template>
 
 <template name="portfolio_skills">
-	<h3>
-		Code / Skills
-	</h3>
-	<ol>
-		{{#each skills}}
-			<li>
-				{{fields.title}}
-			</li>
-		{{/each}}
-	</ol>
+	<div class="skills">
+		<h3>
+			Code / Skills
+		</h3>
+		<ol>
+			{{#each skills}}
+				<li>
+					{{fields.title}}
+				</li>
+			{{/each}}
+		</ol>
+	</div>
 </template>
 
 <template name="item_production_url">
