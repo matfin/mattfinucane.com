@@ -3,3 +3,4 @@ packages/github/_config/settings.js
 packages/npm-container
 npm-debug.log
 *.tar.gz
+.DS_Store

@@ -20,8 +20,10 @@ markdown
 meteorhacks:npm
 
 
-npm-container
 momentjs:moment
 matfin:github
 matfin:slider
 cwaring:modernizr
+
+
+npm-container
