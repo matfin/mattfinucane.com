@@ -1,3 +1,14 @@
 =resetPaddingMargin
 	padding: 0
 	margin: 0
+
+=break($type, $break1, $break2: '')
+	@if $type == min
+		@media screen and (min-width: em($break1))
+			@content
+	@else if $type == max
+		@media screen and (max-width: em($break1))
+			@content
+	@else if $type == min-max
+		@media screen and (min-width: em($break1)) and (max-width: em($break2))
+			@content
