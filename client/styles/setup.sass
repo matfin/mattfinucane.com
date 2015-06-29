@@ -4,9 +4,19 @@
 
 body 
 	+resetPaddingMargin
+	+backgroundGradient
 	font-family: $fontFamily
 	font-size: $baseFontSize
 	color: $black
+	width: 100vw
+	height: 100vh
+
+.container 
+	width: 100vw
+	height: 100vh
+
+.wrapper 
+	+transitionWithProperties(margin)
 
 h1,
 h2, 
