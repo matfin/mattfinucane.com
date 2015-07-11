@@ -13,9 +13,9 @@
 <template name="cards_click_content_item">
 	{{#if Template.subscriptionsReady}}
 		<section class="item {{asClassName fields.title}}">
-			<div class="itemContent">
-				<div class="info">
-					<h2>
+			<div class="item__content">
+				<div class="item__content__info">
+					<h2 class="item__content__info__title">
 						{{fields.title}}
 					</h2>
 					{{#markdown}}{{fields.content}}{{/markdown}}
@@ -30,9 +30,9 @@
 
 <template name="cards_touch_content_item">
 	<section class="item {{asClassName fields.title}}">
-		<div class="itemContent">
-			<div class="info">
-				<h2>
+		<div class="item__content">
+			<div class="item__content__info">
+				<h2 class="item__content__info__title">
 					{{fields.title}}
 				</h2>
 				{{#markdown}}{{fields.content}}{{/markdown}}
@@ -46,13 +46,13 @@
 
 <template name="content_images">
 	{{#if images.useSlider}}
-		<div class="imageSlider">
+		<div class="image__slider">
 			{{#with images.collection}}
 				{{> components_imageslider}}
 			{{/with}}
 		</div>
 	{{else}}
-		<div class="image">
+		<div class="image__slider__image">
 			{{#with images.collection}}
 				{{#each this}}
 					{{> cards_image}}

@@ -1,10 +1,10 @@
 <template name="components_header">
 	<header>
-		<div class="title">
-			<h1>
+		<div class="header__details">
+			<h1 class="header__details__title">
 				Matt Finucane
 			</h1>
-			<h2>
+			<h2 class="header__details__subtitle">
 				{{#if isDesktopOrLaptop}}
 					Meteor and iOS Developer
 				{{else}}
@@ -15,7 +15,7 @@
 		{{#if isDesktopOrLaptop}}
 			{{>components_github}}
 		{{/if}}
-		<button>
+		<button class="header__button">
 			<svg 	xmlns="http://www.w3.org/2000/svg"
 					xmlns:xlink="http://www.w3.org/1999/xlink"
 					version="1.1"
@@ -28,19 +28,19 @@
 			</svg>
 		</button>
 	</header>
-	<nav>
-		<ol>
-			<li>
+	<nav class="header__nav">
+		<ol class="header__nav__list">
+			<li class="header__nav__list__item">
 				<a href="{{pathFor 'portfolio'}}" title="Portfolio">
 					Portfolio
 				</a>
 			</li>
-			<li>
+			<li class="header__nav__list__item">
 				<a href="{{pathFor 'experience'}}" title="Experience">
 					Experience
 				</a>
 			</li>
-			<li>
+			<li class="header__nav__list__item">
 				<a href="{{pathFor 'about'}}" title="About">
 					About
 				</a>

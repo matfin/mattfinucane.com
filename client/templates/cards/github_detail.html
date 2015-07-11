@@ -1,10 +1,10 @@
 <template name="cards_github_detail">
-	<div class="githubDetail">
-		<div class="activity">
-			<h2>
+	<div class="github__detail">
+		<div class="github__detail__activity">
+			<h2 class="github__detail__activity__title">
 				GitHub Activity
 			</h2>
-			<h3>
+			<h3 class="github__detail__activity__subtitle">
 				{{#if commits.itemsPresent}}
 					{{#if commits.isSingle}}
 						{{commits.size}} Commit
@@ -15,13 +15,13 @@
 					No commits
 				{{/if}}
 			</h3>
-			<time datetime="">
+			<time datetime="" title="github__detail__activity__time">
 				{{#if commits.itemsPresent}}
 					{{formattedDate commits.lastEvent.created_at "dddd, DD[/]MM"}}
 				{{/if}}
 			</time> 
 		</div>
-		<ul class="messages">
+		<ul class="github__detail__messages">
 			{{#each commits.toDisplay}}
 				<li>
 					<a href="{{url}}" title="{{message}}" rel="external">

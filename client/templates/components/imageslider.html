@@ -1,22 +1,22 @@
 <template name="components_imageslider">
 	{{#if showPaddles}}
-		<button class="paddle hidden arrow-left" data-direction="previous">
+		<button class="slider__paddle slider__paddle--hidden arrow-left" data-direction="previous">
 		</button>
-		<button class="paddle arrow-right" data-direction="next">
+		<button class="slider__paddle slider__paddle arrow-right" data-direction="next">
 		</button>
 	{{/if}}
-	<div class="sliderContainer">
-		<div class="slider" style="width: {{sliderWidth}}%;">
+	<div class="slider__container">
+		<div class="slider__container__slider" style="width: {{sliderWidth}}%;">
 			{{#each this}}
-				<div class="slide">
+				<div class="slider__container__slider__slide">
 					{{> cards_image}}
 				</div>
 			{{/each}}
 		</div>
 		{{#if showIndicator}}
-			<div class="sliderIndicator">
+			<div class="slider__indicator">
 				{{#each this}}
-					<div class="item">
+					<div class="slider__indicator__item">
 					</div>
 				{{/each}}
 			</div>
