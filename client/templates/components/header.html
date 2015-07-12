@@ -12,40 +12,25 @@
 				{{/if}}
 			</h2>
 		</div>
-		{{#if isDesktopOrLaptop}}
-			{{>components_github}}
-		{{/if}}
-		<button class="header__button">
-			<svg 	xmlns="http://www.w3.org/2000/svg"
-					xmlns:xlink="http://www.w3.org/1999/xlink"
-					version="1.1"
-					viewbox="0 0 48 32">
-				<g>
-					<rect width="48" height="4" />
-					<rect y="14" width="48" height="4" />
-					<rect y="28" width="48" height="4" />
-				</g>
-			</svg>
-		</button>
+		<nav class="header__nav">
+			<ol class="header__nav__list">
+				<li class="header__nav__list__item">
+					<a href="{{pathFor 'portfolio'}}" title="Portfolio">
+						Portfolio
+					</a>
+				</li>
+				<li class="header__nav__list__item">
+					<a href="{{pathFor 'experience'}}" title="Experience">
+						Experience
+					</a>
+				</li>
+				<li class="header__nav__list__item">
+					<a href="{{pathFor 'about'}}" title="About">
+						About
+					</a>
+				</li>
+			</ol>
+		</nav>
 	</header>
-	<nav class="header__nav">
-		<ol class="header__nav__list">
-			<li class="header__nav__list__item">
-				<a href="{{pathFor 'portfolio'}}" title="Portfolio">
-					Portfolio
-				</a>
-			</li>
-			<li class="header__nav__list__item">
-				<a href="{{pathFor 'experience'}}" title="Experience">
-					Experience
-				</a>
-			</li>
-			<li class="header__nav__list__item">
-				<a href="{{pathFor 'about'}}" title="About">
-					About
-				</a>
-			</li>
-		</ol>
-	</nav>
 </template>
 

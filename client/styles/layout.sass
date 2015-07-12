@@ -1,2 +1,40 @@
-.wrapper 
+.wrapper--content
 	
+	+display(flex)
+	background-color: $white;
+	margin-bottom: $gridSpacing * 2
+	
+	+break(min, $break-0) 
+		&:nth-child(even)
+			margin-left: $gridSpacing * 2
+			padding-right: $gridSpacing * 2
+		&:nth-child(odd)
+			margin-right: $gridSpacing * 2
+			padding-left: $gridSpacing * 2
+	
+	+break(min, $break-4)
+		&:nth-child(even)
+			+calc(margin-left, '(100% - #{em($break-3)}) / 2')
+		&:nth-child(odd)
+			+calc(margin-right, '(100% - #{em($break-3)}) / 2')
+
+	&:nth-child(even)
+		+justify-content(flex-start)
+
+	&:nth-child(odd)
+		+justify-content(flex-end)
+
+.wrapper--top	
+	z-index: $z-over
+	position: fixed
+	overflow: hidden
+	top: 0
+	left: 0
+	width: 100vw
+	border-bottom: $gridSpacing / 4 solid $grey
+	+backgroundGradient
+
+	+break(min, $break-0)
+		max-height: $gridSpacing * 4
+	+break(min, $break-1)
+		max-height: $gridSpacing * 8
