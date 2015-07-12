@@ -137,25 +137,3 @@ Template.portfolio_skills.helpers({
 		return [];
 	}
 });
-
-/**
- *	Template - portfolio_links
- *	Helpers
- */
-Template.portfolio_links.helpers({
-	/**
-	 *	Function returning whether links for the product or GitHub codebase exists
-	 */
-	linksExist: function() {
-
-		var githubUrlExists 	= !_.isNull(this.fields.githubUrl) && !_.isUndefined(this.fields.githubUrl),
-			productionUrlExists	= !_.isNull(this.fields.productionUrl) && !_.isUndefined(this.fields.productionUrl),
-			hasUrls 			= (githubUrlExists || productionUrlExists);
-
-		return {
-			githubUrl: 				githubUrlExists,
-			productionUrl: 			productionUrlExists,
-			some: 			 		hasUrls
-		};
-	}
-});

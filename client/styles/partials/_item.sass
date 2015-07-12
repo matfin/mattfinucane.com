@@ -1,8 +1,7 @@
-.item 
-	+break(min, $break-0)
-		padding: $gridSpacing
-	+break(min, $break-2)
-		padding: $gridSpacing * 2
+.wrapper--content
+	&:nth-child(odd)
+		.item__content
+			+flex-direction(row-reverse)
 
 .item__content
 	+display(flex)
@@ -13,7 +12,47 @@
 	+break(min, $break-3)
 		+flex-direction(row)
 
+.item__content__info 	
+	+break(min, $break-0)
+		padding: $gridSpacing * 2
+	p
+		margin-bottom: $gridSpacing
+
+
+.item__content__images
+	+display(flex)
+	+align-items(center)
+
+.item__content__info__title
+	margin-bottom: $gridSpacing
+	+tac
+	+echelons
+
 .item__content__info,
 .item__content__images
 	+break(min, $break-3)
 		+flex(1)
+
+.image__standalone
+	width: 100%
+	> img
+		display: block
+		width: 100%
+		height: auto
+
+.skills__title
+	margin-bottom: $gridSpacing
+	+tac
+	+echelons
+
+.item__skills__list
+	+tac
+
+.item__skills__list__item
+	display: inline-block
+	&:after
+		content: '/'
+	&:last-child
+		&:after
+			content: ''
+

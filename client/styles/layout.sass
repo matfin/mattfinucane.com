@@ -15,8 +15,10 @@
 	+break(min, $break-4)
 		&:nth-child(even)
 			+calc(margin-left, '(100% - #{em($break-3)}) / 2')
+			+calc(padding-right, '(100% - #{em($break-3)}) / 2')
 		&:nth-child(odd)
 			+calc(margin-right, '(100% - #{em($break-3)}) / 2')
+			+calc(padding-left, '(100% - #{em($break-3)}) / 2')
 
 	&:nth-child(even)
 		+justify-content(flex-start)

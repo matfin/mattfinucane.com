@@ -1,0 +1,24 @@
+ul,
+ol,
+p,
+a,
+span,
+time 
+	+transitionWithProperties(font-size)
+	+break(min, $break-0)
+		font-size: $baseFontSize
+	+break(min, $break-2)
+		font-size: $mediumFontSize
+
+=tac
+	text-align: center
+
+=tal
+	text-align: left
+
+=tar
+	text-align: right
+
+=taj
+	text-align: justify
+
