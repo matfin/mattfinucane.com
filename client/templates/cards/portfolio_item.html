@@ -1,4 +1,4 @@
-<template name="cards_portfolio_item">
+<!-- <template name="cards_portfolio_item">
 	{{#if deviceClass.isClick}}
 		{{#with this}}
 			{{>cards_click_portfolio_item}}
@@ -8,9 +8,9 @@
 			{{>cards_touch_portfolio_item}}
 		{{/with}}
 	{{/if}}
-</template>
+</template> -->
 
-<template name="cards_click_portfolio_item">
+<template name="cards_portfolio_item">
 	{{#if Template.subscriptionsReady}}
 		<section class="item">
 			<div class="item__content">
@@ -23,9 +23,11 @@
 						{{>portfolio_skills}}
 					{{/with}}
 				</div>
-				{{#with this}}
-					{{>portfolio_images}}
-				{{/with}}		
+				<div class="item__content__images">
+					{{#with this}}
+						{{>portfolio_images}}
+					{{/with}}		
+				</div>
 			</div>
 			{{#with this}}
 				{{>portfolio_links}}
@@ -62,7 +64,7 @@
 			{{/with}}
 		</div>
 	{{else}}
-		<div class="image__slider__image">
+		<div class="image__standalone">
 			{{#with images.collection}}
 				{{#each this}}
 					{{> cards_image}}

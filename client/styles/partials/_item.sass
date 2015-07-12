@@ -1,0 +1,19 @@
+.item 
+	+break(min, $break-0)
+		padding: $gridSpacing
+	+break(min, $break-2)
+		padding: $gridSpacing * 2
+
+.item__content
+	+display(flex)
+
+	+break(min, $break-0)
+		+flex-direction(column)
+
+	+break(min, $break-3)
+		+flex-direction(row)
+
+.item__content__info,
+.item__content__images
+	+break(min, $break-3)
+		+flex(1)

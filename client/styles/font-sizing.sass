@@ -1,0 +1,12 @@
+ul,
+ol,
+p,
+a,
+span,
+time 
+	+transitionWithProperties(font-size)
+	+break(min, $break-0)
+		font-size: $mediumFontSize
+	+break(min, $break-4)
+		font-size: $largeFontSize
+

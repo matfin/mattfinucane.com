@@ -1,0 +1,21 @@
+.slider__container
+	position: relative
+	overflow: hidden
+	width: 100%
+	background-color: $white
+	+user-select(none)
+
+.slider__container__slider 
+	position: relative
+	+display(flex)
+	+flex(1)
+
+.slider__container__slider__slide
+	position: relative
+	+flex(1)
+	width: 100%
+
+	> img
+		display: block 
+		width: 100%
+		height: auto

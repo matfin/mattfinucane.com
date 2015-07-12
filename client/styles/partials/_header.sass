@@ -14,7 +14,8 @@ header
 
 	+transitionWithProperties(max-width)
 
-.header__details__title
+.header__details__title,
+.header__details__subtitle
 	white-space: nowrap
 
 .header__nav
@@ -25,3 +26,8 @@ header
 
 .header__nav__list__item
 	display: inline
+	+break(min, $break-2)
+		padding-right: $gridSpacing
+
+		&:last-child
+			padding-right: 0

@@ -20,7 +20,7 @@ Template.components_imageslider.rendered = function() {
 		this.$('.item', '.sliderIndicator').get(0).className = 'item highlighted';
 	}
 	
-	var sliderContainer = this.$('.sliderContainer').get(0);
+	var sliderContainer = this.$('.slider__container').get(0);
 	this.slider = Slider.setup(sliderContainer);
 };
 
@@ -76,7 +76,7 @@ Template.components_imageslider.helpers({
  */
 Template.components_imageslider.events = {
 
-	'slidecomplete .sliderContainer': function(e, template) {
+	'slidecomplete .slider_container': function(e, template) {
 		
 		var currentSlide = e.originalEvent.data.currentSlide;
 

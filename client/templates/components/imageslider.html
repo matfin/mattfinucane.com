@@ -1,14 +1,14 @@
 <template name="components_imageslider">
-	{{#if showPaddles}}
+	{{#if showPaddles and Something}}
 		<button class="slider__paddle slider__paddle--hidden arrow-left" data-direction="previous">
 		</button>
 		<button class="slider__paddle slider__paddle arrow-right" data-direction="next">
 		</button>
 	{{/if}}
 	<div class="slider__container">
-		<div class="slider__container__slider" style="width: {{sliderWidth}}%;">
+		<div class="slider__container__slider slider" style="width: {{sliderWidth}}%;">
 			{{#each this}}
-				<div class="slider__container__slider__slide">
+				<div class="slider__container__slider__slide slide">
 					{{> cards_image}}
 				</div>
 			{{/each}}
