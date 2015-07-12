@@ -19,3 +19,26 @@
 		display: block 
 		width: 100%
 		height: auto
+
+.slider__paddle
+	z-index: $z-over
+	position: absolute;
+	top: 0
+	font-size: $largeFontSize
+	width: $gridSpacing * 3
+	height: 100%
+	+tac
+	+transitionWithProperties(opacity)
+
+.slider__paddle--hidden 
+	opacity: 0
+
+.arrow-left 
+	left: 0
+	&:before 
+		content: '<'
+
+.arrow-right
+	right: 0
+	&:before
+		content: '>'

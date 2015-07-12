@@ -1,7 +1,8 @@
 .wrapper--content
 	&:nth-child(odd)
 		.item__content
-			+flex-direction(row-reverse)
+			+break(min, $break-3)
+				+flex-direction(row-reverse)
 
 .item__content
 	+display(flex)
@@ -16,6 +17,8 @@
 	+break(min, $break-0)
 		padding: $gridSpacing * 2
 	p
+		+break(min-max, $break-0, $break-1)
+			+taj
 		margin-bottom: $gridSpacing
 
 
@@ -25,6 +28,7 @@
 
 .item__content__info__title
 	margin-bottom: $gridSpacing
+	font-size: $largeFontSize
 	+tac
 	+echelons
 
@@ -32,6 +36,9 @@
 .item__content__images
 	+break(min, $break-3)
 		+flex(1)
+
+.image__slider
+	position: relative
 
 .image__standalone
 	width: 100%
@@ -42,6 +49,7 @@
 
 .skills__title
 	margin-bottom: $gridSpacing
+	font-size: $mediumFontSize
 	+tac
 	+echelons
 

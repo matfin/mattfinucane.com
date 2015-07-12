@@ -5,7 +5,7 @@ header
 		padding: $gridSpacing / 2
 
 	+break(min, $break-2)
-		padding: $gridSpacing * 2 0
+		padding: $gridSpacing 0
 		margin: 0 $gridSpacing * 2
 
 	+break(min, $break-4)
@@ -13,6 +13,23 @@ header
 		max-width: em($maxWidth / 2)
 
 	+transitionWithProperties(max-width)
+
+.header__details__title
+	a
+		display: block
+		+break(min, $break-0)
+			font-size: $mediumFontSize
+		+break(min, $break-2)
+			font-size: $largeFontSize
+			line-height: $largeFontSize * 1.5
+		color: $turquoise
+
+.header__details__subtitle
+	+break(min, $break-0)
+		font-size: $baseFontSize
+	+break(min, $break-2)
+		font-size: $mediumFontSize
+		line-height: $mediumFontSize * 1.5
 
 .header__details__title,
 .header__details__subtitle
@@ -28,6 +45,11 @@ header
 	display: inline
 	+break(min, $break-2)
 		padding-right: $gridSpacing
-
 		&:last-child
 			padding-right: 0
+
+.header__nav__list__item__link
+	+break(min, $break-0)
+		font-size: $baseFontSize
+	+break(min, $break-2)
+		font-size: $mediumFontSize

@@ -4,11 +4,16 @@ p,
 a,
 span,
 time 
-	+transitionWithProperties(font-size)
-	+break(min, $break-0)
-		font-size: $baseFontSize
-	+break(min, $break-2)
-		font-size: $mediumFontSize
+	font-size: $baseFontSize
+	font-weight: $lightFontWeight
+
+h1,
+h2,
+h3,
+h4, 
+h5,
+h6
+	font-weight: $lightFontWeight
 
 =tac
 	text-align: center
@@ -21,4 +26,3 @@ time
 
 =taj
 	text-align: justify
-
