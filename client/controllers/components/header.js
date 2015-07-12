@@ -64,7 +64,7 @@ Template.components_header.events = {
 
 	'click button': function(e, template) {
 		template.$('button').toggleClass('revealed');
-		$('.top').toggleClass('revealed');
+		$('header').toggleClass('header--revealed');
 	}
 
 };
