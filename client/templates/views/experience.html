@@ -1,15 +1,15 @@
 <template name="views_experience">
-	<div class="wrapper wrapper--center cv">
-		<button class="paddle paddle--hidden arrow-left" data-direction="previous">
+	<div class="wrapper">
+		<!-- <button class="paddle paddle-hidden arrow-left" data-direction="previous">
 		</button>
 		<button class="paddle arrow-right" data-direction="next">
 		</button>
-		{{>components_timeline timelineData}}
+		{{>components_timeline timelineData}} -->
 		<div class="slider__container">
-			<div class="slider__container__slider">
+			<div class="slider__container__slider slider">
 				{{#if Template.subscriptionsReady}}
 					{{#each groupedJobs}}
-						<div class="slider__container__slider__slide">
+						<div class="slider__container__slider__slide slider__container__slider__slide--experience slide">
 							{{#each this}}
 								{{>cards_job}}
 							{{/each}}
