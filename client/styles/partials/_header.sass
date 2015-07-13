@@ -10,7 +10,8 @@ header
 		max-height: $gridSpacing * 4.5
 
 	+break(min, $break-2)
-		padding: $gridSpacing 0
+		padding: $gridSpacing * 2 0
+		padding-top: $gridSpacing
 		margin: 0 $gridSpacing * 2
 
 	+break(min, $break-4)
@@ -25,20 +26,16 @@ header
 .header__details__title
 	a
 		display: block
-		+break(min, $break-0)
-			font-size: $mediumFontSize
-			line-height: $mediumFontSize * 1.5
-		+break(min, $break-2)
-			font-size: $largeFontSize
-			line-height: $largeFontSize * 1.5
+		font-size: $mediumFontSize
 		color: $turquoise
+		line-height: $mediumFontSize * 1.5
 
 .header__details__subtitle
 	+break(min, $break-0)
 		font-size: $baseFontSize
 	+break(min, $break-2)
-		font-size: $mediumFontSize
-		line-height: $mediumFontSize * 1.5
+		font-size: $mediumFontSize * 0.8
+		line-height: 1.5rem
 
 .header__details__title,
 .header__details__subtitle
