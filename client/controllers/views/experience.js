@@ -106,12 +106,12 @@ Template.views_experience.helpers({
  */
 Template.views_experience.events = {
 
-	'slidecomplete .sliderContainer': function(e, template) {
+	'slidecomplete .slider__container': function(e, template) {
 
 		if($('button', '.timeline').length > 0) {
 			var currentSlide = e.originalEvent.data.currentSlide;
-			$('button', '.timeline').removeClass('highlighted');
-			$('button', '.timeline').get(currentSlide).className = 'year highlighted';
+			$('button', '.timeline').removeClass('timeline__year--highlighted');
+			$('button', '.timeline').get(currentSlide).className = 'timeline__year timeline__year--highlighted';
 		}
 
 		if(template.slider.currentSlide === 0) {
