@@ -1,20 +1,20 @@
 /**
- *	Template - views_experience
+ *	Template - views_experience_slider
  *	Callback function called automatically when the template has been created
  *
  *	@method created
  */
-Template.views_experience.created = function() {
+Template.views_experience_slider.created = function() {
 	this.subscribe('job');
 };
 
 /**
- *	Template - views_experience
+ *	Template - views_experience_slider
  *	Callback function called automatically when the template has been rendered
  *
  *	@method rendered
  */
-Template.views_experience.rendered = function() {
+Template.views_experience_slider.rendered = function() {
 
 	var sliderContainer = document.getElementsByClassName('slider__container').item(0),
 		self = this;
@@ -54,20 +54,20 @@ Template.views_experience.rendered = function() {
 };
 
 /**
- *	Template - views_experience
+ *	Template - views_experience_slider
  *	Callback function called automatically when the template has been destroyed
  *
  *	@method destroyed
  */
-Template.views_experience.destroyed = function() {
+Template.views_experience_slider.destroyed = function() {
 	Session.set('slideNumber', undefined);
 };
 
 /**
- *	Template - views_experience
+ *	Template - views_experience_slider
  *	Helpers 
  */
-Template.views_experience.helpers({
+Template.views_experience_slider.helpers({
 
 	/**
 	 *	Fetch jobs, sorted by their start date in descending order. In this case,
@@ -101,10 +101,10 @@ Template.views_experience.helpers({
 });
 
 /** 
- *	Template views_experience
+ *	Template views_experience_slider
  *	Events
  */
-Template.views_experience.events = {
+Template.views_experience_slider.events = {
 
 	'slidecomplete .slider__container': function(e, template) {
 

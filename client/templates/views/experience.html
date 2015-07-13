@@ -1,4 +1,16 @@
 <template name="views_experience">
+	{{#if deviceClass.isMobile}}
+		{{>views_experience_stacked}}
+	{{else}}
+		{{#if deviceClass.isTablet}}
+			{{>views_experience_stacked}}
+		{{else}}
+			{{>views_experience_slider}}
+		{{/if}}
+	{{/if}}
+</template>
+
+<template name="views_experience_slider">
 	<div class="wrapper">
 		<!-- <button class="paddle paddle-hidden arrow-left" data-direction="previous">
 		</button>
@@ -19,5 +31,15 @@
 				{{/if}}
 			</div>
 		</div>
+	</div>
+</template>
+
+<template name="views_experience_stacked">
+	<div class="jobs">
+		{{#if Template.subscriptionsReady}}
+			{{#each jobs}}
+				{{>cards_job}}
+			{{/each}}
+		{{/if}}
 	</div>
 </template>

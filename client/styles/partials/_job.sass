@@ -3,6 +3,9 @@
 	+flex-direction(row)
 
 .job
+	+break(min-max, $break-0, $break-3)
+		background-color: $white
+		border-top: 0.25rem solid $grey
 	+break(min, $break-0)
 		padding: 2em
 	+break(min, $break-1)
@@ -18,11 +21,15 @@
 .job__role_location,
 .job__dates
 	margin-bottom: 1rem
-	+tac
+	+break(min, $break-3)
+		+tac
 
 .job__title,
 .job__role_location
-	font-size: $largeFontSize
+	+break(min, $break-0)
+		font-size: $mediumFontSize
+	+break(min, $break-3)
+		font-size: $largeFontSize
 
 .job__dates
 	+italic
@@ -43,3 +50,6 @@
 			+taj
 			+break(min, $break-4)
 				padding-right: 4rem
+
+.image 
+	border-radius: 0.25rem
