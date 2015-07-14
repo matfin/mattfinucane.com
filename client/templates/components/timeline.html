@@ -2,13 +2,13 @@
 	<div class="timeline">
 		{{#each yearGroups}}
 			{{#if highlighted}}
-				<button class="year highlighted">
+				<button class="timeline__year timeline__year--highlighted">
 					{{#if showYears}}
 						{{to}} &ndash; {{from}}
 					{{/if}}
 				</button>
 			{{else}}
-				<button class="year">
+				<button class="timeline__year">
 					{{#if showYears}}
 						{{to}} &ndash; {{from}}
 					{{/if}}

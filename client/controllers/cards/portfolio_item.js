@@ -17,7 +17,6 @@ Template.cards_portfolio_item.created = function() {
  *	@method rendered
  */
 Template.cards_portfolio_item.rendered = function() {
-	this.$('a.production-url, a.icon-github').prop('target', '_blank');
 };
 
 /**
@@ -35,18 +34,12 @@ Template.cards_portfolio_item.destroyed = function() {
  */
 Template.cards_portfolio_item.helpers({
 	/**
-	 *	Getting device parameters so we can load the correct template
+	 *	Fetch any links for the portfolio item
 	 */
-	deviceClass: function() {
-		/**
-		 *	Making this function reactive
-		 */
-		Dependencies.resized.depend();
-		var deviceClass = Helpers.deviceClass();
+	links: function() {
 		return {
-			isClick: deviceClass.isDesktop || deviceClass.isLaptop,
-			isTouch: deviceClass.isTablet || deviceClass.isMobile
-		};
+			production_url: (typeof this.fields.productionUrl !== 'undefined') ? this.fields.productionUrl : false
+		}
 	}
 });
 
@@ -135,27 +128,14 @@ Template.portfolio_skills.helpers({
 		 *	Or we return an empty array
 		 */
 		return [];
-	}
-});
+	},
 
-/**
- *	Template - portfolio_links
- *	Helpers
- */
-Template.portfolio_links.helpers({
 	/**
-	 *	Function returning whether links for the product or GitHub codebase exists
+	 *	Fetch any links for the portfolio item
 	 */
-	linksExist: function() {
-
-		var githubUrlExists 	= !_.isNull(this.fields.githubUrl) && !_.isUndefined(this.fields.githubUrl),
-			productionUrlExists	= !_.isNull(this.fields.productionUrl) && !_.isUndefined(this.fields.productionUrl),
-			hasUrls 			= (githubUrlExists || productionUrlExists);
-
+	links: function() {
 		return {
-			githubUrl: 				githubUrlExists,
-			productionUrl: 			productionUrlExists,
-			some: 			 		hasUrls
-		};
+			github_url: (typeof this.fields.githubUrl !== 'undefined') ? this.fields.githubUrl : false
+		}
 	}
 });

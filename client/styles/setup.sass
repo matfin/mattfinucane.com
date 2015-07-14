@@ -1,0 +1,61 @@
+
+*
+	box-sizing: border-box
+	-webkit-padding-start: 0px
+
+body 
+	+resetPaddingMargin
+	+backgroundGradient
+	font-family: $fontFamily
+	font-size: $baseFontSize
+	color: $grey
+	width: 100vw
+	height: 100vh
+
+.container 
+	width: 100vw
+	min-width: em($break-0)	
+	height: 100vh
+
+.wrapper 
+	display: block
+	+transitionWithProperties(margin)
+
+h1,
+h2, 
+h3, 
+h4,
+h5, 
+h6
+	+resetPaddingMargin
+	-webkit-margin-before: 0
+	-webkit-margin-after: 0
+
+ol,
+ul
+	+resetList
+
+p,
+span,
+time 
+	+resetPaddingMargin
+
+button
+	+resetPaddingMargin
+	background-color: transparent
+	border: none
+	+appearance(none)
+	-webkit-tap-highlight-color: transparent
+
+a,
+button
+	color: $turquoise
+	text-decoration: none
+	+transitionWithProperties(color)
+	&:hover 
+		text-decoration: none
+		color: $darkGreen
+	&:active,
+	&:focus
+		outline: none
+	

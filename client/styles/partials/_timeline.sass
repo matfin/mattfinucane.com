@@ -1,0 +1,26 @@
+.timeline
+	
+	+break(min, $break-0)
+		display: none
+	+break(min, $break-2)
+		+display(flex)
+		+flex-direction(row)
+
+.timeline__year
+	+flex(1)
+	padding: 0.5rem
+	+tal
+
+	+break(min, $break-0)
+		font-size: $baseFontSize
+
+	&:nth-child(odd)
+		color: $timelineOdd
+		border-top: 0.5rem solid currentColor
+	&:nth-child(even)
+		color: $timelineEven
+		border-top: 0.5rem solid currentColor
+
+	&.timeline__year--highlighted
+		color: $timelineHighlighted
+		border-top: 0.5rem solid currentColor

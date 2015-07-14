@@ -3,13 +3,13 @@
 		{{#if Template.subscriptionsReady}}
 
 			{{#each points.asCollection}}
-				<div class="commits">
-					<div class="indicator" style="height: {{this.y}}px;">
+				<div class="day__commits">
+					<div class="day__commits__indicator" style="height: {{this.y}}px;">
 					</div>
 				</div>
 			{{/each}}
 
-			<time datetime="{{this.end}}">
+			<time class="day__commits__time" datetime="{{this.end}}">
 				{{formattedDate this.end "dd"}} {{formattedDate this.end "DD/MM"}}
 			</time>
 		{{/if}}

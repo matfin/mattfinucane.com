@@ -1,0 +1,54 @@
+.wrapper--content
+	&:nth-child(odd)
+		.item__content
+			+break(min, $break-3)
+				+flex-direction(row-reverse)
+
+.item__content
+	+display(flex)
+
+	+break(min, $break-0)
+		+flex-direction(column)
+
+	+break(min, $break-3)
+		+flex-direction(row)
+
+.item__content__info 	
+	+break(min, $break-0)
+		padding: 4rem 2rem
+		padding-top: 3rem
+	p
+		+break(min-max, $break-0, $break-1)
+			+taj
+		margin-bottom: 1rem
+
+
+.item__content__images
+	+display(flex)
+	+align-items(center)
+
+.item__content__info__title
+	margin-bottom: 1rem
+	font-size: $largeFontSize
+	+tac
+	+echelons
+
+.item__content__link
+	font-size: inherit
+	color: currentColor
+
+.item__content__info,
+.item__content__images
+	+break(min, $break-3)
+		+flex(1)
+
+.image__slider
+	position: relative
+
+.image__standalone
+	width: 100%
+	> img
+		display: block
+		width: 100%
+		height: auto
+

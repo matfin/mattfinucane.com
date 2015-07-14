@@ -1,0 +1,43 @@
+.wrapper--content
+	
+	+display(flex)
+	background-color: $white;
+	border-top: 0.25rem solid $grey
+	
+	+break(min, $break-3) 
+		margin-bottom: 4rem
+		
+		&:nth-child(even)
+			margin-left: 2rem
+			padding-right:2rem
+		&:nth-child(odd)
+			margin-right: 2rem
+			padding-left: 2rem
+	
+	+break(min, $break-4)
+		&:nth-child(even)
+			+calc(margin-left, '(100% - #{$break-4}) / 2')
+			+calc(padding-right, '(100% - #{$break-4}) / 2')
+		&:nth-child(odd)
+			+calc(margin-right, '(100% - #{$break-4}) / 2')
+			+calc(padding-left, '(100% - #{$break-4}) / 2')
+
+	&:nth-child(even)
+		+justify-content(flex-start)
+
+	&:nth-child(odd)
+		+justify-content(flex-end)
+
+.wrapper--top	
+	z-index: $z-over
+	position: fixed
+	overflow: hidden
+	top: 0
+	left: 0
+	width: 100vw
+	+backgroundGradient
+
+	+break(min, $break-0)
+		max-height: 4rem
+	+break(min, $break-2)
+		max-height: 7.25rem

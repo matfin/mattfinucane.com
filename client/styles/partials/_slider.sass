@@ -1,0 +1,44 @@
+.slider__container
+	position: relative
+	overflow: hidden
+	width: 100%
+	background-color: $white
+	+user-select(none)
+
+.slider__container__slider 
+	position: relative
+	+display(flex)
+	+flex(1)
+
+.slider__container__slider__slide
+	position: relative
+	+flex(1)
+	width: 100%
+
+	> img
+		display: block 
+		width: 100%
+		height: auto
+
+.slider__paddle
+	z-index: $z-middle
+	position: absolute;
+	top: 0
+	font-size: $largeFontSize
+	width: 3rem
+	height: 100%
+	+tac
+	+transitionWithProperties(opacity)
+
+.slider__paddle--hidden 
+	opacity: 0
+
+.arrow-left 
+	left: 0
+	&:before 
+		content: '<'
+
+.arrow-right
+	right: 0
+	&:before
+		content: '>'

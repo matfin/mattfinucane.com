@@ -1,68 +1,41 @@
 <template name="cards_portfolio_item">
-	{{#if deviceClass.isClick}}
-		{{#with this}}
-			{{>cards_click_portfolio_item}}
-		{{/with}}
-	{{else}}
-		{{#with this}}
-			{{>cards_touch_portfolio_item}}
-		{{/with}}
-	{{/if}}
-</template>
-
-<template name="cards_click_portfolio_item">
 	{{#if Template.subscriptionsReady}}
 		<section class="item">
-			<div class="itemContent">
-				<div class="info">
-					<h2>
-						{{fields.title}}
+			<div class="item__content">
+				<div class="item__content__info">
+					<h2 class="item__content__info__title">
+						{{#if links.production_url}}
+							<a class="item__content__link" href="{{links.production_url}}" title="See {{fields.title}}">
+								{{fields.title}}
+							</a>
+						{{else}}
+							{{fields.title}}
+						{{/if}}
 					</h2>
 					{{#markdown}}{{fields.description}}{{/markdown}}
 					{{#with this}}
 						{{>portfolio_skills}}
 					{{/with}}
 				</div>
-				{{#with this}}
-					{{>portfolio_images}}
-				{{/with}}		
+				<div class="item__content__images">
+					{{#with this}}
+						{{>portfolio_images}}
+					{{/with}}		
+				</div>
 			</div>
-			{{#with this}}
-				{{>portfolio_links}}
-			{{/with}}
 		</section>
 	{{/if}}
 </template>
 
-<template name="cards_touch_portfolio_item">
-	<section class="item">
-		<div class="itemContent">
-			<div class="info">
-				<h2>
-					{{fields.title}}
-				</h2>
-				{{#markdown}}{{fields.description}}{{/markdown}}
-				{{#with this}}
-					{{>portfolio_images}}
-					{{>item_production_url}}
-					{{>portfolio_skills}}
-					{{>item_github_url}}
-				{{/with}}
-			</div>
-		</div>
-	</section>
-</template>
-
 <template name="portfolio_images">
-
 	{{#if images.useSlider}}
-		<div class="imageSlider">
+		<div class="image__slider">
 			{{#with images.collection}}
 				{{> components_imageslider}}
 			{{/with}}
 		</div>
 	{{else}}
-		<div class="image">
+		<div class="image__standalone">
 			{{#with images.collection}}
 				{{#each this}}
 					{{> cards_image}}
@@ -73,43 +46,25 @@
 </template>
 
 <template name="portfolio_skills">
-	<div class="skills">
-		<h3>
-			Code / Skills
+	<div class="item__skills">
+		
+		<h3 class="skills__title">
+			{{#if links.github_url}}
+				<a class="item__content__link" href="{{links.github_url}}" title="">
+					Code / Skills
+				</a>
+			{{else}}
+				Code / Skills
+			{{/if}}
 		</h3>
-		<ol>
+
+		<ol class="item__skills__list">
 			{{#each skills}}
-				<li>
+				<li class="item__skills__list__item">
 					{{fields.title}}
 				</li>
 			{{/each}}
 		</ol>
 	</div>
-</template>
-
-<template name="item_production_url">
-	{{#if exists fields.productionUrl}}
-		<a href="{{fields.productionUrl}}" class="production-url" title="{{fields.urlTitle}}">
-			{{fields.urlTitle}}
-		</a>
-	{{/if}}
-</template>
-
-<template name="item_github_url">
-	{{#if exists fields.githubUrl}}
-		<a href="{{fields.githubUrl}}" class="icon-github github-url" title="See {{fields.title}} on GitHub">
-		</a>
-	{{/if}}
-</template>
-
-<template name="portfolio_links">
-	{{#if linksExist.some}}
-		<div class="portfolioLinks">
-			{{#with this}}
-				{{>item_github_url}}
-				{{>item_production_url}}
-			{{/with}}
-		</div>
-	{{/if}}
 </template>
 
