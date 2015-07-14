@@ -62,7 +62,7 @@ Template.components_header.helpers({
  */
 Template.components_header.events = {
 
-	'touchstart button': function(e, template) {
+	'click button': function(e, template) {
 		template.$('button').toggleClass('header__nav__button--revealed');
 		$('header').toggleClass('header--revealed');
 	}

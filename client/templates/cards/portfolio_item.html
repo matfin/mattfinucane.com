@@ -4,7 +4,13 @@
 			<div class="item__content">
 				<div class="item__content__info">
 					<h2 class="item__content__info__title">
-						{{fields.title}}
+						{{#if links.production_url}}
+							<a class="item__content__link" href="{{links.production_url}}" title="See {{fields.title}}">
+								{{fields.title}}
+							</a>
+						{{else}}
+							{{fields.title}}
+						{{/if}}
 					</h2>
 					{{#markdown}}{{fields.description}}{{/markdown}}
 					{{#with this}}
@@ -41,9 +47,17 @@
 
 <template name="portfolio_skills">
 	<div class="item__skills">
+		
 		<h3 class="skills__title">
-			Code / Skills
+			{{#if links.github_url}}
+				<a class="item__content__link" href="{{links.github_url}}" title="">
+					Code / Skills
+				</a>
+			{{else}}
+				Code / Skills
+			{{/if}}
 		</h3>
+
 		<ol class="item__skills__list">
 			{{#each skills}}
 				<li class="item__skills__list__item">
@@ -52,20 +66,5 @@
 			{{/each}}
 		</ol>
 	</div>
-</template>
-
-<template name="item_production_url">
-	{{#if exists fields.productionUrl}}
-		<a href="{{fields.productionUrl}}" class="production-url" title="{{fields.urlTitle}}">
-			{{fields.urlTitle}}
-		</a>
-	{{/if}}
-</template>
-
-<template name="item_github_url">
-	{{#if exists fields.githubUrl}}
-		<a href="{{fields.githubUrl}}" class="icon-github github-url" title="See {{fields.title}} on GitHub">
-		</a>
-	{{/if}}
 </template>
 
