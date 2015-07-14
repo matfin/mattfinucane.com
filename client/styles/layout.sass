@@ -2,25 +2,25 @@
 	
 	+display(flex)
 	background-color: $white;
-	border-top: $gridSpacing / 4 solid $grey
+	border-top: 0.25rem solid $grey
 	
 	+break(min, $break-3) 
-		margin-bottom: $gridSpacing * 4
+		margin-bottom: 4rem
 		
 		&:nth-child(even)
-			margin-left: $gridSpacing * 2
-			padding-right: $gridSpacing * 2
+			margin-left: 2rem
+			padding-right:2rem
 		&:nth-child(odd)
-			margin-right: $gridSpacing * 2
-			padding-left: $gridSpacing * 2
+			margin-right: 2rem
+			padding-left: 2rem
 	
 	+break(min, $break-4)
 		&:nth-child(even)
-			+calc(margin-left, '(100% - #{em($break-4)}) / 2')
-			+calc(padding-right, '(100% - #{em($break-4)}) / 2')
+			+calc(margin-left, '(100% - #{$break-4}) / 2')
+			+calc(padding-right, '(100% - #{$break-4}) / 2')
 		&:nth-child(odd)
-			+calc(margin-right, '(100% - #{em($break-4)}) / 2')
-			+calc(padding-left, '(100% - #{em($break-4)}) / 2')
+			+calc(margin-right, '(100% - #{$break-4}) / 2')
+			+calc(padding-left, '(100% - #{$break-4}) / 2')
 
 	&:nth-child(even)
 		+justify-content(flex-start)
@@ -38,6 +38,6 @@
 	+backgroundGradient
 
 	+break(min, $break-0)
-		max-height: $gridSpacing * 4
+		max-height: 4rem
 	+break(min, $break-2)
-		max-height: $gridSpacing * 7.25
+		max-height: 7.25rem

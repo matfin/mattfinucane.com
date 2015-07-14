@@ -15,12 +15,12 @@
 
 .item__content__info 	
 	+break(min, $break-0)
-		padding: $gridSpacing * 4 $gridSpacing * 2
-		padding-top: $gridSpacing * 3
+		padding: 4rem 2rem
+		padding-top: 3rem
 	p
 		+break(min-max, $break-0, $break-1)
 			+taj
-		margin-bottom: $gridSpacing
+		margin-bottom: 1rem
 
 
 .item__content__images
@@ -28,7 +28,7 @@
 	+align-items(center)
 
 .item__content__info__title
-	margin-bottom: $gridSpacing
+	margin-bottom: 1rem
 	font-size: $largeFontSize
 	+tac
 	+echelons
@@ -51,21 +51,4 @@
 		display: block
 		width: 100%
 		height: auto
-
-.skills__title
-	margin-bottom: $gridSpacing
-	font-size: $mediumFontSize
-	+tac
-	+echelons
-
-.item__skills__list
-	+tac
-
-.item__skills__list__item
-	display: inline-block
-	&:after
-		content: '/'
-	&:last-child
-		&:after
-			content: ''
 

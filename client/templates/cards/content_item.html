@@ -1,16 +1,4 @@
 <template name="cards_content_item">
-	{{#if deviceClass.isClick}}
-		{{#with this}}
-			{{>cards_click_content_item}}
-		{{/with}}
-	{{else}}
-		{{#with this}}
-			{{>cards_touch_content_item}}
-		{{/with}}
-	{{/if}}
-</template>
-
-<template name="cards_click_content_item">
 	{{#if Template.subscriptionsReady}}
 		<section class="item {{asClassName fields.title}}">
 			<div class="item__content">
@@ -20,28 +8,14 @@
 					</h2>
 					{{#markdown}}{{fields.content}}{{/markdown}}
 				</div>
-				{{#with this}}
-					{{>content_images}}
-				{{/with}}		
+				<div class="item__content__images">
+					{{#with this}}
+						{{>content_images}}
+					{{/with}}		
+				</div>
 			</div>
 		</section>
 	{{/if}}
-</template>
-
-<template name="cards_touch_content_item">
-	<section class="item {{asClassName fields.title}}">
-		<div class="item__content">
-			<div class="item__content__info">
-				<h2 class="item__content__info__title">
-					{{fields.title}}
-				</h2>
-				{{#markdown}}{{fields.content}}{{/markdown}}
-				{{#with this}}
-					{{>content_images}}
-				{{/with}}
-			</div>
-		</div>
-	</section>
 </template>
 
 <template name="content_images">
@@ -52,7 +26,7 @@
 			{{/with}}
 		</div>
 	{{else}}
-		<div class="image__slider__image">
+		<div class="image__standalone">
 			{{#with images.collection}}
 				{{#each this}}
 					{{> cards_image}}
