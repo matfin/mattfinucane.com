@@ -3,6 +3,9 @@
 	+flex-direction(row)
 
 .job
+	+display(flex)
+	+flex-direction(column)
+
 	+break(min-max, $break-0, $break-3)
 		background-color: $white
 		border-top: 0.25rem solid $grey
@@ -14,6 +17,8 @@
 		padding: 6em
 	+break(min, $break-3)
 		padding: 4em
+	+break(min, $break-4)
+		+flex-direction(row)
 	+break(min, $break-5)
 		padding: 6em
 
@@ -35,14 +40,6 @@
 	+italic
 
 .job__description
-	+display(flex)
-	+break(min, $break-0)
-		+flex-direction(column)
-	+break(min, $break-4)
-		+flex-direction(row)
-
-
-.job__description
 	ul
 		list-style: disc
 		li
@@ -50,3 +47,14 @@
 			+taj
 			+break(min, $break-4)
 				padding-right: 4rem
+
+.job__description__images
+	+display(flex)
+	.image
+		margin-right: 0.5rem
+	+break(min, $break-4)
+		+flex-direction(column)
+		+justify-content(center)
+		.image 
+			margin-bottom: 0.5rem
+			margin-right: 0
