@@ -16,8 +16,8 @@ Template.components_imageslider.created = function() {
  */
 Template.components_imageslider.rendered = function() {
 
-	if(this.$('.item', '.sliderIndicator').length > 0) {
-		this.$('.item', '.sliderIndicator').get(0).className = 'item highlighted';
+	if(this.$('.slider__indicator__item', '.slider__indicator').length > 0) {
+		this.$('.slider__indicator__item', '.slider__indicator').get(0).className = 'slider__indicator__item slider__indicator__item--highlighted';
 	}
 	
 	var sliderContainer = this.$('.slider__container').get(0);
@@ -80,10 +80,10 @@ Template.components_imageslider.events = {
 
 		var currentSlide = e.originalEvent.data.currentSlide;
 
-		if(template.$('.item', '.sliderIndicator').length > 0) {
+		if(template.$('.slider__indicator__item', '.slider__indicator').length > 0) {
 			var currentSlide = e.originalEvent.data.currentSlide;
-			template.$('.item', '.sliderIndicator').removeClass('highlighted');
-			template.$('.item', '.sliderIndicator').get(currentSlide).className = 'item highlighted';
+			template.$('.slider__indicator__item', '.slider__indicator').removeClass('slider__indicator__item--highlighted');
+			template.$('.slider__indicator__item', '.slider__indicator').get(currentSlide).className = 'slider__indicator__item slider__indicator__item--highlighted';
 		}
 
 		if(template.slider.currentSlide === 0) {

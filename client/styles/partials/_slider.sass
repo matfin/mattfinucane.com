@@ -22,7 +22,7 @@
 
 .slider__paddle
 	z-index: $z-middle
-	position: absolute;
+	position: absolute
 	top: 0
 	font-size: $largeFontSize
 	width: 3rem
@@ -42,3 +42,26 @@
 	right: 0
 	&:before
 		content: '>'
+
+.slider__indicator
+	z-index: $z-over
+	position: absolute
+	+display(flex)
+	bottom: 0
+	left: 0
+	width: 100%
+	height: 0.5rem
+	+break(min, $break-3)
+		display: none
+
+
+
+.slider__indicator__item
+	+flex(1)
+	+transitionWithProperties(background-color)
+	&:nth-child(odd)
+		background-color: $sliderOdd
+	&:nth-child(even)
+		background-color: $sliderEven
+	&.slider__indicator__item--highlighted 
+		background-color: $sliderHighlighted
