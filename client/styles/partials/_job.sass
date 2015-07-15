@@ -44,8 +44,10 @@
 	+italic
 
 .job__description
-	+flex(1)
+	+break(min, $break-4)
+		+flex(1)
 	ul
+		display: block
 		list-style: disc
 		li
 			margin-bottom: 1rem
@@ -55,11 +57,13 @@
 
 .job__images
 	+display(flex)
+	+flex(1)
 	.image
 		margin-right: 0.5rem
 	+break(min, $break-4)
 		+flex-direction(column)
 		+justify-content(center)
+		max-width: 5rem
 		.image 
 			margin-bottom: 0.5rem
 			margin-right: 0
