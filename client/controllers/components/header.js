@@ -62,9 +62,27 @@ Template.components_header.helpers({
  */
 Template.components_header.events = {
 
-	'click button': function(e, template) {
+	/**
+	 *	Listen for click and touch events depending on device to 
+	 *	toggle the revealed state of the header nav for small devices.
+	 */
+	'touchstart .header__nav__touch': function(e, template) {
 		template.$('button').toggleClass('header__nav__button--revealed');
 		$('header').toggleClass('header--revealed');
+	},
+
+	'click .header__nav__click': function(e, template) {
+		template.$('button').toggleClass('header__nav__button--revealed');
+		$('header').toggleClass('header--revealed');
+	},
+
+	/**
+	 *	Remove revealed class from header if user taps on a link
+	 */
+	'click .header__nav__list__item__link': function() {
+		if($('header').hasClass('header--revealed')) {
+			$('header').removeClass('header--revealed');
+		}
 	}
 
 };

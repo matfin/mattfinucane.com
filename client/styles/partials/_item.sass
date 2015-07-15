@@ -39,10 +39,12 @@
 	+align-items(center)
 
 .item__content__info__title
-	margin-bottom: 1rem
+	margin-bottom: 2rem
 	font-size: $largeFontSize
+	white-space: nowrap
 	+tac
-	+echelons
+	+break(min, $break-1)
+		+echelons
 
 .item__content__info p,
 .item__content__info ul,
@@ -69,6 +71,9 @@
 .item__content__images
 	+break(min, $break-3)
 		+flex(1)
+
+.item__skills
+	margin-top: 2rem
 
 .image__slider,
 .image__standalone
