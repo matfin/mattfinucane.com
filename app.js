@@ -19,6 +19,12 @@ Meteor.startup(function() {
 	}
 	if(Meteor.isServer) {
 		
+		/**
+		 *	When the app is booted, we need to process the images
+		 *	from the Contentful source
+		 */
+		ImageProcessor.init();
+		
 		Contentful.fetchAndPopulate().then(function(result) {
 			/**
 			 *	Once content is fetched and stored in the 
@@ -47,12 +53,6 @@ Meteor.startup(function() {
 				console.log('Publishing: assets');
 				return Contentful.collections.assets.find({});
 			});
-
-			/**
-			 *	When the app is booted, we need to process the images
-			 *	from the Contentful source
-			 */
-			ImageProcessor.init();
 
 			/**
 			 *	Publish the image collection

@@ -162,9 +162,10 @@ ImageProcessor = {
 	 *	@method 	processImages
 	 *	@param 		{String} sourceFilePath - the source file to process
 	 *	@param 		{Object} asset - asset representing the file
+	 *	@param 		{Boolean} ignoreResize - if this parameter is true, do not attempt to create resized assets. Default false
 	 *	@return 	{Object} - a promise resolved or rejected
 	 */
-	processImages: function(sourceFilePath, asset) {
+	processImages: function(sourceFilePath, asset, ignoreResize) {
 
 		var self = this,
 			deferred = Q.defer(),
@@ -181,11 +182,33 @@ ImageProcessor = {
 					destinationFileName = 	asset.sys.id + '-' + resizeParam.size.device + resizeParam.pixelDensity.prefix + '.' + resizeParam.fileType,
 					destinationFilePath = 	CFConfig.imageProcessor.path + 'processed/'; 
 											
-
 				/**
-				 *	Create resized image, writing it to the filesystem
+				 *	If we want to prevent resizing and rewriting the images to the filesystem
 				 */
-				self.GM(sourceFilePath)
+				if(ignoreResize) {
+					/**
+					 *	Update the processed images collection only
+					 */
+					self.updateImagesCollection({
+						assetId: asset.sys.id,
+						size: resizeParam.size,
+						pixelDensity: resizeParam.pixelDensity,
+						filename: destinationFileName
+					});
+					
+					console.log('Ingoring the resize process');
+
+					/**
+					 *	And continue on with the loop
+					 */
+					resizeParams.splice(0,1);
+					runloop();
+				}
+				else {
+					/**
+					 *	Create resized image, writing it to the filesystem
+					 */
+					self.GM(sourceFilePath)
 					.setFormat(resizeParam.fileType)
 					.resize(resizeParam.size.width * resizeParam.pixelDensity.multiplier)
 					.write(destinationFilePath + destinationFileName, function(err) {
@@ -199,7 +222,6 @@ ImageProcessor = {
 								data: err
 							});
 						}
-
 						/**
 						 *	Update the processed images collection
 						 */
@@ -216,6 +238,7 @@ ImageProcessor = {
 						resizeParams.splice(0,1);
 						runloop();
 					});		
+				}
 			}
 			else {
 				/**
@@ -299,9 +322,15 @@ ImageProcessor = {
 						 *	If the file exists and should not be overwritten, 
 						 *	pop the image processing job from the queue
 						 *	and then move onto the next job.
+						 *
+						 *	Even if the image exists, we will need to ensure
+						 *	its details also exist in the database.
 						 */
-						self.imageOperationQueue.splice(0, 1);
-						runloop();
+						self.processImages(assetFilePath, asset, true).fin(function() {
+							self.imageOperationQueue.splice(0, 1);
+							runloop();
+						});
+
 						return;
 					}
 					else {
@@ -328,16 +357,9 @@ ImageProcessor = {
 									 *	and continue on with the processing queue no matter what the 
 									 *	outcome of processing is.
 									 */
-									self.processImages(assetFilePath, asset).then(function() {
-
+									self.processImages(assetFilePath, asset).fin(function() {
 										self.imageOperationQueue.splice(0, 1);
 										runloop();
-
-									}).fail(function() {
-
-										self.imageOperationQueue.splice(0, 1);
-										runloop();
-
 									});
 								}
 							});
