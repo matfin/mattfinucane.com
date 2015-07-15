@@ -22,8 +22,8 @@
 		padding: 4rem 2rem
 		padding-top: 3rem
 	p
+		+taj
 		+break(min-max, $break-0, $break-1)
-			+taj
 		margin-bottom: 1rem
 
 
@@ -37,6 +37,21 @@
 	+tac
 	+echelons
 
+.item__content__info p,
+.item__content__info__title,
+.skills__title,
+.item__skills__list
+	+transitionWithProperties(padding)
+	line-height: 1.6rem
+	+break(min, $break-1)
+		padding: 0 4rem
+	+break(min, $break-2)
+		padding: 0 8rem
+	+break(min, $break-3)
+		padding: 0 3rem
+	+break(min, $break-4)
+		padding: 0 4rem
+
 .item__content__link
 	font-size: inherit
 	color: currentColor
@@ -48,7 +63,8 @@
 
 .image__slider,
 .image__standalone
-	margin: 1rem 0
+	+break(min, $break-3)
+		margin: 1rem 0
 
 .image__slider
 	position: relative
