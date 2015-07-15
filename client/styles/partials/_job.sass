@@ -23,6 +23,8 @@
 		padding: 4rem 10rem
 	+break(min, $break-6)
 		padding: 6rem 15rem
+	+break(min, $break-7)
+		padding: 6rem 20rem
 		
 
 .job__title,
@@ -31,6 +33,12 @@
 	margin-bottom: 1rem
 	+break(min, $break-3)
 		+tac
+
+.job__title
+	margin-bottom: 0
+
+.job__dates 
+	margin-bottom: 2rem
 
 .job__title,
 .job__role_location
@@ -53,6 +61,7 @@
 
 .job__images
 	+display(flex)
+	+justify-content(center)
 	margin-top: 1rem
 	.image
 		margin-right: 0.5rem
