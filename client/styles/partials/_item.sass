@@ -26,6 +26,13 @@
 		+break(min-max, $break-0, $break-1)
 		margin-bottom: 1rem
 
+	ul
+		list-style: disc
+		li
+			margin-bottom: 1rem
+			line-height: $line-height
+			+taj
+
 
 .item__content__images
 	+display(flex)
@@ -38,6 +45,7 @@
 	+echelons
 
 .item__content__info p,
+.item__content__info ul,
 .item__content__info__title,
 .skills__title,
 .item__skills__list
