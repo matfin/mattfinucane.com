@@ -1,6 +1,6 @@
 Package.describe({
 	name: 			'matfin:contentful',
-	version: 		'0.0.1',
+	version: 		'1.0.0',
 	summary: 		'Package to interact with the Contentful content delivery API.',
 	documentation: 	'README.md'
 });

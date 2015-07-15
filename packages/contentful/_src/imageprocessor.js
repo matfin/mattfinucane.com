@@ -195,9 +195,7 @@ ImageProcessor = {
 						pixelDensity: resizeParam.pixelDensity,
 						filename: destinationFileName
 					});
-					
-					console.log('Ingoring the resize process');
-
+				
 					/**
 					 *	And continue on with the loop
 					 */
