@@ -1,5 +1,4 @@
 .timeline
-	
 	+break(min, $break-0)
 		display: none
 	+break(min, $break-2)
@@ -7,6 +6,7 @@
 		+flex-direction(row)
 
 .timeline__year
+	cursor: pointer
 	+flex(1)
 	padding: 0.5rem
 	+tal
@@ -21,6 +21,7 @@
 		color: $sliderEven
 		border-top: 0.5rem solid currentColor
 
-	&.timeline__year--highlighted
+	&.timeline__year--highlighted,
+	&:hover
 		color: $sliderHighlighted
 		border-top: 0.5rem solid currentColor
