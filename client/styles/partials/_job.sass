@@ -6,24 +6,23 @@
 	+flex(1)
 	+display(flex)
 	+flex-direction(column)
+	+transitionWithProperties(padding)
 
 	+break(min-max, $break-0, $break-3)
 		background-color: $white
 		border-top: 0.25rem solid $grey
 	+break(min, $break-0)
-		padding: 2em
+		padding: 2rem
 	+break(min, $break-1)
-		padding: 4em
-	+break(min, $break-2)
-		padding: 6em
+		padding: 4rem 6rem
 	+break(min, $break-3)
-		padding: 4em
+		padding: 4rem
 	+break(min, $break-4)
-		+flex-direction(row)
+		padding: 4rem 6rem
 	+break(min, $break-5)
-		padding: 6em
+		padding: 4rem 10rem
 	+break(min, $break-6)
-		padding: 6em 12em
+		padding: 6rem 15rem
 		
 
 .job__title,
@@ -51,19 +50,12 @@
 		list-style: disc
 		li
 			margin-bottom: 1rem
+			line-height: $line-height
 			+taj
-			+break(min, $break-4)
-				padding-right: 4rem
 
 .job__images
 	+display(flex)
 	+flex(1)
+	margin-top: 1rem
 	.image
 		margin-right: 0.5rem
-	+break(min, $break-4)
-		+flex-direction(column)
-		+justify-content(center)
-		max-width: 5rem
-		.image 
-			margin-bottom: 0.5rem
-			margin-right: 0
