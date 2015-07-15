@@ -7,6 +7,16 @@
 Helpers = {
 	
 	/**
+	 *	Determine a touch based device using JS only
+	 *	
+	 *	@method isTouchDevice
+	 *	@return {Boolean} - true if the device is touch capable or false
+	 */
+	isTouchDevice: function() {
+		return ('ontouchstart' in window) || (navigator.MaxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0);
+	},
+
+	/**
 	 *	Function that calculates device screen size and capabilities
 	 *
 	 *	@method 	deviceClass()

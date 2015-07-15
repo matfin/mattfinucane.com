@@ -66,6 +66,16 @@ UI.registerHelper('deviceClass', function() {
 });
 
 /**
+ *	Function to determine if the device has touch capabilities
+ *
+ *	@method		isTouchDevice
+ *	@return 	{Boolean} true if the device is touch or false
+ */
+UI.registerHelper('isTouchDevice', function() {
+	return Helpers.isTouchDevice()
+});
+
+/**
  *	Helper to determine if a value exists
  */
 UI.registerHelper('exists', function(variable) {

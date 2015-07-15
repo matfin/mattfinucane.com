@@ -45,29 +45,8 @@ Template.components_imageslider.helpers({
 	 */
 	sliderWidth: function() {
 		return this.length * 100;
-	},
-
-	/**
-	 *	Show slider paddles for desktop and laptop 
-	 */
-	showPaddles: function() {
-		/**
-		 *	Making this function reactive
-		 */
-		Dependencies.resized.depend();
-		var deviceClass = Helpers.deviceClass();
-		return deviceClass.isDesktop || deviceClass.isLaptop;
-	},
-
-	showIndicator: function() {
-		/**
-		 *	Making this function reactive
-		 */
-		Dependencies.resized.depend();
-		var deviceClass = Helpers.deviceClass();
-		return deviceClass.isTablet || deviceClass.isMobile;
 	}
-
+	
 });
 
 /**
