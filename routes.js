@@ -9,7 +9,6 @@ Router.configure({
  *	If the nav is showing, hide it
  */
 Router.onBeforeAction(function() {
-	TemplateHelpers.hideNavMenu();
 	this.next();
 });
 

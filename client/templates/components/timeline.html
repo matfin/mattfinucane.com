@@ -3,15 +3,11 @@
 		{{#each yearGroups}}
 			{{#if highlighted}}
 				<button class="timeline__year timeline__year--highlighted">
-					{{#if showYears}}
-						{{to}} &ndash; {{from}}
-					{{/if}}
+					{{to}} &ndash; {{from}}
 				</button>
 			{{else}}
 				<button class="timeline__year">
-					{{#if showYears}}
-						{{to}} &ndash; {{from}}
-					{{/if}}
+					{{to}} &ndash; {{from}}
 				</button>
 			{{/if}}
 		{{/each}}

@@ -45,7 +45,7 @@ Template.views_experience_slider.rendered = function() {
 
 		var numberOfSlides  = TemplateHelpers.numberOfItemsInSlide(),
 			numberOfJobs 	= App.collections.cf_entries.find({contentTypeName: 'job'}).count(),
-			sliderWidth 	= Math.round(numberOfJobs / numberOfSlides) * 100;
+			sliderWidth 	= Math.ceil(numberOfJobs / numberOfSlides) * 100;
 
 		$('.slider').css({
 			width: sliderWidth + '%'
