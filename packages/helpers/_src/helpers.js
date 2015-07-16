@@ -27,6 +27,7 @@ Helpers = {
 			pixelDensity	= window.devicePixelRatio || 1;
 
 		return {
+			isHD:  				viewportWidth >= 1920,
 			isDesktop:  	viewportWidth >= 1280,
 			isLaptop: 		viewportWidth > 1024 && viewportWidth < 1280,
 			isTablet: 		viewportWidth <= 1024 && viewportWidth > 640,

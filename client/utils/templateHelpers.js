@@ -19,6 +19,6 @@ TemplateHelpers = {
 		 */
 		Dependencies.resized.depend();
 		var deviceClass = Helpers.deviceClass();
-		return (deviceClass.isDesktop || deviceClass.isLaptop) ? 2:1;
+		return (deviceClass.isHD) ? 3 : 2;
 	}
 }

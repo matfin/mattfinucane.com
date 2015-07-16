@@ -1,6 +1,7 @@
 .slider__container__slider__slide--experience
 	+display(flex)
 	+flex-direction(row)
+	+justify-content(center)
 
 .job
 	+flex(1)
@@ -17,14 +18,16 @@
 		padding: 4rem 6rem
 	+break(min, $break-3)
 		padding: 4rem
+		max-width: 50%
 	+break(min, $break-4)
 		padding: 4rem 6rem
+		max-width: 50%
 	+break(min, $break-5)
 		padding: 4rem 10rem
+		max-width: 50%
 	+break(min, $break-6)
-		padding: 6rem 15rem
-	+break(min, $break-7)
-		padding: 6rem 20rem
+		padding: 4rem 6rem
+		max-width: (100% / 3)
 		
 
 .job__title,
