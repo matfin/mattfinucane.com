@@ -40,7 +40,6 @@ Meteor.startup(function() {
 				 *	parameter.
 				 */
 				Meteor.publish(contentType.name, function() {
-					console.log('Publishing:', contentType.name);
 					return Contentful.collections.entries.find({'contentTypeName': contentType.name});
 				});
 			});
@@ -50,7 +49,6 @@ Meteor.startup(function() {
 			 *	source the resized images later.
 			 */
 			Meteor.publish('cf_assets', function() {
-				console.log('Publishing: assets');
 				return Contentful.collections.assets.find({});
 			});
 
@@ -58,7 +56,6 @@ Meteor.startup(function() {
 			 *	Publish the image collection
 			 */
 			Meteor.publish(CFConfig.processedImageCollectionName, function() {
-				console.log('Publishing: images');
 				return ImageProcessor.imageCollection.find({});
 			});
 
