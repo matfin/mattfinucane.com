@@ -10,7 +10,6 @@ underscore
 http
 jquery
 ejson
-matfin:contentful
 matfin:helpers
 
 markdown
