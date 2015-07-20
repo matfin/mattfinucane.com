@@ -2,5 +2,6 @@ packages/contentful/_config/settings.js
 packages/github/_config/settings.js
 packages/npm-container
 npm-debug.log
+settings.json
 *.tar.gz
 .DS_Store

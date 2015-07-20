@@ -35,6 +35,7 @@ logging@1.0.7
 markdown@1.0.4
 matfin:github@0.0.1
 matfin:helpers@0.0.1
+matfin:meteor-contentful@1.0.1
 matfin:slider@1.1.2
 meteor@1.1.6
 meteor-platform@1.2.2
