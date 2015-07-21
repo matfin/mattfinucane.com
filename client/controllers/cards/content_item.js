@@ -29,6 +29,20 @@ Template.cards_content_item.destroyed = function() {
 };
 
 /**
+ *	Template - cards_content_item
+ *	Helpers
+ */
+Template.cards_content_item.helpers({
+	/**
+	 *	Function to determine if a content item is grouped with nested items or if it
+	 *	is standalone.
+	 */
+	isGrouped: function() {
+		return _.isArray(this);
+	}
+});
+
+/**
  *	Template - content_images
  *	Helpers
  */
@@ -70,5 +84,4 @@ Template.content_images.helpers({
 			collection: []
 		};
 	}
-
 });

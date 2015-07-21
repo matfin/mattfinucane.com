@@ -36,6 +36,30 @@ Template.views_content.helpers({
 
 	contentItems: function() {
 		return App.collections.cf_entries.find({contentTypeName: 'content_item', 'fields.page': this.page}, {sort: {'fields.order': 1}}).fetch();
+	},
+
+	groupedContentItems: function() {
+		var ungrouped_content_items = App.collections.cf_entries.find({contentTypeName: 'content_item', 'fields.page': this.page}, {sort: {'fields.order': 1}}).fetch(),
+				content_item_groups = [],
+				content_items = [];
+
+		content_item_groups.push(content_items);
+
+		[].forEach.call(ungrouped_content_items, function(content_item, index) {
+			if(content_item.fields.isStandalone) {
+				content_item_groups.push(content_item);
+				return;
+			}
+			else {
+				if(content_items.length === 2) {
+					content_items = [];
+					content_item_groups.push(content_items);
+				}
+				content_items.push(content_item);
+			}
+		});
+
+		return content_item_groups;
 	}
 
 });

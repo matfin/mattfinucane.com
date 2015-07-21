@@ -1,18 +1,14 @@
 <template name="cards_content_item">
 	{{#if Template.subscriptionsReady}}
-		<section class="item {{asClassName fields.title}}">
+		<section class="item">
 			<div class="item__content">
-				<div class="item__content__info">
-					<h2 class="item__content__info__title">
-						{{fields.title}}
-					</h2>
-					{{#markdown}}{{fields.content}}{{/markdown}}
-				</div>
-				<div class="item__content__images">
-					{{#with this}}
-						{{>content_images}}
-					{{/with}}		
-				</div>
+				{{#if isGrouped}}
+					{{#each this}}
+						{{>item_content_info}}
+					{{/each}}
+				{{else}}
+					{{>standalone_content_item}}
+				{{/if}}
 			</div>
 		</section>
 		{{else}}
@@ -20,20 +16,36 @@
 	{{/if}}
 </template>
 
+<template name="standalone_content_item">
+	{{>item_content_info}}
+	{{>content_images}}
+</template>
+
+<template name="item_content_info">
+	<div class="item__content__info {{asClassName fields.title}}">
+		<h2 class="item__content__info__title">
+			{{fields.title}}
+		</h2>
+		{{#markdown}}{{fields.content}}{{/markdown}}
+	</div>
+</template>
+
 <template name="content_images">
-	{{#if images.useSlider}}
-		<div class="image__slider">
-			{{#with images.collection}}
-				{{> components_imageslider}}
-			{{/with}}
-		</div>
-	{{else}}
-		<div class="image__standalone">
-			{{#with images.collection}}
-				{{#each this}}
-					{{> cards_image}}
-				{{/each}}
-			{{/with}}
-		</div>
-	{{/if}}	
+	<div class="item__content__images">
+		{{#if images.useSlider}}
+			<div class="image__slider">
+				{{#with images.collection}}
+					{{> components_imageslider}}
+				{{/with}}
+			</div>
+		{{else}}
+			<div class="image__standalone">
+				{{#with images.collection}}
+					{{#each this}}
+						{{> cards_image}}
+					{{/each}}
+				{{/with}}
+			</div>
+		{{/if}}	
+	</div>
 </template>

@@ -27,7 +27,6 @@ Router.map(function() {
 			'components_header': 	{to: 'header'},
 			'views_portfolio': 		{to: 'content'}
 		}
-
 	}, {where: 'client'});
 
 	/**
@@ -40,7 +39,6 @@ Router.map(function() {
 			'components_header': 	{to: 'header'},
 			'views_experience': 	{to: 'content'}
 		}
-
 	}, {where: 'client'});
 
 	/**
@@ -58,7 +56,6 @@ Router.map(function() {
 			'components_header': 	{to: 'header'},
 			'views_content': 		{to: 'content'}
 		}
-
 	}, {where: 'client'});
 
 });
