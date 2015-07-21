@@ -14,11 +14,14 @@
 		+flex-direction(column)
 	+break(min, $break-3)
 		+flex-direction(row)
+		padding: 4rem 0
 
 .item__content__info 	
-	+break(min, $break-0)
-		padding: 4rem 2rem
-		padding-top: 3rem
+	+stackVerticalCenter
+
+	+break(min-max, $break-0, $break-3)
+		padding-top: 4rem
+
 	p
 		+taj
 		+break(min-max, $break-0, $break-1)
@@ -35,6 +38,8 @@
 .item__content__images
 	+display(flex)
 	+align-items(center)
+	+break(min-max, $break-0, $break-3)
+		padding-bottom: 4rem
 
 .item__content__info__title
 	margin-bottom: 2rem
@@ -50,6 +55,8 @@
 	+transitionWithProperties(padding)
 	line-height: $line-height
 
+	+break(min, $break-0)
+		padding: 0 2rem
 	+break(min, $break-1)
 		padding: 0 4rem
 	+break(min, $break-2)
@@ -70,11 +77,6 @@
 
 .item__skills
 	margin-top: 2rem
-
-.image__slider,
-.image__standalone
-	+break(min, $break-3)
-		margin: 1rem 0
 
 .image__slider
 	position: relative
