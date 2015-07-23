@@ -28,4 +28,4 @@ npm-container
 fourseven:scss
 wolves:bourbon
 dfischer:prerenderio
-matfin:meteor-contentful
+matfin:meteor-contentful@1.0.1
