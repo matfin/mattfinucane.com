@@ -6,26 +6,21 @@
 
 meteor-platform
 iron:router
-underscore
-http
 jquery
-ejson
 matfin:helpers
 
 markdown
 
 
-meteorhacks:npm
 
 
 momentjs:moment
-matfin:github
 matfin:slider
 cwaring:modernizr
 
 
-npm-container
 fourseven:scss
 wolves:bourbon
 dfischer:prerenderio
-matfin:meteor-contentful@1.0.1
+
+
