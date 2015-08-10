@@ -17,7 +17,6 @@ Meteor.publish('entries', function(contentTypeName) {
 			
 	contentType = Collections.contentTypes.findOne({name: contentTypeName});
 	entries = Collections.entries.find({'sys.contentType.sys.id': contentType.sys.id});
-
 	handle = entries.observeChanges({
 		added: function(id, entry) {
 			this.added('entries', id, attach.call(entry, {contentType: contentTypeName}));
@@ -32,6 +31,11 @@ Meteor.publish('entries', function(contentTypeName) {
 	});
 
 	this.ready();
-
 });
 
+Meteor.publish('images', function(assets) {
+	var assetIds = assets.map(function(asset) {
+		return asset.sys.id;
+	});
+	return Collections.images.find({'asset_id': {$in: assetIds}});
+});

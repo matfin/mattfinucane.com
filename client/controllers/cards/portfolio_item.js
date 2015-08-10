@@ -8,6 +8,7 @@
  */
 Template.cards_portfolio_item.created = function() {
 	this.subscribe('entries', 'Skill');
+	this.subscribe('images', this.data.fields.screenshots);
 };
 
 /**
@@ -48,12 +49,15 @@ Template.cards_portfolio_item.helpers({
  *	Helpers
  */
 Template.portfolio_images.helpers({
-
 	/**
 	 *	Fetching the detailed entries for related images
 	 */
 	images: function() {
-		return;
+		var imageIds,
+				imageAssets,
+				deviceClass,
+				includeProductionUrl,
+				grouped;
 		/**
 		 *	Checking to see if associated images exist
 		 */
@@ -61,17 +65,23 @@ Template.portfolio_images.helpers({
 			/**
 			 *	Preparing the query and returning grouped image assets.
 			 */
-			var imageIds = _.map(this.fields.screenshots, function(screenshot) {
-					return screenshot.sys.id;
-				});
-				imageAssets = App.collections.mf_images.find({assetId: {$in: imageIds}}).fetch(),
-				grouped = _.groupBy(imageAssets, function(imageAsset) {
-					return imageAsset.assetId;
-				}),
-				deviceClass = Helpers.deviceClass(),
-				includeProductionUrl = (deviceClass.isTablet || deviceClass.isMobile);
+			imageIds = this.fields.screenshots.map(function(screenshot) {
+				return screenshot.sys.id;
+			});
 
-				grouped = _.toArray(grouped);
+			imageAssets = Core.app.collections.images.find({asset_id: {$in: imageIds}}).fetch();
+
+			grouped = _.groupBy(imageAssets, function(imageAsset) {
+				return imageAsset.assetId;
+			});
+
+			// console.log(imageAssets, '==========');
+			// console.log(_.toArray(grouped)); return;
+
+			deviceClass = Helpers.deviceClass(),
+			includeProductionUrl = (deviceClass.isTablet || deviceClass.isMobile);
+
+			grouped = _.toArray(grouped);
 
 			return {
 				useSlider: grouped.length > 1,
@@ -99,23 +109,20 @@ Template.portfolio_skills.helpers({
 	 *	Fetching the skills for a portfolio item
  	 */
 	skills: function() {
-
 		var skillIds = [],
 				query;
+
 		/**
 		 *	If this entry has any associated sub entries
 		 */
 		if(Helpers.checkNested(this, 'fields', 'skills')) {
-
 			skillIds = this.fields.skills.map(function(skill) {
 				return skill.sys.id;
 			});
-
 			query = {
 				'sys.id': {$in: skillIds}
 			};
-			
-			return Core.App.collections.entries.find(query).fetch();
+			return Core.app.collections.entries.find(query).fetch();
 		}
 
 		/**

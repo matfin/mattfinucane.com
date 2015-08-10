@@ -1,3 +1,5 @@
+'use strict';
+
 /**
  *	Template - cards_image
  *	Callback function called automatically when the template has been created
@@ -67,13 +69,12 @@ Template.cards_image.helpers({
 		/**
 		 *	With the device class determined, pick out the image we need
 		 */
-		var imageAssets = _.filter(this, function(item) {
-			
-			return 	item.size.device === device().name &&
-					item.pixelDensity.multiplier === Helpers.deviceClass().pixelDensity
+		var images = _.filter(this, function(image) {
+			return 	image.device === device().name &&
+					image.density.multiplier === Helpers.deviceClass().pixelDensity
 		});
 
-		return imageAssets;
+		return images;
 	}
 
 });

@@ -7,11 +7,11 @@ Meteor.startup(function() {
 		/**
 		 *	Set up the client side Mongo collections
 		 */
-		Core.App = {
+		Core.app = {
 			collections: {
 				entries: new Mongo.Collection('entries'),
 				images: new Mongo.Collection('images'),
-			}	
+			}
 		};
 
 		/**

@@ -6,5 +6,5 @@
  *	@static
  */
 Core = {
-	App: {}
+	app: {}
 };

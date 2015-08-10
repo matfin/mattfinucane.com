@@ -33,9 +33,7 @@ Template.views_portfolio.destroyed = function() {
  *	Helpers
  */
 Template.views_portfolio.helpers({
-
 	portfolioItems: function() {
-		return Core.App.collections.entries.find({contentType: 'Portfolio Item'}, {sort: {'fields.dateCreated': -1}}).fetch();
+		return Core.app.collections.entries.find({contentType: 'Portfolio Item'}, {sort: {'fields.dateCreated': -1}}).fetch();
 	}
-
 });
