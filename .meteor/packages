@@ -7,7 +7,6 @@
 meteor-platform
 iron:router
 jquery
-matfin:helpers
 
 markdown
 
@@ -25,3 +24,4 @@ dfischer:prerenderio
 
 
 matfin:meteor-contentful
+com.mattfinucane:core

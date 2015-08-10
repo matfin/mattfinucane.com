@@ -1,8 +1,9 @@
+'use strict';
+
 Package.describe({
-	name: 			'matfin:helpers',
+	name: 			'com.mattfinucane:core',
 	version: 		'0.0.1',
-	summary: 		'Collection of useful functions',
-	documentation: 	'README.md'
+	summary: 		'Core and helper functions used across this app.'
 });
 
 Package.onUse(function(api) {
@@ -12,17 +13,15 @@ Package.onUse(function(api) {
 	api.versionsFrom('1.1.0.2');
 
 	/**
-	 *	Dependencies
-	 */
-	api.use('underscore', ['client', 'server']);
-
-	/**
 	 *	Package source files
 	 */
 	api.addFiles([
 		'_src/helpers.js'
 	], ['client' ,'server']);
 
+	api.addFiles('_src/core.js', 'client');
+
 	api.export('Helpers');
+	api.export('Core');
 
 });

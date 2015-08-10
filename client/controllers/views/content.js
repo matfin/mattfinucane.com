@@ -5,7 +5,7 @@
  *	@method created
  */
 Template.views_content.created = function() {
-	this.subscribe('content_item');
+	this.subscribe('content');
 };
 
 /**
@@ -35,11 +35,11 @@ Template.views_content.destroyed = function() {
 Template.views_content.helpers({
 
 	contentItems: function() {
-		return App.collections.cf_entries.find({contentTypeName: 'content_item', 'fields.page': this.page}, {sort: {'fields.order': 1}}).fetch();
+		return App.collections.entries.find({'fields.page': this.page}, {sort: {'fields.order': 1}}).fetch();
 	},
 
 	groupedContentItems: function() {
-		var ungrouped_content_items = App.collections.cf_entries.find({contentTypeName: 'content_item', 'fields.page': this.page}, {sort: {'fields.order': 1}}).fetch(),
+		var ungrouped_content_items = App.collections.entries.find({'fields.page': this.page}, {sort: {'fields.order': 1}}).fetch(),
 				content_item_groups = [],
 				content_items = [];
 

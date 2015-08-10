@@ -5,7 +5,7 @@
  *	@method created
  */
 Template.views_experience_slider.created = function() {
-	this.subscribe('job');
+	//this.subscribe('entries', 'Job');
 };
 
 /**
@@ -76,7 +76,7 @@ Template.views_experience_slider.helpers({
 	groupedJobs: function() {
 
 		var self = this,
-			jobs = App.collections.cf_entries.find({contentTypeName: 'job'}, {sort: {'fields.startDate': -1}}).fetch(),
+			jobs = App.collections.entries.find({}, {sort: {'fields.startDate': -1}}).fetch(),
 			asGrouped = function() {
 				var grouped = [],
 					size = TemplateHelpers.numberOfItemsInSlide();
@@ -95,7 +95,7 @@ Template.views_experience_slider.helpers({
 		var self = this;
 		return {
 			concurrentJobs: TemplateHelpers.numberOfItemsInSlide(),
-			jobs: App.collections.cf_entries.find({contentTypeName: 'job'}, {sort: {'fields.startDate': -1}}).fetch()
+			jobs: App.collections.entries.find({}, {sort: {'fields.startDate': -1}}).fetch()
 		};
 	}
 });

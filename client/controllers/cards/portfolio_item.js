@@ -1,3 +1,5 @@
+'use strict';
+
 /**
  *	Template - cards_portfolio_item
  *	Callback function called automatically when the template has been created
@@ -5,9 +7,7 @@
  *	@method created
  */
 Template.cards_portfolio_item.created = function() {
-	this.subscribe('skill');
-	this.subscribe('cf_assets');
-	this.subscribe('mf_images');
+	this.subscribe('entries', 'Skill');
 };
 
 /**
@@ -53,6 +53,7 @@ Template.portfolio_images.helpers({
 	 *	Fetching the detailed entries for related images
 	 */
 	images: function() {
+		return;
 		/**
 		 *	Checking to see if associated images exist
 		 */
@@ -99,29 +100,22 @@ Template.portfolio_skills.helpers({
  	 */
 	skills: function() {
 
+		var skillIds = [],
+				query;
 		/**
-		 *	If this entry has any associated sub entried
+		 *	If this entry has any associated sub entries
 		 */
 		if(Helpers.checkNested(this, 'fields', 'skills')) {
 
-			/**
-			 *	Grab the skill ids we need to build a query
-			 *	to fetch associated skill entries
-			 */
-			var skillIds = [];
-			_.each(this.fields.skills, function(skill) {
-				skillIds.push(skill.sys.id);
+			skillIds = this.fields.skills.map(function(skill) {
+				return skill.sys.id;
 			});
 
-			/**
-			 *	Build and then execute the query
-			 */
-			var query = {
+			query = {
 				'sys.id': {$in: skillIds}
-			},
-			skills = App.collections.cf_entries.find(query).fetch();
-
-			return skills;
+			};
+			
+			return Core.App.collections.entries.find(query).fetch();
 		}
 
 		/**

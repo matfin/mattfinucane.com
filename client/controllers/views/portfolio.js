@@ -1,3 +1,5 @@
+'use strict';
+
 /**
  *	Template - views_portfolio
  *	Callback function called automatically when the template has been created
@@ -5,7 +7,7 @@
  *	@method created
  */
 Template.views_portfolio.created = function() {
-	this.subscribe('portfolio_item');
+	this.subscribe('entries', 'Portfolio Item');
 };
 
 /**
@@ -33,7 +35,7 @@ Template.views_portfolio.destroyed = function() {
 Template.views_portfolio.helpers({
 
 	portfolioItems: function() {
-		return App.collections.cf_entries.find({contentTypeName: 'portfolio_item'}, {sort: {'fields.dateCreated': -1}}).fetch();
+		return Core.App.collections.entries.find({contentType: 'Portfolio Item'}, {sort: {'fields.dateCreated': -1}}).fetch();
 	}
 
 });
