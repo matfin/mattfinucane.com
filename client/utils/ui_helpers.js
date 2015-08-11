@@ -74,10 +74,3 @@ UI.registerHelper('deviceClass', function() {
 UI.registerHelper('isTouchDevice', function() {
 	return Helpers.isTouchDevice()
 });
-
-/**
- *	Helper to determine if a value exists
- */
-UI.registerHelper('exists', function(variable) {
-	return variable !== null && (typeof variable !== 'undefined');
-});

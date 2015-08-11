@@ -6,5 +6,6 @@
  *	@static
  */
 Core = {
-	app: {}
+	app: {},
+	templteHelpers: {}
 };

@@ -1,3 +1,5 @@
+'use strict';
+
 /**
  *	Template - views_experience_slider
  *	Callback function called automatically when the template has been created
@@ -42,7 +44,7 @@ Template.views_experience_slider.rendered = function() {
 	this.resizeEvent = Tracker.autorun(function() {
 
 		Dependencies.resized.depend();
-		var numberOfSlides  = TemplateHelpers.numberOfItemsInSlide(),
+		var numberOfSlides  = Core.templateHelpers.numberOfItemsInSlide(),
 				numberOfJobs 	= Core.app.collections.entries.find({contentType: 'Job'}).count(),
 				sliderWidth 	= Math.ceil(numberOfJobs / numberOfSlides) * 100;
 
@@ -78,7 +80,7 @@ Template.views_experience_slider.helpers({
 			jobs = Core.app.collections.entries.find({}, {sort: {'fields.startDate': -1}}).fetch(),
 			asGrouped = function() {
 				var grouped = [],
-					size = TemplateHelpers.numberOfItemsInSlide();
+					size = Core.templateHelpers.numberOfItemsInSlide();
 				while(jobs.length > 0) {
 					grouped.push(jobs.splice(0, size));
 				}
@@ -93,7 +95,7 @@ Template.views_experience_slider.helpers({
 	timelineData: function() {
 		var self = this;
 		return {
-			concurrentJobs: TemplateHelpers.numberOfItemsInSlide(),
+			concurrentJobs: Core.templateHelpers.numberOfItemsInSlide(),
 			jobs: Core.app.collections.entries.find({}, {sort: {'fields.startDate': -1}}).fetch()
 		};
 	}

@@ -1,3 +1,5 @@
+'use strict';
+
 /**
  *	Class containing functions that can be called from any template
  *
@@ -5,7 +7,7 @@
  *	@static
  */
 
-TemplateHelpers = {
+Core.templateHelpers = {
 	/**
 	 *	Function to calculate the number of items that will appear
 	 *	in a slide element, dependent on the screen size
@@ -20,5 +22,12 @@ TemplateHelpers = {
 		Dependencies.resized.depend();
 		var deviceClass = Helpers.deviceClass();
 		return (deviceClass.isHD) ? 3 : 2;
+	},
+
+	/**
+	 *	Fetch related images for entries
+	 */
+	images: function() {
+
 	}
-}
+};
