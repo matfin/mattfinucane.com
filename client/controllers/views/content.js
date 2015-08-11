@@ -1,3 +1,5 @@
+'use strict';
+
 /**
  *	Template - views_content
  *	Callback function called automatically when the template has been created
@@ -15,7 +17,6 @@ Template.views_content.created = function() {
  *	@method rendered
  */
 Template.views_content.rendered = function() {
-	
 };
 
 /**
@@ -25,7 +26,6 @@ Template.views_content.rendered = function() {
  *	@method destroyed
  */
 Template.views_content.destroyed = function() {
-	
 };
 
 /**

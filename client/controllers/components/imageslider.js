@@ -1,3 +1,5 @@
+'use strict';
+
 /**
  *	Template - components_imageslider
  *	Callback function called automatically when the template has been created
@@ -5,7 +7,6 @@
  *	@method created
  */
 Template.components_imageslider.created = function() {
-
 };
 
 /**

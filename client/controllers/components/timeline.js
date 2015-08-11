@@ -1,3 +1,5 @@
+'use strict';
+
 /**
  *	Template - components_timeline
  *	Callback function called automatically when the template has been created
@@ -42,7 +44,7 @@ Template.components_timeline.helpers({
 		 */
 		Dependencies.resized.depend();
 		
-		var years = _.map(this.jobs, function(job, index) {
+		var years = this.jobs.map(function(job, index) {
 			return {
 				startDate: Helpers.formattedDate(job.fields.startDate, 'YYYY').string,
 				endDate: 	(typeof job.fields.endDate !== 'undefined') ?
@@ -58,7 +60,7 @@ Template.components_timeline.helpers({
 			groups.push(years.splice(0, size));
 		}
 
-		_.each(groups, function(group, index) {
+		groups.forEach(function(group, index) {
 			yearGroups.push({
 				highlighted: index === 0,
 				to: _.first(group).endDate,

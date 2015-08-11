@@ -1,3 +1,5 @@
+'use strict';
+
 /**
  *	Template - views_experience_stacked
  *	Callback function called automatically when the template has been created

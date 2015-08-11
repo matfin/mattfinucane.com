@@ -1,3 +1,5 @@
+'use strict';
+
 /**
  *	Template - components_header
  *	Callback function called automatically when the template has been created
