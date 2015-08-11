@@ -4,7 +4,7 @@ describe('components_imageslider', function() {
 
 	describe('template', function() {
 
-		var testParent;
+		var testParent, images;
 
 		beforeEach(function() {
 			/**
@@ -12,6 +12,14 @@ describe('components_imageslider', function() {
 			 */
 			testParent = document.createElement('div');
 			testParent.className = 'item__content__images';
+			/**
+			 *	Dummy data
+			 */
+			images = [
+				[{filename: "image.jpg"}],
+				[{filename: "image-two.jpg"}],
+				[{filename: "image-three.jpg"}]
+			];
 		});
 
 		afterEach(function() {
@@ -25,12 +33,7 @@ describe('components_imageslider', function() {
 			/**
 			 *	Setting up and providing dummy data
 			 */
-			var images = [
-				[{filename: "image.jpg"}],
-				[{filename: "image-two.jpg"}],
-				[{filename: "image-three.jpg"}]
-			],
-			slides;
+			var slides;
 
 			/**
 			 *	Render the template
@@ -50,15 +53,8 @@ describe('components_imageslider', function() {
 		});
 
 		it('should render the slider paddles', function(done) {
-			/**
-			 *	Setting up and providing dummy data
-			 */
-			var images = [
-				[{filename: "image.jpg"}],
-				[{filename: "image-two.jpg"}],
-				[{filename: "image-three.jpg"}]
-			],
-			paddles;
+			
+			var paddles;
 
 			/**
 			 *	Render the template
@@ -84,15 +80,7 @@ describe('components_imageslider', function() {
 			 */
 			spyOn(Helpers, 'isTouchDevice').and.returnValue(true);
 
-			/**
-			 *	Setting up and providing dummy data
-			 */
-			var images = [
-				[{filename: "image.jpg"}],
-				[{filename: "image-two.jpg"}],
-				[{filename: "image-three.jpg"}]
-			],
-			paddles;
+			var paddles;
 
 			/**
 			 *	Render the template
@@ -106,5 +94,47 @@ describe('components_imageslider', function() {
 			 */
 			setTimeout(done, 100);
 		});
+
+		it('should render the slider indicator with the correct number of items for touch based devices', function(done) {
+
+			/**
+			 *	Spies
+			 */
+			spyOn(Helpers, 'isTouchDevice').and.returnValue(true);
+
+			var indicator, indicator_items;
+
+			/**
+			 *	Render the template
+			 */
+			Blaze.renderWithData(Template.components_imageslider, images, testParent);
+			indicator = testParent.getElementsByClassName('slider__indicator');
+			indicator_items = testParent.getElementsByClassName('slider__indicator__item');
+			expect(indicator.length).toEqual(1);
+			expect(indicator_items.length).toEqual(3);
+
+			/**
+			 *	Finished
+			 */
+			setTimeout(done, 100);
+		});
+
+		it('should render the slider with the correct width percentage', function(done) {
+
+			var slider;
+
+			/**
+			 *	Render the content and run the tests
+			 */
+			Blaze.renderWithData(Template.components_imageslider, images, testParent);
+			slider = testParent.getElementsByClassName('slider__container__slider')[0];
+			expect(slider.style.width).toEqual('300%');
+
+			/**
+			 *	Finished
+			 */
+			setTimeout(done, 100);
+		});
+
 	});
 });
