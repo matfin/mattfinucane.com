@@ -87,5 +87,5 @@ UI.registerHelper('baseMediaUrl', function() {
  *	@return 	{Boolean} true if the device is touch or false
  */
 UI.registerHelper('isTouchDevice', function() {
-	return Helpers.isTouchDevice()
+	return Helpers.isTouchDevice();
 });

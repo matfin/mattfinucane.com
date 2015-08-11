@@ -22,6 +22,6 @@ Meteor.startup(function() {
 	if(Meteor.isServer) {
 		MeteorContentful.start().fetch('contentTypes').fetch('entries').fetch('assets');    
     ImageProcessor.observe();
-    MeteorContentful.listen();			
+    //MeteorContentful.listen();			
 	}
 });

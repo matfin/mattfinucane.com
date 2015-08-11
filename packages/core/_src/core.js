@@ -7,5 +7,5 @@
  */
 Core = {
 	app: {},
-	templteHelpers: {}
+	templateHelpers: {}
 };
