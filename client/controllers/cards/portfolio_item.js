@@ -72,7 +72,7 @@ Template.portfolio_images.helpers({
 			imageAssets = Core.app.collections.images.find({asset_id: {$in: imageIds}}).fetch();
 
 			grouped = _.groupBy(imageAssets, function(imageAsset) {
-				return imageAsset.assetId;
+				return imageAsset.asset_id;
 			});
 
 			deviceClass = Helpers.deviceClass(),
