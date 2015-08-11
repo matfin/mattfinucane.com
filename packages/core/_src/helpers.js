@@ -107,6 +107,32 @@ Helpers = {
 	},
 
 	/**
+	 *	Function to group items according to a selector
+	 *	
+	 *	@method grouped
+	 *	@param {Object} collection - the collection as an object
+	 *	@param {String} selector - the selector to use
+	 *	@return {Array} - grouped nested array of items
+	 */
+	grouped: function(collection, selector) {
+		var keys = Object.keys(collection),
+				groups = [],
+				items = [],
+				item;
+				
+		keys.forEach(function(key) {
+			item = collection[key];
+			if(!items[item[selector]]) {
+				items[item[selector]] = [];
+				groups.push(items[item[selector]]);
+			}
+			items[item[selector]].push(item);
+		});
+
+		return groups;
+	},
+
+	/**
 	 *	Function to turn a string of text into a lower case classname friendly string
 	 *
 	 *	@method 	asClassName

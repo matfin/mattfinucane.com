@@ -34,8 +34,6 @@ Core.templateHelpers = {
 	images: function(selector) {
 		var imageIds,
 				imageAssets,
-				deviceClass,
-				includeProductionUrl,
 				grouped;
 		/**
 		 *	Checking to see if associated images exist
@@ -49,12 +47,7 @@ Core.templateHelpers = {
 			});
 
 			imageAssets = Core.app.collections.images.find({asset_id: {$in: imageIds}}).fetch();
-
-			grouped = _.groupBy(imageAssets, function(imageAsset) {
-				return imageAsset.asset_id;
-			});
-
-			grouped = _.toArray(grouped);
+			grouped = Helpers.grouped(imageAssets, 'asset_id');
 
 			return {
 				useSlider: grouped.length > 1,
