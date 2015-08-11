@@ -66,6 +66,21 @@ UI.registerHelper('deviceClass', function() {
 });
 
 /**
+ *	Function to grab the base url for media from Meteors public settings
+ *	
+ *	@method baseMediaUrl
+ *	@return {String} - the base url from public settings
+ */
+UI.registerHelper('baseMediaUrl', function() {
+	if(Helpers.checkNested(Meteor, 'settings', 'public', 'mediaUrl')) {
+		return Meteor.settings.public.mediaUrl;
+	}
+	else {
+		throw new Meteor.Error(500, 'Could not get the base media url in settings.');
+	}
+});
+
+/**
  *	Function to determine if the device has touch capabilities
  *
  *	@method		isTouchDevice
