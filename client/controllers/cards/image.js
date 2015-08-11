@@ -49,32 +49,24 @@ Template.cards_image.helpers({
 		/**
 		 *	Setting up the filters
 		 */
-		var device = function() {
-
-			var device = {};
-
+		var device = (function() {
 			if(deviceClass.isMobile) {
-				device.name = 'mobile'
+				return 'mobile'
 			}
 			else if(deviceClass.isTablet) {
-				device.name = 'tablet';
+				return 'tablet';
 			}
 			else {
-				device.name = 'desktop';
+				return 'desktop';
 			}
-
-			return device;
-		};
+		})();
 
 		/**
 		 *	With the device class determined, pick out the image we need
 		 */
-		var images = _.filter(this, function(image) {
-			return 	image.device === device().name &&
-					image.density.multiplier === Helpers.deviceClass().pixelDensity
+		return this.filter(function(image) {
+			return image.device === device && image.density.multiplier === Helpers.deviceClass().pixelDensity;
 		});
-
-		return images;
 	}
 
 });

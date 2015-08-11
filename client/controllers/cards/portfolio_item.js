@@ -75,9 +75,6 @@ Template.portfolio_images.helpers({
 				return imageAsset.assetId;
 			});
 
-			// console.log(imageAssets, '==========');
-			// console.log(_.toArray(grouped)); return;
-
 			deviceClass = Helpers.deviceClass(),
 			includeProductionUrl = (deviceClass.isTablet || deviceClass.isMobile);
 

@@ -5,7 +5,7 @@
  *	@method created
  */
 Template.views_experience_stacked.created = function() {
-	//this.subscribe('entries', 'Job');
+	this.subscribe('entries', 'Job');
 };
 
 /**
@@ -35,7 +35,7 @@ Template.views_experience_stacked.destroyed = function() {
 Template.views_experience_stacked.helpers({
 
 	jobs: function() {
- 		return App.collections.entries.find({}, {sort: {'fields.startDate': -1}}).fetch();
+ 		return Core.app.collections.entries.find({}, {sort: {'fields.startDate': -1}}).fetch();
 	}
 
 });

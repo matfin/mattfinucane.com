@@ -1,3 +1,5 @@
+'use strict';
+
 /**
  *	Template - cards_content_item
  *	Callback function called automatically when the template has been created
@@ -5,8 +7,9 @@
  *	@method created
  */
 Template.cards_content_item.created = function() {
-	this.subscribe('cf_assets');
-	this.subscribe('mf_images');
+	if(Helpers.checkNested(this, 'data', 'fields', 'images')) {
+		this.subscribe('images', this.data.fields.images);
+	}
 };
 
 /**
@@ -25,7 +28,6 @@ Template.cards_content_item.rendered = function() {
  *	@method destroyed
  */
 Template.cards_content_item.destroyed = function() {
-	
 };
 
 /**
@@ -38,7 +40,7 @@ Template.cards_content_item.helpers({
 	 *	is standalone.
 	 */
 	isGrouped: function() {
-		return _.isArray(this);
+		return this instanceof Array;
 	}
 });
 
@@ -52,7 +54,9 @@ Template.content_images.helpers({
 	 *	Fetch the images for this content item
 	 */
 	images: function() {
-
+		var imageIds,
+				imageAssets,
+				grouped;
 		/**
 		 *	Checking to see if associated images exist
 		 */
@@ -60,15 +64,17 @@ Template.content_images.helpers({
 			/**
 			 *	Preparing the query and returning grouped image assets.
 			 */
-			var imageIds = _.map(this.fields.images, function(image) {
-					return image.sys.id;
-				});
-				imageAssets = App.collections.mf_images.find({assetId: {$in: imageIds}}).fetch(),
-				grouped = _.groupBy(imageAssets, function(imageAsset) {
-					return imageAsset.assetId;
-				});
+			imageIds = this.fields.images.map(function(image) {
+				return image.sys.id;
+			});
 
-				grouped = _.toArray(grouped);
+			imageAssets = Core.app.collections.images.find({asset_id: {$in: imageIds}}).fetch();
+
+			grouped = _.groupBy(imageAssets, function(imageAsset) {
+				return imageAsset.assetId;
+			});
+
+			grouped = _.toArray(grouped);
 
 			return {
 				useSlider: grouped.length > 1,

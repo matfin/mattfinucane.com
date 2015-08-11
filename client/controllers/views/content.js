@@ -5,7 +5,7 @@
  *	@method created
  */
 Template.views_content.created = function() {
-	this.subscribe('content');
+	this.subscribe('entries', 'Content Item');
 };
 
 /**
@@ -35,17 +35,17 @@ Template.views_content.destroyed = function() {
 Template.views_content.helpers({
 
 	contentItems: function() {
-		return App.collections.entries.find({'fields.page': this.page}, {sort: {'fields.order': 1}}).fetch();
+		return Core.app.collections.entries.find({'fields.page': this.page}, {sort: {'fields.order': 1}}).fetch();
 	},
 
 	groupedContentItems: function() {
-		var ungrouped_content_items = App.collections.entries.find({'fields.page': this.page}, {sort: {'fields.order': 1}}).fetch(),
+		var ungrouped_content_items = Core.app.collections.entries.find({'fields.page': this.page}, {sort: {'fields.order': 1}}).fetch(),
 				content_item_groups = [],
 				content_items = [];
 
 		content_item_groups.push(content_items);
 
-		[].forEach.call(ungrouped_content_items, function(content_item, index) {
+		ungrouped_content_items.forEach(function(content_item, index) {
 			if(content_item.fields.isStandalone) {
 				content_item_groups.push(content_item);
 				return;

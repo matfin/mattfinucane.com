@@ -1,3 +1,5 @@
+'use strict';
+
 /**
  *	Template - cards_job
  *	Callback function called automatically when the template has been created
@@ -5,7 +7,7 @@
  *	@method created
  */
 Template.cards_job.created = function() {
-	this.subscribe('mf_images');
+	this.subscribe('images', this.data.fields.projectLogos);
 };
 
 /**
@@ -36,17 +38,15 @@ Template.cards_job.helpers({
 	 *	Fetching the assetIds for images
 	 */
 	images: function() {
+		var imageIds,
+				imageAssets,
+				deviceClass;
+		
 		if(Helpers.checkNested(this, 'fields', 'projectLogos')) {
-
-			/**
-			 *	Getting the asset ids
-			 */
-			var imageIds = _.map(this.fields.projectLogos, function(projectLogo) {
+			imageIds = this.fields.projectLogos.map(function(projectLogo) {
 				return projectLogo.sys.id;
-			}),
-			imageAssets = App.collections.mf_images.find({assetId: {$in: imageIds}}).fetch();
-			
-			return imageAssets;
+			});
+			return Core.app.collections.images.find({asset_id: {$in: imageIds}}).fetch();
 		}
 		else {
 			return [];

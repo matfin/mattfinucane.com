@@ -5,7 +5,7 @@
  *	@method created
  */
 Template.views_experience_slider.created = function() {
-	//this.subscribe('entries', 'Job');
+	this.subscribe('entries', 'Job');
 };
 
 /**
@@ -42,10 +42,9 @@ Template.views_experience_slider.rendered = function() {
 	this.resizeEvent = Tracker.autorun(function() {
 
 		Dependencies.resized.depend();
-
 		var numberOfSlides  = TemplateHelpers.numberOfItemsInSlide(),
-			numberOfJobs 	= App.collections.cf_entries.find({contentTypeName: 'job'}).count(),
-			sliderWidth 	= Math.ceil(numberOfJobs / numberOfSlides) * 100;
+				numberOfJobs 	= Core.app.collections.entries.find({contentType: 'Job'}).count(),
+				sliderWidth 	= Math.ceil(numberOfJobs / numberOfSlides) * 100;
 
 		$('.slider').css({
 			width: sliderWidth + '%'
@@ -76,7 +75,7 @@ Template.views_experience_slider.helpers({
 	groupedJobs: function() {
 
 		var self = this,
-			jobs = App.collections.entries.find({}, {sort: {'fields.startDate': -1}}).fetch(),
+			jobs = Core.app.collections.entries.find({}, {sort: {'fields.startDate': -1}}).fetch(),
 			asGrouped = function() {
 				var grouped = [],
 					size = TemplateHelpers.numberOfItemsInSlide();
@@ -95,7 +94,7 @@ Template.views_experience_slider.helpers({
 		var self = this;
 		return {
 			concurrentJobs: TemplateHelpers.numberOfItemsInSlide(),
-			jobs: App.collections.entries.find({}, {sort: {'fields.startDate': -1}}).fetch()
+			jobs: Core.app.collections.entries.find({}, {sort: {'fields.startDate': -1}}).fetch()
 		};
 	}
 });
