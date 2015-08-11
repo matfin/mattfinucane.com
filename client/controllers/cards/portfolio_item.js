@@ -49,51 +49,8 @@ Template.cards_portfolio_item.helpers({
  *	Helpers
  */
 Template.portfolio_images.helpers({
-	/**
-	 *	Fetching the detailed entries for related images
-	 */
 	images: function() {
-		var imageIds,
-				imageAssets,
-				deviceClass,
-				includeProductionUrl,
-				grouped;
-		/**
-		 *	Checking to see if associated images exist
-		 */
-		if(Helpers.checkNested(this, 'fields', 'screenshots')) {
-			/**
-			 *	Preparing the query and returning grouped image assets.
-			 */
-			imageIds = this.fields.screenshots.map(function(screenshot) {
-				return screenshot.sys.id;
-			});
-
-			imageAssets = Core.app.collections.images.find({asset_id: {$in: imageIds}}).fetch();
-
-			grouped = _.groupBy(imageAssets, function(imageAsset) {
-				return imageAsset.asset_id;
-			});
-
-			deviceClass = Helpers.deviceClass(),
-			includeProductionUrl = (deviceClass.isTablet || deviceClass.isMobile);
-
-			grouped = _.toArray(grouped);
-
-			return {
-				useSlider: grouped.length > 1,
-				includeProductionUrl: includeProductionUrl,
-				collection: grouped
-			};
-		}
-
-		/**
-		 *	Or we return an empty array
-		 */
-		return {
-			useSlider: false,
-			collection: []
-		};
+		return Core.templateHelpers.images.call(this, this.fields.screenshots);
 	}
 });
 

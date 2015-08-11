@@ -54,40 +54,6 @@ Template.content_images.helpers({
 	 *	Fetch the images for this content item
 	 */
 	images: function() {
-		var imageIds,
-				imageAssets,
-				grouped;
-		/**
-		 *	Checking to see if associated images exist
-		 */
-		if(Helpers.checkNested(this, 'fields', 'images')) {
-			/**
-			 *	Preparing the query and returning grouped image assets.
-			 */
-			imageIds = this.fields.images.map(function(image) {
-				return image.sys.id;
-			});
-
-			imageAssets = Core.app.collections.images.find({asset_id: {$in: imageIds}}).fetch();
-
-			grouped = _.groupBy(imageAssets, function(imageAsset) {
-				return imageAsset.asset_id;
-			});
-
-			grouped = _.toArray(grouped);
-
-			return {
-				useSlider: grouped.length > 1,
-				collection: grouped
-			};
-		}
-
-		/**
-		 *	Or we return an empty array
-		 */
-		return {
-			useSlider: false,
-			collection: []
-		};
+		return Core.templateHelpers.images.call(this, this.fields.images);
 	}
 });
