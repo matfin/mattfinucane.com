@@ -7,7 +7,7 @@
  *	@method created
  */
 Template.cards_content_item.created = function() {
-	if(Helpers.checkNested(this, 'data', 'fields', 'images')) {
+	if(Helpers.checkNested(this, 'data', 'fields', 'images') && this.data.fields.images !== null) {
 		this.subscribe('images', this.data.fields.images);
 	}
 };

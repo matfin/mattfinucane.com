@@ -38,7 +38,7 @@ Core.templateHelpers = {
 		/**
 		 *	Checking to see if associated images exist
 		 */
-		if(Helpers.checkNested(selector)) {
+		if(Helpers.checkNested(selector) && selector !== null) {
 			/**
 			 *	Preparing the query and returning grouped image assets.
 			 */

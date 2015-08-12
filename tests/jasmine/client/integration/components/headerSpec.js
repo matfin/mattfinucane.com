@@ -34,7 +34,7 @@ describe('components_header', function() {
 			button = wrapper.getElementsByTagName('button');
 			expect(button.length).toEqual(1);
 
-			list_items = document.getElementsByTagName('li');
+			list_items = wrapper.getElementsByTagName('li');
 			expect(list_items.length).toEqual(3);
 
 			/**
