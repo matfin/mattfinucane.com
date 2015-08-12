@@ -34,6 +34,10 @@ Meteor.publish('entries', function(contentTypeName) {
 });
 
 Meteor.publish('images', function(assets) {
+	if(typeof assets === 'undefined' || assets === null) {
+		return;
+	}
+
 	var assetIds = assets.map(function(asset) {
 		return asset.sys.id;
 	});

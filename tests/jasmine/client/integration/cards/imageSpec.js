@@ -8,9 +8,7 @@ describe('cards_image', function() {
 	describe('template', function() {
 
 		beforeEach(function() {
-			/**
-			 *
-			 */
+	
 			testParent = document.createElement('div');
 			testParent.className = 'image__standalone';
 
