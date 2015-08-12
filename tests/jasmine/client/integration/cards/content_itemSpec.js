@@ -8,7 +8,7 @@ describe('cards_content_item', function() {
 
 		beforeEach(function() {
 			testParent = document.createElement('div');
-			testParent.className = 'wrapper--content';
+			testParent.className = 'wrapper wrapper--content';
 		});
 
 		afterEach(function() {
