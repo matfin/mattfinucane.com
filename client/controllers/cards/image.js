@@ -65,7 +65,7 @@ Template.cards_image.helpers({
 		 *	With the device class determined, pick out the image we need
 		 */
 		return this.filter(function(image) {
-			return image.device === device && image.density.multiplier === Helpers.deviceClass().pixelDensity;
+			return image.device === device && image.density.multiplier === deviceClass.pixelDensity;
 		});
 	}
 
