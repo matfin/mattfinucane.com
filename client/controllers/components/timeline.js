@@ -43,7 +43,14 @@ Template.components_timeline.helpers({
 		 *	Making this function reactive
 		 */
 		Dependencies.resized.depend();
-		
+
+		if(typeof this.jobs === 'undefined') {
+			return;
+		}
+		if(this.concurrentJobs >= this.jobs.length) {
+			return;
+		}
+
 		var years = this.jobs.map(function(job, index) {
 			return {
 				startDate: Helpers.formattedDate(job.fields.startDate, 'YYYY').string,

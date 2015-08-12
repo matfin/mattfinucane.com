@@ -31,7 +31,7 @@ describe('components_imageslider', function() {
 		it('should render an equal number of slides to the number of images provided', function(done) {
 
 			/**
-			 *	Setting up and providing dummy data
+			 *	Setting up
 			 */
 			var slides;
 
