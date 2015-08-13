@@ -187,4 +187,78 @@ describe('cards_job', function() {
 			setTimeout(done, 200);
 		});
 	});
+
+	describe('helpers', function() {
+
+		describe('images', function() {
+
+			var job;
+
+			beforeEach(function() {
+				/**
+				 *	Dummy data
+				 */
+				job = {
+					fields: {
+						projectLogos: [
+							{
+								sys: {
+									id: 'dummy-2'
+								}
+							},
+							{
+								sys: {
+									id: 'dummy-3'
+								}
+							}
+						]
+					}
+				};
+			});
+
+			it('should call the find function with the correct selector on the images collection if the job has images associated with it.', function(done) {
+
+				/**
+				 *	Spies
+				 */
+				spyOn(Core.app.collections.images, 'find').and.callFake(function(selector) {
+					return {
+						fetch: function(){}
+					};
+				});
+
+				/**
+				 *	Call the function
+				 */
+				Template.cards_job.__helpers[' images'].call(job);
+
+				/**
+				 *	Run the test
+				 */
+				expect(Core.app.collections.images.find.calls.argsFor(0)).toEqual([{asset_id: {$in: ['dummy-2', 'dummy-3']}}]);
+
+				/**
+				 *	Done
+				 */
+				done();
+			});
+
+			it('should return an empty array if the job has no images', function(done) {
+
+				/**
+				 *	Setting up the data
+				 */ 
+				delete job.fields.projectLogos;
+
+				/**
+				 *	Run the function and the test
+				 */
+				expect(Template.cards_job.__helpers[' images'].call(job).length).toEqual(0);
+
+				done();
+			});
+
+		});
+
+	});
 });
