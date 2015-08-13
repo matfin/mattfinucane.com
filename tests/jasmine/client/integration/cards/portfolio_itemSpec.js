@@ -83,7 +83,7 @@ describe('cards_portfolio_item', function() {
 			/**
 			 *	Setting up nodes to test
 			 */
-			var title, production_link, description, skills;
+			var links, description, skills;
 
 			/**
 			 *	Spies
@@ -98,9 +98,21 @@ describe('cards_portfolio_item', function() {
 			spyOn(Core.app.collections.entries, 'find').and.returnValue({
 				fetch: function() {
 					return [
-						{title: 'Skill One'},
-						{title: 'Skill Two'},
-						{title: 'Skill Three'}
+						{
+							fields: {
+								title: 'Skill One'
+							}
+						},
+						{
+							fields: {
+								title: 'Skill Two'
+							}
+						},
+						{
+							fields: {
+								title: 'Skill Three'
+							}
+						}
 					];
 				}
 			});
@@ -109,10 +121,93 @@ describe('cards_portfolio_item', function() {
 			 *	Render the content with data
 			 */
 			Blaze.renderWithData(Template.cards_portfolio_item, itemData, testParent);
+			links = testParent.getElementsByClassName('item__content__link');
+			description = testParent.getElementsByTagName('p');
+			skills = testParent.getElementsByClassName('item__skills__list__item');
 
 			/**
 			 *	Run the tests
 			 */
+			expect(links[0].firstChild.wholeText.trim()).toEqual('Test Title');
+			expect(links[0].getAttribute('href')).toEqual('http://test.tld');
+			expect(links[1].getAttribute('href')).toEqual('http://github.com/test/project');
+			expect(description[0].firstChild.wholeText.trim()).toEqual('A test description');
+			expect(skills.length).toEqual(3);
+			expect(skills[0].firstChild.wholeText.trim()).toEqual('Skill One');
+			expect(skills[1].firstChild.wholeText.trim()).toEqual('Skill Two');
+			expect(skills[2].firstChild.wholeText.trim()).toEqual('Skill Three');
+
+			/**
+			 *	Finished
+			 */
+			setTimeout(done, 200);
+		});
+
+		it('should not render the project title as a link when there is no production url', function(done) {
+
+			var title;
+
+			/**
+			 *	Spies
+			 */
+			spyOn(Meteor, 'subscribe').and.returnValue({
+				subscriptionId: 2,
+				ready: function() {
+					return true;
+				}
+			});
+
+			/**
+			 *	Remove the production url from the dummy data
+			 */
+			delete itemData.fields.productionUrl;
+
+			/**
+			 *	Render the template
+			 */
+			Blaze.renderWithData(Template.cards_portfolio_item, itemData, testParent);
+			title = testParent.getElementsByClassName('item__content__info__title')[0];
+
+			/**
+			 *	Then test to see if the first child is a text node (and not a link)
+			 */
+			expect(title.firstChild.wholeText.trim()).toEqual('Test Title');
+
+			/**
+			 *	Finished
+			 */
+			setTimeout(done, 200);
+		});
+
+		it('should not render the skills block title as a link when there is no github url', function(done) {
+
+			var skillsTitle;
+
+			/**
+			 *	Spies
+			 */
+			spyOn(Meteor, 'subscribe').and.returnValue({
+				subscriptionId: 2,
+				ready: function() {
+					return true;
+				}
+			});
+
+			/**
+			 *	Remove the production url from the dummy data
+			 */
+			delete itemData.fields.githubUrl;
+
+			/**
+			 *	Render the template
+			 */
+			Blaze.renderWithData(Template.cards_portfolio_item, itemData, testParent);
+			skillsTitle = testParent.getElementsByClassName('skills__title')[0];
+
+			/**
+			 *	Then test to see if the first child is a text node (and not a link)
+			 */
+			expect(skillsTitle.firstChild.wholeText.trim()).toEqual('Code / Skills');
 
 			/**
 			 *	Finished
