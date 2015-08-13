@@ -60,7 +60,7 @@ describe('cards_image', function() {
 			/**
 			 *	Finished
 			 */
-			setTimeout(done, 200);
+			setTimeout(done, 50);
 		});
 
 		it('should render an @2x desktop sized image.', function(done) {
@@ -91,7 +91,7 @@ describe('cards_image', function() {
 			/**
 			 *	Finished
 			 */
-			setTimeout(done, 200);
+			setTimeout(done, 50);
 		});
 
 		it('should render an @3x desktop sized image.', function(done) {
@@ -122,7 +122,7 @@ describe('cards_image', function() {
 			/**
 			 *	Finished
 			 */
-			setTimeout(done, 200);
+			setTimeout(done, 50);
 		});
 
 		it('should render a tablet sized image.', function(done) {
@@ -153,7 +153,7 @@ describe('cards_image', function() {
 			/**
 			 *	Finished
 			 */
-			setTimeout(done, 200);
+			setTimeout(done, 50);
 		});
 
 		it('should render an @2x tablet sized image.', function(done) {
@@ -184,7 +184,7 @@ describe('cards_image', function() {
 			/**
 			 *	Finished
 			 */
-			setTimeout(done, 200);
+			setTimeout(done, 50);
 		});
 
 		it('should render an @3x tablet sized image.', function(done) {
@@ -215,7 +215,7 @@ describe('cards_image', function() {
 			/**
 			 *	Finished
 			 */
-			setTimeout(done, 200);
+			setTimeout(done, 50);
 		});
 
 		it('should render a mobile sized image.', function(done) {
@@ -246,7 +246,7 @@ describe('cards_image', function() {
 			/**
 			 *	Finished
 			 */
-			setTimeout(done, 200);
+			setTimeout(done, 50);
 		});
 
 		it('should render an @2x mobile sized image.', function(done) {
@@ -277,7 +277,7 @@ describe('cards_image', function() {
 			/**
 			 *	Finished
 			 */
-			setTimeout(done, 200);
+			setTimeout(done, 50);
 		});
 
 		it('should render an @3x mobile sized image.', function(done) {
@@ -308,9 +308,206 @@ describe('cards_image', function() {
 			/**
 			 *	Finished
 			 */
-			setTimeout(done, 200);
+			setTimeout(done, 50);
 		});
 
 	});
 
+	describe('helpers', function() {
+
+		describe('imageAssets', function() {
+
+			var images;
+
+			beforeEach(function() {
+				images = [
+					{width: 800, density: {multiplier: 1, prefixed: ''}, device: 'desktop', filename: 'test-desktop.jpg'},
+					{width: 1600, density: {multiplier: 2, prefixed: '@2x'}, device: 'desktop', filename: 'test-desktop@2x.jpg'},
+					{width: 2400, density: {multiplier: 3, prefixed: '@3x'}, device: 'desktop', filename: 'test-desktop@3x.jpg'},
+					{width: 400, density: {multiplier: 1, prefixed: ''}, device: 'tablet', filename: 'test-tablet.jpg'},
+					{width: 800, density: {multiplier: 2, prefixed: '@2x'}, device: 'tablet', filename: 'test-tablet@2x.jpg'},
+					{width: 1200, density: {multiplier: 3, prefixed: '@3x'}, device: 'tablet', filename: 'test-tablet@3x.jpg'},
+					{width: 320, density: {multiplier: 1, prefixed: ''}, device: 'mobile', filename: 'test-mobile.jpg'},
+					{width: 640, density: {multiplier: 2, prefixed: '@2x'}, device: 'mobile', filename: 'test-mobile@2x.jpg'},
+					{width: 960, density: {multiplier: 3, prefixed: '@3x'}, device: 'mobile', filename: 'test-mobile@3x.jpg'}
+				];
+			});
+
+			afterEach(function() {
+				images = []
+			});
+
+			it('should return an image named test-mobile.jpg', function(done) {
+				/**
+				 *	Spies
+				 */
+				spyOn(Helpers, 'deviceClass').and.returnValue({
+					isMobile: true,
+					pixelDensity: 1
+				});
+				/**
+				 *	Tests
+				 */
+				var image = Template.cards_image.__helpers[' imageAssets'].call(images);
+				expect(image[0].filename).toEqual('test-mobile.jpg');
+				/**
+				 *	Finished
+				 */
+				done();
+			});
+
+			it('should return an image named test-mobile@2x.jpg', function(done) {
+				/**
+				 *	Spies
+				 */
+				spyOn(Helpers, 'deviceClass').and.returnValue({
+					isMobile: true,
+					pixelDensity: 2
+				});
+				/**
+				 *	Tests
+				 */
+				var image = Template.cards_image.__helpers[' imageAssets'].call(images);
+				expect(image[0].filename).toEqual('test-mobile@2x.jpg');
+				/**
+				 *	Finished
+				 */
+				done();
+			});
+
+			it('should return an image named test-mobile@3x.jpg', function(done) {
+				/**
+				 *	Spies
+				 */
+				spyOn(Helpers, 'deviceClass').and.returnValue({
+					isMobile: true,
+					pixelDensity: 3
+				});
+				/**
+				 *	Tests
+				 */
+				var image = Template.cards_image.__helpers[' imageAssets'].call(images);
+				expect(image[0].filename).toEqual('test-mobile@3x.jpg');
+				/**
+				 *	Finished
+				 */
+				done();
+			});
+
+			it('should return an image named test-tablet.jpg', function(done) {
+				/**
+				 *	Spies
+				 */
+				spyOn(Helpers, 'deviceClass').and.returnValue({
+					isTablet: true,
+					pixelDensity: 1
+				});
+				/**
+				 *	Tests
+				 */
+				var image = Template.cards_image.__helpers[' imageAssets'].call(images);
+				expect(image[0].filename).toEqual('test-tablet.jpg');
+				/**
+				 *	Finished
+				 */
+				done();
+			});
+
+			it('should return an image named test-tablet@2x.jpg', function(done) {
+				/**
+				 *	Spies
+				 */
+				spyOn(Helpers, 'deviceClass').and.returnValue({
+					isTablet: true,
+					pixelDensity: 2
+				});
+				/**
+				 *	Tests
+				 */
+				var image = Template.cards_image.__helpers[' imageAssets'].call(images);
+				expect(image[0].filename).toEqual('test-tablet@2x.jpg');
+				/**
+				 *	Finished
+				 */
+				done();
+			});
+
+			it('should return an image named test-tablet@3x.jpg', function(done) {
+				/**
+				 *	Spies
+				 */
+				spyOn(Helpers, 'deviceClass').and.returnValue({
+					isTablet: true,
+					pixelDensity: 3
+				});
+				/**
+				 *	Tests
+				 */
+				var image = Template.cards_image.__helpers[' imageAssets'].call(images);
+				expect(image[0].filename).toEqual('test-tablet@3x.jpg');
+				/**
+				 *	Finished
+				 */
+				done();
+			});
+
+			it('should return an image named test-desktop.jpg', function(done) {
+				/**
+				 *	Spies
+				 */
+				spyOn(Helpers, 'deviceClass').and.returnValue({
+					isDesktop: true,
+					pixelDensity: 1
+				});
+				/**
+				 *	Tests
+				 */
+				var image = Template.cards_image.__helpers[' imageAssets'].call(images);
+				expect(image[0].filename).toEqual('test-desktop.jpg');
+				/**
+				 *	Finished
+				 */
+				done();
+			});
+
+			it('should return an image named test-desktop@2x.jpg', function(done) {
+				/**
+				 *	Spies
+				 */
+				spyOn(Helpers, 'deviceClass').and.returnValue({
+					isDesktop: true,
+					pixelDensity: 2
+				});
+				/**
+				 *	Tests
+				 */
+				var image = Template.cards_image.__helpers[' imageAssets'].call(images);
+				expect(image[0].filename).toEqual('test-desktop@2x.jpg');
+				/**
+				 *	Finished
+				 */
+				done();
+			});
+
+			it('should return an image named test-desktop@3x.jpg', function(done) {
+				/**
+				 *	Spies
+				 */
+				spyOn(Helpers, 'deviceClass').and.returnValue({
+					isDesktop: true,
+					pixelDensity: 3
+				});
+				/**
+				 *	Tests
+				 */
+				var image = Template.cards_image.__helpers[' imageAssets'].call(images);
+				expect(image[0].filename).toEqual('test-desktop@3x.jpg');
+				/**
+				 *	Finished
+				 */
+				done();
+			});
+
+		});
+	});
 });

@@ -61,7 +61,7 @@ describe('cards_content_item', function() {
 			/**
 			 *	Finished
 			 */
-			setTimeout(done, 200);
+			setTimeout(done, 50);
 		});
 
 		it('should render only one content item info pane if the content item is standalone', function(done) {
@@ -96,8 +96,95 @@ describe('cards_content_item', function() {
 			/**
 			 *	Finished
 			 */
-			setTimeout(done, 200);
+			setTimeout(done, 50);
 		});
+	});
+	
+	it('should subscribe to the images collection if the entry has images', function(done) {
+
+		/**
+		 *	Spies
+		 */
+		spyOn(Meteor, 'subscribe').and.returnValue({
+			subscriptionId: 1,
+			ready: function(){
+				return true;
+			}
+		});
+
+		/**
+		 *	Dummy data
+		 */
+		var contentItemData = {
+			fields: {
+				content: 'Third test content',
+				images: [
+					{sys: {id: 'dummy-1'}},
+					{sys: {id: 'dummy-1'}}
+				],
+				isStandalone: true,
+				order: 3,
+				page: 'page',
+				title: 'third test'
+			}
+		};
+
+		/**
+		 *	Render the template
+		 */
+		Blaze.renderWithData(Template.cards_content_item, contentItemData, testParent);
+
+		/**
+		 *	Run the tests
+		 */
+		expect(Meteor.subscribe).toHaveBeenCalled();
+
+		/**
+		 *	Finished
+		 */
+		setTimeout(done, 50);
+	});
+
+	it('should not subscribe to the images collection if the entry has no images', function(done) {
+
+		/**
+		 *	Spies
+		 */
+		spyOn(Meteor, 'subscribe').and.returnValue({
+			subscriptionId: 1,
+			ready: function(){
+				return true;
+			}
+		});
+
+		/**
+		 *	Dummy data
+		 */
+		var contentItemData = {
+			fields: {
+				content: 'Third test content',
+				images: null,
+				isStandalone: true,
+				order: 3,
+				page: 'page',
+				title: 'third test'
+			}
+		};
+
+		/**
+		 *	Render the template
+		 */
+		Blaze.renderWithData(Template.cards_content_item, contentItemData, testParent);
+
+		/**
+		 *	Run the tests
+		 */
+		expect(Meteor.subscribe).not.toHaveBeenCalled();
+
+		/**
+		 *	Finished
+		 */
+		setTimeout(done, 50);
 	});
 
 });
