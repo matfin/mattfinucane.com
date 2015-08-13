@@ -34,10 +34,6 @@ Template.views_content.destroyed = function() {
  */
 Template.views_content.helpers({
 
-	contentItems: function() {
-		return Core.app.collections.entries.find({'fields.page': this.page}, {sort: {'fields.order': 1}}).fetch();
-	},
-
 	groupedContentItems: function() {
 		var ungrouped_content_items = Core.app.collections.entries.find({'fields.page': this.page}, {sort: {'fields.order': 1}}).fetch(),
 				content_item_groups = [],
