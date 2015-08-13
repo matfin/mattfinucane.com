@@ -5,7 +5,6 @@ describe('cards_content_item', function() {
 	var testParent;
 
 	describe('template', function() {
-
 		beforeEach(function() {
 			testParent = document.createElement('div');
 			testParent.className = 'wrapper wrapper--content';
@@ -98,93 +97,133 @@ describe('cards_content_item', function() {
 			 */
 			setTimeout(done, 50);
 		});
-	});
-	
-	it('should subscribe to the images collection if the entry has images', function(done) {
 
-		/**
-		 *	Spies
-		 */
-		spyOn(Meteor, 'subscribe').and.returnValue({
-			subscriptionId: 1,
-			ready: function(){
-				return true;
-			}
+		it('should subscribe to the images collection if the entry has images', function(done) {
+
+			/**
+			 *	Spies
+			 */
+			spyOn(Meteor, 'subscribe').and.returnValue({
+				subscriptionId: 1,
+				ready: function(){
+					return true;
+				}
+			});
+
+			/**
+			 *	Dummy data
+			 */
+			var contentItemData = {
+				fields: {
+					content: 'Third test content',
+					images: [
+						{sys: {id: 'dummy-1'}},
+						{sys: {id: 'dummy-1'}}
+					],
+					isStandalone: true,
+					order: 3,
+					page: 'page',
+					title: 'third test'
+				}
+			};
+
+			/**
+			 *	Render the template
+			 */
+			Blaze.renderWithData(Template.cards_content_item, contentItemData, testParent);
+
+			/**
+			 *	Run the tests
+			 */
+			expect(Meteor.subscribe).toHaveBeenCalled();
+
+			/**
+			 *	Finished
+			 */
+			setTimeout(done, 50);
 		});
 
-		/**
-		 *	Dummy data
-		 */
-		var contentItemData = {
-			fields: {
-				content: 'Third test content',
-				images: [
-					{sys: {id: 'dummy-1'}},
-					{sys: {id: 'dummy-1'}}
-				],
-				isStandalone: true,
-				order: 3,
-				page: 'page',
-				title: 'third test'
-			}
-		};
+		it('should not subscribe to the images collection if the entry has no images', function(done) {
 
-		/**
-		 *	Render the template
-		 */
-		Blaze.renderWithData(Template.cards_content_item, contentItemData, testParent);
+			/**
+			 *	Spies
+			 */
+			spyOn(Meteor, 'subscribe').and.returnValue({
+				subscriptionId: 1,
+				ready: function(){
+					return true;
+				}
+			});
 
-		/**
-		 *	Run the tests
-		 */
-		expect(Meteor.subscribe).toHaveBeenCalled();
+			/**
+			 *	Dummy data
+			 */
+			var contentItemData = {
+				fields: {
+					content: 'Third test content',
+					images: null,
+					isStandalone: true,
+					order: 3,
+					page: 'page',
+					title: 'third test'
+				}
+			};
 
-		/**
-		 *	Finished
-		 */
-		setTimeout(done, 50);
+			/**
+			 *	Render the template
+			 */
+			Blaze.renderWithData(Template.cards_content_item, contentItemData, testParent);
+
+			/**
+			 *	Run the tests
+			 */
+			expect(Meteor.subscribe).not.toHaveBeenCalled();
+
+			/**
+			 *	Finished
+			 */
+			setTimeout(done, 50);
+		});
 	});
 
-	it('should not subscribe to the images collection if the entry has no images', function(done) {
+});
 
-		/**
-		 *	Spies
-		 */
-		spyOn(Meteor, 'subscribe').and.returnValue({
-			subscriptionId: 1,
-			ready: function(){
-				return true;
-			}
+describe('content_images', function() {
+
+	describe('helpers', function() {
+		describe('images', function() {
+			it('should call the template helper to filter images', function(done) {
+				/**
+				 *	Spies
+				 */
+				spyOn(Core.templateHelpers, 'images').and.callFake(function(entry, fields) {});
+
+				/**
+				 *	Dummy data
+				 */
+				var entry = {
+					fields: {
+						images: [
+							{
+								sys: {
+									id: 'dummy-1'
+								}
+							}
+						]
+					}
+				};
+
+				/**
+				 *	Run the function and then the tests
+				 */
+				Template.content_images.__helpers[' images'].call(entry);
+				expect(Core.templateHelpers.images).toHaveBeenCalledWith([{sys:{id:'dummy-1'}}]);
+				/**	
+				 *	Finished
+				 */
+				done();
+			});
 		});
-
-		/**
-		 *	Dummy data
-		 */
-		var contentItemData = {
-			fields: {
-				content: 'Third test content',
-				images: null,
-				isStandalone: true,
-				order: 3,
-				page: 'page',
-				title: 'third test'
-			}
-		};
-
-		/**
-		 *	Render the template
-		 */
-		Blaze.renderWithData(Template.cards_content_item, contentItemData, testParent);
-
-		/**
-		 *	Run the tests
-		 */
-		expect(Meteor.subscribe).not.toHaveBeenCalled();
-
-		/**
-		 *	Finished
-		 */
-		setTimeout(done, 50);
 	});
 
 });

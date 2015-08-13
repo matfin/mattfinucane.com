@@ -310,11 +310,9 @@ describe('cards_image', function() {
 			 */
 			setTimeout(done, 50);
 		});
-
 	});
 
 	describe('helpers', function() {
-
 		describe('imageAssets', function() {
 
 			var images;
@@ -507,7 +505,6 @@ describe('cards_image', function() {
 				 */
 				done();
 			});
-
 		});
 	});
 });

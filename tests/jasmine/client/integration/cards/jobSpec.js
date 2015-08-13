@@ -6,7 +6,6 @@ describe('cards_job', function() {
 			jobData;
 
 	describe('template', function() {
-
 		beforeEach(function() {
 			testParent = document.createElement('div');
 			testParent.className = 'jobs';
@@ -189,7 +188,6 @@ describe('cards_job', function() {
 	});
 
 	describe('helpers', function() {
-
 		describe('images', function() {
 
 			var job;
@@ -257,8 +255,6 @@ describe('cards_job', function() {
 
 				done();
 			});
-
 		});
-
 	});
 });

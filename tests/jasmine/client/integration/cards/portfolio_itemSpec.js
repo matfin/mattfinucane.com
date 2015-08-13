@@ -214,13 +214,10 @@ describe('cards_portfolio_item', function() {
 			 */
 			setTimeout(done, 50);
 		});
-
 	});
 
 	describe('helpers', function() {
-
 		describe('links', function() {
-
 			it('should return a link if it is present in the entry', function(done) {
 				/**
 				 *	Dummy data
@@ -264,86 +261,129 @@ describe('cards_portfolio_item', function() {
 				 */	
 				done();
 			});
-
 		});
-
 	});
-
 });
 
 describe('portfolio_skills', function() {
 	describe('helpers', function() {
+		describe('skills', function() {
+			it('should call find on the entries collection with the correct parameters', function(done) {
 
-		it('should call find on the entries collection with the correct parameters', function(done) {
+				/**
+				 *	Spies
+				 */
+				spyOn(Core.app.collections.entries, 'find').and.returnValue({
+					fetch: function(selector) {}
+				});
 
-			/**
-			 *	Spies
-			 */
-			spyOn(Core.app.collections.entries, 'find').and.returnValue({
-				fetch: function(selector) {}
+				/**
+				 *	Dummy data
+				 */
+				var entry = {
+					fields: {
+						skills: [
+							{
+								sys: {
+									id: 'dummy-1'
+								}
+							},
+							{
+								sys: {
+									id: 'dummy-2'
+								}
+							}
+						]
+					}
+				};
+
+				/**
+				 *	Run the function and then then test
+				 */
+				Template.portfolio_skills.__helpers[' skills'].call(entry);
+				expect(Core.app.collections.entries.find).toHaveBeenCalledWith({'sys.id': {$in: ['dummy-1', 'dummy-2']}});
+
+				/**
+				 *	Done
+				 */
+				done();
 			});
 
-			/**
-			 *	Dummy data
-			 */
-			var entry = {
-				fields: {
-					skills: [
-						{
-							sys: {
-								id: 'dummy-1'
-							}
-						},
-						{
-							sys: {
-								id: 'dummy-2'
-							}
-						}
-					]
-				}
-			};
+			it('should not call find on the entries collection and return an empty array when there are no skills', function(done) {
 
-			/**
-			 *	Run the function and then then test
-			 */
-			Template.portfolio_skills.__helpers[' skills'].call(entry);
-			expect(Core.app.collections.entries.find).toHaveBeenCalledWith({'sys.id': {$in: ['dummy-1', 'dummy-2']}});
+				/**
+				 *	Spies
+				 */
+				spyOn(Core.app.collections.entries, 'find').and.returnValue({
+					fetch: function(selector) {}
+				});
 
-			/**
-			 *	Done
-			 */
-			done();
+				/**
+				 *	Dummy data
+				 */
+				var entry = {
+					fields: {}
+				};
+
+				/**
+				 *	Run the function and then then test
+				 */
+				var result = Template.portfolio_skills.__helpers[' skills'].call(entry);
+				expect(Core.app.collections.entries.find).not.toHaveBeenCalled();
+				expect(result.length).toEqual(0);
+				expect(result instanceof Array).toBe(true);
+
+				/**
+				 *	Done
+				 */
+				done();
+			});
 		});
 
-		it('should not call find on the entries collection and return an empty array when there are no skills', function(done) {
+		describe('links', function() {
+			it('should return a github if it is present in the entry', function(done) {
+				/**
+				 *	Dummy data
+				 */
+				var entry = {
+					fields: {
+						githubUrl: 'http://github.com/user/project'
+					}
+				};
 
-			/**
-			 *	Spies
-			 */
-			spyOn(Core.app.collections.entries, 'find').and.returnValue({
-				fetch: function(selector) {}
+				/**
+				 *	Call the function and run the tests
+				 */
+				var link = Template.portfolio_skills.__helpers[' links'].call(entry);
+				expect(link).toEqual({github_url: 'http://github.com/user/project'});
+
+				/**
+				 *	Done
+				 */	
+				done();
 			});
 
-			/**
-			 *	Dummy data
-			 */
-			var entry = {
-				fields: {}
-			};
+			it('should return false if there is no github link specified in the entry', function(done) {
+				/**
+				 *	Dummy data
+				 */
+				var entry = {
+					fields: {
+						screenshots: []
+					}
+				};
 
-			/**
-			 *	Run the function and then then test
-			 */
-			var result = Template.portfolio_skills.__helpers[' skills'].call(entry);
-			expect(Core.app.collections.entries.find).not.toHaveBeenCalled();
-			expect(result.length).toEqual(0);
-			expect(result instanceof Array).toBe(true);
+				/**
+				 *	Call the function and run the tests
+				 */
+				var link = Template.portfolio_skills.__helpers[' links'].call(entry);
+				expect(link).toEqual({github_url: false});
 
-			/**
-			 *	Done
-			 */
-			done();
-		});
-
+				/**
+				 *	Done
+				 */	
+				done();
+			});
+		});		
 	});
 });
