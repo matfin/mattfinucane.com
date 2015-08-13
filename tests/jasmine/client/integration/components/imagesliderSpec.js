@@ -49,7 +49,7 @@ describe('components_imageslider', function() {
 			/**
 			 *	Finished
 			 */
-			setTimeout(done, 100);
+			setTimeout(done, 50);
 		});
 
 		it('should render the slider paddles', function(done) {
@@ -70,7 +70,7 @@ describe('components_imageslider', function() {
 			/**
 			 *	Finished
 			 */
-			setTimeout(done, 100);
+			setTimeout(done, 50);
 		});
 
 		it('should not render the slider paddles for touch based devices', function(done) {
@@ -92,7 +92,7 @@ describe('components_imageslider', function() {
 			/**
 			 *	Finished
 			 */
-			setTimeout(done, 100);
+			setTimeout(done, 50);
 		});
 
 		it('should render the slider indicator with the correct number of items for touch based devices', function(done) {
@@ -116,7 +116,7 @@ describe('components_imageslider', function() {
 			/**
 			 *	Finished
 			 */
-			setTimeout(done, 100);
+			setTimeout(done, 50);
 		});
 
 		it('should render the slider with the correct width percentage', function(done) {
@@ -133,8 +133,32 @@ describe('components_imageslider', function() {
 			/**
 			 *	Finished
 			 */
-			setTimeout(done, 100);
+			setTimeout(done, 50);
 		});
-
 	});
+
+	describe('helpers', function() {
+		describe('sliderWidth', function() {
+
+			it('should return the correct width given 4 images', function(done) {
+
+				/**
+				 *	Dummy data with four images
+				 */
+				var images = [{},{},{},{}];
+				expect(Template.components_imageslider.__helpers[' sliderWidth'].call(images)).toEqual(400);
+
+				done();
+			});
+
+			it('should return 100 given no images', function(done) {
+
+				expect(Template.components_imageslider.__helpers[' sliderWidth'].call({})).toEqual(100);
+				done();
+
+			});
+
+		});
+	});
+
 });

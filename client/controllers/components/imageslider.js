@@ -45,7 +45,7 @@ Template.components_imageslider.helpers({
 	 *	Function to return the slider width based on the number of slides
 	 */
 	sliderWidth: function() {
-		return this.length * 100;
+		return (typeof this.length !== 'undefined') ? this.length * 100:100;
 	}
 	
 });
