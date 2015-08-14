@@ -53,8 +53,13 @@ describe('components_imageslider', function() {
 		});
 
 		it('should render the slider paddles', function(done) {
-			
+				
 			var paddles;
+
+			/**
+			 *	Spies
+			 */
+			spyOn(Helpers, 'isTouchDevice').and.returnValue(false);
 
 			/**
 			 *	Render the template

@@ -26,4 +26,4 @@ dfischer:prerenderio
 matfin:meteor-contentful
 com.mattfinucane:core
 sanjo:jasmine
-velocity:html-reporter
+velocity:console-reporter

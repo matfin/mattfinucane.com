@@ -20,8 +20,15 @@ Meteor.startup(function() {
 		Dependencies.start();
 	}
 	if(Meteor.isServer) {
-		MeteorContentful.start().fetch('contentTypes').fetch('entries').fetch('assets');    
-    ImageProcessor.observe();
-    //MeteorContentful.listen();			
+
+		if(Meteor.settings && Meteor.settings.app && Meteor.settings.app.contentful) {
+			console.log('Booting server with Contentful enabled.');
+			MeteorContentful.start().fetch('contentTypes').fetch('entries').fetch('assets');    
+    	ImageProcessor.observe();
+    	MeteorContentful.listen();
+		}
+		else {
+			console.log('Booting server with Contentful disabled.');
+		}			
 	}
 });
