@@ -27,22 +27,19 @@ Dependencies = {
 	 *	@method 	start 		
 	 */
 	start: function() {
-
-		var self = this;
-
 		/**
 		 *	Call changed on the scrolled dependency when the viewport scrolls
 		 */
 		window.addEventListener('scroll', _.throttle(function() {
-			self.scrolled.changed();
-		}, 500));
+			this.scrolled.changed();
+		}.bind(this), 500));
 
 		/**
 		 *	Call changed on the resized dependency when the viewport scrolls
 		 */
 		window.addEventListener('resize', _.throttle(function() {
-			self.resized.changed();
-		}, 250));
+			this.resized.changed();
+		}.bind(this), 250));
 	}
 
 };

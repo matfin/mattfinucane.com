@@ -16,10 +16,9 @@ Package.onUse(function(api) {
 	 *	Package source files
 	 */
 	api.addFiles([
-		'_src/helpers.js'
-	], ['client' ,'server']);
-
-	api.addFiles('_src/core.js', 'client');
+		'_src/helpers.js',
+		'_src/core.js'
+	], 'client');
 
 	api.export('Helpers');
 	api.export('Core');
