@@ -2,7 +2,7 @@
 
 Package.describe({
 	name: 			'com.mattfinucane:core',
-	version: 		'0.0.1',
+	version: 		'0.1.0',
 	summary: 		'Core and helper functions used across this app.'
 });
 
