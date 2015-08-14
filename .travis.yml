@@ -1,0 +1,19 @@
+# The language specific base vm to use for this repository
+language: node_js
+
+# The node.js version to install
+node_js: "0.12.7"
+
+install:
+	# Install phantomjs
+	- "npm install phantomjs"
+  # Install meteor
+  - "curl https://install.meteor.com | /bin/sh"
+  # Adding meteor to the $PATH
+  - "export PATH=$HOME/.meteor:$PATH"
+  # Install the velocity cli tool
+  - "npm install velocity-cli"
+
+# Test the app, then the core package
+script:
+	- "sh test-app.sh && sh test-package.sh"

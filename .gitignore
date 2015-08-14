@@ -1,6 +1,3 @@
-packages/meteor-contentful
-packages/github/_config/settings.js
-packages/npm-container
 npm-debug.log
 settings.json
 *.tar.gz
