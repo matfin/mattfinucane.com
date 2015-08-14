@@ -22,5 +22,21 @@ Package.onUse(function(api) {
 
 	api.export('Helpers');
 	api.export('Core');
+});
+
+Package.onTest(function(api) {
+	/**
+	 *	Minimum version of Meteor required
+	 */
+	api.versionsFrom('1.1.0.2');
+
+	api.use([
+		'sanjo:jasmine@0.16.3',
+		'com.mattfinucane:core'
+	]);
+
+	api.addFiles([
+		'tests/jasmine/client/unit/helpersSpec.js'
+	]);
 
 });
