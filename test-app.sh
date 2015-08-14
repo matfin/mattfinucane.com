@@ -1,1 +1,1 @@
-JASMINE_BROWSER=PhantomJS meteor --test --once --release velocity:METEOR@1.1.0.3_1
+JASMINE_SERVER_INTEGRATION=0 JASMINE_SERVER_UNIT=0 JASMINE_BROWSER=PhantomJS meteor --test --once --release velocity:METEOR@1.1.0.3_1
