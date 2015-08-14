@@ -66,7 +66,7 @@ describe('cards_job', function() {
 			/**
 			 *	Finished
 			 */
-			setTimeout(done, 200);
+			setTimeout(done, 50);
 		});
 
 		it('should show "Present" as the job end date in the absence of an end date', function(done) {
@@ -105,7 +105,7 @@ describe('cards_job', function() {
 			/**
 			 *	Finished
 			 */
-			setTimeout(done, 200);
+			setTimeout(done, 50);
 		});
 
 		it('should render the correct number of images', function(done) {
@@ -183,7 +183,7 @@ describe('cards_job', function() {
 			/**
 			 *	Finished
 			 */
-			setTimeout(done, 200);
+			setTimeout(done, 50);
 		});
 	});
 

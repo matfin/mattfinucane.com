@@ -223,9 +223,124 @@ describe('views_experience', function() {
 			 */
 			setTimeout(done, 50);
 		});
-
 	});
 
+});
+
+describe('views_experience_slider', function() {
+
+	describe('helpers', function() {
+
+		describe('groupedJobs', function() {
+
+			it('should return a nested array of grouped jobs with 2 jobs in the first 2 arrays and 1 job in the last given 5 jobs', function(done) {
+
+				/**
+				 *	Spies
+				 */
+				spyOn(Core.app.collections.entries, 'find').and.returnValue({
+					fetch: function() {
+						return [
+							{
+								fields: {
+									startDate: '2015-01-01',
+								}
+							},
+							{
+								fields: {
+									startDate: '2014-01-01',
+								}
+							},
+							{
+								fields: {
+									startDate: '2013-01-01',
+								}
+							},
+							{
+								fields: {
+									startDate: '2012-01-01',
+								}
+							},
+							{
+								fields: {
+									startDate: '2011-01-01',
+								}
+							}
+						];
+					}
+				});
+
+				/**
+				 *	Run the helper and the tests
+				 */
+				var result = Template.views_experience_slider.__helpers[' groupedJobs'].call();
+				expect(result.length).toEqual(3);
+				expect(result[0].length).toEqual(2);
+				expect(result[1].length).toEqual(2);
+				expect(result[2].length).toEqual(1);
+
+				/**	
+				 *	Done
+				 */
+				done();
+			});
+
+			it('should return a nested array of grouped jobs with 3 jobs in the first array and 2 jobs in the last given 5 jobs', function(done) {
+
+				/**
+				 *	Spies
+				 */
+				spyOn(Core.app.collections.entries, 'find').and.returnValue({
+					fetch: function() {
+						return [
+							{
+								fields: {
+									startDate: '2015-01-01',
+								}
+							},
+							{
+								fields: {
+									startDate: '2014-01-01',
+								}
+							},
+							{
+								fields: {
+									startDate: '2013-01-01',
+								}
+							},
+							{
+								fields: {
+									startDate: '2012-01-01',
+								}
+							},
+							{
+								fields: {
+									startDate: '2011-01-01',
+								}
+							}
+						];
+					}
+				});
+
+				spyOn(Helpers, 'deviceClass').and.returnValue({
+					isHD: true
+				});
+
+				/**
+				 *	Run the helper and the tests
+				 */
+				var result = Template.views_experience_slider.__helpers[' groupedJobs'].call();
+				expect(result.length).toEqual(2);
+				expect(result[0].length).toEqual(3);
+				expect(result[1].length).toEqual(2);
+
+				/**	
+				 *	Done
+				 */
+				done();
+			});
+		});
+	});
 });
 
 describe('views_experience_stacked', function() {

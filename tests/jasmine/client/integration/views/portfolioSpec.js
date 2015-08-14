@@ -7,7 +7,7 @@ describe('views_portfolio', function() {
 			setTimeout(function() {
 				expect(document.getElementsByClassName('wrapper--content').length).toBeGreaterThan(0);
 				done();
-			}, 300);
+			}, 50);
 		});
 	});
 

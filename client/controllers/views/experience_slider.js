@@ -76,8 +76,7 @@ Template.views_experience_slider.helpers({
 	 */
 	groupedJobs: function() {
 
-		var self = this,
-			jobs = Core.app.collections.entries.find({}, {sort: {'fields.startDate': -1}}).fetch(),
+		var jobs = Core.app.collections.entries.find({}, {sort: {'fields.startDate': -1}}).fetch(),
 			asGrouped = function() {
 				var grouped = [],
 					size = Core.templateHelpers.numberOfItemsInSlide();
@@ -93,7 +92,6 @@ Template.views_experience_slider.helpers({
 	 *	Number of concurrent jobs showing - used for the timeline
 	 */
 	timelineData: function() {
-		var self = this;
 		return {
 			concurrentJobs: Core.templateHelpers.numberOfItemsInSlide(),
 			jobs: Core.app.collections.entries.find({}, {sort: {'fields.startDate': -1}}).fetch()

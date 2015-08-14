@@ -40,7 +40,7 @@ describe('components_header', function() {
 			/**
 			 *	Finished
 			 */
-			setTimeout(done, 100);
+			setTimeout(done, 50);
 		});
 
 	});
