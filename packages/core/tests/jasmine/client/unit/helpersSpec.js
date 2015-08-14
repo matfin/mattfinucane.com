@@ -80,7 +80,7 @@ describe('Helpers', function() {
 			expect(Helpers.asClassName('A Content Item In Here')).toEqual('a-content-item-in-here');
 			expect(Helpers.asClassName('portfolio goes in here')).toEqual('portfolio-goes-in-here');
 			expect(Helpers.asClassName('test-item-one')).toEqual('test-item-one');
-			expect(Helpers.asClassName('123 @ 993 helpme')).toEqual('123-@-933-helpme');
+			expect(Helpers.asClassName('123 @ 993 helpme')).toEqual('123-@-993-helpme');
 			/**
 			 *	Finished
 			 */
