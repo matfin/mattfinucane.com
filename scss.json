@@ -1,7 +1,0 @@
-{
-  "includePaths": [
-    ".meteor/local/build/programs/server/assets/packages/wolves_bourbon"
-  ],
-  "useIndex": true,
-  "indexFilePath": "client/styles/main.sass"
-}
