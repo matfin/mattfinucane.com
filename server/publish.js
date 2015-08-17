@@ -6,6 +6,11 @@ Meteor.publish('entries', function(contentTypeName) {
 			handle,
 			attach;
 
+	if(!Collections.contentTypes) {
+		console.log('The collections have not been set up. Exiting');
+		return;
+	}
+
 	attach = function(property) {
 		for(var key in property) {
 			if(property.hasOwnProperty(key)) {
@@ -34,11 +39,16 @@ Meteor.publish('entries', function(contentTypeName) {
 });
 
 Meteor.publish('images', function(assets) {
+
+	console.log('SEEKING IMAGE:');
+
 	if(typeof assets === 'undefined' || assets === null) {
 		return;
 	}
+
 	var assetIds = assets.map(function(asset) {
 		return asset.sys.id;
 	});
+
 	return Collections.images.find({'asset_id': {$in: assetIds}});
 });

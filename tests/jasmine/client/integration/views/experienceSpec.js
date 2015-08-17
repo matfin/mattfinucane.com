@@ -27,6 +27,21 @@ describe('views_experience', function() {
 			spyOn(Helpers, 'deviceClass').and.returnValue({
 				isMobile: true
 			});
+			spyOn(Meteor, 'subscribe').and.returnValue({
+				subscriptionId: 12,
+				ready: function() {
+					return true;
+				}
+			});
+			spyOn(Core.app.collections.entries, 'find').and.returnValue({
+				fetch: function() {
+					return [
+						{},
+						{},
+						{}
+					];
+				}
+			});
 
 			/**
 			 *	Run the function
@@ -55,6 +70,21 @@ describe('views_experience', function() {
 			spyOn(Helpers, 'deviceClass').and.returnValue({
 				isTablet: true
 			});
+			spyOn(Meteor, 'subscribe').and.returnValue({
+				subscriptionId: 12,
+				ready: function() {
+					return true;
+				}
+			});
+			spyOn(Core.app.collections.entries, 'find').and.returnValue({
+				fetch: function() {
+					return [
+						{},
+						{},
+						{}
+					];
+				}
+			});
 
 			/**
 			 *	Run the function
@@ -82,6 +112,21 @@ describe('views_experience', function() {
 			 */
 			spyOn(Helpers, 'deviceClass').and.returnValue({
 				isDesktop: true
+			});
+			spyOn(Meteor, 'subscribe').and.returnValue({
+				subscriptionId: 12,
+				ready: function() {
+					return true;
+				}
+			});
+			spyOn(Core.app.collections.entries, 'find').and.returnValue({
+				fetch: function() {
+					return [
+						{},
+						{},
+						{}
+					];
+				}
 			});
 
 			/**

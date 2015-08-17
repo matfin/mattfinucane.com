@@ -23,7 +23,7 @@ describe('views_portfolio', function() {
 			 *	Spies
 			 */
 			spyOn(Meteor, 'subscribe').and.returnValue({
-				subscriptionId: 10,
+				subscriptionId: 30,
 				ready: function() {
 					return true;
 				}

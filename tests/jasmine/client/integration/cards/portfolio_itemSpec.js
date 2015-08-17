@@ -89,7 +89,7 @@ describe('cards_portfolio_item', function() {
 			 *	Spies
 			 */
 			spyOn(Meteor, 'subscribe').and.returnValue({
-				subscriptionId: 2,
+				subscriptionId: 22,
 				ready: function() {
 					return true;
 				}
