@@ -4,7 +4,6 @@ install:
 - "npm install phantomjs"
 - "curl https://install.meteor.com | /bin/sh"
 - "export PATH=$HOME/.meteor:$PATH"
-- "npm install velocity-cli"
 script:
 - "sh test-app.sh"
 - "sh test-package.sh"
