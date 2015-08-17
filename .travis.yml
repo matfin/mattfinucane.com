@@ -1,15 +1,14 @@
 language: node_js
 node_js: "0.12.7"
+before_install: 
+- "export DISPLAY=:99.0"
+- "sh -e /etc/init.d/xvfb start"
+- "/sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_99.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :99 -ac -screen 0 1280x1024x16"
 install:
 - "curl https://install.meteor.com | /bin/sh"
 - "export PATH=$HOME/.meteor:$PATH"
 - "npm install -g velocity-cli"
 - "sleep 15"
-before_script:
-- npm install phantomjs
-- "export DISPLAY=:99.0"
-- "sh -e /etc/init.d/xvfb start"
-- "/sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_99.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :99 -ac -screen 0 1280x1024x16"
 script:
 - "sh test-app.sh"
 - "sh test-package.sh"
