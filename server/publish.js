@@ -40,8 +40,6 @@ Meteor.publish('entries', function(contentTypeName) {
 
 Meteor.publish('images', function(assets) {
 
-	console.log('SEEKING IMAGE:');
-
 	if(typeof assets === 'undefined' || assets === null) {
 		return;
 	}
