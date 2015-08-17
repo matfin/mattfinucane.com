@@ -7,7 +7,9 @@
  *	@method created
  */
 Template.cards_job.created = function() {
-	this.subscribe('images', this.data.fields.projectLogos);
+	if(Helpers.checkNested(this, 'data', 'fields', 'projectLogos')) {
+		this.subscribe('images', this.data.fields.projectLogos);
+	}
 };
 
 /**

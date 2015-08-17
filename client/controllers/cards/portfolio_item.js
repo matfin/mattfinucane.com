@@ -8,7 +8,9 @@
  */
 Template.cards_portfolio_item.created = function() {
 	this.subscribe('entries', 'Skill');
-	this.subscribe('images', this.data.fields.screenshots);
+	if(Helpers.checkNested(this, 'data', 'fields', 'screenshots')) {
+		this.subscribe('images', this.data.fields.screenshots);
+	}
 };
 
 /**
