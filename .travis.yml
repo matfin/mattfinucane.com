@@ -2,7 +2,6 @@ language: node_js
 node_js: "0.12.7"
 before_install: 
 - "curl https://install.meteor.com | /bin/sh"
-
 before_script: 
 - "export DISPLAY=:99.0"
 - "sh -e /etc/init.d/xvfb start"
@@ -11,3 +10,5 @@ before_script:
 - "sleep 10"
 script:
 - "sh test-app.sh"
+after_failure:
+- "cat /home/travis/build/matfin/mattfinucane.com/.meteor/local/log/jasmine-client-integration.log"
