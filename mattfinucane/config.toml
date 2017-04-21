@@ -1,0 +1,34 @@
+baseURL 			= "http://mattfinucane.dev"
+languageCode 		= "en-ie"
+title 				= "Matt Finucane"
+
+disableLiveReload	= true
+watch				= true
+
+[params]
+	description		= "Description for Matt Finucane"
+	author			= "Matt Finucane"
+	mediaBase		= "http://media.mattfinucane.dev/"
+
+[[menu.main]]
+	name			= "Home"
+	identifier		= "home"
+	url 			= "/"
+	weight 			= 1
+[[menu.main]]
+	name			= "Work"
+	identifier		= "work"
+	url 			= "/work"
+	weight 			= 2
+[[menu.main]]
+	name			= "About"
+	identifier		= "about"
+	url 			= "/about"
+	weight 			= 3
+[[menu.main]]
+	name			= "Blog"
+	identifier		= "blog"
+	url 			= "/blog"
+	weight 			= 4
+
+

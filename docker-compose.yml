@@ -11,8 +11,8 @@ services:
     ports: 
       - "1313:1313"
     volumes: 
-      - ./:opt:ro
-    command: ""
+      - ./:/opt:rw
+    command: hugo server -s /opt/mattfinucane --config /opt/mattfinucane/config.toml --baseURL http://mattfinucane.dev/ --bind "0.0.0.0" --appendPort=false --verbose
 
   mf-nginx:
     container_name: nginx
@@ -27,8 +27,7 @@ services:
       - mf-site
     ports:
       - "80:80"
-    command: 
-      - nginx -g "daemon off;"
+    command: nginx -g "daemon off;"
 
   mf-static:
     image: node:7.9.0
@@ -39,4 +38,4 @@ services:
       - mf-site
     depends_on:
       - mf-site
-    command: sh -c ""
+    command: sh -c "echo 'Coming soon'"
