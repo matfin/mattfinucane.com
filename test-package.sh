@@ -1,1 +1,0 @@
-JASMINE_CLIENT_INTEGRATION=0 JASMINE_SERVER_INTEGRATION=0 velocity test-package --ci ./packages/core
