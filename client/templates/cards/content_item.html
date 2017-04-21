@@ -1,0 +1,51 @@
+<template name="cards_content_item">
+	{{#if Template.subscriptionsReady}}
+		<section class="item">
+			<div class="item__content">
+				{{#if isGrouped}}
+					{{#each this}}
+						{{>item_content_info}}
+					{{/each}}
+				{{else}}
+					{{>standalone_content_item}}
+				{{/if}}
+			</div>
+		</section>
+		{{else}}
+		{{>components_loading}}
+	{{/if}}
+</template>
+
+<template name="standalone_content_item">
+	{{>item_content_info}}
+	{{>content_images}}
+</template>
+
+<template name="item_content_info">
+	<div class="item__content__info {{asClassName fields.title}}">
+		<h2 class="item__content__info__title">
+			{{fields.title}}
+		</h2>
+		{{#markdown}}{{fields.content}}{{/markdown}}
+	</div>
+</template>
+
+<template name="content_images">
+	<div class="item__content__images">
+		{{#if images.useSlider}}
+			<div class="image__slider">
+				{{#with images.collection}}
+					{{> components_imageslider}}
+				{{/with}}
+			</div>
+		{{else}}
+			<div class="image__standalone">
+				{{#with images.collection}}
+					{{#each this}}
+						{{> cards_image}}
+					{{/each}}
+				{{/with}}
+			</div>
+		{{/if}}	
+	</div>
+</template>

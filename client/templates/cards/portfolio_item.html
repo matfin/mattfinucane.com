@@ -1,0 +1,72 @@
+<template name="cards_portfolio_item">
+	{{#if Template.subscriptionsReady}}
+		<section class="item">
+			<div class="item__content">
+				<div class="item__content__info">
+					<h2 class="item__content__info__title">
+						{{#if links.production_url}}
+							<a class="item__content__link" href="{{links.production_url}}" title="See {{fields.title}}">
+								{{fields.title}}
+							</a>
+						{{else}}
+							{{fields.title}}
+						{{/if}}
+					</h2>
+					{{#markdown}}{{fields.description}}{{/markdown}}
+					{{#with this}}
+						{{>portfolio_skills}}
+					{{/with}}
+				</div>
+				<div class="item__content__images">
+					{{#with this}}
+						{{>portfolio_images}}
+					{{/with}}		
+				</div>
+			</div>
+		</section>
+		{{else}}
+		{{>components_loading}}
+	{{/if}}
+</template>
+
+<template name="portfolio_images">
+	{{#if images.useSlider}}
+		<div class="image__slider">
+			{{#with images.collection}}
+				{{> components_imageslider}}
+			{{/with}}
+		</div>
+	{{else}}
+		<div class="image__standalone">
+			{{#with images.collection}}
+				{{#each this}}
+					{{> cards_image}}
+				{{/each}}
+			{{/with}}
+		</div>
+	{{/if}}	
+</template>
+
+<template name="portfolio_skills">
+	<div class="item__skills">
+		
+		<h3 class="skills__title">
+			{{#if links.github_url}}
+				<a class="item__content__link" href="{{links.github_url}}" title="">
+					Code / Skills
+				</a>
+			{{else}}
+				Code / Skills
+			{{/if}}
+		</h3>
+
+		<ol class="item__skills__list">
+			{{#each skills}}
+				<li class="item__skills__list__item">
+					{{fields.title}}
+				</li>
+			{{/each}}
+		</ol>
+	</div>
+</template>
+

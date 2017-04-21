@@ -1,0 +1,7 @@
+<template name="cards_image">
+	{{#if Template.subscriptionsReady}}
+		{{#each imageAssets}}
+			<img class="image" src="{{baseMediaUrl}}/{{this.filename}}" width="{{this.width}}" height="auto" alt="{{../fields.title}}" />
+		{{/each}}
+	{{/if}}
+</template>

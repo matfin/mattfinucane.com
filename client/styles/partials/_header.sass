@@ -1,0 +1,114 @@
+header 
+	
+	+display(flex)
+	overflow: hidden
+
+	+break(min, $break-0)
+		padding: 0.5rem
+		padding-left: 2rem
+		max-height: 4.5rem
+
+	+break(min, $break-2)
+		max-height: 6rem
+
+	+break(min, $break-2)
+		padding: 1rem 0
+		margin: 0 2rem
+
+	+break(min, $break-5)
+		margin: 0 auto
+		max-width: $maxWidth / 2
+
+	+transitionWithProperties(all)
+
+.header--revealed
+	max-height: 13rem
+
+.header__details,
+.header__nav 
+	+flex(1)
+
+.header__details__title
+	a
+		display: block
+		font-size: $mediumFontSize
+		color: $turquoise
+
+.header__details__subtitle
+	+break(min, $break-0)
+		font-size: $baseFontSize
+	+break(min, $break-2)
+		font-size: $mediumFontSize * 0.8
+		line-height: 1.5rem
+
+.header__details__title,
+.header__details__subtitle
+	white-space: nowrap
+
+.header__nav
+	width: 100%
+
+.header__nav__touch,
+.header__nav__click
+	position: relative
+	float: right
+	width: 2rem
+	height: 1.5rem
+	margin: 1rem
+	span 
+		display: block
+		width: 100%
+		height: 2px
+		background-color: $turquoise
+		+transitionWithProperties(background-color)
+		&:before,
+		&:after
+			content: ' '
+			position: absolute
+			left: 0
+			width: 100%
+			height: 2px 
+			background-color: $turquoise
+			+transitionWithProperties(transform position)
+		&:before
+			top: 0
+		&:after
+			bottom: 0
+	+break(min, $break-1)
+		display: none
+
+&.header__nav__button--revealed
+	span
+		background-color: transparent
+		&:before,
+		&:after
+			+transform-origin(50% 50%)
+		&:before 
+			+transform(rotate3d(0, 0, 1, 45deg))
+			top: 12px
+		&:after	
+			+transform(rotate3d(0, 0, 1, -45deg))
+			bottom: 10px
+
+.header__nav__list
+	clear: both
+	float: right
+
+	+break(min-max, $break-0, $break-1)
+		margin: 1rem
+
+.header__nav__list__item
+	display: inline
+
+	+break(min-max, $break-0, $break-1)
+		display: block
+		margin-bottom: 0.5rem
+		+tar
+
+	+break(min, $break-1)
+		padding-right: 1rem
+		&:last-child
+			padding-right: 0
+
+.header__nav__list__item__link
+	font-size: $mediumFontSize

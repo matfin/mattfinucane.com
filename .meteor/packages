@@ -5,5 +5,24 @@
 # but you can also edit it by hand.
 
 meteor-platform
-autopublish
-insecure
+iron:router
+jquery
+
+markdown
+
+
+
+
+momentjs:moment
+matfin:slider
+cwaring:modernizr
+
+
+fourseven:scss
+dfischer:prerenderio
+
+
+matfin:meteor-contentful
+com.mattfinucane:core
+sanjo:jasmine
+velocity:console-reporter

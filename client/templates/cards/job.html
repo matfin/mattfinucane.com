@@ -1,0 +1,38 @@
+<template name="cards_job">
+	{{#if Template.subscriptionsReady}}
+		<section class="job">
+			<div class="job__description">
+				<h1 class="job__title">
+					{{fields.organisation}}
+				</h1>
+				<h2 class="job__role_location">
+					{{fields.role}}, {{fields.location}}
+				</h2>
+				<div class="job__dates">
+					<!-- startDate -->
+					<time datetime="{{timestamp fields.startDate}}" class="job__dates__time">
+						{{formattedDate fields.startDate 'MMM YYYY'}} &ndash;
+					</time>
+					<!-- endDate -->
+					{{#if variableExists fields.endDate}}
+						<time datetime="{{timestamp fields.endDate}}" class="job__dates__time">
+							{{formattedDate fields.endDate 'MMM YYYY'}}
+						</time>
+					{{else}}
+						<span class="job__dates__time">
+							Present
+						</span>
+					{{/if}}
+				</div>
+				{{#markdown}}{{fields.description}}{{/markdown}}
+			</div>
+			<div class="job__images">
+				{{#with images}}
+					{{>cards_image}}
+				{{/with}}
+			</div>
+		</section>
+		{{else}}
+		{{>components_loading}}
+	{{/if}}
+</template>

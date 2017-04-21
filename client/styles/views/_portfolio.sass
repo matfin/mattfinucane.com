@@ -1,0 +1,15 @@
+.skills__title
+	margin-bottom: 1rem
+	font-size: $mediumFontSize
+	+tac
+
+.item__skills__list
+	+tac
+
+.item__skills__list__item
+	display: inline-block
+	&:after
+		content: '/'
+	&:last-child
+		&:after
+			content: ''
