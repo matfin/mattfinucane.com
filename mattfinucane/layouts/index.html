@@ -7,6 +7,11 @@
 		{{ partial "header" . }}
 		<section class="home">
 			{{ .Content }}
+
+			{{ range $name, $taxonomy := .Site.Taxonomies.frameworks }}
+    			<li><a href="{{ "/tags/" | relLangURL }}{{ $name | urlize }}">{{ $name }}</a></li>
+  			{{ end }}
+			
 		</section>
 	</body>
 </html>

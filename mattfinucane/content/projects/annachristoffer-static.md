@@ -1,6 +1,6 @@
 ---
 title: 			"Anna Christoffer"
-description:	"Portfolio site generated using the GoHugo."
+description:	"Portfolio site generated using GoHugo."
 synopsis:		"This is the portfolio site for Anna Clair Christoffer generated using the GoHugo static site generator."
 liveurl:		"https://annachristoffer.com"
 date:			"2017-04-01"
@@ -16,6 +16,7 @@ infrastructure:
 - "Compose"
 - "Linux"
 - "CircleCI"
+- "Nginx"
 ---
 
 This is Anna Christoffer static.
