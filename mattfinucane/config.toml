@@ -16,19 +16,17 @@ watch				= true
 	url 			= "/"
 	weight 			= 1
 [[menu.main]]
-	name			= "Work"
-	identifier		= "work"
-	url 			= "/work"
+	name			= "Portfolio"
+	identifier		= "portfolio"
+	url 			= "/portfolio"
 	weight 			= 2
 [[menu.main]]
 	name			= "About"
 	identifier		= "about"
 	url 			= "/about"
 	weight 			= 3
-[[menu.main]]
-	name			= "Blog"
-	identifier		= "blog"
-	url 			= "/blog"
-	weight 			= 4
 
-
+[[taxonomies]]
+	language		= "languages"
+	framework		= "frameworks"
+	infrastructure	= "infrastructure"
