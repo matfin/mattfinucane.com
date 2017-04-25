@@ -1,0 +1,37 @@
+{{ $which := .Get "items" }}
+
+<ul>
+	{{ if eq $which "Languages" }}
+		{{ range $taxonomyname, $taxonomy := .Site.Taxonomies.Languages }}
+			<li>
+				<a href="{{ "/" | relLangURL}}{{ $taxonomyname | urlize }}">
+					{{ $taxonomyname }}
+				</a>
+			</li>
+		{{ end }}
+	{{ else if eq $which "Frameworks" }}
+		{{ range $taxonomyname, $taxonomy := .Site.Taxonomies.Frameworks }}
+			<li>
+				<a href="{{ "/" | relLangURL}}{{ $taxonomyname | urlize }}">
+					{{ $taxonomyname }}
+				</a>
+			</li>
+		{{ end }}
+	{{ else if eq $which "Infrastructure" }}
+		{{ range $taxonomyname, $taxonomy := .Site.Taxonomies.Infrastructure }}
+			<li>
+				<a href="{{ "/" | relLangURL}}{{ $taxonomyname | urlize }}">
+					{{ $taxonomyname }}
+				</a>
+			</li>
+		{{ end }}
+	{{ else if eq $which "Series" }}
+		{{ range $taxonomyname, $taxonomy := .Site.Taxonomies.Series }}
+			<li>
+				<a href="{{ "/" | relLangURL}}{{ $taxonomyname | urlize }}">
+					{{ $taxonomyname }}
+				</a>
+			</li>
+		{{ end }}
+	{{ end }}
+</ul>

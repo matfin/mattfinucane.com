@@ -13,7 +13,7 @@ frameworks:
 infrastructure:
 - "Linux"
 - "NodeJS"
-- "Veclocity"
+- "Velocity"
 ---
 
 This is TunedIn

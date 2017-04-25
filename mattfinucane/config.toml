@@ -5,6 +5,9 @@ title 				= "Matt Finucane"
 disableLiveReload	= true
 watch				= true
 
+preservetaxonomynames = true
+
+
 [params]
 	description		= "Description for Matt Finucane"
 	author			= "Matt Finucane"
@@ -27,7 +30,7 @@ watch				= true
 	weight 			= 3
 
 [taxonomies]
-	language		= "languages"
-	framework		= "frameworks"
-	infrastructure	= "infrastructure"
-	series			= "series"
+	language		= "Languages"
+	framework		= "Frameworks"
+	infrastructure	= "Infrastructure"
+	series			= "Series"
