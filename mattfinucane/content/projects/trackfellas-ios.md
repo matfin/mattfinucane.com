@@ -12,12 +12,8 @@ frameworks:
 tools:
 - XCode
 - Github
-- Git flow
 - Sketch
 - Adobe Photoshop
-disciplines:
-- Application development
-- Project management
 ---
 
 This is the Trackfellas prototype.

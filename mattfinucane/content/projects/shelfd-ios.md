@@ -14,9 +14,6 @@ tools:
 - Font Awesome
 - Github
 - XCode
-disciplines:
-- Application development
-- Project management
 ---
 
 This is the Shelfd Prototype.

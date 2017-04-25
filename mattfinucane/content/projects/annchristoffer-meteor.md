@@ -26,10 +26,6 @@ tools:
 - Font Awesome
 - Github
 - Robomongo
-disciplines:
-- Web development
-- Project management
-- Devops
 ---
 
 This is Anna Christoffer MeteorJS.

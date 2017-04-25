@@ -24,13 +24,11 @@ tools:
 - Mocha
 - Chai
 - Web Component Tester
-- Robo Mongo
+- Robomongo
 - Sublime Text
 - Github
 - Sketch
 - JSLint
-disciplines:
-- Web application development
 ---
 
 This is the StackPointCloud community.

@@ -19,8 +19,6 @@ tools:
 - Sublime Text
 - Github
 - SVN
-disciplines:
-- Web development
 ---
 
 This is Tekcomms Drupal.

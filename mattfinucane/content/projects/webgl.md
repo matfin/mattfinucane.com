@@ -10,8 +10,6 @@ frameworks:
 - WebGL 1.0
 tools: 
 - Sublime Text
-disciplines:
-- Learning
 ---
 
 This is WebGL.

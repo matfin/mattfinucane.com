@@ -17,8 +17,6 @@ infrastructure:
 tools:
 - Microsoft Visual Studio
 - Gitosis
-disciplines:
-- Web application development
 ---
 
 This is the iBox TV set top box.

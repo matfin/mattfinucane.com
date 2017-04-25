@@ -21,8 +21,6 @@ tools:
 - Mocha
 - JSLint
 - Grunt
-disciplines:
-- Web application development
 ---
 
 This is TunedIn.

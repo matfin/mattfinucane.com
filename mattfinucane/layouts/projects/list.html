@@ -1,1 +1,18 @@
-This should render a list of projects.
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+	<head>
+		{{ partial "head" . }}
+	</head>
+	<body>
+		{{ partial "header" . }}
+		<section class="projects">
+			{{ .Content }}
+			<div class="projects">
+				{{ range .Data.Pages }}
+					{{ .Render "card" }}
+				{{ end }}
+			</div>
+		</section>
+		{{ partial "footer" . }}
+	</body>
+</html>

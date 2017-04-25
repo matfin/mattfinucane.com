@@ -14,8 +14,6 @@ tools:
 - XCode
 - Gitosis
 - Adobe Photoshop
-disciplines:
-- Native application development
 ---
 
 This is the Irish Times iOS app.

@@ -24,10 +24,6 @@ tools:
 - Adobe Photoshop
 - Github
 - Font Awesome
-disciplines:
-- Web development
-- Project management
-- Devops
 ---
 
 This is Anna Christoffer static.

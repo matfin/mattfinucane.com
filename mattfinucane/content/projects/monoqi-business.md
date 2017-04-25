@@ -19,8 +19,6 @@ tools:
 - Bitbucket
 - Adobe Photoshop
 - Sketch
-disciplines:
-- Web development
 ---
 
 This is Meteor Contentful.

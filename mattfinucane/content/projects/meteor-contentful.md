@@ -18,9 +18,6 @@ tools:
 - TravisCI
 - AtmosphereJS
 - JSLint
-disciplines:
-- Package development
-- Support
 ---
 
 This is Meteor Contentful.

@@ -15,9 +15,6 @@ tools:
 - XCode
 - Android Studio
 - Apache Cordova
-disciplines:
-- Cross platform application development
-- Project management
 ---
 
 This is 3football.

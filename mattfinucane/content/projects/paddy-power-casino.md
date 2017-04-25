@@ -18,8 +18,6 @@ tools:
 - Eclipse
 - phpMyAdmin
 - Mercurial
-disciplines:
-- Web development
 ---
 
 This is NewsWhip.

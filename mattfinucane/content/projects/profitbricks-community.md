@@ -23,10 +23,6 @@ tools:
 - Pylint
 - Github
 - Sublime Text
-- Python Pip
-disciplines:
-- Web development
-- Package development
 ---
 
 This is ProfitBricks.

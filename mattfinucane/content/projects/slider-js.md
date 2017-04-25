@@ -13,9 +13,6 @@ tools:
 - XCode
 - Github
 - JSLint
-disciplines:
-- Package development
-- Support
 ---
 
 This is the Slider.

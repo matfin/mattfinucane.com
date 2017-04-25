@@ -21,10 +21,6 @@ tools:
 - Mocha
 - Chai
 - JSLint
-disciplines:
-- Web application development
-- Project management
-- Devops
 ---
 
 This is the Novi Chatbot.

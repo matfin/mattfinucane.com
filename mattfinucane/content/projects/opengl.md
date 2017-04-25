@@ -13,8 +13,6 @@ tools:
 - XCode
 - CMake
 - Github
-disciplines:
-- Learning &amp; experimentation
 ---
 
 This is OpenGL.

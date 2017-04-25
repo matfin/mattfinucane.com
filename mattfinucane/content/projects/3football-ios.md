@@ -12,13 +12,10 @@ frameworks:
 - Scss
 tools:
 - XCode
-- Adnroid Studio
+- Android Studio
 - Sublime Text
 - Gitosis
 - Apache Cordova
-disciplines:
-- Cross platform application development
-- Project management
 ---
 
 This is 3football.

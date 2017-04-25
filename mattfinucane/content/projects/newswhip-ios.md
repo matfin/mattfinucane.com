@@ -16,9 +16,6 @@ tools:
 - Gitosis
 - Sublime Text
 - Apache Cordova
-disciplines:
-- Cross platform application development
-- Project management
 ---
 
 This is NewsWhip.
