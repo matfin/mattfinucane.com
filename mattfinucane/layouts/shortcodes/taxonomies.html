@@ -25,8 +25,16 @@
 				</a>
 			</li>
 		{{ end }}
-	{{ else if eq $which "Series" }}
-		{{ range $taxonomyname, $taxonomy := .Site.Taxonomies.Series }}
+	{{ else if eq $which "Tools" }}
+		{{ range $taxonomyname, $taxonomy := .Site.Taxonomies.Tools }}
+			<li>
+				<a href="{{ "/" | relLangURL}}{{ $taxonomyname | urlize }}">
+					{{ $taxonomyname }}
+				</a>
+			</li>
+		{{ end }}
+	{{ else if eq $which "Disciplines" }}
+		{{ range $taxonomyname, $taxonomy := .Site.Taxonomies.Disciplines }}
 			<li>
 				<a href="{{ "/" | relLangURL}}{{ $taxonomyname | urlize }}">
 					{{ $taxonomyname }}

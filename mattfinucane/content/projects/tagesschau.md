@@ -6,15 +6,25 @@ liveurl:		"http://www.novibot.de/"
 date:			"2017-03-01"
 duration:		"60 days"
 languages: 		
-- "Javascript (ES7)"
-frameworks:
-- "NodeJS"
-- "Mocha"
+- Javascript (ES7)
+- HTML5
 infrastructure: 
-- "Docker"
-- "Compose"
-- "Linux"
-- "Nginx"
+- Docker
+- Linux
+- Nginx
+- NodeJS
+- PostgreSQL
+tools:
+- Docker Compose
+- Sublime Text
+- Github
+- Mocha
+- Chai
+- JSLint
+disciplines:
+- Web application development
+- Project management
+- Devops
 ---
 
 This is the Novi Chatbot.

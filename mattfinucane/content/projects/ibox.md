@@ -5,15 +5,20 @@ synopsis:		"Web application for the iBox TV set top box created using Javascript
 date:			"2012-04-01"
 duration:		"60 days"
 languages: 		
-- "Javascript (ES5)"
-- "HTML5"
-- "C#"
+- Javascript (ES5)
+- HTML5
+- C#
 frameworks:
-- "C# MVC 1.0"
-- "Jquery"
+- C# .Net MVC 1.0
+- jQuery
 infrastructure:
-- "Microsoft SQL Server"
-- "Microsoft IIS"
+- Microsoft SQL Server
+- Microsoft IIS
+tools:
+- Microsoft Visual Studio
+- Gitosis
+disciplines:
+- Web application development
 ---
 
 This is the iBox TV set top box.

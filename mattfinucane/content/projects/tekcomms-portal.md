@@ -6,14 +6,21 @@ liveurl:		"https://serviceprovider.netscout.com/user"
 date:			"2013-09-01"
 duration:		"150 days"
 languages: 		
-- "Javascript (ES5)"
-- "PHP"
+- Javascript (ES5)
+- PHP
 frameworks:
-- "Drupal"
+- Drupal
+- Scss
 infrastructure:
-- "Linux"
-- "Apache"
-- "MySQL"
+- Linux
+- Apache
+- MySQL
+tools: 
+- Sublime Text
+- Github
+- SVN
+disciplines:
+- Web development
 ---
 
 This is Tekcomms Drupal.

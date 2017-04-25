@@ -5,11 +5,20 @@ synopsis:		"This is the NewsWhip cross platform mobile web application for Andro
 date:			"2012-08-01"
 duration:		"60 days"
 languages: 		
-- "Javascript (ES5)"
-- "HTML5"
+- Javascript (ES5)
+- HTML5
 frameworks:
-- "Secha Touch 2"
-- "Scss"
+- Secha Touch 2
+- Scss
+tools:
+- XCode
+- Android Studio
+- Gitosis
+- Sublime Text
+- Apache Cordova
+disciplines:
+- Cross platform application development
+- Project management
 ---
 
 This is NewsWhip.

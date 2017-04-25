@@ -23,6 +23,12 @@ With ten years of experience working as a software engineer, my main interests n
 ### Infrastructure 
 {{% taxonomies items="Infrastructure" %}}
 
+### Tools 
+{{% taxonomies items="Tools" %}}
+
+### Disciplines 
+{{% taxonomies items="Disciplines" %}}
+
 ## Qualifications
 
 #### September 2001 to June 2005

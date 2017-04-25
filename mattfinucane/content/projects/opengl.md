@@ -5,11 +5,16 @@ synopsis:		"Learning C++ and OpenGL by coding up some demos which explore 3d mat
 date:			"2016-11-01"
 duration:		"Ongoing"
 languages:	
-- "C"
-- "C++"
-- "GLSL"
+- C/C++
+- GLSL
 frameworks:
-- "OpenGL 3.2"
+- OpenGL 3.2
+tools:
+- XCode
+- CMake
+- Github
+disciplines:
+- Learning &amp; experimentation
 ---
 
 This is OpenGL.

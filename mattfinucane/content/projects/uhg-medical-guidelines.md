@@ -5,11 +5,19 @@ synopsis:		"This is the cross platform mobile web application built for Anroid a
 date:			"2013-03-01"
 duration:		"75 days"
 languages: 		
-- "Javascript (ES5)"
-- "HTML5"
+- Javascript (ES5)
+- HTML5
 frameworks:
-- "Secha Touch 2"
-- "Scss"
+- Secha Touch 2
+- Scss
+tools:
+- Sublime Text
+- XCode
+- Android Studio
+- Apache Cordova
+disciplines:
+- Cross platform application development
+- Project management
 ---
 
 This is 3football.

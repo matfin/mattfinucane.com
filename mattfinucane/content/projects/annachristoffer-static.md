@@ -6,17 +6,28 @@ liveurl:		"https://annachristoffer.com"
 date:			"2017-04-01"
 duration:		"30 days"
 languages: 		
-- "Javascript (ES7)"
-- "HTML5"
+- Javascript (ES7)
+- HTML5
 frameworks:
-- "GoHugo"
-- "Sass"
+- GoHugo
+- Sass
 infrastructure: 
-- "Docker"
-- "Compose"
-- "Linux"
-- "CircleCI"
-- "Nginx"
+- Docker
+- Linux
+- Nginx
+- NodeJS
+tools:
+- Docker Compose
+- CircleCI
+- Gulp
+- Sublime Text
+- Adobe Photoshop
+- Github
+- Font Awesome
+disciplines:
+- Web development
+- Project management
+- Devops
 ---
 
 This is Anna Christoffer static.

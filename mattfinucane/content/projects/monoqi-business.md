@@ -6,13 +6,21 @@ liveurl:		"https://www.monoqibusiness.com/"
 date:			"2014-11-01"
 duration:		"75 days"
 languages: 		
-- "Javascript (ES5)"
-- "PHP"
+- Javascript (ES5)
+- PHP
 frameworks:
-- "Magento"
+- Magento
 infrastructure:
-- "Vagrant"
-- "Linux"
+- Linux
+- MySQL
+tools:
+- Vagrant
+- Sublime Text
+- Bitbucket
+- Adobe Photoshop
+- Sketch
+disciplines:
+- Web development
 ---
 
 This is Meteor Contentful.

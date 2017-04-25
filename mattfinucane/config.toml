@@ -18,11 +18,13 @@ preservetaxonomynames = true
 	identifier		= "home"
 	url 			= "/"
 	weight 			= 1
+
 [[menu.main]]
 	name			= "Projects"
 	identifier		= "projects"
 	url 			= "/projects"
 	weight 			= 2
+	
 [[menu.main]]
 	name			= "About"
 	identifier		= "about"
@@ -33,4 +35,5 @@ preservetaxonomynames = true
 	language		= "Languages"
 	framework		= "Frameworks"
 	infrastructure	= "Infrastructure"
-	series			= "Series"
+	tool			= "Tools"
+	discipline		= "Disciplines"

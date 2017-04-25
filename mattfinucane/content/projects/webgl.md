@@ -5,9 +5,13 @@ synopsis:		"Learning WebGL and exploring 3d mathematics, lighting, texturing and
 date:			"2013-06-01"
 duration:		"Ongoing"
 languages:	
-- "Javascript (ES5)"
+- Javascript (ES5)
 frameworks:
-- "WebGL 1.0"
+- WebGL 1.0
+tools: 
+- Sublime Text
+disciplines:
+- Learning
 ---
 
 This is WebGL.

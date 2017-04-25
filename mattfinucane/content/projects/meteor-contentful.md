@@ -6,11 +6,21 @@ liveurl:		"https://atmospherejs.com/matfin/meteor-contentful"
 date:			"2015-08-01"
 duration:		"30 days"
 languages: 		
-- "Javascript (ES5)"
+- Javascript (ES5)
 frameworks:
-- "NodeJS"
-- "Mocha"
-- "AtmosphereJS"
+- MeteorJS
+infrastructure:
+- NodeJS
+- MongoDB
+tools:
+- Sublime Text
+- Github
+- TravisCI
+- AtmosphereJS
+- JSLint
+disciplines:
+- Package development
+- Support
 ---
 
 This is Meteor Contentful.

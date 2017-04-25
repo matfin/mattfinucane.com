@@ -6,18 +6,30 @@ liveurl:		"https://github.com/matfin/annachristoffer/tree/v1.0.0"
 date:			"2015-07-01"
 duration:		"60 days"
 languages: 		
-- "Javascript (ES7)"
-- "HTML5"
+- Javascript (ES7)
+- HTML5
 frameworks:
-- "MeteorJS"
-- "Less"
+- MeteorJS
+- Less
 infrastructure:
-- "Linux"
-- "CircleCI"
-- "Nginx"
-- "Prerender.io"
-- "NodeJS"
-- "Velocity"
+- Linux
+- Nginx
+- Prerender.io
+- NodeJS
+- Velocity
+- MongoDB
+tools:
+- PhantomJS
+- CircleCI
+- Sublime Text
+- Adobe Photoshop
+- Font Awesome
+- Github
+- Robomongo
+disciplines:
+- Web development
+- Project management
+- Devops
 ---
 
 This is Anna Christoffer MeteorJS.

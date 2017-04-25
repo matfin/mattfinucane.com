@@ -6,16 +6,25 @@ liveurl:		"https://github.com/matfin/crymonstercry"
 date:			"2015-04-01"
 duration:		"14 days"
 languages: 		
-- "Javascript (ES5)"
-- "HTML5"
+- Javascript (ES5)
+- HTML5
 frameworks:
-- "MeteorJS"
-- "Less"
+- MeteorJS
+- Less
 infrastructure:
-- "Linux"
-- "Nginx"
-- "PhantomJS"
-- "NodeJS"
+- Linux
+- Nginx
+- NodeJS
+- MongoDB
+tools: 
+- Sublime Text
+- Adobe Photoshop
+- Github
+- Font Awesome
+disciplines:
+- Web development
+- Project management
+- Devops
 ---
 
 This is Cry Monster Cry for MeteorJS.

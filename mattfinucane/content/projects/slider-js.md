@@ -6,11 +6,16 @@ liveurl:		"https://atmospherejs.com/matfin/meteor-contentful"
 date:			"2015-08-01"
 duration:		"30 days"
 languages: 		
-- "Javascript (ES5)"
-frameworks:
-- "NodeJS"
-- "Mocha"
-- "AtmosphereJS"
+- Javascript (ES7)
+tools:
+- BowerJS
+- Sublime Text
+- XCode
+- Github
+- JSLint
+disciplines:
+- Package development
+- Support
 ---
 
 This is the Slider.
