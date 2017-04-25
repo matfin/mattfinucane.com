@@ -8,7 +8,7 @@
 		<section class="projects">
 			{{ .Content }}
 			<div class="projects">
-				{{ range .Data.Pages }}
+				{{ range where .Data.Pages "Section" "projects" }}
 					{{ .Render "card" }}
 				{{ end }}
 			</div>

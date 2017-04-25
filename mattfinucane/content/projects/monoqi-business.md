@@ -21,4 +21,4 @@ tools:
 - Sketch
 ---
 
-This is Meteor Contentful.
+This is Monoqi Business
