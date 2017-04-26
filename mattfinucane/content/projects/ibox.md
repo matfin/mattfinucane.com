@@ -9,7 +9,7 @@ languages:
 - HTML5
 - C#
 frameworks:
-- C# .Net MVC 1.0
+- MVC 1.0
 - jQuery
 infrastructure:
 - Microsoft SQL Server

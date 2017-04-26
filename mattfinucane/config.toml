@@ -1,12 +1,9 @@
 baseURL 			= "http://mattfinucane.dev"
 languageCode 		= "en-ie"
 title 				= "Matt Finucane"
-
 disableLiveReload	= true
 watch				= true
-
 preservetaxonomynames = true
-
 
 [params]
 	description		= "Description for Matt Finucane"

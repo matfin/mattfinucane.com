@@ -4,7 +4,7 @@
 	{{ if eq $which "Languages" }}
 		{{ range $taxonomyname, $taxonomy := .Site.Taxonomies.Languages }}
 			<li>
-				<a href="{{ "/" | relLangURL}}{{ $taxonomyname | urlize }}">
+				<a href="{{ "/languages/" | relLangURL}}{{ $taxonomyname | urlize }}">
 					{{ $taxonomyname }}
 				</a>
 			</li>
@@ -12,7 +12,7 @@
 	{{ else if eq $which "Frameworks" }}
 		{{ range $taxonomyname, $taxonomy := .Site.Taxonomies.Frameworks }}
 			<li>
-				<a href="{{ "/" | relLangURL}}{{ $taxonomyname | urlize }}">
+				<a href="{{ "/frameworks/" | relLangURL}}{{ $taxonomyname | urlize }}">
 					{{ $taxonomyname }}
 				</a>
 			</li>
@@ -20,7 +20,7 @@
 	{{ else if eq $which "Infrastructure" }}
 		{{ range $taxonomyname, $taxonomy := .Site.Taxonomies.Infrastructure }}
 			<li>
-				<a href="{{ "/" | relLangURL}}{{ $taxonomyname | urlize }}">
+				<a href="{{ "/infrastructure/" | relLangURL}}{{ $taxonomyname | urlize }}">
 					{{ $taxonomyname }}
 				</a>
 			</li>
@@ -28,15 +28,7 @@
 	{{ else if eq $which "Tools" }}
 		{{ range $taxonomyname, $taxonomy := .Site.Taxonomies.Tools }}
 			<li>
-				<a href="{{ "/" | relLangURL}}{{ $taxonomyname | urlize }}">
-					{{ $taxonomyname }}
-				</a>
-			</li>
-		{{ end }}
-	{{ else if eq $which "Disciplines" }}
-		{{ range $taxonomyname, $taxonomy := .Site.Taxonomies.Disciplines }}
-			<li>
-				<a href="{{ "/" | relLangURL}}{{ $taxonomyname | urlize }}">
+				<a href="{{ "/tools/" | relLangURL}}{{ $taxonomyname | urlize }}">
 					{{ $taxonomyname }}
 				</a>
 			</li>
