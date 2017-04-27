@@ -6,7 +6,18 @@
 	<body>
 		{{ partial "header" . }}
 		<section class="taxonomy">
-			This is the language taxonomy
+			<p>
+				This is taxonomy/language.html - {{ .Title }}
+			</p>
+
+			<ul>
+				{{ range .Data.Pages }}
+					<li>
+						{{ .Title }}
+					</li>
+				{{ end }}
+			</ul>
+
 		</section>
 		{{ partial "footer" . }}
 	</body>

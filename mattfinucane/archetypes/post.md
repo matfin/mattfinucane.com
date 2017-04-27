@@ -1,7 +1,7 @@
-+++
-title 		= ""
-description	= ""
-synopsis	= ""
-date 		= ""
-categories 	= []
-+++
+---
+title:			""
+description: 	""
+synopsis:	 	""
+date: 		 	""
+categories: 	[]
+---

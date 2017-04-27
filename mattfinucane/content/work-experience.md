@@ -1,7 +1,7 @@
-+++
-title 		= "Work Experience"
-description	= "Work Experience"
-+++
+---
+title: 			"Work Experience"
+description: 	"Work Experience"
+---
 
 ## Work experience
 

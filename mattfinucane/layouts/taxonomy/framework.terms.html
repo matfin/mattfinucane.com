@@ -6,7 +6,18 @@
 	<body>
 		{{ partial "header" . }}
 		<section class="taxonomy">
-			This is the framework terms
+			<p>
+				This is taxonomy/framework.terms.html - {{ .Title }}
+			</p>
+
+			<ul>
+				{{ range .Data.Pages }}
+					<li>
+						{{ .Title }}
+					</li>
+				{{ end }}
+			</ul>
+
 		</section>
 		{{ partial "footer" . }}
 	</body>

@@ -6,7 +6,18 @@
 	<body>
 		{{ partial "header" . }}
 		<section class="taxonomy">
-			This is the infrastructure taxonomy
+			<p>
+				This is taxonomy/infrastructure.html - {{ .Title }}
+			</p>
+
+			<ul>
+				{{ range .Data.Pages }}
+					<li>
+						{{ .Title }}
+					</li>
+				{{ end }}
+			</ul>
+
 		</section>
 		{{ partial "footer" . }}
 	</body>

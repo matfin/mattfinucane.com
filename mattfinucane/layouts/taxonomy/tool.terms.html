@@ -6,7 +6,18 @@
 	<body>
 		{{ partial "header" . }}
 		<section class="taxonomy">
-			This is the tool terms
+			<p>
+				This is taxonomy/tool.terms.html - {{ .Title }}
+			</p>
+
+			<ul>
+				{{ range .Data.Pages }}
+					<li>
+						{{ .Title }}
+					</li>
+				{{ end }}
+			</ul>
+
 		</section>
 		{{ partial "footer" . }}
 	</body>
