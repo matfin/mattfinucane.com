@@ -5,7 +5,7 @@
 		{{ range $taxonomyname, $taxonomy := .Site.Taxonomies.Languages }}
 			<li>
 				<a href="{{ "/languages/" | relLangURL}}{{ $taxonomyname | urlize }}">
-					{{ $taxonomyname }}
+					{{ $taxonomyname | urlize }}
 				</a>
 			</li>
 		{{ end }}
@@ -13,7 +13,7 @@
 		{{ range $taxonomyname, $taxonomy := .Site.Taxonomies.Frameworks }}
 			<li>
 				<a href="{{ "/frameworks/" | relLangURL}}{{ $taxonomyname | urlize }}">
-					{{ $taxonomyname }}
+					{{ $taxonomyname | urlize }}
 				</a>
 			</li>
 		{{ end }}
@@ -21,7 +21,7 @@
 		{{ range $taxonomyname, $taxonomy := .Site.Taxonomies.Infrastructure }}
 			<li>
 				<a href="{{ "/infrastructure/" | relLangURL}}{{ $taxonomyname | urlize }}">
-					{{ $taxonomyname }}
+					{{ $taxonomyname | urlize }}
 				</a>
 			</li>
 		{{ end }}
@@ -29,7 +29,7 @@
 		{{ range $taxonomyname, $taxonomy := .Site.Taxonomies.Tools }}
 			<li>
 				<a href="{{ "/tools/" | relLangURL}}{{ $taxonomyname | urlize }}">
-					{{ $taxonomyname }}
+					{{ $taxonomyname | urlize }}
 				</a>
 			</li>
 		{{ end }}

@@ -5,7 +5,7 @@ synopsis:		"Learning C++ and OpenGL by coding up some demos which explore 3d mat
 date:			"2016-11-01"
 duration:		"Ongoing"
 languages:	
-- C/C++
+- CPP
 - GLSL
 frameworks:
 - OpenGL 3.2

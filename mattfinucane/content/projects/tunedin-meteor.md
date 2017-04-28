@@ -17,7 +17,7 @@ infrastructure:
 tools:
 - Github
 - Sublime Text
-- VelocityJS
+- Velocity
 - Mocha
 - JSLint
 - Grunt

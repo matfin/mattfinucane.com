@@ -9,7 +9,7 @@ languages:
 - HTML5
 frameworks:
 - Secha Touch 2
-- Scss
+- Sass
 tools:
 - XCode
 - Android Studio

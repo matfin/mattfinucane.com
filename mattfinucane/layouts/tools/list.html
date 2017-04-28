@@ -5,19 +5,10 @@
 	</head>
 	<body>
 		{{ partial "header" . }}
-		<section class="taxonomy">
+		<section class="categories">
 			<p>
-				This is taxonomy/infrastructure.html - {{ .Title }}
+				This is tools/list
 			</p>
-
-			<ul>
-				{{ range .Data.Pages }}
-					<li>
-						{{ .Title }}
-					</li>
-				{{ end }}
-			</ul>
-
 		</section>
 		{{ partial "footer" . }}
 	</body>
