@@ -8,7 +8,7 @@ languages:
 - Javascript (ES5)
 - HTML5
 frameworks:
-- Secha Touch 2
+- Sencha Touch 2
 - Scss
 tools:
 - Sublime Text

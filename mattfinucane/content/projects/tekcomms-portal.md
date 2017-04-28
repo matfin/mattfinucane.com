@@ -10,7 +10,7 @@ languages:
 - PHP
 frameworks:
 - Drupal
-- Scss
+- Sass
 infrastructure:
 - Linux
 - Apache

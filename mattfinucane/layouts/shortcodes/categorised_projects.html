@@ -1,0 +1,23 @@
+{{ $taxonomy 	:= .Params.taxonomy }}
+{{ $term 		:= .Params.term }}
+{{ $projects 	:= where .Site.Pages "Section" "projects" }}
+
+{{ range $projects }}
+	{{ if eq $taxonomy "frameworks" }}
+		{{ if in .Params.frameworks $term }}
+			{{ .Render "card" }}
+		{{ end }}
+	{{ else if eq $taxonomy "infrastructure" }}
+		{{ if in .Params.infrastructure $term }}
+			{{ .Render "card" }}
+		{{ end }}
+	{{ else if eq $taxonomy "languages" }}
+		{{ if in .Params.languages $term }}
+			{{ .Render "card" }}
+		{{ end }}
+	{{ else if eq $taxonomy "tools" }}
+		{{ if in .Params.tools $term }}
+			{{ .Render "card" }}
+		{{ end }}
+	{{ end }}
+{{ end }}

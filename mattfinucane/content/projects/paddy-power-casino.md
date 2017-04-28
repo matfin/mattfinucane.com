@@ -10,6 +10,7 @@ languages:
 - PHP
 frameworks:
 - CodeIgniter
+- jQuery
 infrastructure:
 - MySQL
 - Apache

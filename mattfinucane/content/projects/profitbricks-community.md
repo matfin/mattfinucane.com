@@ -14,7 +14,7 @@ frameworks:
 - Dojo
 - Apache LibCloud
 - Rancher
-- EmberJS
+- Ember.js
 infrastructure:
 - MySQL
 - Linux
