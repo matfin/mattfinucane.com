@@ -4,6 +4,27 @@
 	box-sizing: border-box
 
 body
-	font-size: 		$base-font-size
+	display: 		flex
+	flex-direction:	column
+	align-items:	center
 	font-family:	$font-family
 	color: 			$black
+
+header,
+section,
+footer
+	width: 100vw
+	max-width: $max-width
+	padding: 0 ($units * 1.5)
+
+ul 
+	list-style: none
+	li
+		position: relative
+		padding-left: $units * 1.5
+		&:before
+			position: absolute
+			left: $units * 0.25
+			font-family: FontAwesome
+			font-size: $units
+			content: '\f0da'
