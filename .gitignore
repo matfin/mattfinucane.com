@@ -1,5 +1,1 @@
-node_modules
-npm-debug.log
-settings.json
-*.tar.gz
-.DS_Store
+**/.DS_Store

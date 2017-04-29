@@ -1,0 +1,41 @@
+baseURL 			= "http://mattfinucane.dev"
+languageCode 		= "en-ie"
+title 				= "Matt Finucane"
+disableLiveReload	= true
+watch				= true
+preservetaxonomynames = true
+
+[params]
+	description		= "Description for Matt Finucane"
+	author			= "Matt Finucane"
+	mediaBase		= "http://media.mattfinucane.dev/"
+
+[[menu.main]]
+	name			= "Home"
+	identifier		= "home"
+	url 			= "/"
+	weight 			= 1
+
+[[menu.main]]
+	name			= "Projects"
+	identifier		= "projects"
+	url 			= "/projects"
+	weight 			= 2
+
+[[menu.main]]
+	name			= "Work Experience"
+	identifier		= "work-experience"
+	url 			= "/work-experience"
+	weight 			= 3
+	
+[[menu.main]]
+	name			= "About"
+	identifier		= "about"
+	url 			= "/about"
+	weight 			= 4
+
+[taxonomies]
+	language		= "Languages"
+	framework		= "Frameworks"
+	infrastructure	= "Infrastructure"
+	tool			= "Tools"

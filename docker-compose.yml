@@ -1,0 +1,41 @@
+version: '3'
+
+services:
+  mf-site:
+    container_name: site
+    build:
+      context: .docker/site
+      dockerfile: Dockerfile
+      args:
+        hugo_version: "0.20.2"
+    ports: 
+      - "1313:1313"
+    volumes: 
+      - ./:/opt:rw
+    command: hugo server -s /opt/mattfinucane --config /opt/mattfinucane/config.toml --baseURL http://mattfinucane.dev/ --bind "0.0.0.0" --appendPort=false --verbose
+
+  mf-nginx:
+    container_name: nginx
+    build:
+      context: .docker/nginx
+      dockerfile: Dockerfile
+      args:
+        nginx_conf: nginx.development.conf
+    volumes:
+      - ./media:/opt/media:ro
+    links: 
+      - mf-site
+    ports:
+      - "80:80"
+    command: nginx -g "daemon off;"
+
+  mf-static:
+    image: node:7.9.0
+    container_name: static_build
+    volumes:
+      - ./:/opt:rw
+    links:
+      - mf-site
+    depends_on:
+      - mf-site
+    command: sh -c "echo 'Coming soon'"
