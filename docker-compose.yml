@@ -38,4 +38,4 @@ services:
       - mf-site
     depends_on:
       - mf-site
-    command: sh -c "echo 'Coming soon'"
+    command: sh -c "cd /opt && npm install -g gulp && npm install -g bower && npm link gulp && npm install && bower install --allow-root && gulp"
