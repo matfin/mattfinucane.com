@@ -18,6 +18,7 @@ infrastructure:
 - Linux
 - Nginx
 - MongoDB
+- Prerender.io
 tools: 
 - CircleCI
 - Docker Compose

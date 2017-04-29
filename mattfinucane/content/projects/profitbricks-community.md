@@ -6,7 +6,7 @@ date:			"2016-09-01"
 duration:		"90 days"
 languages:	
 - Javascript (ES5)
-- Python 2.7
+- Python
 - XHTML
 - PHP
 frameworks:

@@ -16,6 +16,7 @@ infrastructure:
 - Nginx
 - NodeJS
 - MongoDB
+- Prerender.io
 tools: 
 - Sublime Text
 - Adobe Photoshop
