@@ -15,10 +15,12 @@ infrastructure:
 - Linux
 - Apache
 - MySQL
-tools: 
+tools:
+- Eclipse
 - Sublime Text
 - Github
-- SVN
+- Apache Subversion
+- Vagrant
 ---
 
 This is Tekcomms Drupal.

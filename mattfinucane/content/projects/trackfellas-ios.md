@@ -12,6 +12,7 @@ frameworks:
 tools:
 - XCode
 - Github
+- Bitbucket
 - Sketch
 - Adobe Photoshop
 ---

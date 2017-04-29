@@ -19,7 +19,7 @@ tools:
 - Sublime Text
 - Github
 - Mocha
-- Chai
+- ChaiJS
 - JSLint
 ---
 

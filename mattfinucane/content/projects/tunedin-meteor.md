@@ -19,8 +19,11 @@ tools:
 - Sublime Text
 - Velocity
 - Mocha
+- ChaiJS
 - JSLint
 - Grunt
+- PhantomJS
+- Vagrant
 ---
 
 This is TunedIn.

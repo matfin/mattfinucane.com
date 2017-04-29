@@ -19,6 +19,7 @@ tools:
 - Docker Compose
 - CircleCI
 - Gulp
+- BowerJS
 - Sublime Text
 - Adobe Photoshop
 - Github

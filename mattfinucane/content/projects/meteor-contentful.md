@@ -18,6 +18,8 @@ tools:
 - TravisCI
 - AtmosphereJS
 - JSLint
+- ChaiJS
+- Mocha
 ---
 
 This is Meteor Contentful.

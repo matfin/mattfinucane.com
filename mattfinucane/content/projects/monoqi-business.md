@@ -14,6 +14,7 @@ infrastructure:
 - Linux
 - MySQL
 tools:
+- Grunt
 - Vagrant
 - Sublime Text
 - Bitbucket

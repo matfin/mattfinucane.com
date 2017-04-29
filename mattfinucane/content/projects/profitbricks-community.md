@@ -19,10 +19,12 @@ infrastructure:
 - MySQL
 - Linux
 tools:
+- Gulp
 - JSLint
 - Pylint
 - Github
 - Sublime Text
+- Vagrant
 ---
 
 This is ProfitBricks.

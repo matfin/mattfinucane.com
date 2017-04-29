@@ -22,6 +22,9 @@ tools:
 - Adobe Photoshop
 - Github
 - Font Awesome
+- AtmosphereJS
+- ChaiJS
+- Vagrant
 ---
 
 This is Cry Monster Cry for MeteorJS.

@@ -13,6 +13,7 @@ tools:
 - XCode
 - Github
 - JSLint
+- AtmosphereJS
 ---
 
 This is the Slider.

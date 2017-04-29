@@ -23,7 +23,7 @@ tools:
 - CircleCI
 - Docker Compose
 - Mocha
-- Chai
+- ChaiJS
 - Web Component Tester
 - Robomongo
 - Sublime Text
