@@ -7,11 +7,13 @@
 		{{ partial "header" . }}
 		<section class="projects">
 			{{ .Content }}
-			<div class="projects">
+			<ul class="projects-list">
 				{{ range where .Data.Pages "Section" "projects" }}
-					{{ .Render "card" }}
+					<li>
+						{{ .Render "card" }}
+					</li>
 				{{ end }}
-			</div>
+			</ul>
 		</section>
 		{{ partial "footer" . }}
 	</body>

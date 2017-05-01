@@ -2,22 +2,32 @@
 {{ $term 		:= .Params.term }}
 {{ $projects 	:= where .Site.Pages "Section" "projects" }}
 
-{{ range $projects }}
-	{{ if eq $taxonomy "frameworks" }}
-		{{ if in .Params.frameworks $term }}
-			{{ .Render "card" }}
-		{{ end }}
-	{{ else if eq $taxonomy "infrastructure" }}
-		{{ if in .Params.infrastructure $term }}
-			{{ .Render "card" }}
-		{{ end }}
-	{{ else if eq $taxonomy "languages" }}
-		{{ if in .Params.languages $term }}
-			{{ .Render "card" }}
-		{{ end }}
-	{{ else if eq $taxonomy "tools" }}
-		{{ if in .Params.tools $term }}
-			{{ .Render "card" }}
+<ul class="projects-list">
+	{{ range $projects }}
+		{{ if eq $taxonomy "frameworks" }}
+			{{ if in .Params.frameworks $term }}
+				<li>
+					{{ .Render "card" }}
+				</li>
+			{{ end }}
+		{{ else if eq $taxonomy "infrastructure" }}
+			{{ if in .Params.infrastructure $term }}
+				<li>
+					{{ .Render "card" }}
+				</li>
+			{{ end }}
+		{{ else if eq $taxonomy "languages" }}
+			{{ if in .Params.languages $term }}
+				<li>
+					{{ .Render "card" }}
+				</li>
+			{{ end }}
+		{{ else if eq $taxonomy "tools" }}
+			{{ if in .Params.tools $term }}
+				<li>
+					{{ .Render "card" }}
+				</li>
+			{{ end }}
 		{{ end }}
 	{{ end }}
-{{ end }}
+</ul>

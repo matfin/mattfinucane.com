@@ -1,6 +1,6 @@
 {{ $which := .Get "items" }}
 
-<ul>
+<ul class="taxonomies-list">
 	{{ if eq $which "Languages" }}
 		{{ range $taxonomyname, $taxonomy := .Site.Taxonomies.Languages }}
 			<li>

@@ -12,3 +12,13 @@
 =transitionWithPoperties($props, $ms: $transition-duration)
 	transition-property: $props
 	transition-duration: $ms
+
+=list
+	position: relative
+	padding-left: $units * 1.5
+	&:before
+		position: absolute
+		left: $units * 0.25
+		font-family: FontAwesome
+		font-size: $units
+		content: '\f0da'
