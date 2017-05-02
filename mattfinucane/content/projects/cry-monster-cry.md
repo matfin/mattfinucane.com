@@ -5,6 +5,7 @@ synopsis:		"This is the official website for Cry Monster Cry built using MeteorJ
 liveurl:		"https://github.com/matfin/crymonstercry"
 date:			"2015-04-01"
 duration:		"14 days"
+draft: 			true
 languages: 		
 - Javascript (ES5)
 - HTML5

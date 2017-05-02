@@ -24,11 +24,10 @@ I wanted to create a slider that was lightweight and simple to implement.
 
 I also wanted it to be responsive, so it would behave itself when the browser window was resized.
 
-
 ### Project planning
 There were existing slider modules available, but they all required third party packages such as jQuery so I wanted to see if I could create something neat and fast using Javacript only.
 
-I limited browser support to the latest two versions of each main browsers. Maintaining legacy support was not needed, so this would lessen the need for ugly hacks for legacy browsers.
+I limited browser support to the latest two versions of each of the main browsers. Maintaining legacy support was not needed, so this would lessen the need for ugly hacks for legacy browsers.
 
 ### Project development
 I came up with a list of features that needed to be implemented:
