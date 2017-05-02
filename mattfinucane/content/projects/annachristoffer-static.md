@@ -1,5 +1,5 @@
 ---
-title: 			"Anna Christoffer (Static)"
+title: 			"Anna Christoffer Portfolio (Static)"
 description:	"Portfolio site generated using GoHugo."
 synopsis:		"This is the portfolio site for Anna Clair Christoffer generated using the GoHugo static site generator."
 liveurl:		"https://annachristoffer.com"
@@ -27,7 +27,7 @@ tools:
 - BowerJS
 ---
 
-## Anna Christoffer Portfolio
+## Anna Christoffer Portfolio (Static)
 This is the online portfolio for Anna Christoffer, an Art Director based in Berlin.
 
 ### The brief
@@ -66,7 +66,7 @@ For managing deployments, I use the [CircleCI](https://circleci.com/) in combina
 
 The static assets for the site will be generated using [gulp.js](http://gulpjs.com/) and then GoHugo will generate the rest of the content for the site, combining the content with the layout templates.
 
-Using the [Let's Encrypt](https://letsencrypt.org/) tool, we can generate free SSL/TLS certificates and serve content over HTTPS.
+Using the [Let's Encrypt](https://letsencrypt.org/) tool, we can generate free SSL/TLS certificates and serve content over HTTPS. Nginx is also configured to serve content using the HTTP/2 protocol, which brings about big benefits in terms of speed.
 
 ### Benefits of this approach
 By serving static content, we can do away with the need for databases and bootstrapping the project is much simpler. 
