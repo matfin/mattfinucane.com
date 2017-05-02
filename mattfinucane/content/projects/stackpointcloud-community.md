@@ -65,7 +65,7 @@ Server side unit and integration testing was carried out using [Chai](http://cha
 We used [Docker Compose](https://docs.docker.com/compose/) to manage development, staging and production environments in combination with Github and CircleCI.
 
 ### Benefits of this approach
-Working on this project was interesring because it gave us exposure to the new WebComponents standard. Being able to create custom reusable components with their own compartmentalised styles and scripts was very useful.
+Working on this project was interesting because it gave us exposure to the new WebComponents standard. Being able to create custom reusable components with their own compartmentalised styles and scripts was very useful.
 
 Docker Compose made setting up the infrastructure for development environments much easier than before. A new developer could get the project set up with far less effort.
 
