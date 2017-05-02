@@ -35,7 +35,7 @@ tools:
 ## StackPointCloud Community
 The StackPointCloud community website serves as a platform for questions, tutorials and conferences. This is the official Kubernetes Community site for the StackPoint.io product which provides a universal control panel for Kubernetes.
 
-### The Brief
+### The brief
 Create a community website that allows users to post questions, add tutorials and events and curate these. 
 
 Users should be able to easily contribute to the site, with administrators reviewing and publishing this content.

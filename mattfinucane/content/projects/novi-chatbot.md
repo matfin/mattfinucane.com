@@ -26,7 +26,7 @@ tools:
 ## Novi Chatbot
 Novi is a chat bot that runs on the Facebook Messenger platform and delivers news content to its users on request or at scheduled daily intervals.
 
-### The Brief
+### The brief
 I started working on this project a few months after it was started and my job was to test and document what was already there, along with building new features.
 
 The set up came as two projects, one a CMS where content editors could curate custom content, and the other was the bot infrastructure itself which handled user requests and delivered the appropriate responses.
@@ -48,7 +48,7 @@ The Docker containers were set up in the following way:
 A HTTP tunneling service [Ngrok](https://ngrok.com/) was used to connect the Facebook Messenger platform to the local development environment.
 
 ### Testing and deployment 
-Unit testing was carried out using [SinonJS] for creating spies and stubs, with [Chai](http://chaijs.com/) being used as the assertion library. 
+Unit testing was carried out using [SinonJS](http://sinonjs.org/) for creating spies and stubs, with [Chai](http://chaijs.com/) being used as the assertion library. 
 
 [Mocha](https://mochajs.org/) was used as the test runner and coverage reporting was handled by [Istanbul.js](https://istanbul.js.org/).
 
