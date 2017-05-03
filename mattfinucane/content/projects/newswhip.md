@@ -29,15 +29,15 @@ The app was required to show news articles filtered by location and topic, with 
 ### Project planning and development
 For this project, we opted to go with the following set up:
 
-- Sencha Touch, a Javascript based mobile application framework was to be used in conjunction with Apache Cordova.
-- Compass was be used to compile the SASS stylesheets to CSS.
+- [Sencha Touch](https://www.sencha.com/products/touch/#overview), a Javascript based mobile application framework was to be used in conjunction with [Apache Cordova](https://cordova.apache.org/).
+- [Compass](http://compass-style.org/) was used to compile the SASS stylesheets to CSS.
 - Content was fetched from the internal NewsWhip REST api in JSON format.
-- Sencha CMD was used to bundle and minifiy the app, preparing it for deployment to the iOS and Android projects.
+- Sencha CMD was used to bundle and minifiy the app, preparing it for deployment to the iOS and Android devices.
 
 We used three projects for this with a git submodule set up as follows:
 
 - The Sencha client application which included the stylesheets, Javascript and image assets. We were able to debug this in-browser.
-- The Xcode project which was an Apache Cordova web view that contained the Sencha Toucn application.
+- The XCode project which was an Apache Cordova web view that contained the Sencha Toucn application.
 - The Android project that had the same set up with the Apache Cordova plugins.
 
 ### Difficulties encountered
