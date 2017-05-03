@@ -24,7 +24,6 @@ tools:
 - Sketch
 ---
 
-## Monoqi Business
 Monoqi Business is a wholesale platform used to connect designers and manufacturers with their buyers.
 
 ### The brief

@@ -28,7 +28,6 @@ tools:
 - BowerJS
 ---
 
-## Anna Christoffer Portfolio (Static)
 This is the online portfolio for Anna Christoffer, an Art Director based in Berlin.
 
 ### The brief

@@ -22,7 +22,6 @@ tools:
 - Mocha
 ---
 
-## Meteor Contentful
 This is a MeteorJS package built to synchronise content from the [Contenful](https://contentful.com) REST api across to Meteor Mongo collections. 
 
 Contentful is a web based PaaS that provides content management services and a nice simple API to fetch content.

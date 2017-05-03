@@ -28,7 +28,6 @@ tools:
 - Vagrant
 ---
 
-## ProfitBricks community
 Work was carried out on various projects to help members of the ProfitBricks community.
 
 ### Odin APS driver

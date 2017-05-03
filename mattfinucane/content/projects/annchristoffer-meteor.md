@@ -31,7 +31,6 @@ tools:
 - Velocity
 ---
 
-## Anna Christoffer (Meteor)
 Content managed portfolio for Anna Christoffer, an Art Director based in Berlin.
 
 ### The brief

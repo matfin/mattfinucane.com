@@ -16,7 +16,6 @@ tools:
 - Adobe Photoshop
 ---
 
-## Irish Times iOS
 Application for delivering categorised news articles to users.
 
 ### The brief

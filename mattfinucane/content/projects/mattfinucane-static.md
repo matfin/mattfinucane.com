@@ -26,7 +26,6 @@ tools:
 - Font Awesome
 ---
 
-## Matt Finucane (static)
 This is the online portfolio and CV for Matt Finucane, a Sofware Engineer based in Berlin.
 
 ### The brief

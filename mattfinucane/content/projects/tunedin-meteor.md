@@ -27,7 +27,6 @@ tools:
 - Vagrant
 ---
 
-## TunedIn
 TunedIn Media were a social media startup creating an application that would complement a TV viewers experience.
 
 ### The brief

@@ -16,7 +16,6 @@ tools:
 - AtmosphereJS
 ---
 
-## SliderJS
 This is a package I wrote and used in several of my client side Javascript projects. It offers slide functionality for content inside a carousel.
 
 ### The brief

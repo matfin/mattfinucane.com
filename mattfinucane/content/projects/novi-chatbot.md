@@ -23,7 +23,6 @@ tools:
 - JSLint
 ---
 
-## Novi Chatbot
 Novi is a chat bot that runs on the Facebook Messenger platform and delivers news content to its users on request or at scheduled daily intervals.
 
 ### The brief

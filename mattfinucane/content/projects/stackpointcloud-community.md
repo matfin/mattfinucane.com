@@ -32,7 +32,6 @@ tools:
 - JSLint
 ---
 
-## StackPointCloud Community
 The StackPointCloud community website serves as a platform for questions, tutorials and conferences. This is the official Kubernetes Community site for the StackPoint.io product which provides a universal control panel for Kubernetes.
 
 ### The brief

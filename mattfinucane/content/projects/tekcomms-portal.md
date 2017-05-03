@@ -25,7 +25,6 @@ tools:
 - Vagrant
 ---
 
-## Teckomms Community Portal
 Tekcomms provide various hardware solutions to cellular communications providers.
 
 ### The brief

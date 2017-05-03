@@ -19,7 +19,6 @@ tools:
 - Gitosis
 ---
 
-## iBox TV
 Web based TV guide interface for the iBox set top box and HLS compliant web browsers.
 
 ### The brief

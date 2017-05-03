@@ -18,7 +18,6 @@ tools:
 - Apache Cordova
 ---
 
-## 3Football
 News, fixtures, live match reports and team info for the Republic of Ireland squad as they compete in the European Football Championship of 2012.
 
 ### The brief

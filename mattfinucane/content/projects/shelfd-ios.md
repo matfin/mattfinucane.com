@@ -1,6 +1,6 @@
 ---
 title: 			"Shelfd Prototype"
-description:	"Prototype iOS app for Shelf."
+description:	"Prototype iOS app for Shelfd."
 synopsis:		"iOS app for the prototype of the Shelfd media aggregation app."
 date:			"2015-04-01"
 duration:		"45 days"
@@ -16,7 +16,6 @@ tools:
 - XCode
 ---
 
-## Shelfd Prototype
 In 2015, I was given the task of creating a simple prototype for the Shelfd iOS application, which aggregates a users monthly media consumption into one place.
 
 ### The brief

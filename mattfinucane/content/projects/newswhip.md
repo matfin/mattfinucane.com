@@ -18,7 +18,6 @@ tools:
 - Apache Cordova
 ---
 
-## NewsWhip
 NewsWhip is a news aggregation and analytics platform that tracks articles shared across social media platforms.
 
 ### The brief

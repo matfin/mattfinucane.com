@@ -17,7 +17,6 @@ tools:
 - Apache Cordova
 ---
 
-## GUH antimicrobial perscribing guidelines
 Cross platform mobile web application for presenting Antimicrobial Perscribing Guidelines in a format suitable for phones and tablets.
 
 ### The brief
