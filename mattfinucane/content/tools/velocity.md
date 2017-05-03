@@ -1,6 +1,6 @@
 ---
 title: 			"Velocity"
-description: 	"Test runner suite for MeteorJS"
+description: 	"Test runner suite for MeteorJS applications."
 proficiency:	"Advanced"
 ---
 

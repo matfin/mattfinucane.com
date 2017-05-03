@@ -1,6 +1,6 @@
 ---
 title: 			"Linux"
-description: 	"Open-source operating system"
+description: 	"Open-source Unix-like operating system."
 proficiency:	"Advanced"
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: 			"Less"
-description: 	"CSS preprocessor"
+description: 	"CSS preprocessor."
 proficiency:	"Expert"
 ---
 

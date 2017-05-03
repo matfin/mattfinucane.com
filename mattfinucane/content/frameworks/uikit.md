@@ -1,6 +1,6 @@
 ---
 title: 			"UIKit"
-description: 	"User interface framework for iOS and tvOS devices."
+description: 	"User interface framework for Apple devices."
 proficiency:	"Intermediate"
 ---
 

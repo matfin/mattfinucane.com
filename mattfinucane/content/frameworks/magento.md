@@ -1,6 +1,6 @@
 ---
 title: 			"Magento"
-description: 	"CMS and e-commerce platform written in PHP"
+description: 	"CMS and e-commerce platform written in PHP."
 proficiency:	"Beginner"
 ---
 

@@ -1,9 +1,9 @@
 ---
 title: 			"Sass"
-description: 	"CSS preprocessor"
+description: 	"CSS preprocessor."
 proficiency:	"Expert"
 ---
 
-Sass is another CSS preprocessor framwork with features such as mixins, variables and functions.
+Sass is another CSS preprocessor framework with built in features such as mixins, variables and functions.
 
 {{% categorised_projects taxonomy="frameworks" term="Sass" %}}

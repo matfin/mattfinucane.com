@@ -8,8 +8,8 @@ languages:
 - Javascript (ES5)
 - HTML5
 frameworks:
-- Sencha Touch 2
-- Scss
+- Sencha Touch
+- Sass
 tools:
 - XCode
 - Android Studio

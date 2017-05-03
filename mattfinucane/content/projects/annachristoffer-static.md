@@ -17,6 +17,7 @@ infrastructure:
 - Nginx
 - NodeJS
 tools:
+- Sketch
 - Docker Compose
 - CircleCI
 - Gulp

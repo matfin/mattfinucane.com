@@ -8,7 +8,7 @@ draft:			true
 languages:	
 - Javascript (ES5)
 frameworks:
-- WebGL 1.0
+- WebGL
 tools: 
 - Sublime Text
 ---

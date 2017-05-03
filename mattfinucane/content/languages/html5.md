@@ -1,6 +1,6 @@
 ---
 title: 			"HTML5"
-description: 	"Markup language for the web"
+description: 	"Document markup for the web."
 proficiency:	"Expert"
 ---
 

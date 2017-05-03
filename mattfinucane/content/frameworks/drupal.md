@@ -1,6 +1,6 @@
 ---
 title: 			"Drupal"
-description: 	"PHP based content management platform"
+description: 	"PHP based content management platform."
 proficiency:	"Beginner"
 ---
 

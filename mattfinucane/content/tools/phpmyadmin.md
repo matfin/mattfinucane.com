@@ -1,6 +1,6 @@
 ---
 title: 			"phpMyAdmin"
-description: 	"Web based tool to manage MySQL servers"
+description: 	"Web based tool to manage MySQL servers."
 proficiency:	"Advanced"
 ---
 

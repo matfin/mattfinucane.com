@@ -1,6 +1,6 @@
 ---
 title: 			"Core Data"
-description: 	"Data persitence framework for macOS and iOS applications."
+description: 	"Data persitence framework for Apple applications."
 proficiency:	"Beginner"
 ---
 

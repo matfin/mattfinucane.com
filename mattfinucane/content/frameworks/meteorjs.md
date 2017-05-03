@@ -1,6 +1,6 @@
 ---
 title: 			"MeteorJS"
-description: 	"Web application development platform written in Javascript"
+description: 	"Javascript client side single page platform."
 proficiency:	"Expert"
 ---
 

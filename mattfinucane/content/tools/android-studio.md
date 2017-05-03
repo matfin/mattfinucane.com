@@ -1,6 +1,6 @@
 ---
-title: 			"Android Studip"
-description: 	"IDE for Android development"
+title: 			"Android Studio"
+description: 	"IDE for Android application development."
 proficiency:	"Intermediate"
 ---
 

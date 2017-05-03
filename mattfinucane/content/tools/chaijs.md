@@ -1,6 +1,6 @@
 ---
 title: 			"Chai"
-description: 	"Javascript assertion library for unit testing"
+description: 	"Javascript assertion library for testing."
 proficiency:	"Advanced"
 ---
 

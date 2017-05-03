@@ -1,6 +1,6 @@
 ---
 title: 			"Sketch"
-description: 	"Vector based graphics tool"
+description: 	"Vector based graphics tool used for prototyping."
 proficiency:	"Intermediate"
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: 			"PhantomJS"
-description: 	"Headless web browser used for automated testing"
+description: 	"Headless web browser used for automated testing."
 proficiency:	"Advanced"
 ---
 

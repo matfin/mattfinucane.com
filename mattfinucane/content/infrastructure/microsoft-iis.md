@@ -1,6 +1,6 @@
 ---
 title: 			"Microsoft IIS"
-description: 	"Web and application runtime server"
+description: 	"Web and application runtime server."
 proficiency:	"Beginner"
 ---
 

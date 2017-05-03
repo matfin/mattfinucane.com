@@ -1,6 +1,6 @@
 ---
 title: 			"Pylint"
-description: 	"Code quality tool for Python"
+description: 	"Code quality checker for Python."
 proficiency:	"Intermediate"
 ---
 

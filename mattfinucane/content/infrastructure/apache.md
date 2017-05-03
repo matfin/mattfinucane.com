@@ -1,6 +1,6 @@
 ---
 title: 			"Apache HTTP server"
-description: 	"Open-source web server"
+description: 	"Open-source web server."
 proficiency:	"Advanced"
 ---
 

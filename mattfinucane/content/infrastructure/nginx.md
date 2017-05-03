@@ -1,6 +1,6 @@
 ---
 title: 			"Nginx"
-description: 	"Minimal high performance http web server"
+description: 	"Minimal high performance HTTP web server."
 proficiency:	"Advanced"
 ---
 

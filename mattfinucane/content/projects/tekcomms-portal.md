@@ -8,9 +8,11 @@ duration:		"150 days"
 languages: 		
 - Javascript (ES5)
 - PHP
+- HTML5
 frameworks:
 - Drupal
 - Sass
+- jQuery
 infrastructure:
 - Linux
 - Apache

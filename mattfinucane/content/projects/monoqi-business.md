@@ -10,6 +10,7 @@ languages:
 - PHP
 frameworks:
 - Magento
+- jQuery
 infrastructure:
 - Linux
 - MySQL

@@ -1,6 +1,6 @@
 ---
 title: 			"PolymerJS"
-description: 	"Javascript based client side library."
+description: 	"Javascript web application framework."
 proficiency:	"Expert"
 ---
 

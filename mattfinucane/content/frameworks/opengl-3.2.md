@@ -1,6 +1,6 @@
 ---
 title: 			"OpenGL"
-description: 	"Unified interface for 3d graphics on most modern hardware."
+description: 	"Standardised graphics driver interface."
 proficiency:	"Beginner"
 ---
 

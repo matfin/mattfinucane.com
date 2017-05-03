@@ -1,6 +1,6 @@
 ---
 title: 			"Atmosphere.js"
-description: 	"Official repository for MeteorJS packages"
+description: 	"Repository for MeteorJS packages."
 proficiency:	"Advanced"
 ---
 

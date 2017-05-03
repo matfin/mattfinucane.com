@@ -7,7 +7,7 @@ duration:		"90 days"
 languages:	
 - Javascript (ES5)
 - Python
-- XHTML
+- HTML5
 - PHP
 frameworks:
 - Django
@@ -15,6 +15,7 @@ frameworks:
 - Apache LibCloud
 - Rancher
 - Ember.js
+- jQuery
 infrastructure:
 - MySQL
 - Linux

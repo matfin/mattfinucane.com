@@ -10,6 +10,7 @@ languages:
 frameworks:
 - MeteorJS
 - Less
+- jQuery
 infrastructure:
 - Linux
 - NodeJS

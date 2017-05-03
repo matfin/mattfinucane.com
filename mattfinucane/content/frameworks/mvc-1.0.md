@@ -1,6 +1,6 @@
 ---
 title: 			"C# .Net MVC"
-description: 	"Microsoft web application framework used with C# .Net"
+description: 	"Microsoft web application framework used with C# .Net."
 proficiency:	"Beginner"
 ---
 

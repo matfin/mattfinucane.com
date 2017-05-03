@@ -1,6 +1,6 @@
 ---
 title: 			"Bower"
-description: 	"Client side Javascript package repository"
+description: 	"Client side Javascript package management tool."
 proficiency:	"Advanced"
 ---
 

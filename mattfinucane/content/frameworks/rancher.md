@@ -1,6 +1,6 @@
 ---
 title: 			"Rancher"
-description: 	"Container management tool"
+description: 	"Container management tool."
 proficiency:	"Beginner"
 ---
 

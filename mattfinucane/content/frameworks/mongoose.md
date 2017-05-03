@@ -1,6 +1,6 @@
 ---
 title: 			"Mongoose"
-description: 	"Boilerplate library for interacting with MongoDB"
+description: 	"NodeJS wrapper for MongoDB."
 proficiency:	"Expert"
 ---
 
