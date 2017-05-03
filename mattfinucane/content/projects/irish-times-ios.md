@@ -8,7 +8,6 @@ languages:
 - Objective C
 - Javascript (ES5)
 frameworks:
-- UIKit
 - CoreData
 tools:
 - XCode

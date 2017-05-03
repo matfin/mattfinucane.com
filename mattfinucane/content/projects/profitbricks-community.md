@@ -13,7 +13,6 @@ frameworks:
 - Django
 - Dojo
 - Apache LibCloud
-- Rancher
 - Ember.js
 - jQuery
 infrastructure:

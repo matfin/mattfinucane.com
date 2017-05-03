@@ -7,7 +7,6 @@ duration:		"45 days"
 languages: 		
 - Objective C
 frameworks:
-- UIKit
 - CoreData
 tools:
 - Adobe Photoshop
