@@ -5,7 +5,8 @@
 	</head>
 	<body>
 		{{ partial "header" . }}
-		<section class="home">
+		{{ partial "teaser" . }}
+		<section class="notfound">
 			{{ .Content }}		
 		</section>
 		{{ partial "footer" . }}

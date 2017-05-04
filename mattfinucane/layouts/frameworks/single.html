@@ -5,16 +5,7 @@
 	</head>
 	<body>
 		{{ partial "header" . }}
-		<section class="teaser">
-			<div class="content">
-				<h2>
-					{{ .Title }}
-				</h2>
-				<h3>
-					{{ .Description }}
-				</h3>
-			</div>
-		</section>
+		{{ partial "teaser" . }}
 		<section class="category">
 			{{ .Content }}
 		</section>

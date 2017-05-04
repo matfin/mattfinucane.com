@@ -1,8 +1,5 @@
 ---
 title: 			"Projects"
-description:	"List of projects"
+description:	"Some selected projects from my portfolio"
 ---
-
-## Projects
-Some selected projects I have worked on.
 
