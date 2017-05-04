@@ -10,6 +10,9 @@ body
 	font-family:	$font-family
 	color: 			$black
 
+	&.prevent-scroll 
+		overflow: hidden
+
 header,
 section,
 footer
@@ -29,6 +32,11 @@ a
 
 p
 	margin: $units 0
+
+button
+	border: 0
+	background: none
+	outline: none
 
 .teaser
 	padding: $units * 2

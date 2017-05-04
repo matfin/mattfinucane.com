@@ -1,6 +1,7 @@
 'use strict';
 
 const 	gulp 	= require('gulp'),
+		concat	= require('gulp-concat'),
 		sass	= require('gulp-sass');
 
 /**
@@ -34,11 +35,22 @@ gulp.task('sass-dev', ['copy-fa-fonts', 'copy-fa-sass'], () => {
 });
 
 /**
+ *	Javascript assets
+ */
+gulp.task('scripts', () => {
+	return gulp
+	.src('./assets/scripts/**/*')
+	.pipe(concat('main.js'))
+	.pipe(gulp.dest('./mattfinucane/static/js'));
+});
+
+/**
  *	The watch task should rerun sass-dev when 
  *	changes are detected.
  */
 gulp.task('watch', () => {
 	gulp.watch('./assets/sass/**/*.sass', ['sass-dev']);
+	gulp.watch('./assets/scripts/**/*.js', ['scripts']);
 });
 
 /**
@@ -46,5 +58,6 @@ gulp.task('watch', () => {
  */
 gulp.task('default', [
 	'sass-dev',
+	'scripts',
 	'watch'
 ]);

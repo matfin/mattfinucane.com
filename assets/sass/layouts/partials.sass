@@ -1,19 +1,63 @@
 /**
  *	Header
  */
-header 
+header
 	display: flex
 	flex-direction: row
 	align-items: center
 	justify-content: space-between
 
+header > button
+	font-size: $large-font-size
+	height: $units * 5
+
+/**
+ *	Nav
+ */
 nav 
+	z-index: $under
+	position: fixed
+	top: 0
+	left: 0
+	display: flex
+	flex-direction: column
+	align-items: center
+	width: 100vw
+	height: 100vh
+	transform: translate3d(100%, 0, 0)
+	+transitionWithProperties((opacity, transform))
+	background-color: $white
+	opacity: 0.0
+
+	&.revealed
+		z-index: $over
+		transform: translate3d(0, 0, 0)
+		opacity: 1.0
+
 	ul
 		display: flex
-		flex-direction: row
-
+		flex-direction: column
+		align-items: center
 		li
+			margin: $units 0
 			padding: 0 $units * 1.5
+
+nav > button,
+nav > ul
+	width: 100%
+	max-width: $max-width
+
+nav > button
+	display: flex
+	flex-direction: column
+	align-items: flex-end
+	justify-content: center
+	padding: 0 ($units * 1.5)
+	font-size: $large-font-size
+	height: $units * 5
+
+nav > ul
+	align-self: center
 
 /**
  *	Footer
