@@ -11,41 +11,52 @@ header > button
 	font-size: $large-font-size
 	height: $units * 5
 
+	+break(min, $break-3)
+		display: none
+
 /**
  *	Nav
  */
-nav 
-	z-index: $under
-	position: fixed
-	top: 0
-	left: 0
-	display: flex
-	flex-direction: column
-	align-items: center
-	width: 100vw
-	height: 100vh
-	transform: translate3d(100%, 0, 0)
-	+transitionWithProperties((opacity, transform))
-	background-color: $white
-	opacity: 0.0
-
-	&.revealed
-		z-index: $over
-		transform: translate3d(0, 0, 0)
-		opacity: 1.0
-
-	ul
+nav
+	+break(min-max, 0, $break-3)
+		z-index: $under
+		position: fixed
+		top: 0
+		left: 0
 		display: flex
 		flex-direction: column
 		align-items: center
-		li
-			margin: $units 0
-			padding: 0 $units * 1.5
+		width: 100vw
+		height: 100vh
+		transform: translate3d(100%, 0, 0)
+		+transitionWithProperties((opacity, transform))
+		background-color: $white
+		opacity: 0.0
+
+		&.revealed
+			z-index: $over
+			transform: translate3d(0, 0, 0)
+			opacity: 1.0
+
+		ul
+			display: flex
+			flex-direction: column
+			align-items: center
+			li
+				padding: $units * 1.5
+
+	+break(min, $break-3)
+		ul
+			display: flex
+			flex-direction: row
+			li
+				padding: 0 $units * 1.5
 
 nav > button,
 nav > ul
-	width: 100%
-	max-width: $max-width
+	+break(min-max, 0, $break-3)
+		width: 100%
+		max-width: $max-width
 
 nav > button
 	display: flex
@@ -56,8 +67,8 @@ nav > button
 	font-size: $large-font-size
 	height: $units * 5
 
-nav > ul
-	align-self: center
+	+break(min, $break-3)
+		display: none
 
 /**
  *	Footer
