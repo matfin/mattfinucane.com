@@ -40,6 +40,15 @@ button
 	outline: none
 
 .teaser
-	padding: $units * 2
+	display: flex
+	flex-direction: column
+	align-items: center
+	max-width: 100vw
 	background-color: $black
 	color: $white
+
+	.content
+		width: 100%
+		max-width: $max-width
+		+break(min, $break-4)
+			padding: 0 $units * 1.5
