@@ -1,6 +1,6 @@
 ---
 title: 			"Docker"
-description: 	"Container management tool"
+description: 	"Container management tool."
 proficiency:	"Intermediate"
 ---
 

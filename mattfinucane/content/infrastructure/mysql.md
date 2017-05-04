@@ -1,6 +1,6 @@
 ---
 title: 			"MySQL"
-description: 	"Relational database management system"
+description: 	"Relational database management system."
 proficiency:	"Advanced"
 ---
 

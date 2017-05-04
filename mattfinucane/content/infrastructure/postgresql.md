@@ -1,6 +1,6 @@
 ---
 title: 			"PostgreSQL"
-description: 	"Object-relational database management system"
+description: 	"Object-relational database management system."
 proficiency:	"Intermediate"
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: 			"Apache Subversion"
-description: 	"Software revision control system"
+description: 	"Team collaboration and software revision control system."
 proficiency:	"Advanced"
 ---
 

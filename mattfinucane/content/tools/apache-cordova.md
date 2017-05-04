@@ -1,6 +1,6 @@
 ---
 title: 			"Apache Cordova"
-description: 	"Javascript mobile application development framework"
+description: 	"Tool to bridge cross-platform apps with a devices native functionality."
 proficiency:	"Advanced"
 ---
 

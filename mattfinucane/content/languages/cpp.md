@@ -1,6 +1,6 @@
 ---
 title: 			"C++"
-description: 	"The C++ programming language"
+description: 	"The C++ programming language."
 proficiency:	"Beginner"
 ---
 

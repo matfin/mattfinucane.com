@@ -1,6 +1,6 @@
 ---
 title: 			"XCode"
-description: 	"Integrated development environment created by Apple"
+description: 	"Integrated development environment created by Apple."
 proficiency:	"Advanced"
 ---
 

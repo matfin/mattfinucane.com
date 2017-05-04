@@ -3,6 +3,6 @@ title: 			"Projects"
 description:	"List of projects"
 ---
 
-# Projects
-All the projects I have worked on over time.
+## Projects
+Some selected projects I have worked on.
 

@@ -1,6 +1,6 @@
 ---
 title: 			"JSLint"
-description: 	"JSLint is a code quality tool for Javascript"
+description: 	"JSLint is a code quality checker for Javascript."
 proficiency:	"Advanced"
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: 			"Grunt"
-description: 	"Grunt is a Javascript task runner"
+description: 	"Grunt is an automated task runner for Javascript applications."
 proficiency:	"Advanced"
 ---
 

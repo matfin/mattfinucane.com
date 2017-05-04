@@ -1,6 +1,6 @@
 ---
 title: 			"Sublime Text"
-description: 	"Text editor with plugin features"
+description: 	"Text editor with plugin features."
 proficiency:	"Advanced"
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: 			"Vagrant"
-description: 	"Virtual machine management tool"
+description: 	"Virtual machine management tool."
 proficiency:	"Advanced"
 ---
 

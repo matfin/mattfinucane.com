@@ -1,6 +1,6 @@
 ---
 title: 			"TravisCI"
-description: 	"Automated testing and deployment tool"
+description: 	"Automated testing and deployment tool."
 proficiency:	"Advanced"
 ---
 

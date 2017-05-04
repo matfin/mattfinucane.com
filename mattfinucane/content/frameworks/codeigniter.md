@@ -1,6 +1,6 @@
 ---
 title: 			"CodeIgniter"
-description: 	"Lightweight PHP MVC framework"
+description: 	"Lightweight PHP MVC framework."
 proficiency:	"Intermediate"
 ---
 

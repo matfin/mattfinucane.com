@@ -1,6 +1,6 @@
 ---
 title: 			"Prerender"
-description: 	"Static HTML generator for client-side Javascript"
+description: 	"Static HTML generator for client-side Javascript applications and websites."
 proficiency:	"Advanced"
 ---
 

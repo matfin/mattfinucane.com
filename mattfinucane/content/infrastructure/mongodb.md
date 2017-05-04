@@ -1,6 +1,6 @@
 ---
 title: 			"MongoDB"
-description: 	"Document oriented database system"
+description: 	"Document oriented database system."
 proficiency:	"Advanced"
 ---
 
