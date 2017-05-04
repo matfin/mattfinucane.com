@@ -1,9 +1,7 @@
 ---
-title: 			"Work Experience"
-description: 	"Work Experience"
+title: 			"Experience"
+description: 	"Professional work experience and qualifications from 2001 to present"
 ---
-
-## Work experience
 
 #### December 2014 – Present
 ### Freelance as Software Engineer // Berlin
@@ -76,3 +74,9 @@ description: 	"Work Experience"
 - Created a web app to monitor RSS feeds from news providers.
 - Built an XSLT processor to populate XML feeds to databases.
 - Upgraded servers and software from HPUX to Linux and authored the associated technical documentation.
+
+#### September 2001 – June 2005
+### BSc. in Computer Applications (Honours) // Dublin City University
+- Modules include Java software development, Business process management, Computer Graphics, Database administration and the Software development life-cycle (waterfall).
+- Alcatel CIT, France: developed an error logging system for GSM cell towers (INTRA work placement).
+- Coded a mobile 2D game using J2ME (Final year project).

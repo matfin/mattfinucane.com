@@ -8,13 +8,18 @@ header
 	align-items: center
 	justify-content: space-between
 
+	a
+		border-bottom: none
+
 	button
 		display: none
 		font-size: $large-font-size
 
 		+break(min-max, 0px, $break-3)
 			display: block
-
+/**
+ *	Responsive navigation
+ */
 nav
 	ul
 		display: flex
@@ -23,6 +28,8 @@ nav
 
 		li 
 			padding: $units
+			a
+				border-bottom: 3px solid currentColor
 
 		+break(min, $break-3)
 			flex-direction: row
@@ -55,5 +62,49 @@ nav
 			overflow: hidden
 			opacity: 1.0
 
+/**
+ *	Teasers
+ */
+.teaser
+	display: flex
+	flex-direction: column
+	align-items: center
+	max-width: 100vw
+	background-color: $black
+	color: $white
+
+	.content
+		display: flex
+		flex-direction: column
+		justify-content: center
+		width: 100%
+		min-height: 30vh
+		max-width: $max-width
+
+		h2
+			font-size: $hero-font-size
+			line-height: $hero-line-height
+
+		h3 
+			font-size: $large-font-size
+			line-height: $large-line-height
+
+		+break(min-max, 0, $break-2)
+			min-height: 25vh
+
+			h2
+				font-size: $large-font-size
+				line-height: $large-line-height
+
+			h3 
+				font-size: $medium-font-size
+				line-height: $medium-line-height
+
+		+break(min, $break-4)
+			padding: 0 $units * 1.5
+
+/**
+ *	Footer
+ */
 footer
 	padding: $units * 4 $units * 1.5
