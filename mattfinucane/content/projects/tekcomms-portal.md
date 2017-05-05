@@ -18,10 +18,8 @@ infrastructure:
 - Apache
 - MySQL
 tools:
-- Eclipse
 - Sublime Text
-- Github
-- Apache Subversion
+- Git
 - Vagrant
 ---
 

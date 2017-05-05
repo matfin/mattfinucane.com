@@ -23,7 +23,7 @@ tools:
 - Gulp
 - Sublime Text
 - Adobe Photoshop
-- Github
+- Git
 - Font Awesome
 - BowerJS
 ---
@@ -62,7 +62,7 @@ I use SASS as the CSS preprocessor framework and the ES7 standard for Javascript
 To handle responsive images, I use the HTML5 `<img> srcset` attribute, which allows me to specify the correct images to load given the device screen constraints.
 
 ### Deploying changes
-For managing deployments, I use the [CircleCI](https://circleci.com/) in combination with Github. Any changes pushed to the `develop` branch are deployed to a staging server, while releases tagged from the `master` branch are deployed to the live server.
+For managing deployments, I use the [CircleCI](https://circleci.com/) in combination with Git. Any changes pushed to the `develop` branch are deployed to a staging server, while releases tagged from the `master` branch are deployed to the live server.
 
 The static assets for the site will be generated using [gulp.js](http://gulpjs.com/) and then GoHugo will generate the rest of the content for the site, combining the content with the layout templates.
 

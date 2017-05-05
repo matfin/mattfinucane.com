@@ -16,7 +16,6 @@ infrastructure:
 - Microsoft IIS
 tools:
 - Microsoft Visual Studio
-- Gitosis
 ---
 
 Web based TV guide interface for the iBox set top box and HLS compliant web browsers.

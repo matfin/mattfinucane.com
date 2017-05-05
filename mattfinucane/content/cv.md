@@ -1,5 +1,5 @@
 ---
-title: 			"Work experience"
+title: 			"CV"
 description: 	"Professional work experience and qualifications from 2001 to present"
 ---
 

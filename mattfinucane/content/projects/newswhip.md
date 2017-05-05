@@ -13,7 +13,6 @@ frameworks:
 tools:
 - XCode
 - Android Studio
-- Gitosis
 - Sublime Text
 - Apache Cordova
 ---

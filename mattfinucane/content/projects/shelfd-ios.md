@@ -11,7 +11,7 @@ frameworks:
 tools:
 - Adobe Photoshop
 - Font Awesome
-- Github
+- Git
 - XCode
 ---
 

@@ -16,14 +16,13 @@ infrastructure:
 - NodeJS
 - MongoDB
 tools:
-- Github
+- Git
 - Sublime Text
 - Velocity
 - Mocha
 - ChaiJS
 - JSLint
 - Grunt
-- PhantomJS
 - Vagrant
 ---
 
@@ -50,7 +49,7 @@ With the above features in mind, it was decided to use the following:
 
 The application was unit tested with the [Mocha test runner](https://mochajs.org), with [Sinon](http://sinonjs.org/) used for spies and stubs. 
 
-[Chai](http://chaijs.com/) was used as the assertion library and BDD testing was carried out using Selenium and the [Xolvio testing suite](https://github.com/xolvio/meteor-cucumber). This provided a cucumber-like syntax for testing the UI in different browsers.
+[Chai](http://chaijs.com/) was used as the assertion library and BDD testing was carried out using Selenium and the [Xolvio testing suite](https://Git.com/xolvio/meteor-cucumber). This provided a cucumber-like syntax for testing the UI in different browsers.
 
 ### Difficulties encountered
 The one major drawback with using Meteor was that it was designed from the ground up to be a full stack Javascript based framework. Separating the client and server side components proved to be tricky at times.

@@ -23,9 +23,9 @@ preservetaxonomynames = true
 	weight 			= 2
 
 [[menu.main]]
-	name			= "Work Experience"
-	identifier		= "work-experience"
-	url 			= "/work-experience"
+	name			= "CV"
+	identifier		= "cv"
+	url 			= "/cv"
 	weight 			= 3
 	
 [[menu.main]]
