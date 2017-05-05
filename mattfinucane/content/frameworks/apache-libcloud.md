@@ -13,5 +13,4 @@ I made an Open-source contribution to this project in the form of the ProfitBric
 The contribution guidelines were very clear and the whole process of merging the code was very smooth.
 
 ### Projects
-
 {{% categorised_projects taxonomy="frameworks" term="Apache LibCloud" %}}

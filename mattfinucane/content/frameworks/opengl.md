@@ -12,4 +12,5 @@ The learning curve is quite steep but in the right hands it is very powerful, de
 
 I have been experimenting with OpenGL for the past couple of months and will continue to do so.
 
+### Projects
 {{% categorised_projects taxonomy="frameworks" term="OpenGL" %}}
