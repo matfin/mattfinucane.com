@@ -9,7 +9,7 @@ languages:
 - Javascript (ES7)
 - HTML5
 frameworks:
-- GoHugo
+- Hugo
 - Sass
 infrastructure: 
 - Docker

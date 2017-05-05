@@ -5,7 +5,7 @@ proficiency:	"Expert"
 ---
 
 ### What is it?
-Javascript is a high level scripting language used both server side and client side, with ES7 being the latest version of the standard outlined by [ECMA](https://www.ecma-international.org/memento/TC39.htm).
+Javascript is a high level scripting language used both server side and client side with ES7 being the latest version of the standard outlined by [ECMA](https://www.ecma-international.org/memento/TC39.htm).
 
 Most of the popular client side single page application frameworks encourage users to write their code using the ES7 standard, with transcompilers reverting the code back to ES5 for older browsers.
 

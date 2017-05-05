@@ -8,7 +8,7 @@ proficiency:	"Intermediate"
 Django is an MVC web framework written in Python.
 
 ### What is it like?
-For the most part, working with Django was easy and intuitive. I like the basic structure it enforces and it is quite flexible to work with.
+For the most part, working with Django was easy and intuitive, providing a basic and flexible structure to work with even if it is slightly opinionated.
 
 ### Projects
 {{% categorised_projects taxonomy="frameworks" term="Django" %}}

@@ -5,14 +5,12 @@ proficiency:	"Beginner"
 ---
 
 ### What is it?
-Ember.js is a comppnent based client-side web application framework written in Javascript.
+[Ember.js](https://www.emberjs.com/) is a comppnent based client-side web application framework written in Javascript.
 
 ### What is it like?
-The learning curve is not to steep and it is widely used, with a strong community. 
+Ember.js is quite popular and it has a strong community. The learning curve is not too steep and it is quite fast to work with.
 
-I like the component based architecture and the neatness of the handlebars syntax embedded within the application markup.
-
-This framework is more opinionated than others, meaning that you have to stick to their way of doing things and any documentation may be targeting an older version and would be out of date.
+As with all relatively young frameworks, fragmentation between versions can make it harder to find solutions to problems especially given this framework is in constant flux.
 
 ### Projects
 {{% categorised_projects taxonomy="frameworks" term="Ember.js" %}}
