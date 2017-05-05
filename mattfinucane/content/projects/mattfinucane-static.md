@@ -22,7 +22,7 @@ tools:
 - BowerJS
 - Sublime Text
 - Adobe Photoshop
-- Github
+- Git
 - Font Awesome
 ---
 
@@ -56,7 +56,7 @@ CSS and Javasript are managed using the Node SASS plugin, which is the CSS pre-p
 For builds I use the [gulp.js](http://gulpjs.com/) to generate minified and concatenated scripts and stylesheets. This reduces the number of HTTP request made when the site is loaded.
 
 ### Deploying changes
-[CircleCI](https://circleci.com/) is used in combination with Github to manage deployments. Changes pushed to the `develop` branch will automatically be deployed to a staging server and releases tagged from the `master` branch are deployed to the live server.
+[CircleCI](https://circleci.com/) is used in combination with Git to manage deployments. Changes pushed to the `develop` branch will automatically be deployed to a staging server and releases tagged from the `master` branch are deployed to the live server.
 
 The `circle.yml` deployment set up file contains instructions to first build the static assets (css/js), then build the site out using GoHugo. The resulting bundle is copied over to the live server.
 

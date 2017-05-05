@@ -2,7 +2,7 @@
 title: 			"SliderJS"
 description:	"Simple content slider."
 synopsis:		"A simple content slider written in vanilla Javascript and bundled as a Bower package."
-liveurl:		"https://github.com/matfin/slider"
+liveurl:		"https://Git.com/matfin/slider"
 date:			"2015-08-01"
 duration:		"30 days"
 languages: 		
@@ -11,7 +11,7 @@ tools:
 - BowerJS
 - Sublime Text
 - XCode
-- Github
+- Git
 - JSLint
 - AtmosphereJS
 ---
@@ -40,7 +40,7 @@ I came up with a list of features that needed to be implemented:
 ### Testing and deployment
 This plugin was tested on several devices, from an entry level Android phone to an iMac desktop.
 
-The package was recently refactored to use the ES7 Javascript standard. It is available as a [Bower package](https://github.com/matfin/slider).
+The package was recently refactored to use the ES7 Javascript standard. It is available as a [Bower package](https://Git.com/matfin/slider).
 
 
 

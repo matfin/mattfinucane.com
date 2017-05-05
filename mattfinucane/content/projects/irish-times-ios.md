@@ -11,7 +11,6 @@ frameworks:
 - CoreData
 tools:
 - XCode
-- Gitosis
 - Adobe Photoshop
 ---
 

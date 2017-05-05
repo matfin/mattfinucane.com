@@ -14,7 +14,7 @@ infrastructure:
 - MongoDB
 tools:
 - Sublime Text
-- Github
+- Git
 - TravisCI
 - AtmosphereJS
 - JSLint

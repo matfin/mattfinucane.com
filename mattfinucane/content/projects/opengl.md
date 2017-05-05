@@ -13,7 +13,7 @@ frameworks:
 tools:
 - XCode
 - CMake
-- Github
+- Git
 ---
 
 This is OpenGL.

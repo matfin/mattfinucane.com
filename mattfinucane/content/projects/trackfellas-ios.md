@@ -12,7 +12,7 @@ frameworks:
 - CoreData
 tools:
 - XCode
-- Github
+- Git
 - Bitbucket
 - Sketch
 - Adobe Photoshop

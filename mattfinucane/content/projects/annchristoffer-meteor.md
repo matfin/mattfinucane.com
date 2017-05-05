@@ -2,7 +2,7 @@
 title: 			"Anna Christoffer (Meteor)"
 description:	"Portfolio site built using MeteorJS."
 synopsis:		"This is the portfolio site for Anna Claire Christoffer built using MeteorJS and content managed using Contentful."
-liveurl:		"https://github.com/matfin/annachristoffer/tree/v1.0.0"
+liveurl:		"https://Git.com/matfin/annachristoffer/tree/v1.0.0"
 date:			"2015-07-01"
 duration:		"60 days"
 languages: 		
@@ -18,12 +18,11 @@ infrastructure:
 - NodeJS
 - MongoDB
 tools:
-- PhantomJS
 - TravisCI
 - Sublime Text
 - Adobe Photoshop
 - Font Awesome
-- Github
+- Git
 - Robomongo
 - AtmosphereJS
 - ChaiJS
@@ -43,7 +42,7 @@ This project went through several iterations as it was being build. The first re
 
 I decided to rebuild it from scratch with the following setup:
 
-- Content needed to be managed externally. We used [Contentful](https://www.contentful.com/) to manage content and I used my [Meteor Contentful](https://github.com/matfin/meteor-contentful) module to sync this content to the website.
+- Content needed to be managed externally. We used [Contentful](https://www.contentful.com/) to manage content and I used my [Meteor Contentful](https://Git.com/matfin/meteor-contentful) module to sync this content to the website.
 - SEO for single page websites was a concern. For the first iteration I served pages using PhantomJS to web crawlers, but opted to use the [Prerender.io](https://prerender.io/) service to cache the generated HTML for much better server performance.
 - It was important to strike the right balance of image quality and loading speed. I wrote some Javascript to load the most appropriate image given the device screen parameters.
 - Client side testing was carried out using the Velocity testing suite.

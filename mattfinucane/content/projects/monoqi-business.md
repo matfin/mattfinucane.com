@@ -19,7 +19,6 @@ tools:
 - Grunt
 - Vagrant
 - Sublime Text
-- Bitbucket
 - Adobe Photoshop
 - Sketch
 ---

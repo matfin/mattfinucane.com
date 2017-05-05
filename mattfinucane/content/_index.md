@@ -11,14 +11,14 @@ description: 	"I am a freelance full stack software engineer based in Berlin and
 - Strong analytical thinking and problem solving skills.
 - Life–long learner with strong interest in continuous professional development.
 
-### Languages
+## Languages
 {{% taxonomies items="Languages" %}}
 
-### Frameworks 
+## Frameworks 
 {{% taxonomies items="Frameworks" %}}
 
-### Infrastructure 
+## Infrastructure 
 {{% taxonomies items="Infrastructure" %}}
 
-### Tools 
+## Tools 
 {{% taxonomies items="Tools" %}}

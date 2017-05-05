@@ -17,7 +17,7 @@ infrastructure:
 tools:
 - Docker Compose
 - Sublime Text
-- Github
+- Git
 - Mocha
 - ChaiJS
 - JSLint

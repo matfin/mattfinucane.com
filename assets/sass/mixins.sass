@@ -13,6 +13,9 @@
 	transition-property: $props
 	transition-duration: $ms
 
+=contentSection
+	padding-top: $units * 4
+
 =list
 	position: relative
 	padding-left: $units * 1.5
@@ -23,3 +26,40 @@
 		font-family: FontAwesome
 		font-size: $units
 		content: '\f0da'
+
+=listBoxes
+	display: flex
+	flex-direction: row
+	flex-wrap: wrap
+
+	li
+		display: flex
+		margin-bottom: $units / 2
+		padding-right: $units / 2
+
+		+break(min-max, 0, $break-1)
+			width: 50%
+			&:nth-child(2n)
+				padding-right: 0
+
+		+break(min-max, $break-1, $break-2)
+			width: 33%
+			&:nth-child(3n)
+				padding-right: 0
+
+		+break(min-max, $break-2, $break-3)
+			width: 25%
+			&:nth-child(4n)
+				padding-right: 0
+
+		+break(min, $break-3)
+			width: 20%
+			&:nth-child(5n)
+				padding-right: 0
+
+		a
+			flex: 1
+			color: $white
+			padding: 25% $units
+			background-color: $black
+			border-bottom: none

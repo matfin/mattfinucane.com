@@ -22,7 +22,7 @@ tools:
 - Gulp
 - JSLint
 - Pylint
-- Github
+- Git
 - Sublime Text
 - Vagrant
 ---

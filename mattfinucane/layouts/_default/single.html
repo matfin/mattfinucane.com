@@ -6,7 +6,7 @@
 	<body>
 		{{ partial "header" . }}
 		{{ partial "teaser" . }}
-		<section class="page">
+		<section class="page {{ .Title | urlize }}">
 			{{ .Content }}
 		</section>
 		{{ partial "footer" . }}
