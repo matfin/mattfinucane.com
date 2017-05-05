@@ -1,5 +1,5 @@
 ---
-title: 			"Anna Christoffer Portfolio (Static)"
+title: 			"Anna Christoffer (Static)"
 description:	"Portfolio site generated using GoHugo."
 synopsis:		"This is the portfolio site for Anna Clair Christoffer generated using the GoHugo static site generator."
 liveurl:		"https://annachristoffer.com"

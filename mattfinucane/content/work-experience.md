@@ -1,5 +1,5 @@
 ---
-title: 			"Experience"
+title: 			"Work experience"
 description: 	"Professional work experience and qualifications from 2001 to present"
 ---
 
