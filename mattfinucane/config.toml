@@ -35,9 +35,9 @@ preservetaxonomynames = true
 	weight 			= 4
 
 [[menu.main]]
-	name			= "Contact"
-	identifier		= "contact"
-	url 			= "/contact"
+	name			= "Hire me"
+	identifier		= "hire-me"
+	url 			= "/hire-me"
 	weight 			= 5
 
 [taxonomies]
