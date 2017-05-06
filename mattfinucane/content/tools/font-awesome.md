@@ -4,6 +4,8 @@ description: 	"CSS framework for delivering font based icons."
 proficiency:	"Advanced"
 ---
 
-Font Awesome is a CSS framework and font library for delivering a wide selection of icon based fonts.
+### What is it?
+[Font Awesome](http://fontawesome.io/) is a CSS framework for delivering font icons.
 
+### Projects
 {{% categorised_projects taxonomy="tools" term="Font Awesome" %}}

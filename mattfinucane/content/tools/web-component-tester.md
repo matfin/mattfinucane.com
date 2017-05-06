@@ -4,6 +4,8 @@ description: 	"Suite of testing tools for PolymerJS web components and web appli
 proficiency:	"Intermediate"
 ---
 
-Web Component Tester (or WCT) is a suite of test tooks for the browser based testing of custom PolymerJS components.
+### What is it?
+[Web Component Tester](https://github.com/Polymer/web-component-tester) is a suite of test tooks for the browser based testing of custom PolymerJS components.
 
+### Projects
 {{% categorised_projects taxonomy="tools" term="Web Component Tester" %}}

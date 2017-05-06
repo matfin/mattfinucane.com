@@ -4,6 +4,8 @@ description: 	"Automated testing and deployment tool."
 proficiency:	"Advanced"
 ---
 
-CircleCI is a tool that automates testing and deployment.
+### What is it?
+[CircleCI](https://circleci.com/) is a tool that ties nicely in to Github and automates testing and deployment for applications.
 
+### Projects
 {{% categorised_projects taxonomy="tools" term="CircleCI" %}}

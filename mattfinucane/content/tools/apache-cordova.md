@@ -4,6 +4,8 @@ description: 	"Tool to bridge cross-platform apps with a devices native function
 proficiency:	"Advanced"
 ---
 
-Apache Cordova (aka PhoneGap) is a Javascript based mobile application development framework designed to expose device hardware features to cross-platform applications.
+### What is it?
+[Apache Cordova](https://cordova.apache.org/) is a Javascript based mobile application development framework designed to expose device hardware features to cross-platform Javascript applications.
 
+### Projects
 {{% categorised_projects taxonomy="tools" term="Apache Cordova" %}}
