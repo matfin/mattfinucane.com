@@ -5,7 +5,7 @@ proficiency:	"Beginner"
 ---
 
 ### What is it?
-Core Data is the primary data persistence framework used for applications that run on Apple devices.
+[Core Data](https://developer.apple.com/reference/coredata) is the primary data persistence framework used for applications that run on Apple devices.
 
 ### What is it like?
 The learning curve can be a little steep at the start but it is quite powerful. 

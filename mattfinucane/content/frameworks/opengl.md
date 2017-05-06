@@ -5,7 +5,7 @@ proficiency:	"Beginner"
 ---
 
 ### What is it?
-OpenGL is a standardised graphics framework which provides direct access to video hardware using a common interface.
+[OpenGL](https://www.opengl.org/) is a standardised graphics framework which provides direct access to video hardware using a common interface.
 
 ### What is it like?
 The learning curve is quite steep but in the right hands it is very powerful, dependable and fast.
