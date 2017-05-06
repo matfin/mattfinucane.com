@@ -4,6 +4,8 @@ description: 	"Relational database management system."
 proficiency:	"Advanced"
 ---
 
-MySQL is a popular Open-source relational database management system.
+### What is it?
+[MySQL](https://www.mysql.com/) is a popular Open-source relational database management system.
 
+### Projects
 {{% categorised_projects taxonomy="infrastructure" term="MySQL" %}}

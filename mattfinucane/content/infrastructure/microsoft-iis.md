@@ -4,6 +4,8 @@ description: 	"Web and application runtime server."
 proficiency:	"Beginner"
 ---
 
-IIS is a web and application server created by Microsoft.
+### What is it?
+[IIS](https://www.iis.net/) is a web and application server created by Microsoft.
 
+### Projects
 {{% categorised_projects taxonomy="infrastructure" term="Microsoft IIS" %}}

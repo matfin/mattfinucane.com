@@ -4,6 +4,8 @@ description: 	"Open-source web server."
 proficiency:	"Advanced"
 ---
 
-Apache is a popular Open-source web server.
+### What is it?
+[Apache](https://httpd.apache.org/) is a popular Open-source web server.
 
+### Projects
 {{% categorised_projects taxonomy="infrastructure" term="Apache" %}}
