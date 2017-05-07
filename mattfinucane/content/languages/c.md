@@ -1,7 +1,7 @@
 ---
 title: 			"C#"
 description: 	"The C# programming language."
-proficiency:	"Beginner"
+proficiency:	1
 ---
 
 ### What is it?

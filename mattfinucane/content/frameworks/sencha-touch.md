@@ -1,7 +1,7 @@
 ---
 title: 			"Sencha Touch"
 description: 	"Cross-platform Javascript mobile application framework."
-proficiency:	"Expert"
+proficiency:	4
 ---
 
 ### What is it?

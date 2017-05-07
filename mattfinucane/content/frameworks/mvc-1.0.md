@@ -1,7 +1,7 @@
 ---
 title: 			"C# .Net MVC"
 description: 	"Microsoft web application framework used with C# .Net."
-proficiency:	"Beginner"
+proficiency:	1
 ---
 
 ### What is it?

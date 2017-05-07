@@ -1,7 +1,7 @@
 ---
 title: 			"Core Data"
 description: 	"Data persitence framework for Apple applications."
-proficiency:	"Beginner"
+proficiency:	2
 ---
 
 ### What is it?

@@ -12,13 +12,13 @@ description: 	"I am a freelance full stack software engineer based in Berlin"
 - Life–long learner with strong interest in continuous professional development.
 
 ## Languages
-{{% taxonomies items="Languages" %}}
+{{% taxonomies items="languages" %}}
 
-## Frameworks 
-{{% taxonomies items="Frameworks" %}}
+## Frameworks
+{{% taxonomies items="frameworks" %}}
 
 ## Infrastructure 
-{{% taxonomies items="Infrastructure" %}}
+{{% taxonomies items="infrastructure" %}}
 
 ## Tools 
-{{% taxonomies items="Tools" %}}
+{{% taxonomies items="tools" %}}

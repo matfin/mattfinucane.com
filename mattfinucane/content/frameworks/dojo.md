@@ -1,7 +1,7 @@
 ---
 title: 			"Dojo"
 description: 	"Client side Javascript toolkit."
-proficiency:	"Intermediate"
+proficiency:	2
 ---
 
 ### What is it?

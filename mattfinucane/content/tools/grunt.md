@@ -1,7 +1,7 @@
 ---
 title: 			"Grunt"
 description: 	"Grunt is an automated task runner for Javascript applications."
-proficiency:	"Advanced"
+proficiency:	3
 ---
 
 ### What is it?

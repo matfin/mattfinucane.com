@@ -1,7 +1,7 @@
 ---
 title: 			"MongoDB"
 description: 	"Document oriented database system."
-proficiency:	"Advanced"
+proficiency:	3
 ---
 
 ### What is it?

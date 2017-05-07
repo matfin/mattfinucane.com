@@ -1,7 +1,7 @@
 ---
 title: 			"CMake"
 description: 	"Build tool for C/C++ applications."
-proficiency:	"Beginner"
+proficiency:	1
 ---
 
 ### What is it?

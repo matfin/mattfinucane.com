@@ -1,7 +1,7 @@
 ---
 title: 			"Microsoft SQL Server"
 description: 	"Relational database management system."
-proficiency:	"Beginner"
+proficiency:	1
 ---
 
 ### What is it?

@@ -1,7 +1,7 @@
 ---
 title: 			"PHP"
 description: 	"Server side scripting language."
-proficiency:	"Intermediate"
+proficiency:	3
 ---
 
 ### What is it?

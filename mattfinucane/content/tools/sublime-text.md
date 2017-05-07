@@ -1,7 +1,7 @@
 ---
 title: 			"Sublime Text"
 description: 	"Text editor with plugin features."
-proficiency:	"Advanced"
+proficiency:	3
 ---
 
 ### What is it?

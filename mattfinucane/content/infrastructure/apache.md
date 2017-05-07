@@ -1,7 +1,7 @@
 ---
 title: 			"Apache HTTP server"
 description: 	"Open-source web server."
-proficiency:	"Advanced"
+proficiency:	3
 ---
 
 ### What is it?

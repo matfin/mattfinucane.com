@@ -1,7 +1,7 @@
 ---
 title: 			"Adobe Photoshop"
 description: 	"Raster graphics editing tool."
-proficiency:	"Advanced"
+proficiency:	3
 ---
 
 ### What is it?

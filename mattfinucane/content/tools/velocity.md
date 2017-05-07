@@ -1,7 +1,7 @@
 ---
 title: 			"Velocity"
 description: 	"Test runner suite for MeteorJS applications."
-proficiency:	"Advanced"
+proficiency:	3
 ---
 
 ### What is it?

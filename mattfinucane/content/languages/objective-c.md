@@ -1,7 +1,7 @@
 ---
 title: 			"Objective C"
 description: 	"High level programming language based on C."
-proficiency:	"Intermediate"
+proficiency:	2
 ---
 
 ### What is it?

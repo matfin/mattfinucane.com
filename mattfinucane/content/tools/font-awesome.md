@@ -1,7 +1,7 @@
 ---
 title: 			"Font Awesome"
 description: 	"CSS framework for delivering font based icons."
-proficiency:	"Advanced"
+proficiency:	3
 ---
 
 ### What is it?

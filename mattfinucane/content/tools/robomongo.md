@@ -1,7 +1,7 @@
 ---
 title: 			"Robomongo"
 description: 	"Dektop application for managing MongoDB data."
-proficiency:	"Advanced"
+proficiency:	3
 ---
 
 ### What is it?

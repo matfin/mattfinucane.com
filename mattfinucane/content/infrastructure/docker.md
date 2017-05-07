@@ -1,7 +1,7 @@
 ---
 title: 			"Docker"
 description: 	"Container management tool."
-proficiency:	"Intermediate"
+proficiency:	3
 ---
 
 ### What is it?

@@ -1,7 +1,7 @@
 ---
 title: 			"MySQL"
 description: 	"Relational database management system."
-proficiency:	"Advanced"
+proficiency:	3
 ---
 
 ### What is it?

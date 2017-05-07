@@ -1,7 +1,7 @@
 ---
 title: 			"Sketch"
 description: 	"Vector based graphics tool used for prototyping."
-proficiency:	"Intermediate"
+proficiency:	2
 ---
 
 ### What is it?

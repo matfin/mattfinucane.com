@@ -1,7 +1,7 @@
 ---
 title: 			"SQLite"
 description: 	"Serverless SQL based relational database."
-proficiency:	"Advanced"
+proficiency:	3
 ---
 
 ### What is it?

@@ -1,7 +1,7 @@
 ---
 title: 			"PolymerJS"
 description: 	"Javascript web application framework."
-proficiency:	"Expert"
+proficiency:	4
 ---
 
 ### What is it?

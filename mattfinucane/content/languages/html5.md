@@ -1,7 +1,7 @@
 ---
 title: 			"HTML5"
 description: 	"Document markup for the web."
-proficiency:	"Expert"
+proficiency:	4
 ---
 
 ### What is it?

@@ -1,7 +1,7 @@
 ---
 title: 			"Git"
 description: 	"Git is a code collaboration tool."
-proficiency:	"Advanced"
+proficiency:	3
 ---
 
 ### What is it?

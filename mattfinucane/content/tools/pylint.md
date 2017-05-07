@@ -1,7 +1,7 @@
 ---
 title: 			"Pylint"
 description: 	"Code quality checker for Python."
-proficiency:	"Intermediate"
+proficiency:	2
 ---
 
 ### What is it?
