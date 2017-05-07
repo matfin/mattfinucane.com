@@ -1,7 +1,7 @@
 ---
 title: 			"Docker Compose"
 description: 	"Tool for managing multi-container applications."
-proficiency:	"Advanced"
+proficiency:	3
 ---
 
 ### What is it?

@@ -1,7 +1,7 @@
 ---
 title: 			"Web Component Tester"
 description: 	"Suite of testing tools for PolymerJS web components and web applications."
-proficiency:	"Intermediate"
+proficiency:	3
 ---
 
 ### What is it?

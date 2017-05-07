@@ -1,7 +1,7 @@
 ---
 title: 			"Python"
 description: 	"General purpose programming and scripting language."
-proficiency:	"Beginner"
+proficiency:	2
 ---
 
 ### What is it?

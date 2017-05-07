@@ -1,7 +1,7 @@
 ---
 title: 			"Javascript (ES7)"
 description: 	"Client and server side scripting language."
-proficiency:	"Expert"
+proficiency:	4
 ---
 
 ### What is it?

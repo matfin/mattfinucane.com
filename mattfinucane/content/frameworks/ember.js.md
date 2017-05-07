@@ -1,7 +1,7 @@
 ---
 title: 			"Ember.js"
 description: 	"Javascript framework for creating web applications."
-proficiency:	"Beginner"
+proficiency:	1
 ---
 
 ### What is it?

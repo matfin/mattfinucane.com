@@ -1,36 +1,32 @@
-{{ $which := .Get "items" }}
+{{ $which 			:= .Get "items" }}
+{{ $languages 		:= where .Site.Pages "Section" "languages" }}
+{{ $frameworks 		:= where .Site.Pages "Section" "frameworks" }}
+{{ $infrastructure 	:= where .Site.Pages "Section" "infrastructure" }}
+{{ $tools 			:= where .Site.Pages "Section" "tools" }}
 
 <ul class="taxonomies-list">
 	{{ if eq $which "Languages" }}
-		{{ range $taxonomyname, $taxonomy := .Site.Taxonomies.Languages }}
+		{{ range sort $languages ".Params.proficiency" "desc" }}
 			<li>
-				<a href="{{ "/languages/" | relLangURL}}{{ $taxonomyname | urlize }}">
-					{{ $taxonomyname }}
-				</a>
+				{{ .Render "card" }}
 			</li>
 		{{ end }}
 	{{ else if eq $which "Frameworks" }}
-		{{ range $taxonomyname, $taxonomy := .Site.Taxonomies.Frameworks }}
+		{{ range sort $frameworks ".Params.proficiency" "desc" }}
 			<li>
-				<a href="{{ "/frameworks/" | relLangURL}}{{ $taxonomyname | urlize }}">
-					{{ $taxonomyname }}
-				</a>
+				{{ .Render "card" }}
 			</li>
 		{{ end }}
 	{{ else if eq $which "Infrastructure" }}
-		{{ range $taxonomyname, $taxonomy := .Site.Taxonomies.Infrastructure }}
+		{{ range sort $infrastructure ".Params.proficiency" "desc" }}
 			<li>
-				<a href="{{ "/infrastructure/" | relLangURL}}{{ $taxonomyname | urlize }}">
-					{{ $taxonomyname }}
-				</a>
+				{{ .Render "card" }}
 			</li>
 		{{ end }}
 	{{ else if eq $which "Tools" }}
-		{{ range $taxonomyname, $taxonomy := .Site.Taxonomies.Tools }}
+		{{ range sort $tools ".Params.proficiency" "desc" }}
 			<li>
-				<a href="{{ "/tools/" | relLangURL}}{{ $taxonomyname | urlize }}">
-					{{ $taxonomyname }}
-				</a>
+				{{ .Render "card" }}
 			</li>
 		{{ end }}
 	{{ end }}

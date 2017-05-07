@@ -1,7 +1,7 @@
 ---
 title: 			"WebGL"
 description: 	"Javascript bindings for the OpenGL ES graphics library."
-proficiency:	"Beginner"
+proficiency:	1
 ---
 
 ### What is it?

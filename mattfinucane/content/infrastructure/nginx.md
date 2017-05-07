@@ -1,7 +1,7 @@
 ---
 title: 			"Nginx"
 description: 	"Minimal high performance HTTP web server."
-proficiency:	"Advanced"
+proficiency:	3
 ---
 
 ### What is it?

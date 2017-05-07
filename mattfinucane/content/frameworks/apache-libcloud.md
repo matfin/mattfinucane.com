@@ -1,7 +1,7 @@
 ---
 title: 			"Apache Libcloud"
 description: 	"Python library for interacting with cloud service providers."
-proficiency:	"Intermediate"
+proficiency:	2
 ---
 
 ### What is it?

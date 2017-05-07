@@ -1,7 +1,7 @@
 ---
 title: 			"GLSL"
 description: 	"OpenGL shader language."
-proficiency:	"Beginner"
+proficiency:	1
 ---
 
 ### What is it?

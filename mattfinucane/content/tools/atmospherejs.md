@@ -1,7 +1,7 @@
 ---
 title: 			"Atmosphere.js"
 description: 	"Repository for MeteorJS packages."
-proficiency:	"Advanced"
+proficiency:	3
 ---
 
 ### What is it?

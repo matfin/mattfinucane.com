@@ -1,7 +1,7 @@
 ---
 title: 			"Chai"
 description: 	"Javascript assertion library for testing."
-proficiency:	"Advanced"
+proficiency:	3
 ---
 
 ### What is it?

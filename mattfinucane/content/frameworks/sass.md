@@ -1,7 +1,7 @@
 ---
 title: 			"Sass"
 description: 	"CSS preprocessor."
-proficiency:	"Expert"
+proficiency:	4
 ---
 
 ### What is it?

@@ -1,7 +1,7 @@
 ---
 title: 			"Mercurial"
 description: 	"Source control manager and project collaboration tool."
-proficiency:	"Advanced"
+proficiency:	3
 ---
 
 ### What is it?

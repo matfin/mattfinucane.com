@@ -1,7 +1,7 @@
 ---
 title: 			"jQuery"
 description: 	"Javascript library designed to simplify client side development."
-proficiency:	"Expert"
+proficiency:	4
 ---
 
 ### What is it?

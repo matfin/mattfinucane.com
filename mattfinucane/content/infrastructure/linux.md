@@ -1,7 +1,7 @@
 ---
 title: 			"Linux"
 description: 	"Open-source Unix-like operating system."
-proficiency:	"Advanced"
+proficiency:	3
 ---
 
 ### What is it?

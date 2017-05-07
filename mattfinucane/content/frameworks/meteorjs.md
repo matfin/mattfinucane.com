@@ -1,7 +1,7 @@
 ---
 title: 			"MeteorJS"
 description: 	"Javascript client side single page platform."
-proficiency:	"Expert"
+proficiency:	4
 ---
 
 ### What is it?

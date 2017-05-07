@@ -1,7 +1,7 @@
 ---
 title: 			"XCode"
 description: 	"Integrated development environment created by Apple."
-proficiency:	"Advanced"
+proficiency:	3
 ---
 
 ### What is it?

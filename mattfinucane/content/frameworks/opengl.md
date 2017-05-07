@@ -1,7 +1,7 @@
 ---
 title: 			"OpenGL"
 description: 	"Standardised graphics driver interface."
-proficiency:	"Beginner"
+proficiency:	1
 ---
 
 ### What is it?

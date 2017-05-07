@@ -1,7 +1,7 @@
 ---
 title: 			"Microsoft Visual Studio"
 description: 	"Integrated development environment created by Microsoft."
-proficiency:	"Intermediate"
+proficiency:	2
 ---
 
 ### What is it?

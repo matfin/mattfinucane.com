@@ -1,7 +1,7 @@
 ---
 title: 			"C++"
 description: 	"The C++ programming language."
-proficiency:	"Beginner"
+proficiency:	2
 ---
 
 ### What is it?

@@ -1,7 +1,7 @@
 ---
 title: 			"Apache Cordova"
 description: 	"Tool to bridge cross-platform apps with a devices native functionality."
-proficiency:	"Advanced"
+proficiency:	3
 ---
 
 ### What is it?

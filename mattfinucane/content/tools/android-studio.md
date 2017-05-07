@@ -1,7 +1,7 @@
 ---
 title: 			"Android Studio"
 description: 	"IDE for Android application development."
-proficiency:	"Intermediate"
+proficiency:	2
 ---
 
 ### What is it?

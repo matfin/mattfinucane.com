@@ -1,7 +1,7 @@
 ---
 title: 			"Mocha"
 description: 	"Javascript test running framework."
-proficiency:	"Advanced"
+proficiency:	3
 ---
 
 ### What is it?

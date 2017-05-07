@@ -1,7 +1,7 @@
 ---
 title: 			"Mongoose"
 description: 	"NodeJS wrapper for MongoDB."
-proficiency:	"Expert"
+proficiency:	4
 ---
 
 ### What is it?
