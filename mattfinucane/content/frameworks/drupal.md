@@ -5,18 +5,16 @@ proficiency:	"Beginner"
 ---
 
 ### What is it
-Drupal is a popular Open-source PHP based content management and web application framework.
+[Drupal](https://www.drupal.org/) is a popular Open-source PHP based content management and web application framework.
 
 ### What is it like?
-The learning curve is very steep because the system has so many moving parts and is very fragmented.
+With so many moving parts and fragmented packages, Drupal has an exceptionally steep learning curve.
 
-Drupal is a highly opinionated development platform where the system is put together by installing a myriad of modules. 
+It is a highly opinionated development platform where the system is put together by installing a myriad of modules. 
 
-This makes it suitable for some but for me it was very inflexible and a maintenance nightmare. Performance is also quite slow.
+This makes it suitable for some but for me it was very inflexible and a maintenance nightmare, with poor performance on a development environment to boot.
 
-I am sure that the above issues can be addressed but would need to be done so by someone with several years of experience in working with the platform.
-
-In all cases, I would recommend using a lightweight MVC framework and building from scratch.
+Drupal can be quite powerful in the hands of someone with a lot of experience but in all cases, I would opt to go for a lightweight MVC framework such as [Django](/frameworks/django) or [CodeIgniter](/frameworks/codeigniter) instead.
 
 ### Projects
 {{% categorised_projects taxonomy="frameworks" term="Drupal" %}}

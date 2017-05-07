@@ -4,6 +4,8 @@ description: 	"Static HTML generator for client-side Javascript applications and
 proficiency:	"Advanced"
 ---
 
-Prerender generates static HTML for client-side single page applications to make them accessible to web crawlers.
+### What is it?
+[Prerender](https://prerender.io/) generates static HTML for client-side single page applications to make them accessible to web crawlers.
 
+### Projects
 {{% categorised_projects taxonomy="infrastructure" term="Prerender.io" %}}

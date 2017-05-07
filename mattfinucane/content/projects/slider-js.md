@@ -10,7 +10,6 @@ languages:
 tools:
 - BowerJS
 - Sublime Text
-- XCode
 - Git
 - JSLint
 - AtmosphereJS

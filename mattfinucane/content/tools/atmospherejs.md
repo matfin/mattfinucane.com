@@ -4,6 +4,8 @@ description: 	"Repository for MeteorJS packages."
 proficiency:	"Advanced"
 ---
 
-Atmosphere.js is the offical repository for MeteorJS packages.
+### What is it?
+[Atmosphere.js](https://atmospherejs.com/) is the offical repository for MeteorJS packages.
 
+### Projects
 {{% categorised_projects taxonomy="tools" term="AtmosphereJS" %}}

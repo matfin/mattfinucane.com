@@ -5,14 +5,14 @@ proficiency:	"Beginner"
 ---
 
 ### What is it?
-Magento is a CMS and e-commerce platform written in PHP.
+[Magento](https://magento.com/) is a CMS and e-commerce platform written in PHP.
 
 ### What is it like?
-A mixed bag. Magento can be quite powerful in the hands of a very experienced developer but the learning curve is quite steep.
+Magento can be a bit of a mixed bag - quite powerful in the hands of a very disciplined and experience team or horrible otherwise.
 
-I worked with this on a couple of projects and found that it needed quite a bit of maintanance effort to run.
+I worked with it for two projects and found it to be quite slow and unintuitive, especially when you had to traverse over a hundred SQL tables.
 
-For my own projects, I would definitely start working with a non-opinionated MVC framework.
+If I was given the choice on building an e-commerce based website, I would opt to go with an MVC framework.
 
 ### Projects
 {{% categorised_projects taxonomy="frameworks" term="Magento" %}}

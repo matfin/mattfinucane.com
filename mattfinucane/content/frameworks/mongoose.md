@@ -5,14 +5,14 @@ proficiency:	"Expert"
 ---
 
 ### What is it?
-Mongoose is a NodeJS library that interacts with MongoDB and provides some nice extras such as data validation, CDUD hooks and model declarations.
+[Mongoose](http://mongoosejs.com/) is a NodeJS wrapper that interacts with MongoDB.
 
 ### What is it like?
-Very useful altough the documentation can be difficult to follow at times. 
+Powerful and easy to pick up. It has a powerful relational data modelling set up with validation and hooks.
 
-Mongoose is quite easy to pick up and accomplish basic CRUD operations with and it even supports MongoDB features such as aggregation which is very useful for making complex queries across collections.
+Fragmented documentation can be a bit tricky, but it does keep up to date with new MongoDB features.
 
-I will continue to use this across my MEAN stack projects.
+I will continue to use this on all MEAN stack applications I work with.
 
 ### Projects
 {{% categorised_projects taxonomy="frameworks" term="Mongoose" %}}

@@ -1,6 +1,6 @@
 ---
 title: 			"Hello"
-description: 	"I am a freelance full stack software engineer based in Berlin and this is my website."
+description: 	"I am a freelance full stack software engineer based in Berlin"
 ---
 
 ## Skills

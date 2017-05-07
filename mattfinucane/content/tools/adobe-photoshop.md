@@ -4,6 +4,8 @@ description: 	"Raster graphics editing tool."
 proficiency:	"Advanced"
 ---
 
-Adobe Photoshop is a raster graphics editing tool and part of the Adobe Creative Suite.
+### What is it?
+[Adobe Photoshop](http://www.adobe.com/products/photoshopfamily.html) is a raster graphics editing tool and part of the Adobe Creative Suite.
 
+### Projects
 {{% categorised_projects taxonomy="tools" term="Adobe Photoshop" %}}

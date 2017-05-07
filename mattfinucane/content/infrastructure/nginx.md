@@ -4,6 +4,8 @@ description: 	"Minimal high performance HTTP web server."
 proficiency:	"Advanced"
 ---
 
-Nginx is a minimal and modular high performing web server commonly used in reverse-proxying for web applications.
+### What is it?
+[Nginx](https://www.nginx.com/) is a minimal and modular high performing web server commonly used in reverse-proxying for web applications.
 
+### Projects
 {{% categorised_projects taxonomy="infrastructure" term="Nginx" %}}

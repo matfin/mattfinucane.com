@@ -4,6 +4,8 @@ description: 	"Virtual machine management tool."
 proficiency:	"Advanced"
 ---
 
-Vagrant is a tool for managing virtual machines.
+### What is it?
+[Vagrant](https://www.vagrantup.com/) is a tool for managing virtual machines.
 
+### Projects
 {{% categorised_projects taxonomy="tools" term="Vagrant" %}}

@@ -4,6 +4,8 @@ description: 	"Container management tool."
 proficiency:	"Intermediate"
 ---
 
-Docker is a tool that manages the deployment of applications inside software containers.
+### What is it?
+[Docker](https://www.docker.com/) is a tool that manages the deployment of applications inside containers.
 
+### Projects
 {{% categorised_projects taxonomy="infrastructure" term="Docker" %}}
