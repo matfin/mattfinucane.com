@@ -15,7 +15,7 @@ tools:
 - Git
 ---
 
-Experimentation with OpenGL and C++ with tutorials and a book from [http://antongerdelan.net/opengl/]
+Experimentation with OpenGL and C++ with tutorials and a book from [Anton Gerdelan](http://antongerdelan.net/opengl/).
 
 ### The brief
 - Learn OpenGL by example, taking existing learning material and refactoring it.

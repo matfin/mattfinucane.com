@@ -29,3 +29,10 @@ My current hardware setup is as follows:
 - Dell U2715H 27" monitor
 - Intel NUC 6Yi5SYK with Windows 10 Professional
 - Apple Airport Extreme Wi-Fi router
+
+## About this website
+The idea behind this website is twofold, to give a quick overview of my skills and experience and also provide more in-depth information as needed.
+
+It was built using the [Hugo](https://gohugo.io) static site generator which embodies these principles of engineering that I adhere to - simplicity, elegance, performance and openness.
+
+I respect you and your privacy as a visitor to my site. This is why I don't have any analytics or tracking tools installed and I will never place ads on this site.

@@ -4,7 +4,7 @@ description: 	"I am available for hire from September 2017 onwards"
 ---
 
 ## Hello
-I am a freelance full stack software engineer based in Berlin, Germany and I work remotely with businesses of all sizes across the world.
+I am a freelance full stack software engineer based in Berlin, Germany and I work remotely with businesses of all sizes across the world. I work well on projects within teams or on my own, and I have built several projects on my own from scratch.
 
 If you are looking for somebody with strong technical and communication skills to take on a project at any stage in its lifecycle, I would be more than happy to work with you on that.
 
