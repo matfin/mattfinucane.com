@@ -1,30 +1,9 @@
-{{ $which 			:= .Get "items" }}
-{{ $languages 		:= where .Site.Pages "Section" "languages" }}
-{{ $frameworks 		:= where .Site.Pages "Section" "frameworks" }}
-{{ $infrastructure 	:= where .Site.Pages "Section" "infrastructure" }}
-{{ $tools 			:= where .Site.Pages "Section" "tools" }}
+{{ $which 	:= .Get "items" }}
+{{ $items	:= where .Site.Pages "Section" $which }}
 
 <ul class="taxonomies-list">
-	{{ if eq $which "Languages" }}
-		{{ range sort $languages ".Params.proficiency" "desc" }}
-			<li>
-				{{ .Render "card" }}
-			</li>
-		{{ end }}
-	{{ else if eq $which "Frameworks" }}
-		{{ range sort $frameworks ".Params.proficiency" "desc" }}
-			<li>
-				{{ .Render "card" }}
-			</li>
-		{{ end }}
-	{{ else if eq $which "Infrastructure" }}
-		{{ range sort $infrastructure ".Params.proficiency" "desc" }}
-			<li>
-				{{ .Render "card" }}
-			</li>
-		{{ end }}
-	{{ else if eq $which "Tools" }}
-		{{ range sort $tools ".Params.proficiency" "desc" }}
+	{{ range sort $items ".Params.proficiency" "desc" }}
+		{{ if .Params.proficiency }}
 			<li>
 				{{ .Render "card" }}
 			</li>
