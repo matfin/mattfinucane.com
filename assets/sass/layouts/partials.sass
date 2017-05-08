@@ -50,20 +50,18 @@ nav
 		right: $units * 1.5
 
 	+break(min-max, 0, $break-3)
-		// z-index: $under
 		position: fixed
 		top: 55px
-		left: 0
-		transform: translate3d(100%, 0, 0)
+		transform: translate3d(100vh, 0, 0)
 		width: 100vw
 		height: calc(100vh - 55px)
 		background-color: $dark-green
-		+transitionWithProperties((opacity, background-color, transform))
+		+transitionWithProperties((transform, background-color))
 
 		&.revealed
-			// z-index: $over
-			opacity: 1.0
+			z-index: $over
 			background-color: $menu-green
+			left: 0
 			transform: translate3d(0, 0, 0)
 
 /**
