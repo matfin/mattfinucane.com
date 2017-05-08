@@ -1,3 +1,9 @@
 ul.taxonomies-list,
 ul.projects-list
 	+listBoxes
+
+ul.projects-list
+	li
+		+break(min-max, 0, $break-1)
+			width: 100%
+			padding-right: 0

@@ -1,4 +1,12 @@
 /**
+ *	Body
+ */
+body
+	font-family: $font-family
+	-webkit-font-smoothing: antialiased
+  	-moz-osx-font-smoothing: grayscale
+
+/**
  *	Header
  */
 header
@@ -10,21 +18,28 @@ header
 		letter-spacing: $letter-spacing
 
 		strong 
-			font-family: $font-family-normal
-			font-weight: $font-weight-light
+			font-family: $font-family
+			font-weight: $font-weight-semibold
 
 /**
  *	Teaser
  */
 .teaser
-	h2, 
+	h2,
 	h3
 		font-family: 	$font-family-alt
 		font-style: 	italic
 		font-weight: 	$font-weight-light
-		font-size: 		($base-font-size * 1.25) + 0.125rem
-		line-height: 	($base-font-size * 1.5) + 0.125rem
 		letter-spacing: $letter-spacing / 2
+
+	h2
+		font-size: 		$base-font-size * 1.75
+		line-height:	$base-font-size * 2
+
+	h3
+		font-size: 		$base-font-size * 1.25
+		line-height: 	$base-font-size * 1.5
+
 
 /**
  *	Navigation
@@ -44,6 +59,7 @@ nav
 		font-family: 	$font-family-alt
 		font-size: 		$base-font-size * 1.25
 		line-height: 	$base-font-size * 1.5
+		font-weight: 	$font-weight-light
 		letter-spacing: $letter-spacing
 
 /**
@@ -54,6 +70,28 @@ p
 	font-family: 	$font-family
 	font-size: 		$base-font-size
 	letter-spacing: $letter-spacing
+	font-weight:	$font-weight-light
+
+/**
+ *	Taxonomies list
+ */
+.taxonomies-list
+	a
+		font-weight: $font-weight-semibold
+
+/**
+ *	Project listing
+ */
+.projects-list
+	a
+		h2
+			font-size: $base-font-size * 1.5
+			letter-spacing: $letter-spacing
+			font-weight: $font-weight-light
+		h3
+			font-size: $base-font-size
+			letter-spacing: $letter-spacing
+			font-weight: $font-weight-light
 
 /**
  *	Footer 
