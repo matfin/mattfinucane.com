@@ -1,48 +1,46 @@
-h1,
-h2 
-	font-size: 		$medium-font-size
-	line-height: 	$medium-line-height
-	letter-spacing: $letter-spacing
-
-	+break(min, $break-1)
-		font-size: 		$medium-font-size * 1.25
-		line-height: 	$medium-line-height * 1.25
-
-	+break(min, $break-2)
-		font-size: 		$medium-font-size * 1.5
-		line-height: 	$medium-line-height * 1.5
-
-	+break(min, $break-4)
-		font-size: 		$medium-font-size * 2.0
-		line-height: 	$medium-line-height * 2.0
-
-ul,
-p,
-h3, 
-h4
-	font-size: 		$base-font-size
-	line-height:	$base-line-height
-	letter-spacing: $letter-spacing
-
-	+break(min, $break-1)
-		font-size: 		$base-font-size
-		line-height: 	$base-line-height
-
-	+break(min, $break-2)
+/**
+ *	Header
+ */
+header
+	h1
 		font-size: 		$base-font-size * 1.25
-		line-height: 	$base-line-height * 1.25
+		letter-spacing: $letter-spacing
+		text-transform: uppercase
+		font-weight: 	$font-weight-light
+		letter-spacing: $letter-spacing
 
-	+break(min, $break-4)
-		font-size: 		$base-font-size * 1.5
-		line-height: 	$base-line-height * 1.5
+		strong 
+			font-family: $font-family-normal
+			font-weight: $font-weight-light
 
+/**
+ *	Teaser
+ */
+.teaser
+	h2, 
+	h3
+		font-family: 	$font-family-alt
+		font-style: 	italic
+		font-weight: 	$font-weight-light
+		font-size: 		($base-font-size * 1.25) + 0.125rem
+		line-height: 	($base-font-size * 1.5) + 0.125rem
+		letter-spacing: $letter-spacing / 2
+
+/**
+ *	Page
+ */
+.page
+	h2
+		font-family: 	$font-family-alt
+		font-size: 		$base-font-size * 1.25
+		line-height: 	$base-font-size * 1.5
+		letter-spacing: $letter-spacing
+
+/**
+ *	General
+ */
 ul,
-p 
-	font-weight: $font-weight-normal
-
-h3,
-h4
-	font-weight: $font-weight-bold
-
-
-	
+p
+	font-family: 	$font-family
+	font-size: 		$base-font-size
+	letter-spacing: $letter-spacing

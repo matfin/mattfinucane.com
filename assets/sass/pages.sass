@@ -1,13 +1,22 @@
 /** 
  *	Applicable to all pages
  */
-section.page,
-section.category,
-section.home,
-section.projects,
-section.categories,
-section.work-with-me
+section.page
 	+contentSection
+
+	h2
+		margin: $units / 2 0
+		color: $green
+
+/**
+ *	Home page
+ */		
+section.home
+	h2
+		margin-left: 20%
+
+	ul
+		margin-bottom: $units * 3
 
 /**
  *	Projects list

@@ -14,18 +14,17 @@
 	transition-duration: $ms
 
 =contentSection
-	padding-top: $units * 4
+	padding-top: $units * 2
 
-=list
+=listItem
+	display: inline-block
 	position: relative
-	padding-left: $units * 1.5
+	padding-left: $units * 1.25
 	margin: $units / 2 0
 	&:before
 		position: absolute
 		left: $units * 0.25
-		font-family: FontAwesome
-		font-size: $units
-		content: '\f0da'
+		content: '\2013'
 
 =listBoxes
 	display: flex
@@ -58,20 +57,24 @@
 				padding-right: 0
 
 		a
-			flex: 1
+			display: flex
+			width: 100%
+			align-items: center;
+			justify-content: center;
+			// height: 100%
 			color: $white
-			padding: 25% $units
+			padding: $units
 			background-color: $black
 			border-bottom: none
 
 			&[data-proficiency="1"]
-				background-color: #999
+				background-color: rgba($proficiency, 0.45)
 
 			&[data-proficiency="2"]
-				background-color: #666
+				background-color: rgba($proficiency, 0.65)
 
 			&[data-proficiency="3"]
-				background-color: #333
+				background-color: rgba($proficiency, 0.85)
 
 			&[data-proficiency="4"]
-				background-color: #000
+				background-color: $proficiency
