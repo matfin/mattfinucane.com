@@ -9,9 +9,11 @@ section.page
 		color: $green
 
 /**
- *	Home page
+ *	Content pages
  */		
-section.home
+section.home,
+section.about,
+section.work-with-me
 	h2
 		margin-left: 20%
 
@@ -35,11 +37,14 @@ ul.projects-list
 /**
  *	CV
  */
-section.cv
+section.work-experience
 	ul
 		margin-bottom: $units * 3
 		&:last-child
 			margin-bottom: 0
+	h3,
+	h4
+		color: $green
 
 /**
  *	Work with me
