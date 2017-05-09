@@ -16,6 +16,10 @@ div.page
 			&:first-of-type
 				margin-top: 0
 
+	p + h2
+		+break(min, $break-3)
+			margin-top: $units * 5
+
 /**
  *	Projects list
  */
@@ -37,12 +41,4 @@ div.work-experience
 	h3,
 	h4
 		color: $green
-
-/**
- *	About, Contact
- */
-div.about,
-div.work-with-me
-	p + h2
-		+break(min, $break-3)
-			margin-top: $units * 5
+	

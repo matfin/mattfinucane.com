@@ -23,16 +23,16 @@ tools:
 - Vagrant
 ---
 
-Tekcomms provide various hardware solutions to cellular communications providers.
+## The brief
+Tekcomms is a software and hardware solutions provider for the telecom industry.
 
-### The brief
 We had to extend the Tekcomms website to provide a password protected community portal and knowlege base for telecomms engineers. 
 
 Upon signing in, an engineer would be presented with a customised list of technical documents for the hardware they were working with.
 
 We also needed to integrate the community portal with third party lead generation tools the organisation used for their clients.
 
-### Project development
+## Project development
 Our tasks for the project were outlined as follows:
  
 - Build out the HTML, CSS and Javascript for the given templates, tying them all together using the Drupal view module.
@@ -42,8 +42,7 @@ Our tasks for the project were outlined as follows:
 
 The templates were built using HTML5, with Compass being used as the SASS preprocessor and jQuery used for UI behaviours.
 
-### Difficulties encountered
-
+## Difficulties encountered
 Keeping data in sync across developer machines was a tall task given Drupal. There were cases where templates and modules needed to be built and exported, to be imported to another machine.
 
 This was a task fraught with errors and only a fraction of the code worked on could be committed to the SVN repository.

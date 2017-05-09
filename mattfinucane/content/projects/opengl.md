@@ -17,7 +17,7 @@ tools:
 
 Experimentation with OpenGL and C++ with tutorials and a book from [Anton Gerdelan](http://antongerdelan.net/opengl/).
 
-### The brief
+## The brief
 - Learn OpenGL by example, taking existing learning material and refactoring it.
 - Experiment with smooth transforations and rotations using Quaternions.
 - Create a world filled with 3D models with a movable camera.

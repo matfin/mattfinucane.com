@@ -4,8 +4,8 @@ description: 	"Object-relational database management system."
 proficiency:	2
 ---
 
-### What is it?
+## What is it?
 [PostgreSQL](https://www.postgresql.org/) is a popular Open-source object-relational database management system.
 
-### Projects
+## Projects
 {{% categorised_projects taxonomy="infrastructure" term="PostgreSQL" %}}

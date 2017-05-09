@@ -15,12 +15,12 @@ tools:
 - XCode
 ---
 
+## The brief
 In 2015, I was given the task of creating a simple prototype for the Shelfd iOS application, which aggregates a users monthly media consumption into one place.
 
-### The brief
 The task was to create a simple application that would connect to a users media library across different services and sync them to their iOS device. This media would then be played back on the users TV.
 
-### Project planning and development
+## Project planning and development
 The project setup was as follows:
 
 - Objective C would be the language of choice given the wider availabilty of third party libraries.
@@ -30,5 +30,5 @@ The project setup was as follows:
 - Downloaded media information was stored using CoreData.
 - Icon fonts were generated on [IcoMoon](https://icomoon.io/) and included in the project.
 
-### Beta release cycle
+## Beta release cycle
 The weekly release cycle for this prototype was handled using iTunes Connect.

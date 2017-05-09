@@ -4,8 +4,8 @@ description: 	"Test runner suite for MeteorJS applications."
 proficiency:	3
 ---
 
-### What is it?
+## What is it?
 [Velocity](https://github.com/meteor-velocity/velocity) was the test running suite for MeteorJS.
 
-### Projects
+## Projects
 {{% categorised_projects taxonomy="tools" term="Velocity" %}}

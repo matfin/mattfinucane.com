@@ -4,8 +4,8 @@ description: 	"Code quality checker for Python."
 proficiency:	2
 ---
 
-### What is it?
+## What is it?
 [Pylint](https://www.pylint.org/) is a code quality tool for Python.
 
-### Projects
+## Projects
 {{% categorised_projects taxonomy="tools" term="Pylint" %}}

@@ -4,8 +4,8 @@ description: 	"Source control manager and project collaboration tool."
 proficiency:	3
 ---
 
-### What is it?
+## What is it?
 [Mercurial](https://www.mercurial-scm.org/) is a source control manager and code collaboration tool.
 
-### Projects
+## Projects
 {{% categorised_projects taxonomy="tools" term="Mercurial" %}}

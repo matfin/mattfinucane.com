@@ -17,10 +17,10 @@ tools:
 - Apache Cordova
 ---
 
-Cross platform mobile web application for presenting Antimicrobial Perscribing Guidelines in a format suitable for phones and tablets.
+## The brief
+This was a cross platform mobile web application for presenting antimicrobial perscription guidelines in a format suitable for phones and tablets.
 
-### The brief
-Before this application was created, staff Galway University Hospitals needed to refer to a large document with a very basic structure to reference their Antimicrobial Perscribing Guidelines. 
+Before this application was created, staff Galway University Hospitals needed to refer to a large document with a very basic structure to reference their antimicrobial perscription guidelines. 
 
 Our job was to refactor this document and present it in a more compact and logical fashion to faciliate access to the information within.
 
@@ -31,7 +31,7 @@ The requirements for this project were as follows:
 - Allow the user to search content and bookmark items of interest.
 - Include Gentamycin and Vancomycin dosing calculators.
 
-### Project planning
+## Project planning
 With those requirements established, we decided to start with the following:
 
 - [Sencha Touch](https://www.sencha.com/products/touch/), a cross platform Javascript mobile application framework in conjunction with [Apache Cordova](https://cordova.apache.org/).
@@ -40,7 +40,7 @@ With those requirements established, we decided to start with the following:
 - Sencha CMD was used to bundle and minifiy the app, preparing it for deployment to the iOS and Android devices.
 - We wrote a customised image viewer natively to allow for pan, pinch and zoom on diagrams.
 
-### Difficulties encountered
+## Difficulties encountered
 We encountered the ususal problems we had experience with cross-platform application development. 
 
 Tapping on an external link within the content would take the user to that website inside the same webview, effectively stranding them outside the app.

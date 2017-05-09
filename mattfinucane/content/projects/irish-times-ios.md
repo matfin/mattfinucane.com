@@ -14,9 +14,10 @@ tools:
 - Adobe Photoshop
 ---
 
-Application for delivering categorised news articles to users.
+## The brief
 
-### The brief
+This is an iPhone application created to deliver the latest news and sports to users.
+
 Our job was to rewrite this application from scratch with the following features:
 
 - Display a list of news articles filtered by category.
@@ -27,7 +28,7 @@ Our job was to rewrite this application from scratch with the following features
 - Allow users to adjust settings for font size for accessibility.
 - Provide a feedback and support mechanisms.
 
-### Project planning and development
+## Project planning and development
 Given the issues we had encountered with cross-platform development in the past, we decided to implement this project natively. 
 
 The target platform was any device that could run iOS 4.2 and up and we used [Cocoapods](https://cocoapods.org/) to handle any third party dependencies.

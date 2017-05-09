@@ -16,16 +16,17 @@ tools:
 - Apache Cordova
 ---
 
-News, fixtures, live match reports and team info for the Republic of Ireland squad as they compete in the European Football Championship of 2012.
+## The brief
 
-### The brief
+This application was to show news, fixtures, live match reports and team info for the Republic of Ireland squad as they competed in the 2012 Euros.
+
 Time was of the essence and we needed to create a cross-platform mobile application for iOS and Android devices with the following features:
 
 - A feed of the latest news for the squad.
 - A fanzone section with targeted content and offers.
 - A live match tracker with minute by minute commentary.
 
-### Project planning and development
+## Project planning and development
 We went about building the project with the following:
 
 - [Sencha Touch](https://www.sencha.com/products/touch/), a cross platform Javascript mobile application framework in conjunction with [Apache Cordova](https://cordova.apache.org/).
@@ -34,7 +35,7 @@ We went about building the project with the following:
 - Intent listeners were used to handle tapping on external links and videos.
 - App content and live match tracking data was pulled from various JSON feeds.
 
-### Difficulties encountered
+## Difficulties encountered
 We encountered the usual difficulties with using a cross-platform Javascript framework for creating a mobile application.
 
 Performance was an issue in some areas, especially when it came to rendering lists of data for the live match tracker.

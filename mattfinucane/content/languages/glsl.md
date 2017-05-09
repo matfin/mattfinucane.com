@@ -4,8 +4,8 @@ description: 	"OpenGL shader language."
 proficiency:	1
 ---
 
-### What is it?
+## What is it?
 GLSL is a shader language/script used in OpenGL.
 
-### Projects
+## Projects
 {{% categorised_projects taxonomy="languages" term="GLSL" %}}

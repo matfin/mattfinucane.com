@@ -30,14 +30,14 @@ tools:
 - Velocity
 ---
 
-Content managed portfolio for Anna Christoffer, an Art Director based in Berlin.
+## The brief
+This is the online portfolio for Anna Christoffer, an Art Director based in Berlin.
 
-### The brief
 Build a fast and responsive website focusing on the delivery of clean and crisp images and well formatted typography.
 
 It should be easy to edit content and resize images on the fly, with only one updload required per image.
 
-### Project planning and development
+## Project planning and development
 This project went through several iterations as it was being build. The first release was built using MeteorJS and stored all content client side (in JSON files).
 
 I decided to rebuild it from scratch with the following setup:
@@ -48,8 +48,7 @@ I decided to rebuild it from scratch with the following setup:
 - Client side testing was carried out using the Velocity testing suite.
 - Styles were processed using Node SASS.
 
-### Challenges encountered
-
+## Challenges encountered
 - Installing PhantomJS on the production server slowed things down considerably and it did not have the same level of support for certain components as a modern browser would. This was replaced with [Prerender.io](https://prerender.io/).
 - Given the nature of the site and the number of images it had, we cut down on the initial loading time by loading images that were visible in the viewport.
 

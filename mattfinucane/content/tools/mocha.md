@@ -4,8 +4,8 @@ description: 	"Javascript test running framework."
 proficiency:	3
 ---
 
-### What is it?
+## What is it?
 [Mocha](https://mochajs.org/) is a test runner framework for Javascript applications, used primarily when testing NodeJS web applications.
 
-### Projects
+## Projects
 {{% categorised_projects taxonomy="tools" term="Mocha" %}}
