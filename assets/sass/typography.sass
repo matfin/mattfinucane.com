@@ -24,7 +24,7 @@ header
 /**
  *	Teaser
  */
-.teaser
+div.teaser
 	h2,
 	h3
 		font-family: 	$font-family-alt
@@ -60,7 +60,7 @@ nav
 /**
  *	Page
  */
-.page
+div.page
 	h2
 		font-family: 	$font-family-alt
 		font-size: 		$base-font-size * 1.25
@@ -79,8 +79,13 @@ nav
 		font-weight: 	$font-weight-semibold
 		letter-spacing: $letter-spacing
 
+		+break(min, $break-3)
+			font-size: $base-font-size * 1.5
+
 	h3
-		font-size: 		$base-font-size * 1.25
+		font-size: $base-font-size * 1.25
+		+break(min, $break-3)
+			font-size: $base-font-size * 1.5
 
 /**
  *	General
@@ -99,14 +104,14 @@ p
 /**
  *	Taxonomies list
  */
-.taxonomies-list
+ul.taxonomies-list
 	a
 		font-weight: $font-weight-semibold
 
 /**
  *	Project listing
  */
-.projects-list
+ul.projects-list
 	a
 		h3
 			font-size: $base-font-size * 1.5

@@ -1,23 +1,25 @@
 /** 
  *	Applicable to all pages
  */
-section.page
+div.page
 	+contentSection
 	max-width: $units * 50
 
 	h2
 		color: $green
 		margin-left: $units * 4
-		margin-bottom: $units * 1.25
-	// ul
-	// 	margin-bottom: $units * 4
+
+		+break(min, $break-3)
+			margin-bottom: $units * 2
+			margin-top: $units * 6
+
+			&:first-of-type
+				margin-top: 0
 
 /**
  *	Projects list
  */
 ul.projects-list
-	margin: $units 0
-
 	li
 		a.project-card
 			flex-direction: column
@@ -26,11 +28,21 @@ ul.projects-list
 /**
  *	CV
  */
-section.work-experience
+div.work-experience
 	ul
-		margin-bottom: $units * 3
+		margin-top: $units
+		margin-bottom: $units * 3.5
 		&:last-child
 			margin-bottom: 0
 	h3,
 	h4
 		color: $green
+
+/**
+ *	About, Contact
+ */
+div.about,
+div.work-with-me
+	p + h2
+		+break(min, $break-3)
+			margin-top: $units * 5
