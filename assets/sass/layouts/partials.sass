@@ -10,6 +10,9 @@ header
 	padding: $units
 	background-color: $dark-green
 
+	+break(min, $break-3)
+		margin-top: $units * 3
+
 	+transitionWithProperties(background-color)
 
 	&.highlighted
@@ -29,7 +32,6 @@ header
  *	Responsive navigation
  */
 nav
-	padding: ($units * 2) 0
 	ul
 		display: flex
 		flex-direction: column
@@ -41,6 +43,7 @@ nav
 				border-bottom: none
 
 		+break(min, $break-3)
+			flex-direction: row
 			li
 				padding-left: $units * 1.5
 
@@ -70,28 +73,13 @@ nav
 .teaser
 	display: flex
 	flex-direction: column
-	align-items: center
-	max-width: 100vw
-	background-color: $dark-green
+	justify-content: center
+	// max-width: $units * 50
+	padding: ($units * 3) $units
 	color: $white
 
-	.content
-		display: flex
-		flex-direction: column
-		justify-content: center
-		width: 100%
-		min-height: 30vh
-		max-width: $max-width
-
-		h2
-			margin-bottom: $units
-
-		+break(min-max, 0, $break-2)
-			padding: ($units * 4) 0
-			min-height: 20vh
-
-		+break(min, $break-4)
-			padding: 0 $units * 1.5
+	+break(min, $break-3)
+		min-height: 25vh
 
 /**
  *	Footer

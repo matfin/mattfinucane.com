@@ -35,10 +35,16 @@ header
 	h2
 		font-size: 		$base-font-size * 1.75
 		line-height:	$base-font-size * 2
+		+break(min, $break-3)
+			font-size: 		$base-font-size * 3.5
+			line-height:	$base-font-size * 4
 
 	h3
 		font-size: 		$base-font-size * 1.25
 		line-height: 	$base-font-size * 1.5
+		+break(min, $break-3)
+			font-size: 		$base-font-size * 1.75
+			line-height:	$base-font-size * 3
 
 
 /**
@@ -62,6 +68,10 @@ nav
 		font-weight: 	$font-weight-light
 		letter-spacing: $letter-spacing
 
+		+break(min, $break-3)
+			font-size: $base-font-size * 2
+			line-height: 	$base-font-size * 3
+
 	h3,
 	h4
 		font-family: 	$font-family
@@ -82,6 +92,10 @@ p
 	letter-spacing: $letter-spacing
 	font-weight:	$font-weight-light
 
+	+break(min, $break-3)
+		font-size: $base-font-size * 1.25
+		letter-spacing: 0
+
 /**
  *	Taxonomies list
  */
@@ -94,14 +108,16 @@ p
  */
 .projects-list
 	a
-		h2
+		h3
 			font-size: $base-font-size * 1.5
 			letter-spacing: $letter-spacing
 			font-weight: $font-weight-light
-		h3
+		p
 			font-size: $base-font-size
 			letter-spacing: $letter-spacing
 			font-weight: $font-weight-light
+			+break(min, $break-3)
+				font-size: $base-font-size * 1.25
 
 /**
  *	Footer 

@@ -13,12 +13,23 @@ body
 	&.prevent-scroll 
 		overflow: hidden
 
+div.wrapper
+	display: flex
+	flex-direction: column
+	align-items: center
+	width: 100vw
+
+	&.background-dark-green
+		background-color: $dark-green
+
+	&.background-light-green
+		background-color: $light-green
+
 header,
 section,
 footer
 	width: 100vw
 	max-width: $max-width
-	padding: 0 $units
 
 ul 
 	list-style: none

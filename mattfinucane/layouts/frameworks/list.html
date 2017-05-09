@@ -4,12 +4,18 @@
 		{{ partial "head" . }}
 	</head>
 	<body>
-		{{ partial "header" . }}
-		{{ partial "teaser" . }}
-		<section class="categories">
-			{{ .Content }}
-		</section>
-		{{ partial "footer" . }}
+		<div class="wrapper background-dark-green">
+			{{ partial "header" . }}
+			{{ partial "teaser" . }}
+		</div>
+		<div class="wrapper">
+			<section class="page categories">
+				{{ .Content }}
+			</section>
+		</div>
+		<div class="wrapper background-light-green">
+			{{ partial "footer" . }}
+		</div>
 		{{ partial "scripts" .}}
 	</body>
 </html>

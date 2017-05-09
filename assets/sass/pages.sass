@@ -3,22 +3,14 @@
  */
 section.page
 	+contentSection
+	max-width: $units * 50
 
 	h2
-		margin: $units / 2 0
 		color: $green
-
-/**
- *	Content pages
- */		
-section.home,
-section.about,
-section.work-with-me
-	h2
-		margin-left: 20%
-
-	ul
-		margin-bottom: $units * 3
+		margin-left: $units * 4
+		margin-bottom: $units * 1.25
+	// ul
+	// 	margin-bottom: $units * 4
 
 /**
  *	Projects list
@@ -30,9 +22,6 @@ ul.projects-list
 		a.project-card
 			flex-direction: column
 			align-items: flex-start
-			
-			h2
-				margin-bottom: $units / 4
 
 /**
  *	CV
@@ -45,7 +34,3 @@ section.work-experience
 	h3,
 	h4
 		color: $green
-
-/**
- *	Work with me
- */
