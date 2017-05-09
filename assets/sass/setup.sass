@@ -3,6 +3,17 @@
 	margin: 	0
 	box-sizing: border-box
 
+html
+	.teaser,
+	.page h2
+		+transitionWithProperties(filter, 700ms)
+		filter: blur($units * 0.75)
+
+	&.wf-active
+		.teaser,
+		.page h2
+			filter: blur(0)
+
 body
 	z-index: 		$middle
 	display: 		flex
@@ -36,11 +47,9 @@ ul
 
 a
 	text-decoration: none
-	color: $link
-	border-bottom: 1px solid currentColor
-
-	&:hover
-		color: $link-hover
+	color: currentColor
+	&:not(.term-card):not(.project-card):not(.nav-link):not(.title)
+		+contentLink
 
 p
 	margin: $units 0

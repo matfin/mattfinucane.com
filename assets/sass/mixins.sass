@@ -63,3 +63,12 @@
 
 			&[data-proficiency="4"]
 				background-color: $proficiency
+
+=contentLink
+	color: $green
+	text-decoration: none
+	border-bottom: 6px solid $link-border
+	+transitionWithProperties(border)
+
+	&:hover
+		border-bottom: 6px solid $link-border-hover
