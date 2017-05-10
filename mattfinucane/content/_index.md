@@ -1,6 +1,7 @@
 ---
 title: 			"Hello"
 description: 	"I am a freelance full stack software engineer based in Berlin"
+identifier:		"home"
 ---
 
 ## Skills
@@ -17,8 +18,8 @@ description: 	"I am a freelance full stack software engineer based in Berlin"
 ## Frameworks
 {{% taxonomies items="frameworks" %}}
 
-## Infrastructure 
+## Infrastructure
 {{% taxonomies items="infrastructure" %}}
 
-## Tools 
+## Tools
 {{% taxonomies items="tools" %}}

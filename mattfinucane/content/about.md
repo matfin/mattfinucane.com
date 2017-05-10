@@ -1,6 +1,7 @@
 ---
 title: 			"About"
 description: 	"My name is Matt Finucane and I am a software engineer"
+identifier:		"about"
 ---
 
 ## Profile
@@ -24,10 +25,10 @@ In my spare time I like to create my own websites to keep up with the latest web
 ## Current setup
 My current hardware setup is as follows:
 
-- 2015 retina Macbook Pro with 16gb RAM and a 512gb SSD (I upgraded myself).
+- 2015 13" Retina Macbook Pro
 - 2011 27" Apple Thunderbolt monitor
-- Dell U2715H 27" monitor
-- Intel NUC 6Yi5SYK with Windows 10 Professional
+- Dell 27" monitor
+- Intel NUC with Windows 10 Professional
 - Apple Airport Extreme Wi-Fi router
 
 ## About this website

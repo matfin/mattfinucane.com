@@ -9,33 +9,35 @@ preservetaxonomynames = true
 	description		= "Description for Matt Finucane"
 	author			= "Matt Finucane"
 	mediaBase		= "http://media.mattfinucane.dev/"
+	title_first		= "Matt"
+	title_last		= "Finucane"
 
 [[menu.main]]
-	name			= "Home"
+	name			= "home"
 	identifier		= "home"
 	url 			= "/"
 	weight 			= 1
 
 [[menu.main]]
-	name			= "Projects"
+	name			= "projects"
 	identifier		= "projects"
 	url 			= "/projects"
 	weight 			= 2
 
 [[menu.main]]
-	name			= "CV"
+	name			= "cv"
 	identifier		= "cv"
 	url 			= "/cv"
 	weight 			= 3
 	
 [[menu.main]]
-	name			= "About"
+	name			= "about"
 	identifier		= "about"
 	url 			= "/about"
 	weight 			= 4
 
 [[menu.main]]
-	name			= "Hire me"
+	name			= "hire me"
 	identifier		= "hire-me"
 	url 			= "/hire-me"
 	weight 			= 5

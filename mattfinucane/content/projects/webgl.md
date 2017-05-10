@@ -5,6 +5,7 @@ synopsis:		"Learning WebGL and exploring 3d mathematics, lighting, texturing and
 date:			"2013-06-01"
 duration:		"Ongoing"
 draft:			true
+identifier:		"projects"
 languages:	
 - Javascript (ES5)
 frameworks:

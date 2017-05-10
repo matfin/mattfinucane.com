@@ -4,6 +4,7 @@ description:	"Cross platform mobile web application."
 synopsis:		"This is the NewsWhip cross platform mobile web application for Android and iOS."
 date:			"2012-08-01"
 duration:		"60 days"
+identifier:		"projects"
 languages: 		
 - Javascript (ES5)
 - HTML5
@@ -17,14 +18,14 @@ tools:
 - Apache Cordova
 ---
 
+## The brief
 NewsWhip is a news aggregation and analytics platform that tracks articles shared across social media platforms.
 
-### The brief
 My job was to create a cross platform version of the app to be deployed to both iOS and Android devices. 
 
 The app was required to show news articles filtered by location and topic, with the ability to bookmark their favourite topics.
 
-### Project planning and development
+## Project planning and development
 For this project, we opted to go with the following set up:
 
 - [Sencha Touch](https://www.sencha.com/products/touch/#overview), a Javascript based mobile application framework was to be used in conjunction with [Apache Cordova](https://cordova.apache.org/).
@@ -38,7 +39,7 @@ We used three projects for this with a git submodule set up as follows:
 - The XCode project which was an Apache Cordova web view that contained the Sencha Toucn application.
 - The Android project that had the same set up with the Apache Cordova plugins.
 
-### Difficulties encountered
+## Difficulties encountered
 Out of the box, Sencha Touch was not built to handle clicking on links to an external website. 
 
 In this case, tapping on a news article would load that article inside the same web view, which would essentially take you away from the application even though it was still running.

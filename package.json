@@ -4,7 +4,6 @@
   "description": "Static site generated with GoHugo",
   "main": "gulpfile.js",
   "dependencies": {
-    "font-awesome": "^4.7.0"
   },
   "devDependencies": {
     "gulp-clean-css": "^3.0.4",

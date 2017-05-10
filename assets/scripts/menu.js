@@ -1,14 +1,14 @@
 const toggleNavReveal = () => {
-
-	console.log('Tapped the nav reveal?');
-
 	let body 	= document.body,
-		nav 	= document.querySelector('nav');
+		header	= document.querySelector('header'),
+		nav 	= header.querySelector('nav');
 
 	if(nav.classList.toggle('revealed')) {
+		header.classList.add('nav-open');
 		body.classList.add('prevent-scroll');
 	}
 	else {
+		header.classList.remove('nav-open');
 		body.classList.remove('prevent-scroll');
 	}
 };

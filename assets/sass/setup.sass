@@ -3,34 +3,53 @@
 	margin: 	0
 	box-sizing: border-box
 
+html
+	.teaser,
+	.page h2
+		+transitionWithProperties(filter, 700ms)
+		filter: blur($units * 0.75)
+
+	&.wf-active
+		.teaser,
+		.page h2
+			filter: blur(0)
+
 body
 	z-index: 		$middle
 	display: 		flex
 	flex-direction:	column
 	align-items:	center
-	font-family:	$font-family
 	color: 			$black
 
 	&.prevent-scroll 
 		overflow: hidden
 
+div.wrapper
+	display: flex
+	flex-direction: column
+	align-items: center
+	width: 100vw
+
+	&.background-dark-green
+		background-color: $dark-green
+
+	&.background-light-green
+		background-color: $light-green
+
 header,
-section,
+div:not(.wrapper),
 footer
 	width: 100vw
 	max-width: $max-width
-	padding: 0 ($units * 1.5)
 
 ul 
 	list-style: none
 
 a
 	text-decoration: none
-	color: $link
-	border-bottom: 1px solid currentColor
-
-	&:hover
-		color: $link-hover
+	color: currentColor
+	&:not(.term-card):not(.project-card):not(.nav-link):not(.title):not(.social-link)
+		+contentLink
 
 p
 	margin: $units 0
@@ -40,6 +59,6 @@ button
 	background: none
 	outline: none
 
-ul:not(.taxonomies-list):not(.projects-list):not(.menu)
+ul:not(.taxonomies-list):not(.projects-list):not(.menu):not(.social-links)
 	li
-		+list
+		+listItem

@@ -14,18 +14,20 @@
 	transition-duration: $ms
 
 =contentSection
-	padding-top: $units * 4
+	padding: ($units * 2.5) $units
+	+break(min, $break-3)
+		padding: ($units * 4) 0
 
-=list
+=listItem
+	display: inline-block
 	position: relative
-	padding-left: $units * 1.5
-	margin: $units / 2 0
+	width: 100%
+	padding-left: $units * 1.25
+	margin: $units * 0.625 0
 	&:before
 		position: absolute
 		left: $units * 0.25
-		font-family: FontAwesome
-		font-size: $units
-		content: '\f0da'
+		content: '\2013'
 
 =listBoxes
 	display: flex
@@ -37,41 +39,36 @@
 		margin-bottom: $units / 2
 		padding-right: $units / 2
 
-		+break(min-max, 0, $break-1)
-			width: 50%
-			&:nth-child(2n)
-				padding-right: 0
-
-		+break(min-max, $break-1, $break-2)
-			width: 33%
-			&:nth-child(3n)
-				padding-right: 0
-
-		+break(min-max, $break-2, $break-3)
-			width: 25%
-			&:nth-child(4n)
-				padding-right: 0
-
-		+break(min, $break-3)
-			width: 20%
-			&:nth-child(5n)
-				padding-right: 0
-
 		a
-			flex: 1
+			display: flex
+			width: 100%
+			align-items: center;
+			justify-content: center;
 			color: $white
-			padding: 25% $units
-			background-color: $black
+			padding: $units
+			background-color: $dark-green
 			border-bottom: none
 
+			+break(min, $break-3)
+				padding: ($units * 3) $units
+
 			&[data-proficiency="1"]
-				background-color: #999
+				background-color: rgba($proficiency, 0.45)
 
 			&[data-proficiency="2"]
-				background-color: #666
+				background-color: rgba($proficiency, 0.65)
 
 			&[data-proficiency="3"]
-				background-color: #333
+				background-color: rgba($proficiency, 0.85)
 
 			&[data-proficiency="4"]
-				background-color: #000
+				background-color: $proficiency
+
+=contentLink
+	color: $green
+	text-decoration: none
+	border-bottom: 6px solid $link-border
+	+transitionWithProperties(border)
+
+	&:hover
+		border-bottom: 6px solid $link-border-hover

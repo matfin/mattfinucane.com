@@ -12,7 +12,7 @@ services:
       - "1313:1313"
     volumes: 
       - ./:/opt:rw
-    command: hugo server -s /opt/mattfinucane --config /opt/mattfinucane/config.toml --baseURL http://mattfinucane.dev/ --bind "0.0.0.0" --appendPort=false --verbose
+    command: hugo server -s /opt/mattfinucane --config /opt/mattfinucane/config.yml --baseURL http://mattfinucane.dev/ --bind "0.0.0.0" --appendPort=false --verbose
 
   mf-nginx:
     container_name: nginx
@@ -38,4 +38,4 @@ services:
       - mf-site
     depends_on:
       - mf-site
-    command: sh -c "cd /opt && npm install -g gulp && npm install -g bower && npm link gulp && npm install && bower install --allow-root && gulp"
+    command: sh -c "cd /opt && npm install -g gulp && npm link gulp && npm install && gulp"

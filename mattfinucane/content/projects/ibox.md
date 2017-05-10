@@ -4,6 +4,7 @@ description:	"Web application for TV set top box interface."
 synopsis:		"Web application for the iBox TV set top box created using Javascript and C# MVC 1.0."
 date:			"2012-04-01"
 duration:		"60 days"
+identifier:		"projects"
 languages: 		
 - Javascript (ES5)
 - HTML5
@@ -18,9 +19,9 @@ tools:
 - Microsoft Visual Studio
 ---
 
-Web based TV guide interface for the iBox set top box and HLS compliant web browsers.
+## The brief
+This is a web application for a TV guide built to run on set top boxes and [HLS](https://developer.apple.com/streaming/) compliant web browsers.
 
-### The brief
 The requirements for this project were as follows:
 
 - Create the interface for a TV set top box that displayed a TV guide to the user.
@@ -30,7 +31,7 @@ The requirements for this project were as follows:
 - Provide a mechanism for carrying out OTA firmware updates for the box.
 - Periodically fetch and cache new TV guide data once every week.
 
-### Project planning and development
+## Project planning and development
 The first phase of the project was to get the interface working on the set up box, which was a low powered Linux device with limited RAM and an entry level ARM based CPU.
 
 Performance was key, so function would take precedence over form for now. The box had its own MPEG decoder built in, with support for streaming with HLS (HTTP Live Streaming).
@@ -41,7 +42,7 @@ The browser installed on the device was a flavour of Opera mobile and had a limi
 
 A subset of CSS2 was used in conjunction with jQuery for DOM manipulation and querying. The HTML was kept as neat and as lightweight as possible. Speedy DOM traversal was key here.
 
-### Difficulties encountered
+## Difficulties encountered
 
 Given the low hardware spec of the box, the web interface needed to be fast and lightweight. All the HTML and JS code was hand written. No client side JS frameworks were used.
 

@@ -1,9 +1,10 @@
 ---
-title: 			"Matt Finucane (Static)"
-description:	"Portfolio site generated using GoHugo."
+title: 			"Developer Portfolio Static"
+description:	"Portfolio site generated using Hugo."
 synopsis:		"This is the portfolio site for Matt Finucane generated using the GoHugo static site generator."
 date:			"2017-04-01"
 duration:		"30 days"
+identifier:		"projects"
 languages: 		
 - Javascript (ES7)
 - HTML5
@@ -26,14 +27,14 @@ tools:
 - Font Awesome
 ---
 
-This is the online portfolio and CV for Matt Finucane, a Sofware Engineer based in Berlin.
+## The brief
+This is the overview for this portfolio website.
 
-### The brief
 Design and build a site that is fast, responsive and easy to maintain. Minimalism is the key concept here to present key information quickly and allow the reader to drill down for more detail as needed.
 
 The site should load very quickly on all devices given all network conditions. There should not be too many external dependencies that could slow down loading time.
 
-### Project planning
+## Project planning
 For this site, I opted to use the [GoHugo](https://gohugo.io) a static site generator for the following reasons:
 
 - Adding inline content as Markdown negates the need for a database setup.
@@ -42,7 +43,7 @@ For this site, I opted to use the [GoHugo](https://gohugo.io) a static site gene
 - GoHugo is a simple and non-opinionated framework and it allows you to serve clean, hand-coded HMTL.
 - Static content generated server side is still the easiest for Search Engines to index.
 
-### Development environment
+## Development environment
 For this project, I used [Docker Compose](https://docs.docker.com/compose/) which stores the project infrastructure in three containers as follows:
 
 - I use one container for GoGuho and this serves up a development version of the site. 
@@ -55,12 +56,12 @@ CSS and Javasript are managed using the Node SASS plugin, which is the CSS pre-p
 
 For builds I use the [gulp.js](http://gulpjs.com/) to generate minified and concatenated scripts and stylesheets. This reduces the number of HTTP request made when the site is loaded.
 
-### Deploying changes
+## Deploying changes
 [CircleCI](https://circleci.com/) is used in combination with Git to manage deployments. Changes pushed to the `develop` branch will automatically be deployed to a staging server and releases tagged from the `master` branch are deployed to the live server.
 
 The `circle.yml` deployment set up file contains instructions to first build the static assets (css/js), then build the site out using GoHugo. The resulting bundle is copied over to the live server.
 
-### Benefits of this approach
+## Benefits of this approach
 Given the type of website we are builing, serving the files for this website statically is ideal for performance.
 
 Serving over HTTPS using the HTTP/2 protocol speeds things up signigicantly, especially for image assets.

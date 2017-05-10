@@ -19,6 +19,5 @@
     "tests"
   ],
   "dependencies": {
-    "matfin-slider": "^2.0.0"
   }
 }

@@ -2,10 +2,11 @@
 title: 			"Vagrant"
 description: 	"Virtual machine management tool."
 proficiency:	3
+identifier:		"home"
 ---
 
-### What is it?
+## What is it?
 [Vagrant](https://www.vagrantup.com/) is a tool for managing virtual machines.
 
-### Projects
+## Projects
 {{% categorised_projects taxonomy="tools" term="Vagrant" %}}

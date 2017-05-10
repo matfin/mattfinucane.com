@@ -1,12 +1,16 @@
 <header>
-	<a href="{{ .Site.BaseURL }}">
+	<a class="title" href="{{ .Site.BaseURL }}">
 		<h1>
-			{{ .Site.Title }}
+			{{ .Site.Params.title_first }} <strong>{{ .Site.Params.title_last }}</strong>
 		</h1>
 	</a>
 	<button>
-		<i class="fa fa-bars" aria-hidden="true">
-		</i>
+		<svg role="img" class="menu">
+			<use xlink:href="/svg/sprite.svg#menu" />
+		</svg>
+		<svg role="img" class="close">
+			<use xlink:href="/svg/sprite.svg#close" />
+		</svg>
 	</button>
 	{{ partial "nav" . }}
 </header>
