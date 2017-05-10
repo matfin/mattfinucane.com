@@ -15,9 +15,6 @@ header
 
 	+transitionWithProperties(background-color)
 
-	&.highlighted
-		background-color: $menu-green
-
 	a
 		border-bottom: none
 		color: $white
@@ -25,8 +22,28 @@ header
 	button
 		display: none
 		color: $white
+
+		svg
+			width: $units * 1.5
+			height: $units * 1.5
+
+			&.menu
+				display: block
+
+			&.close
+				display: none
+
 		+break(min-max, 0px, $break-3)
 			display: block
+
+	&.nav-open
+		background-color: $menu-green
+
+		svg
+			&.menu
+				display: none
+			&.close 
+				display: block
 
 /**
  *	Responsive navigation
@@ -46,11 +63,6 @@ nav
 			flex-direction: row
 			li
 				padding-left: $units * 1.5
-
-	button
-		position: absolute
-		top: $units
-		right: $units * 1.5
 
 	+break(min-max, 0, $break-3)
 		position: fixed
@@ -74,7 +86,6 @@ div.teaser
 	display: flex
 	flex-direction: column
 	justify-content: center
-	// max-width: $units * 50
 	padding: ($units * 3) $units
 	color: $white
 
