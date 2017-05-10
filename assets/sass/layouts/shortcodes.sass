@@ -42,7 +42,13 @@ ul.social-links
 	li
 		a
 			display: block
-		svg
-			margin-right: $units * 1.5
-			width: $units * 2.5
-			height: $units * 2.5
+			svg
+				margin-right: $units * 1.5
+				width: $units * 2.5
+				height: $units * 2.5
+				color: rgba($link-base, 0.3)
+				+transitionWithProperties(color)
+
+		&:hover
+			svg
+				color: $link-base

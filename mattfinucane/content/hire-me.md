@@ -10,11 +10,10 @@ If you are looking for somebody with strong technical and communication skills t
 
 Please feel free to checkout my [qualifications](/cv), [skillset](/#skills) and some of the [projects](/projects) I have worked on. If you don't see something you are looking for here, don't fret - I am a fast learner and always open to picking up new things.
 
-If you have a project you wish to discuss then mail me at [<matfin@gmail.com>](mailto:matfin@gmail.com) or call me at [+49 (0)151 4211 0995](tel:+4915142110995).
+If you have a project you wish to discuss then drop me a mail at [<matfin@gmail.com>](mailto:matfin@gmail.com).
 
 Other places you can find me:
 
 {{< social >}}
 
-## Note
-If you want to contact me offering web development or SEO services, I have all that covered. Thanks.
+**Note:** If you are contacting me offering web development or SEO services, I have all that covered. Thanks.
