@@ -2,6 +2,7 @@
 
 const 	gulp 	= require('gulp'),
 		concat	= require('gulp-concat'),
+		babel	= require('gulp-babel'),
 		sass	= require('gulp-sass');
 
 /**
@@ -22,6 +23,9 @@ gulp.task('scripts', () => {
 	return gulp
 	.src('./assets/scripts/**/*')
 	.pipe(concat('main.js'))
+	.pipe(babel({
+		presets: ['es2015']
+	}))
 	.pipe(gulp.dest('./mattfinucane/static/js/'));
 });
 
