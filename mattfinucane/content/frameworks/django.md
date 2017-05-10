@@ -2,6 +2,7 @@
 title: 			"Django"
 description: 	"Web based MVC framework written in Python."
 proficiency:	2
+identifier:		"home"
 ---
 
 ## What is it?

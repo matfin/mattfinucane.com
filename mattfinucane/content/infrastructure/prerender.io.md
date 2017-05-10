@@ -2,6 +2,7 @@
 title: 			"Prerender"
 description: 	"Static HTML generator for client-side Javascript applications and websites."
 proficiency:	3
+identifier:		"home"
 ---
 
 ## What is it?

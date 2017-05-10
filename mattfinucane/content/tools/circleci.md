@@ -2,6 +2,7 @@
 title: 			"CircleCI"
 description: 	"Automated testing and deployment tool."
 proficiency:	3
+identifier:		"home"
 ---
 
 ## What is it?

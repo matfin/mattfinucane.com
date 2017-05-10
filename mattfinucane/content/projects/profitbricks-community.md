@@ -4,6 +4,7 @@ description:	"ProfitBricks community & drivers."
 synopsis:		"ProfitBricks drivers for various frameworks and sevices."
 date:			"2016-09-01"
 duration:		"90 days"
+identifier:		"projects"
 languages:	
 - Javascript (ES5)
 - Python

@@ -5,6 +5,7 @@ synopsis:		"This is the portfolio site for Anna Clair Christoffer generated usin
 liveurl:		"https://annachristoffer.com"
 date:			"2017-04-01"
 duration:		"30 days"
+identifier:		"projects"
 languages: 		
 - Javascript (ES7)
 - HTML5

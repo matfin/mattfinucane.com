@@ -4,6 +4,7 @@ description:	"Web application for TV set top box interface."
 synopsis:		"Web application for the iBox TV set top box created using Javascript and C# MVC 1.0."
 date:			"2012-04-01"
 duration:		"60 days"
+identifier:		"projects"
 languages: 		
 - Javascript (ES5)
 - HTML5

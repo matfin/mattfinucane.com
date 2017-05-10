@@ -2,6 +2,7 @@
 title: 			"Mercurial"
 description: 	"Source control manager and project collaboration tool."
 proficiency:	3
+identifier:		"home"
 ---
 
 ## What is it?

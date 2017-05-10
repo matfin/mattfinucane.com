@@ -4,6 +4,7 @@ description:	"Cross platform mobile web application."
 synopsis:		"This is the NewsWhip cross platform mobile web application for Android and iOS."
 date:			"2012-08-01"
 duration:		"60 days"
+identifier:		"projects"
 languages: 		
 - Javascript (ES5)
 - HTML5

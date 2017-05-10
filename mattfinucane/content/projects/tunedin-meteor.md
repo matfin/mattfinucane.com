@@ -4,6 +4,7 @@ description:	"Web application for TunedIn Media."
 synopsis:		"TV guide and user second screen participation app for TunedIn."
 date:			"2014-04-01"
 duration:		"210 days"
+identifier:		"projects"
 languages: 		
 - Javascript (ES5)
 - HTML5

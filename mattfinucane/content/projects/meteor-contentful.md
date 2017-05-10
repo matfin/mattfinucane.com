@@ -5,6 +5,7 @@ synopsis:		"This package was built to synchronise Contentful content with Meteor
 liveurl:		"https://atmospherejs.com/matfin/meteor-contentful"
 date:			"2015-08-01"
 duration:		"30 days"
+identifier:		"projects"
 languages: 		
 - Javascript (ES5)
 frameworks:

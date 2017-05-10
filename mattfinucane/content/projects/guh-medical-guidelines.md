@@ -4,6 +4,7 @@ description:	"Cross platform mobile web application."
 synopsis:		"This is the cross platform mobile web application built for Anroid and iOS using Sencha Touch."
 date:			"2013-03-01"
 duration:		"75 days"
+identifier:		"projects"
 languages: 		
 - Javascript (ES5)
 - HTML5

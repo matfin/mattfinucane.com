@@ -5,6 +5,7 @@ synopsis:		"Infrastructre and CMS for the Tagesschau Facebook Chatbot server."
 liveurl:		"http://www.novibot.de/"
 date:			"2017-03-01"
 duration:		"60 days"
+identifier:		"projects"
 languages: 		
 - Javascript (ES7)
 - HTML5

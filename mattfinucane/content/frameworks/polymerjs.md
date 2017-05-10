@@ -2,6 +2,7 @@
 title: 			"PolymerJS"
 description: 	"Javascript web application framework."
 proficiency:	4
+identifier:		"home"
 ---
 
 ## What is it?

@@ -2,6 +2,7 @@
 title: 			"Hugo"
 description: 	"Static site generator written in Go."
 proficiency:	2
+identifier:		"home"
 ---
 
 ## What is it?

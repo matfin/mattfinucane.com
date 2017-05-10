@@ -2,6 +2,7 @@
 title: 			"Magento"
 description: 	"CMS and e-commerce platform written in PHP."
 proficiency:	1
+identifier:		"home"
 ---
 
 ## What is it?

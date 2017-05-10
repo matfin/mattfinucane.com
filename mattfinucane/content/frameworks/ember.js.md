@@ -2,6 +2,7 @@
 title: 			"Ember.js"
 description: 	"Javascript framework for creating web applications."
 proficiency:	1
+identifier:		"home"
 ---
 
 ## What is it?

@@ -2,6 +2,7 @@
 title: 			"Dojo"
 description: 	"Client side Javascript toolkit."
 proficiency:	2
+identifier:		"home"
 ---
 
 ## What is it?

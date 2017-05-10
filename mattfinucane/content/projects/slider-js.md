@@ -5,6 +5,7 @@ synopsis:		"A simple content slider written in vanilla Javascript and bundled as
 liveurl:		"https://Git.com/matfin/slider"
 date:			"2015-08-01"
 duration:		"30 days"
+identifier:		"projects"
 languages: 		
 - Javascript (ES7)
 tools:

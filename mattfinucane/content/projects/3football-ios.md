@@ -4,6 +4,7 @@ description:	"Cross platform mobile web application."
 synopsis:		"This is the 3Football cross platform mobile web application for Android and iOS."
 date:			"2012-05-01"
 duration:		"40 days"
+identifier:		"projects"
 languages: 		
 - Javascript (ES5)
 - HTML5

@@ -2,6 +2,7 @@
 title: 			"Apache Libcloud"
 description: 	"Python library for interacting with cloud service providers."
 proficiency:	2
+identifier:		"home"
 ---
 
 ## What is it?

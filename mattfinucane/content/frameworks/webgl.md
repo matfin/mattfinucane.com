@@ -2,6 +2,7 @@
 title: 			"WebGL"
 description: 	"Javascript bindings for the OpenGL ES graphics library."
 proficiency:	1
+identifier:		"home"
 ---
 
 ## What is it?

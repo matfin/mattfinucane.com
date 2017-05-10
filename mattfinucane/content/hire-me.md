@@ -1,6 +1,7 @@
 ---
 title: 			"Work with me"
 description: 	"I am available for hire from September 2017 onwards"
+identifier:		"hire-me"
 ---
 
 ## Hello

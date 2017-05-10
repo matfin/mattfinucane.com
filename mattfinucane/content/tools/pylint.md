@@ -2,6 +2,7 @@
 title: 			"Pylint"
 description: 	"Code quality checker for Python."
 proficiency:	2
+identifier:		"home"
 ---
 
 ## What is it?

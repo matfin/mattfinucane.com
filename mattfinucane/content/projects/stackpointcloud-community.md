@@ -5,6 +5,7 @@ synopsis:		"This is the StackPointCloud Community website built using NodeJS and
 liveurl:		"https://stackpointcloud.com/community"
 date:			"2017-04-01"
 duration:		"150 days"
+identifier:		"projects"
 languages: 		
 - Javascript (ES7)
 - HTML5

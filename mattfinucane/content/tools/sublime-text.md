@@ -2,6 +2,7 @@
 title: 			"Sublime Text"
 description: 	"Text editor with plugin features."
 proficiency:	3
+identifier:		"home"
 ---
 
 ## What is it?

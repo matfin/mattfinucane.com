@@ -2,6 +2,7 @@
 title: 			"Font Awesome"
 description: 	"CSS framework for delivering font based icons."
 proficiency:	3
+identifier:		"home"
 ---
 
 ## What is it?

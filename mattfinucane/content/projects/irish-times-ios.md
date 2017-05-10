@@ -4,6 +4,7 @@ description:	"Irish Times news app for iPhone."
 synopsis:		"Irish Times iOS app for the iPhone - written natively."
 date:			"2012-12-01"
 duration:		"60 days"
+identifier:		"projects"
 languages: 		
 - Objective C
 - Javascript (ES5)

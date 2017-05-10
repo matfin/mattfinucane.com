@@ -5,6 +5,7 @@ synopsis:		"Website to connect Designers with those who stock and sell their pro
 liveurl:		"https://www.monoqibusiness.com/"
 date:			"2014-11-01"
 duration:		"75 days"
+identifier:		"projects"
 languages: 		
 - Javascript (ES5)
 - PHP

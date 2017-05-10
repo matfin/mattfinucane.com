@@ -2,6 +2,7 @@
 title: 			"Adobe Photoshop"
 description: 	"Raster graphics editing tool."
 proficiency:	3
+identifier:		"home"
 ---
 
 ## What is it?

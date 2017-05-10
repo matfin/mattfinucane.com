@@ -4,6 +4,7 @@ description:	"Portfolio site generated using Hugo."
 synopsis:		"This is the portfolio site for Matt Finucane generated using the GoHugo static site generator."
 date:			"2017-04-01"
 duration:		"30 days"
+identifier:		"projects"
 languages: 		
 - Javascript (ES7)
 - HTML5
