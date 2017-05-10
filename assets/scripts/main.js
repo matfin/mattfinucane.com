@@ -1,6 +1,6 @@
 const primeTapEvent = (selector, fn) => {
 	const items = document.querySelectorAll(selector);
-	items.forEach((item) => {
+	Array.prototype.forEach.call(items, (item) => {
 		if('onpointerdown' in window) {
 			item.addEventListener('pointerdown', fn);
 		}
@@ -14,5 +14,6 @@ const primeTapEvent = (selector, fn) => {
 };
 
 onload = () => {
+	svg4everybody();
 	primeTapEvent('header button', toggleNavReveal);
 };
