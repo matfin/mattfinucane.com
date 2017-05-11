@@ -68,8 +68,14 @@
 =contentLink
 	color: $green
 	text-decoration: none
-	border-bottom: 6px solid $link-border
+	border-bottom: 2px solid $link-border
 	+transitionWithProperties(border)
 
 	&:hover
-		border-bottom: 6px solid $link-hover
+		border-bottom: 2px solid $link-hover
+
+	+break(min, $break-3)
+		border-bottom: 6px solid $link-border
+
+		&:hover
+			border-bottom: 6px solid $link-hover
