@@ -26,10 +26,10 @@ header
 		svg,
 		img
 			color: $white
-			&.menu
+			&:first-of-type
 				display: block
 
-			&.close
+			&:last-of-type
 				display: none
 
 		+break(min-max, 0px, $break-3)
@@ -40,10 +40,22 @@ header
 
 		svg,
 		img
-			&.menu
+			&:first-of-type
 				display: none
-			&.close 
+			&:last-of-type
 				display: block
+
+/**
+ *	This is a fix for IE to place the nav button 
+ *	in the correct place. It addresses a flexbox
+ *  bug that leaves the button centered.
+ */
+html.is-ie
+	header
+		button
+			position: absolute;
+			top: $units;
+			right: $units;
 
 /**
  *	Responsive navigation

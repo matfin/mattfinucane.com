@@ -23,6 +23,7 @@ onload = () => {
 	 *	Detect IE11 then run SVG replacement fix
 	 */
 	if(isIE()) {
+		setClass();
 		ieSvgFix();
 	}
 };

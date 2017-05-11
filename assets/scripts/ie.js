@@ -26,10 +26,9 @@ const replaceSVG = (svg) => {
 		parent		= svg.parentNode;
 
 	let	attrs = {
-		src:		src,
-		width:		svg.getAttribute('width'),
-		height:		svg.getAttribute('height'),
-		classList:	svg.classList
+		src:	src,
+		width:	svg.getAttribute('width'),
+		height:	svg.getAttribute('height')
 	};
 	
 	for(let key in attrs) {
@@ -40,4 +39,12 @@ const replaceSVG = (svg) => {
 
 	parent.removeChild(svg);
 	parent.appendChild(img);
+};
+
+/**
+ *	Add class to the html classlist for IE
+ */
+const setClass = () => {
+	let doc_root = document.querySelector('html');
+	doc_root.classList.add('is-ie');
 };
