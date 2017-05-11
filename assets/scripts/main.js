@@ -26,4 +26,15 @@ onload = () => {
 		setClass();
 		ieSvgFix();
 	}
+
+	/**
+	 *	Unblur the text after 2s 
+	 *	if typekit takes too long
+	 */
+	setTimeout(() => {
+		let doc_root = document.querySelector('html');
+		if(!doc_root.classList.contains('wf-active')) {
+			doc_root.classList.add('wf-inactive');
+		}
+	}, 2000);
 };

@@ -1,7 +1,7 @@
 version: '3'
 
 services:
-  mf-site:
+  mf-site-dev:
     container_name: site_dev
     build:
       context: .docker/site
@@ -14,7 +14,7 @@ services:
       - ./:/opt:rw
     command: hugo server -s /opt/mattfinucane --config /opt/mattfinucane/config.yml --baseURL http://mattfinucane.dev/ --bind "0.0.0.0" --appendPort=false --verbose
 
-  mf-nginx:
+  mf-nginx-dev:
     container_name: nginx_dev
     build:
       context: .docker/nginx
@@ -24,12 +24,12 @@ services:
     volumes:
       - ./media:/opt/media:ro
     links: 
-      - mf-site
+      - mf-site-dev
     ports:
       - "80:80"
     command: nginx -g "daemon off;"
 
-  mf-static:
+  mf-static-dev:
     image: node:7.9.0
     container_name: static_dev
     environment:
@@ -39,7 +39,7 @@ services:
     volumes:
       - ./:/opt:rw
     links:
-      - mf-site
+      - mf-site-dev
     depends_on:
-      - mf-site
+      - mf-site-dev
     command: sh -c "cd /opt && npm install -g gulp && npm link gulp && npm install && gulp"

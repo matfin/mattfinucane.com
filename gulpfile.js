@@ -80,7 +80,7 @@ gulp.task('svgs', () => {
  */
 gulp.task('watch', () => {
 	gulp.watch('./assets/sass/**/*.sass', ['sass-dev']);
-	gulp.watch('./assets/scripts/**/*.js', ['scripts']);
+	gulp.watch('./assets/scripts/**/*.js', ['scripts-dev']);
 	gulp.watch('./assets/svg/**/*.svg', ['svgs']);
 });
 
