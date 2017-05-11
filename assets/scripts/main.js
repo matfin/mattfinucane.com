@@ -14,6 +14,15 @@ const primeTapEvent = (selector, fn) => {
 };
 
 onload = () => {
-	svg4everybody();
+	/**
+	 *	Monitor tap/click on header button
+	 */
 	primeTapEvent('header button', toggleNavReveal);
+
+	/**
+	 *	Detect IE11 then run SVG replacement fix
+	 */
+	if(isIE()) {
+		ieSvgFix();
+	}
 };
