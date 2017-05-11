@@ -1,6 +1,6 @@
 const primeTapEvent = (selector, fn) => {
 	const items = document.querySelectorAll(selector);
-	items.forEach((item) => {
+	Array.prototype.forEach.call(items, (item) => {
 		if('onpointerdown' in window) {
 			item.addEventListener('pointerdown', fn);
 		}
@@ -14,5 +14,15 @@ const primeTapEvent = (selector, fn) => {
 };
 
 onload = () => {
+	/**
+	 *	Monitor tap/click on header button
+	 */
 	primeTapEvent('header button', toggleNavReveal);
+
+	/**
+	 *	Detect IE11 then run SVG replacement fix
+	 */
+	if(isIE()) {
+		ieSvgFix();
+	}
 };

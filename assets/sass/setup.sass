@@ -28,18 +28,19 @@ div.wrapper
 	display: flex
 	flex-direction: column
 	align-items: center
-	width: 100vw
+	width: 100%
 
 	&.background-dark-green
 		background-color: $dark-green
 
 	&.background-light-green
+		display: none
 		background-color: $light-green
 
 header,
 div:not(.wrapper),
 footer
-	width: 100vw
+	width: 100%
 	max-width: $max-width
 
 ul 
@@ -48,7 +49,7 @@ ul
 a
 	text-decoration: none
 	color: currentColor
-	&:not(.term-card):not(.project-card):not(.nav-link):not(.title):not(.social-link)
+	&:not(.term-card):not(.project-card):not(.nav-link):not(.title):not(.social-link):not(.top)
 		+contentLink
 
 p

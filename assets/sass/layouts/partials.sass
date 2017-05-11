@@ -23,10 +23,9 @@ header
 		display: none
 		color: $white
 
-		svg
-			width: $units * 1.5
-			height: $units * 1.5
-
+		svg,
+		img
+			color: $white
 			&.menu
 				display: block
 
@@ -39,7 +38,8 @@ header
 	&.nav-open
 		background-color: $menu-green
 
-		svg
+		svg,
+		img
 			&.menu
 				display: none
 			&.close 
@@ -72,7 +72,7 @@ nav
 	+break(min-max, 0, $break-3)
 		position: fixed
 		top: 55px
-		transform: translate3d(100vh, 0, 0)
+		transform: translate3d(100vw, 0, 0)
 		width: 100vw
 		height: calc(100vh - 55px)
 		background-color: $dark-green
@@ -101,16 +101,9 @@ div.teaser
  *	Footer
  */
 footer
+	display: flex
+	flex-direction: column
+	justify-content: center
+	align-items: center
 	padding: $units * 1.5 $units
-	color: $white
-
-	a,
-	p
-		display: inline-block
-
-	a
-		float: right
-		margin-bottom: $units * 2.5
-
-	p
-		margin: $units / 4 0
+	color: $green

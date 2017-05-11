@@ -42,7 +42,8 @@ ul.social-links
 	li
 		a
 			display: block
-			svg
+			svg,
+			img
 				margin-right: $units * 1.5
 				width: $units * 2.5
 				height: $units * 2.5
@@ -50,5 +51,6 @@ ul.social-links
 				+transitionWithProperties(color)
 
 		&:hover
-			svg
+			svg,
+			img
 				color: $link-base
