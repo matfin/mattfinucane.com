@@ -2,7 +2,7 @@ version: '3'
 
 services:
   mf-site:
-    container_name: site
+    container_name: site_dev
     build:
       context: .docker/site
       dockerfile: Dockerfile
@@ -15,7 +15,7 @@ services:
     command: hugo server -s /opt/mattfinucane --config /opt/mattfinucane/config.yml --baseURL http://mattfinucane.dev/ --bind "0.0.0.0" --appendPort=false --verbose
 
   mf-nginx:
-    container_name: nginx
+    container_name: nginx_dev
     build:
       context: .docker/nginx
       dockerfile: Dockerfile
@@ -31,7 +31,11 @@ services:
 
   mf-static:
     image: node:7.9.0
-    container_name: static_build
+    container_name: static_dev
+    environment:
+      - SCRIPTS_DEST=./mattfinucane/static/js/
+      - STYLES_DEST=./mattfinucane/static/css/
+      - SVG_DEST=./mattfinucane/static/svg/
     volumes:
       - ./:/opt:rw
     links:

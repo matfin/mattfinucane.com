@@ -9,7 +9,8 @@ html
 		+transitionWithProperties(filter, 700ms)
 		filter: blur($units * 0.75)
 
-	&.wf-active
+	&.wf-active,
+	&.wf-inactive
 		.teaser,
 		.page h2
 			filter: blur(0)

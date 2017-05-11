@@ -1,0 +1,44 @@
+version: '3'
+
+services:
+    mf-site:
+      container_name: site_build
+      build:
+        context: .docker/site
+        dockerfile: Dockerfile
+        args:
+          hugo_version: "0.20.2"
+      volumes:
+        - ./:/opt:rw
+      command: hugo -s /opt/mattfinucane -b http://mattfinucane.build --config=./mattfinucane/build.yml -d ../public
+
+    mf-nginx:
+      container_name: nginx_build
+      build:
+        context: .docker/nginx
+        dockerfile: Dockerfile
+        args:
+          nginx_conf: nginx.build.conf
+      volumes:
+        - ./media:/opt/media:ro
+        - ./public:/opt/public:ro
+      links: 
+        - mf-site
+      ports:
+        - "80:80"
+      command: nginx -g "daemon off;"
+
+    mf-static:
+      image: node:7.9.0
+      container_name: static_build
+      environment:
+        - SCRIPTS_DEST=./public/js/
+        - STYLES_DEST=./public/css/
+        - SVG_DEST=./public/svg/
+      volumes:
+        - ./:/opt:rw
+      links: 
+        - mf-site
+      depends_on:
+        - mf-site
+      command: sh -c "cd /opt && npm install -g gulp && npm link gulp && npm install && gulp build"

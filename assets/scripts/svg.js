@@ -32,7 +32,12 @@ const replaceSVG = (svg) => {
 		classList:	svg.classList
 	};
 	
-	Object.assign(img, attrs);
+	for(let key in attrs) {
+		if(attrs.hasOwnProperty(key)) {
+			img[key] = attrs[key];
+		}
+	}
+
 	parent.removeChild(svg);
 	parent.appendChild(img);
 };
