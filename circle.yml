@@ -16,7 +16,7 @@ test:
 
 deployment:
   staging: 
-    branch: develop
+    branch: [develop, feature/deployment]
     commands:
       - hugo -s ./mattfinucane -b $HUGO_STAGING_HOST --config=./mattfinucane/staging.yml -d ../public
       - npm install
@@ -28,6 +28,7 @@ deployment:
             rm -r public/ &&
             tar -xvzf public.tar.gz &&
             mkdir public/.well-known"
+            
   production:
     tag: /v[0-9]+(\.[0-9]+)*/
     commands:
