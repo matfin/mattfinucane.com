@@ -36,4 +36,6 @@ The idea behind this website is twofold, to give a quick overview of my skills a
 
 It was built using the [Hugo](https://gohugo.io) static site generator which embodies these principles of engineering that I adhere to - simplicity, elegance, performance and openness.
 
+I am registered in Berlin, Germany with VAT ID <em>#DE300353050</em>. All opinions on this website are my own and content is &copy; Matt Finucane {{< year >}}.
+
 I respect you and your privacy as a visitor to my site. This is why I don't have any analytics or tracking tools installed and I will never place ads on this site.
