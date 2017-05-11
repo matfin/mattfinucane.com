@@ -1,0 +1,44 @@
+---
+baseURL:                "http://mattfinucane.dev"
+languageCode:           "en-ie"
+title:                  "Matt Finucane"
+disableLiveReload:      true
+watch:                  true
+preservetaxonomynames:  true
+
+params:
+  description:   "Freelance software engineer based in Berlin, Germany"
+  author:        "Matt Finucane"
+  mediaBase:     "http://media.mattfinucane.dev/"
+  title_first:   "Matt"
+  title_last:    "Finucane"
+
+menu:
+  main:
+    - name:        "home"
+      identifier:  "home"
+      url:         "/"
+      weight:      1
+    - name:        "projects"
+      identifier:  "projects"
+      url:         "/projects"
+      weight:      2
+    - name:        "cv"
+      identifier:  "cv"
+      url:         "/cv"
+      weight:      3
+    - name:        "about"
+      identifier:  "about"
+      url:         "/about"
+      weight:      4
+    - name:        "hire me"
+      identifier:  "hire-me"
+      url:         "/hire-me"
+      weight:      5
+
+taxonomies:
+  language:       "Languages"
+  framework:      "Frameworks"
+  infrastructure: "Infrastructure"
+  tool:           "Tools"
+...

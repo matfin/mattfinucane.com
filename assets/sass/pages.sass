@@ -1,0 +1,38 @@
+/** 
+ *	Applicable to all pages
+ */
+div.page
+	+contentSection
+	max-width: $units * 50
+
+	h2
+		color: $green
+		margin-left: $units * 4
+
+		margin-bottom: $units
+		margin-top: $units * 3
+
+		+break(min, $break-3)
+			margin-bottom: $units * 2
+			margin-top: $units * 6
+
+		&:first-of-type
+				margin-top: 0
+
+	p + h2
+		+break(min, $break-3)
+			margin-top: $units * 5
+
+/**
+ *	CV
+ */
+div.work-experience
+	ul
+		margin-top: $units
+		margin-bottom: $units * 3.5
+		&:last-child
+			margin-bottom: 0
+	h3,
+	h4
+		color: $green
+	

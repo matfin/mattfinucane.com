@@ -1,0 +1,56 @@
+ul.taxonomies-list,
+ul.projects-list
+	+listBoxes
+
+ul.taxonomies-list
+	li
+		+break(min-max, 0, $break-1)
+			width: 50%
+			&:nth-child(2n)
+				padding-right: 0
+
+		+break(min-max, $break-1, $break-2)
+			width: 33%
+			&:nth-child(3n)
+				padding-right: 0
+
+		+break(min, $break-2)
+			width: 25%
+			&:nth-child(4n)
+				padding-right: 0
+
+ul.projects-list
+	li
+		+break(min-max, 0, $break-1)
+			width: 100%
+			padding-right: 0
+
+		+break(min-max, $break-1, $break-2)
+			width: 50%
+			&:nth-child(2n)
+				padding-right: 0
+
+		+break(min, $break-2)
+			width: 33%
+			&:nth-child(3n)
+				padding-right: 0
+
+ul.social-links
+	display: flex
+	flex-direction: row
+
+	li
+		a
+			display: block
+			svg,
+			img
+				margin-right: $units * 1.5
+				width: $units * 2.5
+				height: $units * 2.5
+				color: rgba($link-base, 0.3)
+				+transitionWithProperties(color)
+
+		&:hover
+			svg,
+			img
+				color: $link-base

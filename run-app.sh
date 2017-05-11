@@ -1,1 +1,0 @@
-meteor run --production --settings settings.json

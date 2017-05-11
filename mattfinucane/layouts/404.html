@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="{{ with .Site.LanguageCode }}{{ . }}{{ end }}">
+	<head>
+		{{ partial "head" . }}
+	</head>
+	<body>
+		<div class="wrapper background-dark-green">
+			{{ partial "header" . }}
+			{{ partial "teaser" . }}
+		</div>
+		<div class="wrapper">
+			<div class="page notfound">
+				{{ .Content }}		
+			</div>
+		</div>
+		<div class="wrapper">
+			{{ partial "footer" . }}
+		</div>
+		{{ partial "scripts" .}}
+	</body>
+</html>

@@ -1,0 +1,31 @@
+{
+  "name": "mattfinucane",
+  "version": "2.0.0",
+  "description": "Static site generated with GoHugo",
+  "main": "gulpfile.js",
+  "dependencies": {},
+  "devDependencies": {
+    "babel-preset-es2015": "^6.24.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-babel-minify": "^0.1.12",
+    "gulp-clean-css": "^3.2.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-sass": "^3.1.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/matfin/mattfinucane.com.git"
+  },
+  "keywords": [
+    "gohugo"
+  ],
+  "author": "Matt Finucane",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/matfin/mattfinucane.com/issues"
+  },
+  "homepage": "https://mattfinucane.com"
+}

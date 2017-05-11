@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+	<head>
+		{{ partial "head" . }}
+	</head>
+	<body>
+		<div class="wrapper background-dark-green">
+			{{ partial "header" . }}
+			{{ partial "teaser" . }}
+		</div>
+		<div class="wrapper">
+			<div class="page projects">
+				{{ .Content }}
+				<ul class="projects-list">
+					{{ range where .Data.Pages "Section" "projects" }}
+						<li>
+							{{ .Render "card" }}
+						</li>
+					{{ end }}
+				</ul>
+			</div>
+		</div>
+		<div class="wrapper">
+			{{ partial "footer" . }}
+		</div>
+		{{ partial "scripts" .}}
+	</body>
+</html>

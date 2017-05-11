@@ -1,0 +1,11 @@
+{{ $which 	:= .Get "items" }}
+{{ $items	:= where .Site.Pages "Section" $which }}
+<ul class="taxonomies-list">
+	{{ range sort $items ".Params.proficiency" "desc" }}
+		{{ if .Params.proficiency }}
+			<li>
+				{{ .Render "card" }}
+			</li>
+		{{ end }}
+	{{ end }}
+</ul>

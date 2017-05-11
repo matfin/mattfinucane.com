@@ -1,0 +1,23 @@
+{
+  "name": "mattfinucane",
+  "description": "Static site generated with GoHugo",
+  "main": "gulpfile.js",
+  "authors": [
+    "Matt Finucane"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "gohugo"
+  ],
+  "homepage": "https://mattfinucane.com",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+  }
+}

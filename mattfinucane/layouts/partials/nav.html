@@ -1,0 +1,14 @@
+{{ $menu 			:= .Site.Menus.main}}
+{{ $pageIdentifier 	:= .Page.Params.Identifier }}
+<nav>
+	<ul class="menu">
+		{{ range $menu }}
+			{{ $isCurrent := eq $pageIdentifier .Identifier }}
+			<li>
+				<a class="nav-link {{ if $isCurrent }}active{{ end }}" href="{{ .URL }}" title="{{ .Name }}">
+					{{ .Name }}
+				</a>
+			</li>
+		{{ end }}
+	</ul>	
+</nav>
