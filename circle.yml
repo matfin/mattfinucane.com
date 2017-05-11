@@ -37,7 +37,7 @@ deployment:
       - gulp build
       - tar -zcvf public-$CIRCLE_TAG.tar.gz public/
       - scp public-$CIRCLE_TAG.tar.gz $DEPLOY_USER@$DEPLOY_PRODUCTION_HOST:$DEPLOY_PRODUCTION_PATH
-      - ssh -t $DEPLOY_USER@DEPLOY_PRODUCTION_HOST "
+      - ssh -t $DEPLOY_USER@$DEPLOY_PRODUCTION_HOST "
             cd $DEPLOY_PRODUCTION_PATH &&
             rm -rf public/ &&
             tar -xvzf public-$CIRCLE_TAG.tar.gz -C public --strip-components 1 &&
