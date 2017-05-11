@@ -45,6 +45,7 @@
 			padding: $units
 			background-color: $dark-green
 			border-bottom: none
+			+transitionWithProperties(background-color)
 
 			+break(min, $break-3)
 				padding: ($units * 3) $units
@@ -61,6 +62,9 @@
 			&[data-proficiency="4"]
 				background-color: $proficiency
 
+			&:hover
+				background-color: $link-hover
+
 =contentLink
 	color: $green
 	text-decoration: none
@@ -68,4 +72,4 @@
 	+transitionWithProperties(border)
 
 	&:hover
-		border-bottom: 6px solid $link-border-hover
+		border-bottom: 6px solid $link-hover
