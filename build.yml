@@ -35,6 +35,7 @@ services:
         - SCRIPTS_DEST=./public/js/
         - STYLES_DEST=./public/css/
         - SVG_DEST=./public/svg/
+        - FAVICONS_DEST=./public/favicons/
       volumes:
         - ./:/opt:rw
       links: 
