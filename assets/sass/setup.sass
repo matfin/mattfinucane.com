@@ -22,6 +22,9 @@ body
 	align-items:	center
 	color: 			$black
 
+	+break(min-max, 0, $break-2)
+		padding-top: $units * 2
+
 	&.prevent-scroll 
 		overflow: hidden
 
@@ -31,8 +34,14 @@ div.wrapper
 	align-items: center
 	width: 100%
 
-	&.scroll-active
-		padding-top: $units * 4
+	&:first-of-type
+		z-index: $over
+		position: fixed
+		top: 0
+		left: 0
+
+	&.shadowed
+		box-shadow: $box-shadow
 
 	&.background-dark-green
 		background-color: $dark-green

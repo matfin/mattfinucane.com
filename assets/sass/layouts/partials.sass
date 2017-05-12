@@ -50,15 +50,6 @@ header
 			&:last-of-type
 				display: block
 
-	&.scroll-active
-		z-index: $over
-		position: fixed
-		top: 0
-		transform: translate3d(0, 0 , 0);
-
-	&.is-scrolling
-		transform: translate3d(0, 0 - $units * 4, 0);
-
 /**
  *	This is a fix for IE to place the nav button 
  *	in the correct place. It addresses a flexbox

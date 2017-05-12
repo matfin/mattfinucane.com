@@ -13,11 +13,23 @@ const primeTapEvent = (selector, fn) => {
 	});
 };
 
+const throttle = (fn, limit) => {
+	let waiting = false;
+	
+	limit = limit | 200;
+
+	return () => {
+		if(!waiting) {
+			fn.call();
+			waiting = true;
+			setTimeout(() => {
+				waiting = false;
+			}, limit);
+		}
+	};
+};
+
 onload = () => {
-
-	let timeout,
-		scrolling = false;
-
 	/**
 	 *	Monitor tap/click on header button
 	 */
@@ -42,19 +54,6 @@ onload = () => {
 		}
 	}, 2000);
 
-	/**
-	 *	Debounced trigger for scroll with a throttled
-	 *	function called when scrolling is happening.
-	 */
-	window.addEventListener('scroll', (e) => {
-		if(!scrolling) {
-			scrolling = true;
-			setIsScrolling(scrolling);
-		}
-		clearTimeout(timeout);
-		timeout = setTimeout(scrollEnd.bind(null, e, () => {
-			scrolling = false;
-			setIsScrolling(scrolling);
-		}), 200);
-	});
+	window.addEventListener('scroll', throttle(toggleShadow.bind(null, '.wrapper:first-of-type'), 100));
+
 };

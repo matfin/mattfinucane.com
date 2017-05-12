@@ -13,33 +13,21 @@ const toggleNavReveal = () => {
 	}
 };
 
-const setIsScrolling = (scrolling) => {
-	let header = document.querySelector('header'),
-		scroll = document.body.scrollTop,
-		height = header.clientHeight;
+const toggleShadow = (selector) => {
+	let teaser 	= document.querySelector('.teaser:first-of-type'),
+		node 	= document.querySelector(selector),
+		scroll	= document.body.scrollTop || document.documentElement.scrollTop,
+		height 	= teaser.clientHeight;
 
-	if(scrolling && (scroll > height)) {
-		header.classList.add('is-scrolling');
+	if(scroll >= height) {
+		if(!node.classList.contains('shadowed')) {
+			node.classList.add('shadowed');
+		}
 	}
 	else {
-		header.classList.remove('is-scrolling');
+		if(node.classList.contains('shadowed')) {
+			node.classList.remove('shadowed');
+		}
 	}
 };
 
-const scrollEnd = (e, cb) => {
-	let body	= document.body,
-		wrapper	= document.querySelector('.wrapper'),
-		header	= document.querySelector('header'),
-		height 	= header.clientHeight,
-		scroll 	= body.scrollTop;
-	
-	wrapper.classList.remove('scroll-active');
-	header.classList.remove('scroll-active');
-
-	if(scroll > height) {
-		wrapper.classList.add('scroll-active');
-		header.classList.add('scroll-active');
-	}
-
-	cb();
-};
