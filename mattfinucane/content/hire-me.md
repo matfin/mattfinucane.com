@@ -11,7 +11,7 @@ If you are looking for somebody with strong technical and communication skills t
 
 Please feel free to checkout my [qualifications](/cv), [skillset](/#skills) and some of the [projects](/projects) I have worked on. If you don't see something you are looking for here, don't fret - I am a fast learner and always open to picking up new things.
 
-If you have a project you wish to discuss then drop me a mail at [matfin@gmail.com](mailto:matfin@gmail.com).
+If you have a project you wish to discuss then mail [me@mattfinucane.com](mailto:me@mattfinucane.com).
 
 Other places you can find me:
 
