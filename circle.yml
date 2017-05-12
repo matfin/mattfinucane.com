@@ -16,7 +16,7 @@ test:
 
 deployment:
   staging: 
-    branch: [develop, feature/deployment]
+    branch: develop
     commands:
       - hugo -s ./mattfinucane -b $HUGO_STAGING_HOST --config=./mattfinucane/staging.yml -d ../public
       - npm install
