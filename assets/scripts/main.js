@@ -14,6 +14,10 @@ const primeTapEvent = (selector, fn) => {
 };
 
 onload = () => {
+
+	let timeout,
+		scrolling = false;
+
 	/**
 	 *	Monitor tap/click on header button
 	 */
@@ -37,4 +41,20 @@ onload = () => {
 			doc_root.classList.add('wf-inactive');
 		}
 	}, 2000);
+
+	/**
+	 *	Debounced trigger for scroll with a throttled
+	 *	function called when scrolling is happening.
+	 */
+	window.addEventListener('scroll', (e) => {
+		if(!scrolling) {
+			scrolling = true;
+			setIsScrolling(scrolling);
+		}
+		clearTimeout(timeout);
+		timeout = setTimeout(scrollEnd.bind(null, e, () => {
+			scrolling = false;
+			setIsScrolling(scrolling);
+		}), 200);
+	});
 };

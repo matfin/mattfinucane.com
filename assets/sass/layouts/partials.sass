@@ -1,7 +1,6 @@
 /**
  *	Header
  */
-
 header
 	display: flex
 	flex-direction: row
@@ -12,10 +11,9 @@ header
 	background-color: $dark-green
 
 	+break(min, $break-3)
-		margin-top: $units
-		padding: $units
+		padding: $units * 0.625 $units
 
-	+transitionWithProperties(background-color)
+	+transitionWithProperties((background-color, transform))
 
 	a
 		border-bottom: none
@@ -51,6 +49,15 @@ header
 				display: none
 			&:last-of-type
 				display: block
+
+	&.scroll-active
+		z-index: $over
+		position: fixed
+		top: 0
+		transform: translate3d(0, 0 , 0);
+
+	&.is-scrolling
+		transform: translate3d(0, 0 - $units * 4, 0);
 
 /**
  *	This is a fix for IE to place the nav button 
