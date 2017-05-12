@@ -30,6 +30,7 @@ header
 
 		svg,
 		img
+			flex: 1
 			color: $white
 			&:first-of-type
 				display: block
@@ -37,7 +38,7 @@ header
 			&:last-of-type
 				display: none
 
-		+break(min-max, 0px, $break-3)
+		+break(min-max, 0, $break-3)
 			display: flex
 
 	&.nav-open
@@ -96,7 +97,7 @@ nav
 		+transitionWithProperties((transform, background-color))
 
 		ul 
-			margin-top: $units * 3
+			margin-top: $units
 			li
 				padding: $units * 1.5
 
@@ -117,13 +118,16 @@ div.teaser
 	padding: ($units * 3) $units
 	color: $white
 
+	h2 
+		margin-bottom: $units
+
 	+break(min, $break-2)
 		padding: 0 $units
-		min-height: 25vh
+		height: 25vh
 
 	+break(min, $break-3)
 		padding: 0 $units
-		min-height: 40vh
+		height: 40vh
 
 /**
  *	Footer
