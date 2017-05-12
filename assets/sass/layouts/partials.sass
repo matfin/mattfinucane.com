@@ -7,11 +7,13 @@ header
 	flex-direction: row
 	align-items: center
 	justify-content: space-between
-	padding: $units
+	padding: 0 $units
+	padding-right: 0
 	background-color: $dark-green
 
 	+break(min, $break-3)
-		margin-top: $units * 3
+		margin-top: $units
+		padding: $units
 
 	+transitionWithProperties(background-color)
 
@@ -21,6 +23,11 @@ header
 		
 	button
 		display: none
+		width: $units * 4
+		height: $units * 4
+		align-items: center
+		justify-content: center
+
 		color: $white
 
 		svg,
@@ -33,7 +40,7 @@ header
 				display: none
 
 		+break(min-max, 0px, $break-3)
-			display: block
+			display: flex
 
 	&.nav-open
 		background-color: $menu-green
@@ -83,12 +90,18 @@ nav
 
 	+break(min-max, 0, $break-3)
 		position: fixed
-		top: 55px
+		top: $units * 4
 		transform: translate3d(100vw, 0, 0)
 		width: 100vw
-		height: calc(100vh - 55px)
+		height: calc(100vh - #{$units * 4})
 		background-color: $dark-green
 		+transitionWithProperties((transform, background-color))
+
+		ul 
+			margin-top: $units * 3
+			li
+				padding: $units * 1.5
+
 
 		&.revealed
 			z-index: $over
@@ -106,8 +119,13 @@ div.teaser
 	padding: ($units * 3) $units
 	color: $white
 
-	+break(min, $break-3)
+	+break(min, $break-2)
+		padding: 0 $units
 		min-height: 25vh
+
+	+break(min, $break-3)
+		padding: 0 $units
+		min-height: 40vh
 
 /**
  *	Footer
