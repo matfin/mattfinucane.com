@@ -13,6 +13,22 @@ const primeTapEvent = (selector, fn) => {
 	});
 };
 
+const throttle = (fn, limit) => {
+	let waiting = false;
+	
+	limit = limit | 200;
+
+	return () => {
+		if(!waiting) {
+			fn.call();
+			waiting = true;
+			setTimeout(() => {
+				waiting = false;
+			}, limit);
+		}
+	};
+};
+
 onload = () => {
 	/**
 	 *	Monitor tap/click on header button
@@ -37,4 +53,7 @@ onload = () => {
 			doc_root.classList.add('wf-inactive');
 		}
 	}, 2000);
+
+	window.addEventListener('scroll', throttle(toggleShadow.bind(null, '.wrapper:first-of-type'), 100));
+
 };

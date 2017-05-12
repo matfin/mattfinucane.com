@@ -10,7 +10,8 @@ const 	gulp 		= require('gulp'),
 const dest = {
 	scripts: process.env['SCRIPTS_DEST'],
 	styles: process.env['STYLES_DEST'],
-	svg: process.env['SVG_DEST']
+	svg: process.env['SVG_DEST'],
+	favicons: process.env['FAVICONS_DEST']
 };
 
 gulp.task('debug', () => {
@@ -74,6 +75,16 @@ gulp.task('svgs', () => {
 	.pipe(gulp.dest(dest.svg));
 });
 
+
+/**
+ *	Favicons
+ */
+gulp.task('favicons', () => {
+	return gulp
+	.src('./assets/favicons/**/*')
+	.pipe(gulp.dest(dest.favicons));
+});
+
 /**
  *	The watch task should rerun sass-dev when 
  *	changes are detected.
@@ -92,6 +103,7 @@ gulp.task('default', [
 	'sass-dev',
 	'scripts-dev',
 	'svgs',
+	'favicons',
 	'watch'
 ]);
 
@@ -102,5 +114,6 @@ gulp.task('build', [
 	'debug',
 	'sass-build',
 	'scripts-build',
-	'svgs'
+	'svgs',
+	'favicons'
 ]);

@@ -16,7 +16,7 @@ test:
 
 deployment:
   staging: 
-    branch: [develop, feature/deployment]
+    branch: develop
     commands:
       - hugo -s ./mattfinucane -b $HUGO_STAGING_HOST --config=./mattfinucane/staging.yml -d ../public
       - npm install
@@ -40,6 +40,6 @@ deployment:
       - ssh -t $DEPLOY_USER@$DEPLOY_PRODUCTION_HOST "
             cd $DEPLOY_PRODUCTION_PATH &&
             rm -rf public/ &&
-            tar -xvzf public-$CIRCLE_TAG.tar.gz -C public --strip-components 1 &&
+            tar -xvzf public-$CIRCLE_TAG.tar.gz &&
             mkdir public/.well-known"
 
