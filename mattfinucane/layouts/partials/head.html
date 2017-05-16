@@ -13,5 +13,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="author" content="{{ .Site.Params.author }}">
 <link rel="canonical" href="{{ .Permalink }}">
+{{ partial "structured_data" . }}
+{{ partial "open_graph" . }}
+{{ partial "twitter_card" . }}
 <link rel="stylesheet" href="/css/main.css">
-{{ partial "favicons" }}
+{{ partial "favicons" . }}
