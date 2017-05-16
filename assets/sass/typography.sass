@@ -97,15 +97,24 @@ strong
 	font-size: 		$base-font-size
 	line-height:	$base-font-size * 1.25
 	letter-spacing: $letter-spacing
-	font-weight:	$font-weight-light
-
+	
 	+break(min, $break-3)
 		line-height: $base-font-size * 1.75
 		font-size: $base-font-size * 1.25
 		letter-spacing: 0
 
 strong
-	font-weight: $font-weight-semibold
+	font-weight: $font-weight-bold
+	// font-size: $base-font-size
+
+pre
+	font-family: $font-family-code
+	line-height: $base-font-size * 1.25
+	font-weight:	$font-weight-light
+
+	+break(min, $break-3)
+		line-height: $base-font-size * 1.75
+		font-size: $base-font-size * 1.25
 
 /**
  *	Taxonomies list
