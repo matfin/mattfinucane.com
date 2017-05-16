@@ -1,6 +1,10 @@
 <title>
 	{{ .Title }} | Matt Finucane
 </title>
+{{ if .Site.Params.no_index }}
+	<meta name="robots" content="noindex">
+	<meta name="googlebot" content="noindex">
+{{ end }}
 <meta charset="utf-8">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">

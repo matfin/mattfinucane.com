@@ -13,13 +13,13 @@ identifier:		"home"
 - Life–long learner with strong interest in continuous professional development.
 
 ## Languages
-{{% taxonomies items="languages" %}}
+{{< taxonomies items="languages" >}}
 
 ## Frameworks
-{{% taxonomies items="frameworks" %}}
+{{< taxonomies items="frameworks" >}}
 
 ## Infrastructure
-{{% taxonomies items="infrastructure" %}}
+{{< taxonomies items="infrastructure" >}}
 
 ## Tools
-{{% taxonomies items="tools" %}}
+{{< taxonomies items="tools" >}}
