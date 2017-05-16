@@ -12,6 +12,7 @@ params:
   mediaBase:     "http://media.staging.mattfinucane.com/"
   title_first:   "Matt"
   title_last:    "Finucane"
+  no_index:      true
 
 menu:
   main:
