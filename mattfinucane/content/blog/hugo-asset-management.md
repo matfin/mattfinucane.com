@@ -1,8 +1,8 @@
 ---
-title: "Building a portfolio website - Part 4"
+title: "Building this site - Assets and Gulp"
 description: "In part four of this series we take a look at managing assets with Gulp."
 synopsis: "In part four of this series we take a look at managing assets with Gulp."
-date: "2017-05-16"
+date: "2017-05-13"
 author: "Matt Finucane"
 identifier: "blog"
 sponsored: false

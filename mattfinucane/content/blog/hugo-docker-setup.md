@@ -1,8 +1,8 @@
 ---
-title: "Building a portfolio website - Part 3"
+title: "Building this site - Containerised development"
 description: "In part three of this series we look at getting a development environment set up using Docker."
 synopsis: "In part three of this series we explore using Docker to get a development environment set up for Hugo."
-date: "2017-05-16"
+date: "2017-05-12"
 author: "Matt Finucane"
 identifier: "blog"
 sponsored: false

@@ -1,8 +1,8 @@
 ---
-title: "Building a portfolio website - Part 5"
+title: "Building this site - Deployment"
 description: "In part five of this series we take a look at deploying the site using CircleCI."
 synopsis: "In part five of this series we take a look at deploying the site using CircleCI."
-date: "2017-05-16"
+date: "2017-05-14"
 author: "Matt Finucane"
 identifier: "blog"
 sponsored: false

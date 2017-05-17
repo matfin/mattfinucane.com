@@ -1,8 +1,8 @@
 ---
-title: "Building a portfolio website - Part 1"
+title: "Building this site - An overview"
 description: "Part one gives an overview of how this site was built."
 synopsis: "In part one of this series we give an overview of what is used to build and maintain this site."
-date: "2017-05-14"
+date: "2017-05-10"
 author: "Matt Finucane"
 identifier: "blog"
 sponsored: false
