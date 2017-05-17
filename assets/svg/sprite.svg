@@ -78,5 +78,15 @@
 			<rect y="6" style="fill: currentColor" width="26" height="2"/>
 			<rect y="12" style="fill: currentColor" width="26" height="2"/>
 		</symbol>
+
+		<!-- End mark -->
+		<symbol id="end_mark" viewBox="0 0 53 37">
+			<title>
+				End
+			</title>
+			<path style="fill: currentColor" d="M0.8,19.5v-2.4l13.8-7v2.5L3.7,18.3l10.9,5.7v2.5L0.8,19.5z"/>
+			<path style="fill: currentColor" d="M52.2,19.5l-13.8,7.1v-2.5l10.9-5.7l-10.9-5.7v-2.5l13.8,7V19.5z"/>
+			<path style="fill: currentColor" d="M32,0h2.4L22.9,36.9h-2.5L32,0z"/>
+		</symbol>
 	</defs>
 </svg>

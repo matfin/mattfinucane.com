@@ -6,6 +6,7 @@ date: "2012-12-16"
 author: "Matt Finucane"
 identifier: "blog"
 sponsored: false
+disqus: true
 draft: true
 categories:
 - Sencha

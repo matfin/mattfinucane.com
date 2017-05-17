@@ -58,10 +58,11 @@ header
  */
 html.is-ie
 	header
+		height: $units * 4
 		button
 			position: absolute;
-			top: $units;
-			right: $units;
+			top: 0;
+			right: 0;
 
 /**
  *	Responsive navigation
@@ -143,4 +144,6 @@ footer
 	justify-content: center
 	align-items: center
 	padding: $units * 1.5 $units
-	color: $green
+	
+	a 
+		color: $green

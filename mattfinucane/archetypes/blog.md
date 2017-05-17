@@ -6,5 +6,7 @@ date: 		 	""
 author:			""
 identifier:		""
 sponsored:		""
+disqus:			""
+uniqueid:		""
 categories: 	[]
 ---
