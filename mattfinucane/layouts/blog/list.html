@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ with .Site.LanguageCode }}{{ . }}{{ end }}">
+<html lang="{{ .Site.LanguageCode }}">
 	<head>
 		{{ partial "head" . }}
 	</head>
@@ -11,9 +11,14 @@
 			{{ partial "teaser" . }}
 		</div>
 		<div class="wrapper">
-			<div class="page post">
+			<main class="page posts">
 				{{ .Content }}
-			</div>
+				<div class="posts-list">
+					{{ range where .Data.Pages "Section" "blog" }}
+						{{ .Render "card" }}
+					{{ end }}
+				</div>
+			</main>
 		</div>
 		<div class="wrapper">
 			{{ partial "footer" . }}
