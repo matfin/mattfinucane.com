@@ -11,7 +11,7 @@
 			{{ partial "teaser" . }}
 		</div>
 		<div class="wrapper">
-			<div class="page projects">
+			<main class="page projects">
 				{{ .Content }}
 				<ul class="projects-list">
 					{{ range where .Data.Pages "Section" "projects" }}
@@ -20,7 +20,7 @@
 						</li>
 					{{ end }}
 				</ul>
-			</div>
+			</main>
 		</div>
 		<div class="wrapper">
 			{{ partial "footer" . }}

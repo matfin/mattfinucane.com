@@ -11,9 +11,9 @@
 			{{ partial "teaser" . }}
 		</div>
 		<div class="wrapper">
-			<div class="page {{ .Title | urlize }}">
+			<main class="page {{ .Title | urlize }}">
 				{{ .Content }}
-			</div>
+			</main>
 		</div>
 		<div class="wrapper">
 			{{ partial "footer" . }}

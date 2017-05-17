@@ -25,7 +25,7 @@ This setup is quite strict and is the only 'opinionated' part of the framework.
 
 It can be quite tricky to get working for beginners. I know I was caught out a few times but this setup is working for me now.
 
-## Exploring mattfinucane/archetypes
+## Exploring archetypes
 If your content deviates from the standard attributes provided by Hugo (which it will) then you will need to set up a content type inside the `archetypes/` directory.
 
 Below is an example of an archetype I set up for a project (`archetypes/project.md`):
@@ -46,7 +46,7 @@ tools:			[]
 ---
 ```
 
-## Exploring mattfinucane/content
+## Exploring content
 Given the above `archetype` of project, I now need a place to put all the content for projects. 
 
 This should go inside the `content/projects/` directory and be given a URL friendly name which Hugo will map to a generated URL.
@@ -85,7 +85,7 @@ Given the above setup, you would navigate to `http://mywebsite.dev/projects/my-p
 
 The Hugo docs have an overview of this in their content docs which they call [front matter](https://gohugo.io/content/front-matter/).
 
-## Exploring mattfinucane/layouts
+## Exploring layouts
 This directory contains the HTML for the list, detail and card layouts for each of your content types. It also contains what are called `partials` - snippets of HTML code that are included in several sections of the site, such as headers and footers.
 
 If you have a content type called `project` and you have some content inside `content/projects/`, you would need the following layout setup for it.

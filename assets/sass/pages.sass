@@ -1,7 +1,7 @@
 /** 
  *	Applicable to all pages
  */
-div.page
+main.page
 	+contentSection
 	max-width: $units * 50
 
@@ -26,7 +26,7 @@ div.page
 /**
  *	CV
  */
-div.work-experience
+main.work-experience
 	ul
 		margin-top: $units
 		margin-bottom: $units * 3.5
@@ -35,4 +35,19 @@ div.work-experience
 	h3,
 	h4
 		color: $green
-	
+
+/**
+ *	Blog posts
+ */
+main.posts
+	h2
+		margin: 0
+	p
+		margin: 0
+
+article
+	padding: $units 0
+	border-bottom: 4px solid $link-border
+	margin-bottom: $units * 3
+	&:last-of-type
+		border-bottom: 0

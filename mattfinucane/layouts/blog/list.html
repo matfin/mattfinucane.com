@@ -11,14 +11,14 @@
 			{{ partial "teaser" . }}
 		</div>
 		<div class="wrapper">
-			<div class="page posts">
+			<main class="page posts">
 				{{ .Content }}
 				<div class="posts-list">
 					{{ range where .Data.Pages "Section" "blog" }}
 						{{ .Render "card" }}
 					{{ end }}
 				</div>
-			</div>
+			</main>
 		</div>
 		<div class="wrapper">
 			{{ partial "footer" . }}

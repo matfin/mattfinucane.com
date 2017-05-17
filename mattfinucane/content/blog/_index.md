@@ -1,5 +1,5 @@
 ---
-title: 			"Welcome to the blog"
-description: 	"This is where I document my experiences with using new technologies."
+title: 			"Blog"
+description: 	"Technical thoughts well documented."
 identifier:		"blog"
 ---
