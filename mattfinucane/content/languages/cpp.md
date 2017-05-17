@@ -1,5 +1,5 @@
 ---
-title: 			"C++"
+title: 			"Cpp"
 description: 	"The C++ programming language."
 proficiency:	2
 identifier:		"home"

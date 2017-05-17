@@ -32,10 +32,14 @@ menu:
       identifier:  "about"
       url:         "/about"
       weight:      4
+    - name:        "Blog"
+      identifier:  "blog"
+      url:         "/blog"
+      weight:      5
     - name:        "hire me"
       identifier:  "hire-me"
       url:         "/hire-me"
-      weight:      5
+      weight:      6
 
 taxonomies:
   language:       "Languages"

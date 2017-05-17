@@ -54,6 +54,6 @@ onload = () => {
 		}
 	}, 2000);
 
-	window.addEventListener('scroll', throttle(toggleShadow.bind(null, '.wrapper:first-of-type'), 100));
+	window.addEventListener('scroll', throttle(toggleShadow.bind(null, '.wrapper:first-of-type'), 50));
 
 };
