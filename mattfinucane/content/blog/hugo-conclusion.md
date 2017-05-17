@@ -6,6 +6,8 @@ date: "2017-05-15"
 author: "Matt Finucane"
 identifier: "blog"
 sponsored: false
+disqus: true
+uniqueid: 617706623
 categories:
 - Hugo
 - Docker
@@ -16,19 +18,13 @@ categories:
 ## Experiences
 Overall it has been a very interesting experience using Hugo to build this site and this is the first static site generator I have used to take a project to completion.
 
-I cannot really judge other generators such as Hexo, Jekyll or Middleman because I have never used them fully. 
-
 When I started this project, my aim was to have a site that was quick to load, needed very little resources in terms of infrastructure and was easy to add content to.
 
 The previous incarnations of my personal sites either had Wordpress to edit content or they had no CMS, whereby I would need to edit content files by hand - a process that was quite error prone. 
 
-I also built my older CV site using the [Meteor](https://www.meteor.com) Javascript framework. The benefit of this was that the sections would load quickly given that it was a single page application, but the initial load time to download the framework, images and all the fonts made the inital load very slow.
-
-I used Meteor back in the day when I was experimenting with single page application portfolio sites. SEO ended up being very tricky for this, because search engines cannot index content generated using Javascript.
-
 Hugo solves these problems by allowing complete control over content. The HTML and assets can be created by hand so this is what makes the framework so powerful, especially in the hands of more experienced developers.
 
-There are systems and frameworks that try to do everything for you, but when you want to deviate slightly and do things differently you end up fighting against it to get what you want it to do.
+With the Hugo framework, I have only begun to scratch the surface of what it can do. I still have a lot to learn about how to put together a site but things are working well so far, and I hope that these blog posts are helpful to someone starting out new.
 
 ## Keeping things lean
 Most of the older incarnations of this site that used frameworks needed complex infrastructure to get the whole thing running and it was quite often the case that I was running more than I needed for my sites.

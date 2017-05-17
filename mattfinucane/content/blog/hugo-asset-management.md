@@ -6,6 +6,8 @@ date: "2017-05-13"
 author: "Matt Finucane"
 identifier: "blog"
 sponsored: false
+disqus: true
+uniqueid: 1037766077
 categories:
 - Hugo
 - Docker

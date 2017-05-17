@@ -56,4 +56,12 @@ onload = () => {
 
 	window.addEventListener('scroll', throttle(toggleShadow.bind(null, '.wrapper:first-of-type'), 50));
 
+	/** 
+	 *	Start Disqus if we are on a blog post 
+	 */
+	let body 			= document.querySelector('body');
+	if(body.hasAttribute('data-post-identifier')) {
+		loadDisqus();
+	}
+
 };
