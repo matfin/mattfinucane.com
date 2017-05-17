@@ -1,8 +1,8 @@
 ---
 title: "Building a portfolio website - Part 2"
-description: "Part two in a series of how this site was built and deployed."
+description: "Part two in this series explores Hugo, a static site generator."
 synopsis: "In part two of this series we take a more in depth at Hugo - a static site generator."
-date: "2017-05-16"
+date: "2017-05-15"
 author: "Matt Finucane"
 identifier: "blog"
 sponsored: false
