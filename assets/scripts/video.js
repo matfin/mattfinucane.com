@@ -52,5 +52,36 @@ const getVideoParams = () => {
 };
 
 const setVideo = (video) => {
-	let breakpoint = getVideoParams();
+	let breakpoint 	= getVideoParams(),
+		video_base 	= video.getAttribute('data-base-url'),
+		video_name	= video.getAttribute('data-video'),
+		video_width = breakpoint.pixel_ratio * breakpoint.width,
+		poster_name	= video.getAttribute('data-poster'),
+		append		= breakpoint.wide ? '-wide':'',
+		media_src 	= `${video_base}/w_${video_width > 1920 ? 1920 : video_width},br_3m/${video_name}${append}`;
+
+	let formats = [
+		{
+			ext: 'webm',
+			type: 'video/webm'
+		},
+		{
+			ext: 'mp4',
+			type: 'video/mp4'
+		},
+		{
+			ext: 'ogv',
+			type: 'video/ogg'
+		}
+	];
+
+	video.setAttribute('poster', `${media_src}.jpg`);
+
+	Array.prototype.forEach.call(formats, (format) => {
+		let source = document.createElement('source');
+		source.setAttribute('src', `${media_src}.${format.ext}`);
+		source.setAttribute('type', `${format.type}`);
+		video.appendChild(source);
+		video.play();
+	});
 };
