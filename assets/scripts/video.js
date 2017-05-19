@@ -48,7 +48,9 @@ const getVideoParams = () => {
 	let min_cb = (prev, curr) => Math.abs(curr.width - device.width) < Math.abs(prev.width - device.width) ? curr : prev,
 		breakpoint = breaks.reduce(min_cb);
 
-	return Object.assign(breakpoint, {pixel_ratio: device.pixel_ratio});
+	breakpoint.pixel_ratio = device.pixel_ratio;
+
+	return breakpoint;
 };
 
 const setVideo = (video) => {
