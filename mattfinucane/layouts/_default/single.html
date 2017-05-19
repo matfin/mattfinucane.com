@@ -8,7 +8,11 @@
 			{{ partial "header" . }}
 		</div>
 		<div class="wrapper background-dark-green">
-			{{ partial "teaser" . }}
+			{{ if .Params.video }}
+				{{ partial "video_teaser" . }}
+			{{ else }}
+				{{ partial "teaser" . }}
+			{{ end }}
 		</div>
 		<div class="wrapper">
 			<main class="page {{ .Title | urlize }}">

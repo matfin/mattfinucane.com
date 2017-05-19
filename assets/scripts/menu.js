@@ -14,7 +14,7 @@ const toggleNavReveal = () => {
 };
 
 const toggleShadow = (selector) => {
-	let teaser 	= document.querySelector('.teaser:first-of-type'),
+	let teaser 	= document.querySelector('.teaser:first-of-type, .video-teaser:first-of-type'),
 		node 	= document.querySelector(selector),
 		scroll	= document.body.scrollTop || document.documentElement.scrollTop,
 		height 	= teaser.clientHeight;

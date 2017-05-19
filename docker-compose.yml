@@ -32,6 +32,7 @@ services:
   mf-static-dev:
     image: node:7.9.0
     container_name: static_dev
+    restart: always
     environment:
       - SCRIPTS_DEST=./mattfinucane/static/js/
       - STYLES_DEST=./mattfinucane/static/css/

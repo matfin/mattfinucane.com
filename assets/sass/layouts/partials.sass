@@ -8,7 +8,6 @@ header
 	justify-content: space-between
 	padding: 0 $units
 	padding-right: 0
-	background-color: $dark-green
 
 	+break(min, $break-3)
 		padding: $units * 0.625 $units
@@ -113,27 +112,32 @@ nav
  *	Teasers
  */
 div.teaser
-	display: flex
-	flex-direction: column
-	justify-content: center
 	padding: ($units * 3) $units
+	padding-top: $units * 5
 	color: $white
 
 	h2 
 		margin-bottom: $units
 
 	+break(min, $break-2)
-		padding: 0 $units
-		min-height: $units * 15
-		height: 25vh
+		padding: ($units * 6) $units
+		padding-top: $units * 8
 
 	+break(min, $break-3)
-		padding: 0 $units
-		min-height: $units * 25
-		height: 40vh
-
+		padding: ($units * 9) $units
+		padding-top: $units * 11
+		
 		h3 
 			max-width: 75%
+
+div.video-teaser
+	padding-top: $units * 4
+	width: 100%
+
+	video
+		display: block
+		width: 100%
+		height: auto
 
 /**
  *	Footer

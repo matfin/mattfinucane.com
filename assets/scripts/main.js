@@ -64,4 +64,14 @@ onload = () => {
 		loadDisqus();
 	}
 
+	/**
+	 *	Set the video source given device parameters
+	 */
+	let videos;
+	if((videos = document.querySelectorAll('video')) != null) {
+		Array.prototype.forEach.call(videos, (video) => {
+			setVideo(video);
+		});
+	}
+
 };
