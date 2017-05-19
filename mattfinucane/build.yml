@@ -12,6 +12,7 @@ params:
   mediaBase:     "http://media.mattfinucane.build/"
   title_first:   "Matt"
   title_last:    "Finucane"
+  cl_video_base: "https://res.cloudinary.com/matt-finucane-portfolio/video/upload/ac_none"
   no_index:      true
 
 menu:

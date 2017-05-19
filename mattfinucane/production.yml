@@ -11,6 +11,7 @@ params:
   author:        "Matt Finucane"
   mediaBase:     "http://media.mattfinucane.com/"
   title_first:   "Matt"
+  cl_video_base: "https://res.cloudinary.com/matt-finucane-portfolio/video/upload/ac_none"
   title_last:    "Finucane"
 
 menu:
