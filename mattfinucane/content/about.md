@@ -2,6 +2,8 @@
 title: 			"About"
 description: 	"My name is Matt Finucane and I am a software engineer"
 identifier:		"about"
+video:			"portfolio"
+poster:			"portfolio"
 ---
 
 ## Profile

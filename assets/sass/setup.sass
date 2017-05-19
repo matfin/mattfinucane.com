@@ -22,9 +22,6 @@ body
 	align-items:	center
 	color: 			$black
 
-	// +break(min-max, 0, $break-2)
-	// 	padding-top: $units * 2
-
 	&.prevent-scroll 
 		overflow: hidden
 
@@ -51,7 +48,7 @@ div.wrapper
 		background-color: $light-green
 
 header,
-div:not(.wrapper),
+div:not(.wrapper):not(.video-teaser),
 main,
 footer
 	width: 100%

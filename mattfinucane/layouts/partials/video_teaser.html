@@ -1,0 +1,7 @@
+<div class="video-teaser">
+	<video autoplay preload loop muted {{ if .Params.poster }}poster="{{ .Site.Params.cl_video_base}}{{ .Params.poster }}"{{ end }}>
+		<source src="{{ .Site.Params.cl_video_base}}/w_1920,br_4m/{{ .Params.video }}.webm" type="video/webm">
+		<source src="{{ .Site.Params.cl_video_base}}/w_1920,br_4m/{{ .Params.video }}.mp4" type="video/mp4">
+		<source src="{{ .Site.Params.cl_video_base}}/w_1920,br_4m/{{ .Params.video }}.ogv" type="video/ogg">
+	</video>
+</div>
