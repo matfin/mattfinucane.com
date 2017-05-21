@@ -1,0 +1,19 @@
+/**
+ *	Header animation
+ */
+header
+	h1
+		display: none
+
+		span.letter
+			display: inline-block
+			transform: rotate3d(0, 1, 0, 90deg)
+			transition-duration: 200ms
+
+			&.revealed
+				transform: rotate3d(0, 1, 0, 0deg);
+
+		> strong
+			span.letter
+				margin-right: $units / 8
+

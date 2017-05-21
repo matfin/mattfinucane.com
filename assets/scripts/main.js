@@ -74,4 +74,9 @@ onload = () => {
 		});
 	}
 
+	/**
+	 *	Animations
+	 */
+	splitLetters('header h1');
+
 };
