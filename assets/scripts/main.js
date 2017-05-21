@@ -77,6 +77,9 @@ onload = () => {
 	/**
 	 *	Animations
 	 */
-	splitLetters('header h1');
+	animateLetters('header h1')
+	.then(() => {
+		console.log('Animation complete');
+	});
 
 };
