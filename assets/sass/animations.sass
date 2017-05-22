@@ -14,12 +14,13 @@
 
 .animated-card
 	a
+		opacity: 0
 		transform: rotate3d(0, 1, 0, -90deg)
-		+transitionWithProperties(transform)
 
 	&.is-animated
 		perspective: 200px
 		a
+			opacity: 1.0
 			transform: rotate3d(0, 0, 0, 0deg)
 
 	

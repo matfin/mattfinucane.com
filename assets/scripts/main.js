@@ -90,14 +90,16 @@ onload = () => {
 		animateLetters('header h1')
 		.then(animateFadeIn.bind(null, 'nav'))
 		.then(animateFadeIn.bind(null, '.teaser:first-of-type'))
-		.then(setAnimationsComplete);
+		.then(setAnimationsComplete)
+		.catch(console.log);
 	}
 	else {
 		Promise.all([
 			animateLetters('header h1', 20),
 			animateFadeIn('nav'),
 			animateFadeIn('.teaser:first-of-type')
-		]);
+		])
+		.catch(console.log);
 	}
 
 	/**

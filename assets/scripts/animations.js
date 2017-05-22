@@ -49,7 +49,6 @@ let getLetters = (node, letters = []) => {
 	 *	out and associated with their parent html nodes.
 	 */
 	return letters;
-
 };
 
 /**
@@ -158,6 +157,7 @@ let animateLetters = (selector, delay = 75) => {
 				 *	of this by adding the class 'revealed' in turn.
 				 */
 				timeout = (++index) * delay;
+				
 				setTimeout(() => {
 					element.classList.add('revealed');
 					/**
@@ -216,6 +216,16 @@ let setAnimationsComplete = () => {
 	localStorage.setItem('intro-complete', true);
 };
 
+/**
+ *	This is a filter function to select the 
+ *	cards we want to animate on the basis that
+ *	they have not been animated yet (no class)
+ *	and that they are in view.
+ *
+ *	@function	filterCards
+ *	@param		{HTMLElement} 	- the node for the card
+ *	@return 	{Boolean}		- true if the `is-animated` class has not been applied and the card is in view
+ */
 let filterCards = (node) => {
 	let top 	= node.getBoundingClientRect().top,	
 		height 	= window.innerHeight,
@@ -224,13 +234,34 @@ let filterCards = (node) => {
 	return (top <= height) && !applied;
 };
 
+/**
+ *	This function is called on load and on throttled scroll.
+ *	It fetches all cards, filters them, then applies animations
+ *	using a timeOut in a staggered manner to animate the cards
+ *	in sequentially as they come into view.
+ *
+ *	@function	animateVisibleCards
+ *	@param 		{String} 	- the selector to get the DOM nodes 
+ */
 let animateVisibleCardTransforms = (selector) => {
 
+	/**
+	 *	Grab and filter the card nodes so we choose
+	 *	the ones that are in view and have not yet 
+	 *	been animated. 
+	 *	We also set an index for the timeout function.
+	 */
 	let nodes 	= document.querySelectorAll(selector),
 		items 	= Array.prototype.slice.call(nodes),
 		cards 	= items.filter(filterCards),
 		index 	= 0;
 
+	/**
+	 *	Go through each filtered card and add 
+	 *	the class to start the CSS animation.
+	 *	Each card should animate 75ms after the 
+	 *	previous card has started.
+	 */
 	Array.prototype.forEach.call(cards, (card) => {
 		setTimeout(() => {
 			card.classList.add('is-animated');
