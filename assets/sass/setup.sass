@@ -4,14 +4,12 @@
 	box-sizing: border-box
 
 html
-	.teaser,
 	.page h2
 		+transitionWithProperties(filter, 700ms)
 		filter: blur($units * 0.75)
 
 	&.wf-active,
 	&.wf-inactive
-		.teaser,
 		.page h2
 			filter: blur(0)
 
@@ -21,7 +19,6 @@ body
 	flex-direction:	column
 	align-items:	center
 	color: 			$black
-	// perspective: 	800px
 
 	&.prevent-scroll 
 		overflow: hidden
