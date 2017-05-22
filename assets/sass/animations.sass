@@ -1,20 +1,15 @@
 /**
  *	Header animation
  */
-header
-	h1
-		opacity: 0;
-		
-		span.letter
-			display: inline-block
-			transform: rotate3d(0, 1, 0, 90deg)
-			transition-duration: 200ms
 
-			&.revealed
-				transform: rotate3d(0, 1, 0, 0deg);
+.animate-in
+	opacity: 0;
+	
+	span.letter
+		display: inline-block
+		transform: rotate3d(0, 1, 0, 90deg)
+		transition-duration: 200ms
 
-		> strong
-			margin-left: 4px
-			span.letter
-				margin-right: $units / 4
+		&.revealed
+			transform: rotate3d(0, 1, 0, 0deg);
 

@@ -83,8 +83,6 @@ onload = () => {
 	// });
 
 	animateLetters('header h1')
-	.then(() => {
-		console.log('Animation complete!');
-	});
-
+	.then(animateFadeIn.bind(null, 'nav'))
+	.then(animateFadeIn.bind(null, '.teaser:first-of-type'));
 };

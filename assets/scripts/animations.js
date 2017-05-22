@@ -170,3 +170,16 @@ let animateLetters = (selector) => {
 		});
 	});
 };
+
+let animateFadeIn = (selector) => {
+	return new Promise((resolve, reject) => {
+		let node = document.querySelector(selector);
+		if(!node) {
+			resolve()
+		}
+		else {
+			node.classList.add('revealed');
+			node.addEventListener('transitionend', resolve);
+		}
+	});
+};
