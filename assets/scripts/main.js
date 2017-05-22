@@ -74,10 +74,14 @@ onload = () => {
 		});
 	}
 
+	if(!window.Promise) {
+		return;
+	}
+
 	/**
-	 *	Call animations only if they have not already been run.
+	 *	Call intro animation only if it has not already been run.
 	 */
-	if(localStorage.getItem('animations-complete') == null) {
+	if(localStorage.getItem('intro-complete') == null) {
 		animateLetters('header h1')
 		.then(animateFadeIn.bind(null, 'nav'))
 		.then(animateFadeIn.bind(null, '.teaser:first-of-type'))

@@ -176,10 +176,12 @@ let animateFadeIn = (selector) => {
 
 	return new Promise((resolve, reject) => {
 
-		let node 	= document.querySelector(selector);
+		let node = document.querySelector(selector);
 
 		if(!node) {
-			resolve();
+			reject({
+				missing: selector
+			});
 		}
 		else {
 			if(window.getComputedStyle(node).getPropertyValue('opacity') === '0') {
@@ -194,5 +196,5 @@ let animateFadeIn = (selector) => {
 };
 
 let setAnimationsComplete = () => {
-	localStorage.setItem('animations-complete', true);
+	localStorage.setItem('intro-complete', true);
 };
