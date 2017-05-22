@@ -1,5 +1,5 @@
 ---
-title: 			"Bower"
+title: 			"BowerJS"
 description: 	"Client side Javascript package management tool."
 proficiency:	3
 identifier:		"home"
