@@ -12,14 +12,14 @@
 		&.revealed
 			transform: rotate3d(0, 1, 0, 0deg);
 
-.animated-card-parent
-	perspective: 300px
-
 .animated-card
-	transform: rotate3d(1, 1, 0.5, 60deg)
-	+transitionWithProperties(transform)
+	a
+		transform: rotate3d(0, 1, 0, -90deg)
+		+transitionWithProperties(transform)
 
-	&.in-view
-		transform: rotate3d(0, 0, 0, 0deg)
+	&.is-animated
+		perspective: 200px
+		a
+			transform: rotate3d(0, 0, 0, 0deg)
 
 	

@@ -216,20 +216,26 @@ let setAnimationsComplete = () => {
 	localStorage.setItem('intro-complete', true);
 };
 
-let isVisible = (node) => {
+let filterCards = (node) => {
 	let top 	= node.getBoundingClientRect().top,	
-		height 	= window.innerHeight;
+		height 	= window.innerHeight,
+		applied = node.classList.contains('is-animated');
 
-	return top <= height;
+	return (top <= height) && !applied;
 };
 
 let animateVisibleCardTransforms = (selector) => {
 
 	let nodes 	= document.querySelectorAll(selector),
 		items 	= Array.prototype.slice.call(nodes),
-		visible = items.filter(isVisible);
+		cards 	= items.filter(filterCards),
+		index 	= 0;
 
-	//Todo: Animate
+	Array.prototype.forEach.call(cards, (card) => {
+		setTimeout(() => {
+			card.classList.add('is-animated');
+		}, (++index) * 75);
+	});
 };
 
 

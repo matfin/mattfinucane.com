@@ -100,5 +100,9 @@ onload = () => {
 		]);
 	}
 
-	window.addEventListener('scroll', throttle(animateVisibleCardTransforms.bind(null, '.term-card'), 200));
+	/**
+	 *	Card animation into view
+	 */
+	animateVisibleCardTransforms('.animated-card');
+	window.addEventListener('scroll', throttle(animateVisibleCardTransforms.bind(null, '.animated-card'), 200));
 };
