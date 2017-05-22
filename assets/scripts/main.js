@@ -36,7 +36,7 @@ onload = () => {
 	primeTapEvent('header button', toggleNavReveal);
 
 	/**
-	 *	Detect IE11 then run SVG replacement fix
+	 *	Detect IE11 then run fixes
 	 */
 	if(isIE()) {
 		setClass();
@@ -74,6 +74,11 @@ onload = () => {
 		});
 	}
 
+	/**
+	 *	Skip animations if promises 
+	 *	not supported. Polyfill will
+	 *	come soon for this.
+	 */
 	if(!window.Promise) {
 		return;
 	}
@@ -94,4 +99,6 @@ onload = () => {
 			animateFadeIn('.teaser:first-of-type')
 		]);
 	}
+
+	window.addEventListener('scroll', throttle(animateVisibleCardTransforms.bind(null, '.term-card'), 200));
 };

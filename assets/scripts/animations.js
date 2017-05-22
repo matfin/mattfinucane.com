@@ -172,6 +172,16 @@ let animateLetters = (selector, delay = 75) => {
 	});
 };
 
+/**
+ *	This function animates the fade in for an 
+ *	element by attaching a class. When the CSS
+ *	transition has completed, a resolved Promise
+ *	is returned to facilitate chaining.
+ *
+ *	@function	animateFadeIn
+ *	@param		{String} 	- the string for the element selector
+ *	@return 	{Promise}	- a resolved promise when the transition has completed
+ */
 let animateFadeIn = (selector) => {
 
 	return new Promise((resolve, reject) => {
@@ -195,6 +205,37 @@ let animateFadeIn = (selector) => {
 	});
 };
 
+/**
+ *	This function sets a property in localStorage
+ *	so we don't repeat the same intro animation 
+ *	repeatedly on navigation.
+ *
+ *	@function	setAnimationsComplete
+ */
 let setAnimationsComplete = () => {
 	localStorage.setItem('intro-complete', true);
 };
+
+let isVisible = (node) => {
+	let top 	= node.getBoundingClientRect().top,	
+		height 	= window.innerHeight;
+
+	return top <= height;
+};
+
+let animateVisibleCardTransforms = (selector) => {
+
+	let nodes 	= document.querySelectorAll(selector),
+		items 	= Array.prototype.slice.call(nodes),
+		visible = items.filter(isVisible);
+
+	//Todo: Animate
+};
+
+
+
+
+
+
+
+
