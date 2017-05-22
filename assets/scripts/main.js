@@ -82,6 +82,9 @@ onload = () => {
 	// 	console.log('Animation complete');
 	// });
 
-	animateLetters('header h1');
+	animateLetters('header h1')
+	.then(() => {
+		console.log('Animation complete!');
+	});
 
 };
