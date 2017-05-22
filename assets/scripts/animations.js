@@ -82,9 +82,10 @@ let clearText = (node) => {
  *
  *	@function 	animateLetters
  *	@param		{String} 	- the DOM selector string
- *	@return 	{Promise} 	- a resolved promise when the animation is finished 
+ *	@param		{Number}	- the delay between starting the animation on the next number
+ *	@return 	{Promise} 	- a resolved promise when the animation is finished
  */
-let animateLetters = (selector) => {
+let animateLetters = (selector, delay = 75) => {
 
 	return new Promise((resolve, reject) => {
 
@@ -156,7 +157,7 @@ let animateLetters = (selector) => {
 				 *	so we set the timeout as follows to take care 
 				 *	of this by adding the class 'revealed' in turn.
 				 */
-				timeout = (++index) * 75;
+				timeout = (++index) * delay;
 				setTimeout(() => {
 					element.classList.add('revealed');
 					/**
@@ -172,14 +173,26 @@ let animateLetters = (selector) => {
 };
 
 let animateFadeIn = (selector) => {
+
 	return new Promise((resolve, reject) => {
-		let node = document.querySelector(selector);
+
+		let node 	= document.querySelector(selector);
+
 		if(!node) {
-			resolve()
+			resolve();
 		}
 		else {
-			node.classList.add('revealed');
-			node.addEventListener('transitionend', resolve);
+			if(window.getComputedStyle(node).getPropertyValue('opacity') === '0') {
+				node.classList.add('faded-in');
+				node.addEventListener('transitionend', resolve);
+			}
+			else {
+				resolve();
+			}
 		}
 	});
+};
+
+let setAnimationsComplete = () => {
+	localStorage.setItem('animations-complete', true);
 };

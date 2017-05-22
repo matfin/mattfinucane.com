@@ -75,14 +75,19 @@ onload = () => {
 	}
 
 	/**
-	 *	Animations
+	 *	Call animations only if they have not already been run.
 	 */
-	// animateLetters('header h1')
-	// .then(() => {
-	// 	console.log('Animation complete');
-	// });
-
-	animateLetters('header h1')
-	.then(animateFadeIn.bind(null, 'nav'))
-	.then(animateFadeIn.bind(null, '.teaser:first-of-type'));
+	if(localStorage.getItem('animations-complete') == null) {
+		animateLetters('header h1')
+		.then(animateFadeIn.bind(null, 'nav'))
+		.then(animateFadeIn.bind(null, '.teaser:first-of-type'))
+		.then(setAnimationsComplete);
+	}
+	else {
+		Promise.all([
+			animateLetters('header h1', 20),
+			animateFadeIn('nav'),
+			animateFadeIn('.teaser:first-of-type')
+		]);
+	}
 };

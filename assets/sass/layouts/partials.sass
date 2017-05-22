@@ -90,6 +90,7 @@ nav
 
 		+break(min, $break-3)
 			flex-direction: row
+			
 			li
 				padding-left: $units * 1.5
 
@@ -107,18 +108,17 @@ nav
 			li
 				padding: $units * 1.5
 
-
 		&.revealed
 			z-index: $over
 			background-color: $menu-green
 			left: 0
 			transform: translate3d(0, 0, 0)
 
-	+break(min, $break-3) 
+	+break(min, $break-3)
 		opacity: 0
-		+transitionWithProperties(opacity);
+		+transitionWithProperties(opacity)
 
-		&.revealed
+		&.faded-in
 			opacity: 1.0
 
 /**
@@ -147,7 +147,7 @@ div.teaser
 		opacity: 0
 		+transitionWithProperties(opacity)
 
-	&.revealed
+	&.faded-in
 		opacity: 1
 
 div.video-teaser
