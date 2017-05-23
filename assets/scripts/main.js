@@ -43,6 +43,12 @@ onload = () => {
 	}
 
 	/**
+	 *	Card animation into view
+	 */
+	animations.animateVisibleCardTransforms('.animated-card');
+	window.addEventListener('scroll', utils.throttle(animations.animateVisibleCardTransforms.bind(null, '.animated-card'), 200));
+
+	/**
 	 *	Skip animations if promises 
 	 *	not supported. Polyfill will
 	 *	come soon for this.
@@ -70,9 +76,4 @@ onload = () => {
 		.catch(console.log);
 	}
 
-	/**
-	 *	Card animation into view
-	 */
-	animations.animateVisibleCardTransforms('.animated-card');
-	window.addEventListener('scroll', utils.throttle(animations.animateVisibleCardTransforms.bind(null, '.animated-card'), 200));
 };

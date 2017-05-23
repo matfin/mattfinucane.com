@@ -24,7 +24,7 @@ window.mf_site.ie = {
 	ieSvgFix: () => {
 		let svgs = document.querySelectorAll(`svg`);
 
-		Array.prototype.forEach.call(svgs, replaceSVG);
+		Array.prototype.forEach.call(svgs, mf_site.ie.replaceSVG);
 	},
 
 	/**
