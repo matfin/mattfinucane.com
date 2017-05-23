@@ -3,6 +3,7 @@
 const 	gulp 		= require('gulp'),
 		concat		= require('gulp-concat'),
 		babel 		= require('gulp-babel'),
+		jshint	 	= require('gulp-jshint'),
 		babelmin	= require('gulp-babel-minify'),
 		sass		= require('gulp-sass'),
 		cleancss	= require('gulp-clean-css');
@@ -46,6 +47,7 @@ gulp.task('sass-build', () => {
 gulp.task('scripts-dev', () => {
 	return gulp
 	.src('./assets/scripts/**/*')
+	.pipe(jshint())
 	.pipe(concat('main.js'))
 	.pipe(babel({
 		presets: ['es2015']
@@ -59,6 +61,7 @@ gulp.task('scripts-dev', () => {
 gulp.task('scripts-build', () => {
 	return gulp
 	.src('./assets/scripts/**/*')
+	.pipe(jshint())
 	.pipe(concat('main.js'))
 	.pipe(babelmin({
 		presets: ['es2015']

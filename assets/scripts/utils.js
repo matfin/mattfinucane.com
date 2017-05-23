@@ -12,13 +12,9 @@ window.mf_site.utils = {
 	 *	@return		{Object}	- device screen dimensions and pixel ratio
 	 */
 	deviceParameters: () => {
-		let width = window.innerWidth
-			|| document.documentElement.clientWidth
-			|| document.body.clientWidth;
+		let width = (window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth);
 
-		let height = window.innerHeight
-			|| document.documentElement.clientHeight
-			|| document.body.clientHeight;
+		let height = (window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight);
 
 		let pixel_ratio = Math.ceil(window.devicePixelRatio || 1);
 
