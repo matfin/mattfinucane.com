@@ -1,50 +1,70 @@
-/**
- *	Only IE has the following property in window
- */
-const isIE = () => {
-	return 'ActiveXObject' in window;
-};
+if(window.mf_site == null) {
+	window.mf_site = {};
+}
 
-/**
- *	Loop through all SVGs and replace.
- */
-const ieSvgFix = () => {
-	let svgs = document.querySelectorAll(`svg`);
+window.mf_site.ie = {
 
-	Array.prototype.forEach.call(svgs, (svg) => {
-		replaceSVG(svg);
-	});
-};
+	/**
+	 *	Function to determine IE
+	 *	
+	 *	@function	isIE
+	 *	@return		{Boolean} 	- true if IE
+	 */
+	isIE: () => {
+		return 'ActiveXObject' in window;
+	},
 
-/**
- *	Replace SVG with `use` with the `img` tag
- *	and assign properties from one to the other.
- */
-const replaceSVG = (svg) => {
-	let src 		= `/svg/${svg.getAttribute('data-svg')}.svg`,
-		img			= document.createElement('img'),
-		parent		= svg.parentNode;
+	/**
+	 *	This function loops through all SVG 
+	 *	nodes in the current document and 
+	 *	calls another replace function.
+	 *	
+	 *	@function 	ieSvgFix
+	 */
+	ieSvgFix: () => {
+		let svgs = document.querySelectorAll(`svg`);
 
-	let	attrs = {
-		src:	src,
-		width:	svg.getAttribute('width'),
-		height:	svg.getAttribute('height')
-	};
-	
-	for(let key in attrs) {
-		if(attrs.hasOwnProperty(key)) {
-			img[key] = attrs[key];
+		Array.prototype.forEach.call(svgs, replaceSVG);
+	},
+
+	/**
+	 *	This function refactors and SVG node
+	 *	and replaces the more modern embed code
+	 *	with a simpler image embed, loading a 
+	 *	single SVG file instead of a sprite.
+	 *
+	 *	@function 	replaceSVG
+	 *	@param		{HTMLElement} - the SVG node
+	 */
+	replaceSVG: (svg) => {
+		let src 		= `/svg/${svg.getAttribute('data-svg')}.svg`,
+			img			= document.createElement('img'),
+			parent		= svg.parentNode;
+
+		let	attrs = {
+			src:	src,
+			width:	svg.getAttribute('width'),
+			height:	svg.getAttribute('height')
+		};
+		
+		for(let key in attrs) {
+			if(attrs.hasOwnProperty(key)) {
+				img[key] = attrs[key];
+			}
 		}
+
+		parent.removeChild(svg);
+		parent.appendChild(img);
+	},
+
+	/**
+	 *	This function appends a class
+	 *	to the document root if the 
+	 *	browser is IE. This is to add
+	 *	some CSS style fixes.
+	 */
+	setClass: () => {
+		let doc_root = document.querySelector('html');
+		doc_root.classList.add('is-ie');
 	}
-
-	parent.removeChild(svg);
-	parent.appendChild(img);
-};
-
-/**
- *	Add class to the html classlist for IE
- */
-const setClass = () => {
-	let doc_root = document.querySelector('html');
-	doc_root.classList.add('is-ie');
 };

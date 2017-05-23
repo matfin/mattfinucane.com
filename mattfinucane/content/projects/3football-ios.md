@@ -18,7 +18,6 @@ tools:
 ---
 
 ## The brief
-
 This application was to show news, fixtures, live match reports and team info for the Republic of Ireland squad as they competed in the 2012 Euros.
 
 Time was of the essence and we needed to create a cross-platform mobile application for iOS and Android devices with the following features:
