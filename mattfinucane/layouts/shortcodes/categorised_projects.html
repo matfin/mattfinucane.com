@@ -6,27 +6,19 @@
 	{{ range $projects }}
 		{{ if eq $taxonomy "frameworks" }}
 			{{ if in .Params.frameworks $term }}
-				<li>
-					{{ .Render "card" }}
-				</li>
+				{{ .Render "card" }}
 			{{ end }}
 		{{ else if eq $taxonomy "infrastructure" }}
 			{{ if in .Params.infrastructure $term }}
-				<li>
-					{{ .Render "card" }}
-				</li>
+				{{ .Render "card" }}
 			{{ end }}
 		{{ else if eq $taxonomy "languages" }}
 			{{ if in .Params.languages $term }}
-				<li>
-					{{ .Render "card" }}
-				</li>
+				{{ .Render "card" }}
 			{{ end }}
 		{{ else if eq $taxonomy "tools" }}
 			{{ if in .Params.tools $term }}
-				<li>
-					{{ .Render "card" }}
-				</li>
+				{{ .Render "card" }}
 			{{ end }}
 		{{ end }}
 	{{ end }}

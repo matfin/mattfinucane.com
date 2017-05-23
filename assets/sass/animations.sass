@@ -1,0 +1,26 @@
+/**
+ *	Header animation
+ */
+.animate-in
+	opacity: 0;
+	
+	span.letter
+		display: inline-block
+		transform: rotate3d(0, 1, 0, 90deg)
+		transition-duration: 200ms
+
+		&.revealed
+			transform: rotate3d(0, 1, 0, 0deg);
+
+.animated-card
+	a
+		opacity: 0
+		transform: rotate3d(0, 1, 0, -90deg)
+
+	&.is-animated
+		perspective: 200px
+		a
+			opacity: 1.0
+			transform: rotate3d(0, 0, 0, 0deg)
+
+	

@@ -17,6 +17,12 @@ header
 	a
 		border-bottom: none
 		color: $white
+
+		h1
+			strong
+				margin-left: 4px
+				span.letter
+					margin-right: $units / 4
 		
 	button
 		display: none
@@ -63,6 +69,15 @@ html.is-ie
 			top: 0;
 			right: 0;
 
+		h1
+			opacity: 1.0
+
+		nav
+			opacity: 1.0
+
+	.teaser:first-of-type
+		opacity: 1.0
+
 /**
  *	Responsive navigation
  */
@@ -84,6 +99,7 @@ nav
 
 		+break(min, $break-3)
 			flex-direction: row
+			
 			li
 				padding-left: $units * 1.5
 
@@ -101,12 +117,18 @@ nav
 			li
 				padding: $units * 1.5
 
-
 		&.revealed
 			z-index: $over
 			background-color: $menu-green
 			left: 0
 			transform: translate3d(0, 0, 0)
+
+	+break(min, $break-3)
+		opacity: 0
+		+transitionWithProperties(opacity)
+
+		&.faded-in
+			opacity: 1.0
 
 /**
  *	Teasers
@@ -129,6 +151,13 @@ div.teaser
 		
 		h3 
 			max-width: 75%
+
+	&:first-of-type 
+		opacity: 0
+		+transitionWithProperties(opacity)
+
+	&.faded-in
+		opacity: 1
 
 div.video-teaser
 	padding-top: $units * 4

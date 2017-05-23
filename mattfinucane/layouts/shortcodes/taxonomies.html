@@ -3,9 +3,7 @@
 <ul class="taxonomies-list">
 	{{ range sort $items ".Params.proficiency" "desc" }}
 		{{ if .Params.proficiency }}
-			<li>
-				{{ .Render "card" }}
-			</li>
+			{{ .Render "card" }}
 		{{ end }}
 	{{ end }}
 </ul>

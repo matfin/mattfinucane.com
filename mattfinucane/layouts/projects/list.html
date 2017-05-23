@@ -15,9 +15,7 @@
 				{{ .Content }}
 				<ul class="projects-list">
 					{{ range where .Data.Pages "Section" "projects" }}
-						<li>
-							{{ .Render "card" }}
-						</li>
+						{{ .Render "card" }}
 					{{ end }}
 				</ul>
 			</main>
