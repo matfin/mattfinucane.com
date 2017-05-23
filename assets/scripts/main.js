@@ -1,67 +1,79 @@
-const primeTapEvent = (selector, fn) => {
-	const items = document.querySelectorAll(selector);
-	Array.prototype.forEach.call(items, (item) => {
-		if('onpointerdown' in window) {
-			item.addEventListener('pointerdown', fn);
-		}
-		else if('ontouchstart' in window) {
-			item.addEventListener('touchstart', fn);
-		}
-		else {
-			item.addEventListener('click', fn);	
-		}
-	});
-};
-
-const throttle = (fn, limit) => {
-	let waiting = false;
-	
-	limit = limit | 200;
-
-	return () => {
-		if(!waiting) {
-			fn.call();
-			waiting = true;
-			setTimeout(() => {
-				waiting = false;
-			}, limit);
-		}
-	};
-};
+if(window.mf_site == null) {
+	window.mf_site = {};
+}
 
 onload = () => {
+
+	const 	animations 	= mf_site.animations,
+			ie 			= mf_site.ie,
+			menu		= mf_site.menu,
+			video 		= mf_site.video,
+			disqus 		= mf_site.disqus,
+			utils 		= mf_site.utils;
+
 	/**
 	 *	Monitor tap/click on header button
 	 */
-	primeTapEvent('header button', toggleNavReveal);
+	utils.primeTapEvent('header button', menu.toggleNavReveal);
 
 	/**
-	 *	Detect IE11 then run SVG replacement fix
+	 *	Detect IE11 then run fixes
 	 */
-	if(isIE()) {
-		setClass();
-		ieSvgFix();
+	if(ie.isIE()) {
+		ie.setClass();
+		ie.ieSvgFix();
 	}
 
-	/**
-	 *	Unblur the text after 2s 
-	 *	if typekit takes too long
-	 */
-	setTimeout(() => {
-		let doc_root = document.querySelector('html');
-		if(!doc_root.classList.contains('wf-active')) {
-			doc_root.classList.add('wf-inactive');
-		}
-	}, 2000);
-
-	window.addEventListener('scroll', throttle(toggleShadow.bind(null, '.wrapper:first-of-type'), 50));
+	window.addEventListener('scroll', utils.throttle(menu.toggleShadow.bind(null, '.wrapper:first-of-type'), 50));
 
 	/** 
 	 *	Start Disqus if we are on a blog post 
 	 */
-	let body 			= document.querySelector('body');
+	let body = document.querySelector('body');
 	if(body.hasAttribute('data-post-identifier')) {
-		loadDisqus();
+		disqus.loadDisqus();
+	}
+
+	/**
+	 *	Set the video source given device parameters
+	 */
+	let videos;
+	if((videos = document.querySelectorAll('video')) != null) {
+		Array.prototype.forEach.call(videos, video.setVideo);
+	}
+
+	/**
+	 *	Card animation into view
+	 */
+	animations.animateVisibleCardTransforms('.animated-card');
+	window.addEventListener('scroll', utils.throttle(animations.animateVisibleCardTransforms.bind(null, '.animated-card'), 200));
+
+	/**
+	 *	Skip animations if promises 
+	 *	not supported. Polyfill will
+	 *	come soon for this.
+	 */
+	if(!window.Promise) {
+		return;
+	}
+
+	/**
+	 *	Call intro animation only if it has not already been run.
+	 */
+	if(localStorage.getItem('intro-complete') == null) {
+		animations.animateLetters('header h1')
+		.then(animations.animateFadeIn.bind(null, 'nav'))
+		.then(animations.animateFadeIn.bind(null, '.teaser:first-of-type'))
+		.then(animations.setAnimationsComplete)
+		.catch(console.log);
+	}
+	else {
+		Promise.all([
+			animations.animateLetters('header h1', 20),
+			animations.animateFadeIn('nav'),
+			animations.animateFadeIn('.teaser:first-of-type')
+		])
+		.catch(console.log);
 	}
 
 };

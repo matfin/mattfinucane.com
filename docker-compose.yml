@@ -29,10 +29,22 @@ services:
       - "80:80"
     command: nginx -g "daemon off;"
 
-  mf-static-dev:
+  mf-dependencies-dev:
     image: node:7.9.0
-    container_name: static_dev
-    environment:
+    container_name: dependencies_dev  
+    volumes:
+      - ./:/opt:rw
+    links:
+      - mf-site-dev
+    depends_on:
+      - mf-site-dev
+    command: sh -c "cd /opt && npm install -g gulp && npm install"
+
+  mf-gulp-dev:
+    image: node:7.9.0
+    container_name: gulp_dev
+    restart: always
+    environment: 
       - SCRIPTS_DEST=./mattfinucane/static/js/
       - STYLES_DEST=./mattfinucane/static/css/
       - SVG_DEST=./mattfinucane/static/svg/
@@ -41,6 +53,8 @@ services:
       - ./:/opt:rw
     links:
       - mf-site-dev
+      - mf-dependencies-dev
     depends_on:
+      - mf-dependencies-dev
       - mf-site-dev
-    command: sh -c "cd /opt && npm install -g gulp && npm link gulp && npm install && gulp"
+    command: sh -c "cd /opt && npm link gulp && gulp"

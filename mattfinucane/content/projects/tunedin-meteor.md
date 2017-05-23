@@ -1,9 +1,9 @@
 ---
 title: 			"TunedIn"
 description:	"Web application for TunedIn Media."
-synopsis:		"TV guide and user second screen participation app for TunedIn."
+synopsis:		"TunedIn was a multi-platform application delivering TV and film content to users in real time."
 date:			"2014-04-01"
-duration:		"210 days"
+duration:		"150 days"
 identifier:		"projects"
 languages: 		
 - Javascript (ES5)
@@ -28,14 +28,12 @@ tools:
 ---
 
 ## The brief
-TunedIn Media were a social media startup creating an application that would complement a TV viewers experience.
-
 As part of a two person team, I was tasked with creating the TunedIn web application with the following features:
 
 - An interactive TV guide that would allow the users to scrub through a timeline and see what was on TV at that point.
 - A detailed program info page with related TV content being displayed alongside the current item.
 - A page containing widgets that would allow users to particpate when watching a TV show (polls, multiple choice questions etc).
-- A customer registration and sign in flow.
+- Customer registration and sign in flow.
 
 ## Project planning
 With the above features in mind, it was decided to use the following:

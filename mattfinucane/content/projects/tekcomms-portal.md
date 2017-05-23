@@ -1,10 +1,10 @@
 ---
 title: 			"Tekcomms Community Portal"
 description:	"Engineers portal for Tektronix Communications."
-synopsis:		"Document search and retrieval for telecomms engineers using Tektronix products."
+synopsis:		"The Tekcomms Community Portal is a knowlege base for telecomms engineers."
 liveurl:		"https://serviceprovider.netscout.com/user"
 date:			"2013-09-01"
-duration:		"150 days"
+duration:		"120 days"
 identifier:		"projects"
 languages: 		
 - Javascript (ES5)
@@ -31,7 +31,7 @@ We had to extend the Tekcomms website to provide a password protected community 
 
 Upon signing in, an engineer would be presented with a customised list of technical documents for the hardware they were working with.
 
-We also needed to integrate the community portal with third party lead generation tools the organisation used for their clients.
+We also needed to integrate the community portal with third party lead generation tools the organisation was using for their clients.
 
 ## Project development
 Our tasks for the project were outlined as follows:

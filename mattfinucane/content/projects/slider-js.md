@@ -1,10 +1,10 @@
 ---
 title: 			"SliderJS"
 description:	"Simple content slider."
-synopsis:		"A simple content slider written in vanilla Javascript and bundled as a Bower package."
-liveurl:		"https://Git.com/matfin/slider"
+synopsis:		"This is a simple content slider written in Javascript and bundled as a Bower package."
+github:			"https://github.com/matfin/slider"
 date:			"2015-08-01"
-duration:		"30 days"
+duration:		"20 days"
 identifier:		"projects"
 languages: 		
 - Javascript (ES7)
@@ -17,16 +17,16 @@ tools:
 ---
 
 ## The brief
-This is a package I wrote and used in several of my client side Javascript projects. It offers slide functionality for content inside a carousel.
+This is a package I wrote and used in several of my projects. It offers slide/swipe functionality for content inside a carousel.
 
-I wanted to create a slider that was lightweight and simple to implement. 
+I wanted to create a slider that was lightweight and simple for others to integrate into their projects.
 
-I also wanted it to be responsive, so it would behave itself when the browser window was resized.
+I also wanted it to be fast and responsive so it would behave itself when the browser window was resized.
 
 ## Project planning
-There were existing slider modules available, but they all required third party packages such as jQuery so I wanted to see if I could create something neat and fast using Javacript only.
+There were existing slider modules available, but they all required third party packages such as jQuery. I wanted to see if I could create something neat and fast using plain Javascript.
 
-I limited browser support to the latest two versions of each of the main browsers. Maintaining legacy support was not needed, so this would lessen the need for ugly hacks for legacy browsers.
+I limited browser support to the latest two versions of each of the main browsers. Maintaining legacy support was not needed so this would lessen the need for ugly hacks.
 
 ## Project development
 I came up with a list of features that needed to be implemented:

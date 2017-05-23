@@ -1,10 +1,10 @@
 ---
 title: 			"StackpointCloud Community"
 description:	"Kubernetes Community website"
-synopsis:		"This is the StackPointCloud Community website built using NodeJS and PolymerJS."
+synopsis:		"The StackPointCloud community website serves as a platform for questions, tutorials and conferences. This is the official Kubernetes Community site for the StackPoint.io product which provides a universal control panel for Kubernetes."
 liveurl:		"https://stackpointcloud.com/community"
 date:			"2017-04-01"
-duration:		"150 days"
+duration:		"120 days"
 identifier:		"projects"
 languages: 		
 - Javascript (ES7)
@@ -34,8 +34,6 @@ tools:
 ---
 
 ## The brief
-The StackPointCloud community website serves as a platform for questions, tutorials and conferences. This is the official Kubernetes Community site for the StackPoint.io product which provides a universal control panel for Kubernetes.
-
 Create a community website that allows users to post questions, add tutorials and events and curate these. 
 
 Users should be able to easily contribute to the site, with administrators reviewing and publishing this content.

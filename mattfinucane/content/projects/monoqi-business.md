@@ -1,10 +1,10 @@
 ---
 title: 			"Monoqi Business"
 description:	"B2B platform for Monoqi."
-synopsis:		"Website to connect Designers with those who stock and sell their products."
+synopsis:		"Monoqi Business is a wholesale platform used to connect designers and their products with international resellers."
 liveurl:		"https://www.monoqibusiness.com/"
 date:			"2014-11-01"
-duration:		"75 days"
+duration:		"45 days"
 identifier:		"projects"
 languages: 		
 - Javascript (ES5)
@@ -25,9 +25,7 @@ tools:
 ---
 
 ## The brief
-Monoqi Business is a wholesale platform used to connect designers and manufacturers with their buyers.
-
-Our task was to work with the back end Magento developers to redevelop the site with a more modern look and feel. 
+Our task was to work with the back end Magento developers to overhaul the existing website. 
 
 ## Project planning and development
 We set about with the following in mind:

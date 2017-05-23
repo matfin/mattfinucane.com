@@ -1,10 +1,11 @@
 ---
 title: 			"Anna Christoffer (Meteor)"
 description:	"Portfolio site built using MeteorJS."
-synopsis:		"This is the portfolio site for Anna Claire Christoffer built using MeteorJS and content managed using Contentful."
-liveurl:		"https://Git.com/matfin/annachristoffer/tree/v1.0.0"
+synopsis:		"This is the online portfolio for Anna Christoffer, an Art Director based in Berlin."
+github:			"https://github.com/matfin/annachristoffer"
+liveurl:		"http://annachristoffer.com"
 date:			"2015-07-01"
-duration:		"60 days"
+duration:		"40 days"
 identifier:		"projects"
 languages: 		
 - Javascript (ES7)
@@ -32,11 +33,9 @@ tools:
 ---
 
 ## The brief
-This is the online portfolio for Anna Christoffer, an Art Director based in Berlin.
-
 Build a fast and responsive website focusing on the delivery of clean and crisp images and well formatted typography.
 
-It should be easy to edit content and resize images on the fly, with only one updload required per image.
+It should be easy to edit content and resize images on the fly with only one updload required to generate several resized images for different devices.
 
 ## Project planning and development
 This project went through several iterations as it was being build. The first release was built using MeteorJS and stored all content client side (in JSON files).

@@ -1,9 +1,10 @@
 ---
 title: 			"ProfitBricks Community"
 description:	"ProfitBricks community & drivers."
-synopsis:		"ProfitBricks drivers for various frameworks and sevices."
+synopsis:		"I have created software drivers for various Open-source cloud based applications for ProfitBricks, a cloud based solutions provider."
+liveurl:		"https://devops.profitbricks.com/"
 date:			"2016-09-01"
-duration:		"90 days"
+ongoing:		true
 identifier:		"projects"
 languages:	
 - Javascript (ES5)

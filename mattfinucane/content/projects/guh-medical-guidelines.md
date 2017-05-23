@@ -1,9 +1,10 @@
 ---
 title: 			"GUH Medical Guidelines"
 description:	"Cross platform mobile web application."
-synopsis:		"This is the cross platform mobile web application built for Anroid and iOS using Sencha Touch."
+synopsis:		"This is an application containing antimicrobial guidelines for use in hospitals."
+liveurl:		"https://itunes.apple.com/ie/app/gapp-guidelines/id659325458"
 date:			"2013-03-01"
-duration:		"75 days"
+duration:		"50 days"
 identifier:		"projects"
 languages: 		
 - Javascript (ES5)
@@ -21,7 +22,7 @@ tools:
 ## The brief
 This was a cross platform mobile web application for presenting antimicrobial perscription guidelines in a format suitable for phones and tablets.
 
-Before this application was created, staff Galway University Hospitals needed to refer to a large document with a very basic structure to reference their antimicrobial perscription guidelines. 
+Before this application was created, staff at the hosptials needed to refer to a large document with a very basic structure to find the information they needed. 
 
 Our job was to refactor this document and present it in a more compact and logical fashion to faciliate access to the information within.
 
