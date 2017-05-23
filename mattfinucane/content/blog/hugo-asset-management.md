@@ -97,6 +97,7 @@ We are building out the assets initially and then running the watch task. You ma
 This command looks like: 
 ```
 command: sh -c "cd /opt && npm link gulp && gulp"
+```
 
 We also have a build task specified that does not watch changes to the source code, which looks like this:
 
