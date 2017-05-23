@@ -1,9 +1,9 @@
 ---
 title: 			"Shelfd Prototype"
 description:	"Prototype iOS app for Shelfd."
-synopsis:		"iOS app for the prototype of the Shelfd media aggregation app."
+synopsis:		"This is a prototype iOS app for the Shelfd media aggregation tool."
 date:			"2015-04-01"
-duration:		"45 days"
+duration:		"40 days"
 identifier:		"projects"
 languages: 		
 - Objective C
@@ -17,9 +17,11 @@ tools:
 ---
 
 ## The brief
-In 2015, I was given the task of creating a simple prototype for the Shelfd iOS application, which aggregates a users monthly media consumption into one place.
+I was given the task of creating a prototype for the Shelfd iOS application which aggregates a users monthly media consumption into one place.
 
-The task was to create a simple application that would connect to a users media library across different services and sync them to their iOS device. This media would then be played back on the users TV.
+The task was to create a simple application that would connect to a users media library across different services and sync them to their iOS device. 
+
+This media would then be played back on the users TV.
 
 ## Project planning and development
 The project setup was as follows:
