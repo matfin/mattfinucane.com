@@ -1,4 +1,7 @@
 <article class="blogpost-card">
+	<time datetime="{{ .Date }}">
+		{{ .Date.Format "May 2006" }}
+	</time>
 	<a href="{{ .Permalink }}">
 		<h2>
 			{{ .Title }}

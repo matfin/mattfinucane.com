@@ -113,9 +113,14 @@ nav
 		+transitionWithProperties((transform, background-color))
 
 		ul 
-			margin-top: $units
+			height: 100%
 			li
-				padding: $units * 1.5
+				flex: 1
+				width: 100%
+				display: flex
+				padding: 0
+				align-items: center
+				justify-content: center
 
 		&.revealed
 			z-index: $over
