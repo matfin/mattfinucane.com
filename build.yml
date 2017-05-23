@@ -28,9 +28,9 @@ services:
         - "80:80"
       command: nginx -g "daemon off;"
 
-    mf-static-build:
+    mf-dependencies-build:
       image: node:7.9.0
-      container_name: static_build
+      container_name: dependencies_build
       environment:
         - SCRIPTS_DEST=./public/js/
         - STYLES_DEST=./public/css/
