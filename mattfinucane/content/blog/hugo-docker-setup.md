@@ -1,5 +1,5 @@
 ---
-title: "Building this site - Containerised development"
+title: "Building this site - Containerised development with Docker Compose"
 description: "In part three of this series we look at getting a development environment set up using Docker."
 synopsis: "In part three of this series we explore using Docker to get a development environment set up for Hugo."
 date: "2017-05-12"
@@ -41,7 +41,7 @@ This website uses three containers that work together as follows:
 
 - The first container named `mf-site-dev` is derived from Alpine Linux and contains the binary for Hugo itself. This runs a development server for Hugo and builds out the site.
 - The second container named `mf-nginx-dev` is derived from the `nginx:alpine` image acts as a reverse proxy that interfaces with the running Hugo server instance. This means I can access the development version of my site at `http://mattfinucane.dev` instead of `http://localhost:1313`.
-- The third container named `mf-depdencies-dev` is derived from the `node:7.9.0` image and handles dependencies that are installed with NPM[https://www.npmjs.com] - the official NodeJS package manager. This container installs development dependencies and then exits when done.
+- The third container named `mf-depdencies-dev` is derived from the `node:7.9.0` image and handles dependencies that are installed with [NPM](https://www.npmjs.com) - the official NodeJS package manager. This container installs development dependencies and then exits when done.
 - The final container named `mf-gulp-dev` is also derived from `node:7.9.0` and it contains the Javascript task runners I need to manage my styles and scripts using [Gulp](http://gulpjs.com/).
 
 **Note:** The third and fourth containers used to be merged into one, but the [BabelJS](https://babeljs.io/) task I was running would kill the container if there was a syntax error in my Javascript source.
