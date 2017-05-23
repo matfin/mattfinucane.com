@@ -48,6 +48,7 @@ gulp.task('scripts-dev', () => {
 	return gulp
 	.src('./assets/scripts/**/*')
 	.pipe(jshint())
+	.pipe(jshint.reporter('default'))
 	.pipe(concat('main.js'))
 	.pipe(babel({
 		presets: ['es2015']
@@ -62,6 +63,7 @@ gulp.task('scripts-build', () => {
 	return gulp
 	.src('./assets/scripts/**/*')
 	.pipe(jshint())
+	.pipe(jshint.reporter('default'))
 	.pipe(concat('main.js'))
 	.pipe(babelmin({
 		presets: ['es2015']

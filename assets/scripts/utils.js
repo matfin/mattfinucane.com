@@ -44,7 +44,7 @@ window.mf_site.utils = {
 				item.addEventListener('touchstart', fn);
 			}
 			else {
-				item.addEventListener('click', fn);	
+				item.addEventListener('click', fn);
 			}
 		});
 	},
