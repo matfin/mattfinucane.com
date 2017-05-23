@@ -34,14 +34,17 @@ I don't need to locally install each piece of infrastructure I need and I certai
 
 I don't need to be tied to any particular version of a platform and worry about overwriting a local installation on my devlopment machine which might break one of my other projects.
 
-**Note:** I am using `Docker Community Edition Version 17.03.1-ce-mac12 (17661)` for MacOS. You will need a recent version of Docker if you want to get a setup like mine running.
+**Note:** I am using **Docker Community Edition Version 17.03** for MacOS. You will need a recent version of Docker if you want to get a setup like mine running.
 
 ## The container set up for this website
 This website uses three containers that work together as follows:
 
 - The first container named `mf-site-dev` is derived from Alpine Linux and contains the binary for Hugo itself. This runs a development server for Hugo and builds out the site.
 - The second container named `mf-nginx-dev` is derived from the `nginx:alpine` image acts as a reverse proxy that interfaces with the running Hugo server instance. This means I can access the development version of my site at `http://mattfinucane.dev` instead of `http://localhost:1313`.
-- The third container named `mf-static-dev` is derived from the `node:7.9.0` and contains the Javascript task runners I need to manage my styles and scripts using [Gulp](http://gulpjs.com/).
+- The third container named `mf-depdencies-dev` is derived from the `node:7.9.0` image and handles dependencies that are installed with NPM[https://www.npmjs.com] - the official NodeJS package manager. This container installs development dependencies and then exits when done.
+- The final container named `mf-gulp-dev` is also derived from `node:7.9.0` and it contains the Javascript task runners I need to manage my styles and scripts using [Gulp](http://gulpjs.com/).
+
+**Note:** The third and fourth containers used to be merged into one, but the [BabelJS](https://babeljs.io/) task I was running would kill the container if there was a syntax error in my Javascript source.
 
 ## Taking a look at the set up for Docker
 Docker Compose is the tool that is used to create containers from images, provision them and get them running. 
@@ -186,15 +189,37 @@ The container image will be derived from `nginx:alpine` and the `COPY` command t
 
 Remember that the `ARG` directive pulls the filename for the Nginx configuration file from the snippet inside the `docker-compose.yml` file.
 
-## The static site container
+## The dependencies container
 
-Finally, if we take a look at the snippet for the `mf-static-dev` container, we see the following:
+If we take a look at the snippet for the `mf-dependencies-dev` container, we see the following:
 
 ```
-mf-static-dev:
+mf-dependencies-dev:
     image: node:7.9.0
-    container_name: static_dev
-    environment:
+    container_name: dependencies_dev  
+    volumes:
+      - ./:/opt:rw
+    links:
+      - mf-site-dev
+    depends_on:
+      - mf-site-dev
+    command: sh -c "cd /opt && npm install -g gulp && npm install"
+```
+
+We have specified an `image` which says should be derived from `node:7.9.0` which is one of the official images maintained by the creators of NodeJS.
+
+This container installs Gulp (our Javascript task runner) and its dependencies.
+
+## The Gulp container
+
+Finally, we can take a look at the container set up for the `mf-gulp-dev` container.
+
+```
+mf-gulp-dev:
+    image: node:7.9.0
+    container_name: gulp_dev
+    restart: always
+    environment: 
       - SCRIPTS_DEST=./mattfinucane/static/js/
       - STYLES_DEST=./mattfinucane/static/css/
       - SVG_DEST=./mattfinucane/static/svg/
@@ -203,16 +228,20 @@ mf-static-dev:
       - ./:/opt:rw
     links:
       - mf-site-dev
+      - mf-dependencies-dev
     depends_on:
+      - mf-dependencies-dev
       - mf-site-dev
-    command: sh -c "cd /opt && npm install -g gulp && npm link gulp && npm install && gulp"
+    command: sh -c "cd /opt && npm link gulp && gulp"
 ```
+
+Setting `restart: always` means that if the container exits, it will be restarted automatically without having to bring all the containers down.
 
 Here we see the `environment` configuration parameters. This is where we can set environment variables that need to be set for different deployment environments.
 
-We have also specified an `image` which specifies that this container should be derived from the `node:7.9.0` image which is an official image maintained by the creators of NodeJS.
+The environment variables above will tell my Gulp script where it needs to put the files it generates for styles, image assets and scripts. 
 
-The environment variables above will tell my Gulp script where it needs to put the files it generates for styles, image assets and scripts. The `command` here runs a gulp task which watches for changes to the source files and then automatically generates assets from those.
+The `command` here runs a gulp task which watches for changes to the source files and then automatically generates assets from those.
 
 ## Running your local development environment
 Here, we have an overview of the Docker and Docker Compose set up for this website. 

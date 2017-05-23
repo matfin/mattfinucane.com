@@ -74,7 +74,7 @@ The HTML generated from what would look like the following:
 
 As you can see, Markdown is much easier to maintain by hand but the HTML it generates is quite clean and semantic.
 
-## Enter Hugo
+## Hugo
 [Hugo](https://gohugo.io) is a static site generator written in the Go programming language. It has a simple opinionated structure for specifying content, sections, partials and shortcodes.
 
 The compiled version of Hugo runs as a standalone binary, so it does not require any infrastructure to be installed, such as PHP, Ruby or NodeJS. 

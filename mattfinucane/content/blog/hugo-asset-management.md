@@ -23,7 +23,7 @@ In this fourth part of the series, we take a look at using [Gulp](http://gulpjs.
 Gulp is a Javascript task runner that processes source files and generates them into something the browser can understand. We use it here for the following:
 
 - Our styles are written in [SASS](http://sass-lang.com/) format. Gulp processes these into CSS using the `gulp-sass` plugin.
-- Our scripts are written in Javascript using the ES7 syntax. We convert these to the more widely-supported ES5 syntax to maintain compatibility.
+- Our scripts are written in Javascript using the ES7 syntax. We convert these to the more widely-supported ES5 syntax to maintain compatibility using the [BabelJS](https://babeljs.io) transpiler tool.
 - This site also contains a series of different image files for favicons and SVG icons. Gulp takes care of copying these to the correct place during development and build.
 
 ## Styles using SASS
@@ -33,7 +33,7 @@ SASS has features such as mixins and functions that make it much easier to maint
 
 For this project, I keep the source for my SASS inside the `/assets/sass` directory in the root of my project. I have declared stylesheets for the different sections of the site, the shortcodes, partials, typography and layout.
 
-This makes things much more maintainable, intuitive and easier for new developers to understand. All files are included inside `/assets/sass/main.sass`.
+This makes things more maintainable, intuitive and easier for new developers to understand. All files are included inside `/assets/sass/main.sass`.
 
 If we take a look at this snippet from the `gulpfile.js` we see the following tasks to process SASS into CSS.
 
@@ -96,8 +96,7 @@ We are building out the assets initially and then running the watch task. You ma
 
 This command looks like: 
 ```
-command: sh -c "cd /opt && npm install -g gulp && npm link gulp && npm install && gulp"
-```
+command: sh -c "cd /opt && npm link gulp && gulp"
 
 We also have a build task specified that does not watch changes to the source code, which looks like this:
 
@@ -114,7 +113,7 @@ gulp.task('build', [
 ]);
 ```
 
-When building out a local versiono of the site or deploying to the staging or production environments for this site, it doesn't make sense to watch for changes.
+When building out a local version of the site or deploying to the staging or production environments for this site, it doesn't make sense to watch for changes.
 
 When building for deployment, we have some extra steps inside the `gulpfile.js` to further concatenate minify the generated assets. 
 
@@ -130,6 +129,7 @@ For this website, I used the following plugins:
 - `gulp-concat` generates a single named file from a group of other files.
 - `babel` is a transpiler that converts the ES7 flavour of Javascript back to ES5 for backwards compatibility.
 - `babelmin` does the same as above but also minifies the generated script.
+- `gulp-jshint` will check the code for quality issues.
 - `sass` is the CSS preprocessor we are using that converts our source SASS files to CSS.
 - `cleancss` takes in the CSS and minifies the output to reduce filesize.
 
