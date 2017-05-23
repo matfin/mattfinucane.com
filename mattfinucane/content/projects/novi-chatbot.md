@@ -1,10 +1,10 @@
 ---
 title: 			"Novi Chatbot"
 description:	"Facebook chat bot delivering news to users."
-synopsis:		"Infrastructre and CMS for the Tagesschau Facebook Chatbot server."
+synopsis:		"Novi is a chat bot that runs on the Facebook Messenger platform and delivers news content to its users on request or at scheduled daily intervals."
 liveurl:		"http://www.novibot.de/"
 date:			"2017-03-01"
-duration:		"60 days"
+duration:		"40 days"
 identifier:		"projects"
 languages: 		
 - Javascript (ES7)
@@ -25,11 +25,9 @@ tools:
 ---
 
 ## The brief
-Novi is a chat bot that runs on the Facebook Messenger platform and delivers news content to its users on request or at scheduled daily intervals.
+I started working on this project a few months after it was started. My job was to test and document the existing code as well as add new features.
 
-I started working on this project a few months after it was started and my job was to test and document what was already there, along with building new features.
-
-The set up came as two projects, one a CMS where content editors could curate custom content, and the other was the bot infrastructure itself which handled user requests and delivered the appropriate responses.
+The set up came as two projects, one a CMS where content editors could curate custom content and the other was the bot infrastructure which handled user requests and delivered the appropriate responses.
 
 ## Project work
 The first task undertaken was to get to grips with how the whole set up worked. The best way to accomplish this was to containerise both parts of the project and tie everything together using [Docker Compose](https://docs.docker.com/compose/).

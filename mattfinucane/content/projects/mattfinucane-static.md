@@ -1,9 +1,10 @@
 ---
 title: 			"Developer Portfolio Static"
 description:	"Portfolio site generated using Hugo."
-synopsis:		"This is the portfolio site for Matt Finucane generated using the GoHugo static site generator."
+synopsis:		"This is my personal online portfolio and blog, which contains information on my technical skills and the projects I have worked on."
+github:			"https://github.com/matfin/mattfinucane.com"
 date:			"2017-04-01"
-duration:		"30 days"
+ongoing:		true
 identifier:		"projects"
 languages: 		
 - Javascript (ES7)
@@ -28,14 +29,12 @@ tools:
 ---
 
 ## The brief
-This is the overview for this portfolio website.
-
 Design and build a site that is fast, responsive and easy to maintain. Minimalism is the key concept here to present key information quickly and allow the reader to drill down for more detail as needed.
 
 The site should load very quickly on all devices given all network conditions. There should not be too many external dependencies that could slow down loading time.
 
 ## Project planning
-For this site, I opted to use the [GoHugo](https://gohugo.io) a static site generator for the following reasons:
+For this site, I opted to use [Hugo](https://gohugo.io), a static site generator for the following reasons:
 
 - Adding inline content as Markdown negates the need for a database setup.
 - Serving static html is fast.

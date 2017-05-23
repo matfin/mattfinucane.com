@@ -1,10 +1,10 @@
 ---
 title: 			"Design Portfolio Static"
 description:	"Portfolio site generated using Hugo."
-synopsis:		"This is the portfolio site for Anna Clair Christoffer generated using the Hugo static site generator."
-liveurl:		"https://annachristoffer.com"
+synopsis:		"This is the online portfolio for Anna Christoffer, an Art Director based in Berlin."
+github:			"https://github.com/matfin/annachristoffer/tree/develop"
 date:			"2017-04-01"
-duration:		"30 days"
+ongoing:		true
 identifier:		"projects"
 languages: 		
 - Javascript (ES7)
@@ -30,8 +30,6 @@ tools:
 ---
 
 ## The brief
-This is the online portfolio for Anna Christoffer, an Art Director based in Berlin.
-
 Design and build a responsive website that is fast and easy to maintain. Given that this is a portfolio website, images and videos will feature heavily.
 
 They should look clean and crisp but not impact on loading performance over slow networks.

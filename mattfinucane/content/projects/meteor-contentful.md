@@ -1,8 +1,9 @@
 ---
 title: 			"Meteor Contentful"
 description:	"Meteor package to connect Meteor and Contentful."
-synopsis:		"This package was built to synchronise Contentful content with MeteorJS collections to update websites in real time."
+synopsis:		"This is a package I built to synchronise data from Contentful to MeteorJS based single page applications and websites."
 liveurl:		"https://atmospherejs.com/matfin/meteor-contentful"
+github:			"https://github.com/matfin/meteor-contentful"
 date:			"2015-08-01"
 duration:		"30 days"
 identifier:		"projects"
@@ -24,15 +25,13 @@ tools:
 ---
 
 ## The brief
-This is a MeteorJS package built to synchronise content from the [Contenful](https://contentful.com) REST api across to Meteor Mongo collections. 
-
-Contentful is a web based PaaS that provides content management services and a nice simple API to fetch content.
+Contentful is a web based PaaS that provides content management services along with an API to manage this content.
 
 When I was building several MeteorJS based websites I had the need to make content editing much easier. 
 
 I needed a solution that was easy for non-technical people to work with and modular so I could integrate it into many projects.
 
-I also wanted to be able to easily push changes from their service to my module, so the website being edited would receive updates without the need to redeploy.
+I also wanted to be able to easily push changes from their service to my module so the website being edited would receive updates without the need to redeploy.
 
 ## Project planning
 After researching the options available to me at the time, I opted for Contentful for the following reasons:

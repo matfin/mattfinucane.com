@@ -1,7 +1,8 @@
 ---
 title: 			"Irish Times"
 description:	"Irish Times news app for iPhone."
-synopsis:		"Irish Times iOS app for the iPhone - written natively."
+synopsis:		"This is the content delivery application for the Irish Times, the paper of record in Ireland."
+liveurl:		"https://itunes.apple.com/ie/app/the-irish-times-news/id365544593?mt=8"
 date:			"2012-12-01"
 duration:		"60 days"
 identifier:		"projects"
@@ -16,9 +17,6 @@ tools:
 ---
 
 ## The brief
-
-This is an iPhone application created to deliver the latest news and sports to users.
-
 Our job was to rewrite this application from scratch with the following features:
 
 - Display a list of news articles filtered by category.

@@ -1,8 +1,8 @@
 ---
 title: 			"3Football"
 description:	"Cross platform mobile web application."
-synopsis:		"This is the 3Football cross platform mobile web application for Android and iOS."
-date:			"2012-05-01"
+synopsis:		"The 3Football app provided users with the latest news, match fixtures and a live match tracker for the Republic of Ireland squad taking part in the 2012 European Football Championships."
+date:			"2012-04-01"
 duration:		"40 days"
 identifier:		"projects"
 languages: 		
@@ -18,7 +18,7 @@ tools:
 ---
 
 ## The brief
-This application was to show news, fixtures, live match reports and team info for the Republic of Ireland squad as they competed in the 2012 Euros.
+This application delivered team news, fixtures and results and live match tracking as well as user submitted content.
 
 Time was of the essence and we needed to create a cross-platform mobile application for iOS and Android devices with the following features:
 

@@ -2,8 +2,9 @@
 title: 			"WebGL"
 description:	"WebGL experimentation"
 synopsis:		"Learning WebGL and exploring 3d mathematics, lighting, texturing and animation."
+github:			"https://github.com/matfin/webgl"
 date:			"2013-06-01"
-duration:		"Ongoing"
+ongoing:		true
 draft:			true
 identifier:		"projects"
 languages:	

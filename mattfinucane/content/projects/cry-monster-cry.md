@@ -2,7 +2,7 @@
 title: 			"Cry Monster Cry"
 description:	"Website built using MeteorJS."
 synopsis:		"This is the official website for Cry Monster Cry built using MeteorJS."
-liveurl:		"https://Git.com/matfin/crymonstercry"
+github:			"https://github.com/matfin/crymonstercry"
 date:			"2015-04-01"
 duration:		"14 days"
 draft: 			true

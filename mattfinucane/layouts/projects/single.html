@@ -12,6 +12,28 @@
 		</div>
 		<div class="wrapper">
 			<main class="page project">
+				<h2>
+					About this project
+				</h2>
+				<p>
+					{{ .Params.synopsis }}
+				</p>
+				<p>
+					Work on this project started in {{ .Date.Format "January 2006" }} 
+					{{ if .Params.ongoing }}
+						and is still ongoing.
+					{{ else if .Params.duration }}
+						and it took approximately {{ .Params.duration }} to complete.
+					{{ end }}
+
+					{{ if .Params.github }}
+						The source code for the project can be seen on <a href="{{ .Params.github }}">Github</a>.
+					{{ end }}
+					{{ if .Params.liveurl }}
+						The project can be seen live <a href="{{ .Params.liveurl }}">here</a>.
+					{{ end }}
+				</p>
+
 				{{ .Content }}
 			</main>
 		</div>
