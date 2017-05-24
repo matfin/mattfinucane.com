@@ -36,7 +36,7 @@ My current hardware setup is as follows:
 ## About this website
 The idea behind this website is twofold, to give a quick overview of my skills and experience and also provide more in-depth information as needed.
 
-It was built using the [Hugo](https://gohugo.io) static site generator which embodies these principles of engineering that I adhere to - simplicity, elegance, performance and openness.
+It was built using the [Hugo](https://gohugo.io) static site generator which embodies these principles of engineering that I adhere to - simplicity, elegance, performance and openness. Credit must go to [Anna Christoffer](http://annachristoffer.com) for designing this website.
 
 I am registered in Berlin, Germany with VAT ID <em>#DE300353050</em>. All opinions on this website are my own and content is &copy; Matt Finucane {{< year >}}.
 
