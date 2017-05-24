@@ -15,7 +15,7 @@ I liked that it provided the basic building blocks and offered some powerful tem
 
 The testing frameworks and package management tools have matured quite a bit, and there is even tie-ins for Angular and ReactJS built in. 
 
-Meteor is a good choice when it comes to creating a real time single page application.
+Meteor is a good choice when it comes to creating a real time single page application. I have written about single page Javascript frameworks [here](/blog/modern-web-development).
 
 ## Projects
 {{% categorised_projects taxonomy="frameworks" term="MeteorJS" %}}
