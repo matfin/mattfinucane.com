@@ -8,7 +8,6 @@ onload = () => {
 			ie 			= mf_site.ie,
 			menu		= mf_site.menu,
 			video 		= mf_site.video,
-			disqus 		= mf_site.disqus,
 			utils 		= mf_site.utils;
 
 	/**
@@ -25,14 +24,6 @@ onload = () => {
 	}
 
 	window.addEventListener('scroll', utils.throttle(menu.toggleShadow.bind(null, '.wrapper:first-of-type'), 50));
-
-	/** 
-	 *	Start Disqus if we are on a blog post 
-	 */
-	let body = document.querySelector('body');
-	if(body.hasAttribute('data-post-identifier')) {
-		disqus.loadDisqus();
-	}
 
 	/**
 	 *	Set the video source given device parameters
