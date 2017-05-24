@@ -11,7 +11,6 @@ languages:
 - PHP
 - HTML5
 frameworks:
-- Drupal
 - Sass
 - jQuery
 infrastructure:
@@ -44,9 +43,4 @@ Our tasks for the project were outlined as follows:
 The templates were built using HTML5, with Compass being used as the SASS preprocessor and jQuery used for UI behaviours.
 
 ## Difficulties encountered
-Keeping data in sync across developer machines was a tall task given Drupal. There were cases where templates and modules needed to be built and exported, to be imported to another machine.
-
-This was a task fraught with errors and only a fraction of the code worked on could be committed to the SVN repository.
-
-If you are working with a system where you need to paste code into a web form to complete a task, you know you are doing the wrong thing.
-
+I have written a blog post detailing my experiences [working with Drupal](/blog/working-with-drupal).

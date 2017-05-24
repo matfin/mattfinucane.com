@@ -39,34 +39,32 @@ This gives rise to the temptation to choose a pre-built platform and install a l
 
 This is something that will work in the very short term but increases complexity in the longer term for the following reasons:
 
-- The more modules you install the more code you are using that you have little or no control over. This increases project complexity and maintenance efforts.
+- Installing more modules means adding code to your project that you have no control over. This increases project complexity and maintenance efforts.
 - You might be installing a larger module and using a fraction of its functionality. This leads to a larger codebase and affects performance.
 - Third party module development slows down and the modules become outdated and stale. Issues within that module become issues within your own project.
-- Major upgrades to your framework of choice will often invalidate modules because they won't work with the new version anymore.
+- Major upgrades to your framework of choice will often invalidate modules because they won't work with the new version of the framework anymore.
 - Poorly written modules that take short-cuts in the code will often break core functionality and have a negative knock-on effect on other modules.
 - There is no *one size fits all* approach to module development and you will quite often have to write more code to *hack* the module to meet your requirements.
 
 ## Drupal
-[Drupal](http://www.drupal.org) is a popular Open-source content management platform which started life in 2001 as a discussion forum. It is the classic example of an *out of the box* solution with a large and complex core which is driven by module based development.
+[Drupal](http://www.drupal.org) is a popular Open-source content management platform which started life in 2001 as a discussion forum. It is the classic example of an *out of the box* solution with a large and complex core driven by module based development.
 
 From taking on my first and only Drupal project, these are the experiences I had:
 
 - The learning curve was very steep and new developers would have a hard time adjusting to how things work.
 - The methods used to get things working were quite often confusing and unorthodox.
 - The admin interface was bewildering and unintuitive.
-- The size of the database often exceeded two hundred MySQL tables. Performance on development environments was very slow as a result.
-- The output of the HTML from the views module was complex and had many unnecessary nested tags.
-- Styling was very diffifcult given that template names would differ between environments and developer machines.
+- The size of the database often exceeded two hundred MySQL tables. To put this into perspective, another similar application I worked on had six MongoDB collections. Performance on development environments was very slow as a result.
+- The output of the HTML from the views module was complex and had many unnecessarily nested tags.
+- Styling the content was very diffifcult given the generated template names would differ between environments and developer machines.
 - It was often the case where PHP source code would need to be pasted into a web form or generated from within the system. This made version control impossible.
-- Matching environments on different developer machines was a huge task.
+- Matching environments on different developer machines was a perilous and error-prone task.
 - Minor upgrades would break some core modules and require version rollbacks.
 - Major upgrades were impossible without sourcing working modules and rewriting code.
 - The hook and callback set up makes unit and integration testing very difficult.
 
 ## The learning curve
-Given the size of Drupal as a framework and the ad-hoc nature of its module system, it can be very difficult to figure out how things work especially when modules have overlapping functionality.
-
-Finding the solutions to common problems was very tough given the fragmented nature of the platform API docs and the different versions for each module. 
+Given the size of Drupal as a framework and the ad-hoc nature of its module system, it can be very difficult to figure out how things work especially when modules have overlapping functionality. Finding the solutions to common problems was very tough given the fragmented nature of the platform API docs and the different versions of each module. 
 
 The approaches to problems being discussed within the community would almost be invalidated with each subsequent release of the platform.
 
@@ -75,13 +73,13 @@ Given the size of the core and the number of SQL tables required for a simple in
 There were certain configuration views in the administrator control panel with more than thirty checkboxes and radio buttons on a page. Forgetting to check one of these would often result in a broken development environment.
 
 ## Working with Drupal in general
-Drupal is chosen as the platform of choice because people see it has something that has most of the functionality that you need already built in. It could be described as a highly opinionated platform. 
+Drupal is chosen as the platform of choice because people see it has something that has most of the functionality that you need already built in.
 
-This means that when you work with it, you really need to stick to the way that it does things. It's like building a house with a series of completed walls and chipping away at those walls to make sure they fit the way you want them to.
+It could be described as a highly opinionated platform. This means that when you work with it, you really need to stick to the way that it does things. It's like building a house with a series of completed walls and chipping away at those walls to make sure they fit together the way you want them to.
 
-To prevent users from modifying core functionality, Drupal had a series of hooks and callbacks that would fire based on an action the user had taken.  This had to be configured by the developer. This is where problems would arise if you forgot to tick a box in the admin interface and clear your cache.
+To prevent users from modifying core functionality, Drupal has a series of hooks and callbacks that fire based on the actions the user had taken. These have to be configured by the developer. This is where problems arise if you forget to tick a box in the admin interface and clear your cache.
 
-The views module would output the following HTML to render a simple list of items:
+When working with the views module to render a list, the result would usually look like this:
 
 ```
 <div class="grid grid-12 outer-grid">
@@ -118,7 +116,9 @@ The views module would output the following HTML to render a simple list of item
 
 There is too much nesting taking place here and the HTML is littered with unnecessary classes. This makes styling the above content very tricky, especially when it comes to targeting this particular list for styling.
 
-The `class` and `id` attributes of the elements would be derived from the ID of the generated block in the database and would invalidate styles on different developers machines and environments.
+The `class` and `id` attributes of the elements would be derived from the ID of the generated block in the database and would invalidate styles on different developers machines and environments. 
+
+If you want to create a responsive website with HTML like the above, you are out of luck.
 
 The exact same result could be achieved using the much cleaner example as follows:
 
@@ -142,18 +142,20 @@ The exact same result could be achieved using the much cleaner example as follow
 </ul>
 ```
 
+Here, we have less nesting. The markup is easier to style and the web browser can render it quicky.
+
 ## The marriage of content and presentation
-Drupal describes content items and their properties as *entities*. If you think about something like a blog post at the very basic level, it has a title, a date and some text content. 
+Drupal describes content items and their properties as `entities`. If you think about something like a blog post at the very basic level, it has a title, a date and some text content. 
 
 It also has an author, which is another entity that has a first and last name. You can see here what entities are and how they are connected.
 
-Entities in Drupal needed to be defined within the admin interface. New entities would be described by filling out text fields and checking tickboxes to describe their fields and their relationships to other entities.
+Entities in Drupal need to be defined within the admin interface. New entities are be described by filling out text fields and checking tickboxes to populate their fields and their relationships to other entities.
 
 This approach made it very difficult to synchronise entities between different environments. Because the definitions were stored in the database, migrations and versioning were non-existent.
 
 In traditional MVC based frameworks and platforms, entities and their relationships would be modelled from within the code, making it easier to track them and take care of migrations.
 
-With the entities and views tightly coupled, it can be difficult to render the content you need in the correct place. Drupal is also a full-stack framework meaning that the server and client-side logic is very tightly coupled.
+Drupal is also a full-stack framework meaning that the server and client side logic is very tightly coupled.
 
 ## What are the alternatives?
 I have worked with many frameworks for content managed websites, especially for those where importance was placed on user roles, access control, authentication flows and complex content management.
