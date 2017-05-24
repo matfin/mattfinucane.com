@@ -17,10 +17,6 @@
 					Written by {{ .Params.author }}, {{ .Date.Format "January 2006" }}
 				</p>
 			</main>
-			{{ if .Params.disqus }}
-				<div class="comments" id="disqus_thread">
-				</div>
-			{{ end }}
 		</div>
 		<div class="wrapper">
 			{{ partial "footer" . }}

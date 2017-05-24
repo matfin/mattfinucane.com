@@ -246,13 +246,13 @@ While they are maturing nicely, there can be some drawbacks to creating single p
 - Make use of the latest Javascript standards and avail of [Promises](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Promise), [generator functions](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Statements/function*), [arrow functions](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Functions/Arrow_functions) and the various [Array prototype functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array). These features will make code much easier to write, maintain and test.
 - When choosing a module check its Giuhub repository to see how often it is updated, how much support it has and how well documented it is.
 - When you go live, use HTTP/2 and HTTPS to deliver your content. Follow these excellent tutorials to serve content over [HTTP/2 with nginx](https://www.digitalocean.com/community/tutorials/how-to-set-up-nginx-with-http-2-support-on-ubuntu-16-04) and to secure your content with [Let's Encrypt](https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-16-04).
-- Need an external service to connect to your local development machine. Set up a free secure HTTP tunnel using [ngrok](https://ngrok.com/).
+- Need an external service to connect to your local development machine? Set up a free secure HTTP tunnel using [ngrok](https://ngrok.com/).
 - Use [Docker Compose](https://docs.docker.com/compose/) when setting up your development environment. This will preserve your developent set up and it won't fall over when you do something like upgrade your operating system. I have covered this in my blog post about using [Docker for development](/blog/hugo-docker-setup).
-- Use [CirclrCI] for continuous integration. I have written about [using CircleCI](/blog/hugo-deployment) for my set up.
+- Use [CircleCI](https://circleci.com) for continuous integration. I have written about [using CircleCI](/blog/hugo-deployment) for my set up.
 
 ## Wrap up
 In this article, we have listed the most popular Javascript frameworks and explored the basic concepts surrounding what they all have in common. Out of the above frameworks, I found that [MeteorJS](https://www.meteor.com) and [PolymerJS](https://www.polymer-project.org/) were the nicest to work with and I would highly recommend them.
 
-
+If you want to see an example of a single page application written in MeteorJS, you could check out the code for [one of my Meteor projects](https://github.com/matfin/annachristoffer/tree/v1.0.0).
 
 
