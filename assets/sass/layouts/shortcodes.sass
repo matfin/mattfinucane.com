@@ -35,6 +35,9 @@ ul.projects-list
 			&:nth-child(3n)
 				padding-right: 0
 
+/**
+ *	Social links
+ */
 ul.social-links
 	display: flex
 	flex-direction: row
@@ -54,3 +57,55 @@ ul.social-links
 			svg,
 			img
 				color: $link-base
+
+/**
+ *	Nested section for the CV job overview.
+ */
+section.cv-job
+	
+	display: flex
+	flex-direction: row
+	margin: $units * 4 0
+
+	figure
+		background-color: $dark-green
+		align-self: flex-start
+
+		img
+			display: block
+
+	aside
+		max-width: $units * 50
+
+	+break(min-max, 0, $break-3)
+		aside
+			padding: 0 $units
+
+	+break(min-max, 0, $break-4)
+		flex-direction: column
+		align-items: center
+		
+		figure
+			display: flex
+			justify-content: center
+			width: 100%
+			margin-bottom: $units * 2
+
+	+break(min, $break-4)
+
+		&:nth-of-type(odd)
+			flex-direction: row-reverse
+
+			figure
+				margin-left: $units * 2.5
+
+		&:nth-of-type(even)
+			figure
+				margin-right: $units * 2.5
+
+
+	&:last-child
+		margin-bottom: 0
+
+	&.no-image
+		justify-content: center
