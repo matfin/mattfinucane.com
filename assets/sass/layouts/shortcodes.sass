@@ -62,7 +62,7 @@ ul.social-links
  *	Nested section for the CV job overview.
  */
 section.cv-job
-	
+
 	display: flex
 	flex-direction: row
 	margin: $units * 4 0
@@ -83,13 +83,15 @@ section.cv-job
 
 	+break(min-max, 0, $break-4)
 		flex-direction: column
-		align-items: center
-		
+
 		figure
 			display: flex
 			justify-content: center
 			width: 100%
 			margin-bottom: $units * 2
+
+	+break(min, $break-3)
+		align-items: center
 
 	+break(min, $break-4)
 
