@@ -13,7 +13,7 @@ identifier:		"cv"
 - Created several portfolio websites using MeteorJS and then GoHugo.
 {{% /cv_job %}}
 
-{{% cv_job %}}
+{{% cv_job image="monoqi.png" %}}
 #### June 2014 – December 2014
 ### Things I Like GMBH as web developer / Berlin
 - Implemented a new website for the Monoqi B2B platform to facilitate communication and sales between designers and resellers.
@@ -22,7 +22,7 @@ identifier:		"cv"
 - Authored email templates for both platforms to increase conversion rates.
 {{% /cv_job %}}
 
-{{% cv_job %}}
+{{% cv_job image="axelspringer.png" %}}
 #### October 2013 – May 2014
 ### Axel Springer Ideas as web developer / Berlin
 - Created a web application using the Meteor Javascript framework for an Axel Springer Ideas funded startup TunedIn to deliver native-like performance.
@@ -31,7 +31,7 @@ identifier:		"cv"
 - Supported the product owner and marketing team in creating the company website and marketing emails.
 {{% /cv_job %}}
 
-{{% cv_job %}}
+{{% cv_job image="iqcontent.png" %}}
 #### March 2013 – September 2013
 ### iQContent Ltd as contract web developer / Dublin
 - Created a knowlege based information portal (secure document sharing, retrieval and storage) for a large telecomms organisation in PHP.
@@ -40,7 +40,7 @@ identifier:		"cv"
 - Developed HTML templates for the internal corporate IT intranet and assisted in integrating them to Microsoft Sharepoint.
 {{% /cv_job %}}
 
-{{% cv_job %}}
+{{% cv_job image="maithu.png" %}}
 #### January 2012 – March 2013
 ### Maithu IT Solutions as technical lead / Dublin
 - Drove the development of multiple mobile applications.
@@ -50,7 +50,7 @@ identifier:		"cv"
 - Responsible for reviewing CVs, creating recruitment exercises and interviewing candidates for development roles.
 {{% /cv_job %}}
 
-{{% cv_job %}}
+{{% cv_job image="paddypower.png" %}}
 #### March 2010 – January 2012
 ### Paddy Power PLC as senior PHP developer / Dublin
 - Our scrum approach to development ensured timely delivery of product phases and stakeholders were kept up to date with development on large projects.
@@ -59,7 +59,7 @@ identifier:		"cv"
 - Built a staff rostering and payroll processing system used by shop managers for all Paddy Power retail outlets.
 {{% /cv_job %}}
 
-{{% cv_job %}}
+{{% cv_job image="clearweb.png" %}}
 #### July 2008 – March 2010
 ### Freelance software engineer / Dublin
 - Created several bespoke content managed websites for clients using hand-coded html and php.
@@ -69,7 +69,7 @@ identifier:		"cv"
 - Initiated, managed and maintained long-lasting professional client relationships.
 {{% /cv_job %}}
 
-{{% cv_job %}}
+{{% cv_job image="netaporter.png" %}}
 #### July 2007 – July 2008
 ### Net a Porter as Java developer / London
 - Redeveloped the HTML and CSS during a complete overhaul of the company website.
@@ -78,7 +78,7 @@ identifier:		"cv"
 - Provided ongoing maintenance to website product pages to optimise the eCommerce purchase flows.
 {{% /cv_job %}}
 
-{{% cv_job %}}
+{{% cv_job image="findmypast.png" %}}
 #### September 2006 – June 2007
 ### FindMyPast.com as Java developer / London
 - Upgraded site standards compliancy in XHTML and CSS.
@@ -87,7 +87,7 @@ identifier:		"cv"
 - Provided ongoing maintenance and enhancements for the company website.
 {{% /cv_job %}}
 
-{{% cv_job %}}
+{{% cv_job image="aol.png" %}}
 #### July 2005 – June 2006
 ### AOL Technologies Ltd as software engineer / Dublin
 - Created a web app to monitor RSS feeds from news providers.
@@ -95,7 +95,7 @@ identifier:		"cv"
 - Upgraded servers and software from HPUX to Linux and authored the associated technical documentation.
 {{% /cv_job %}}
 
-{{% cv_job %}}
+{{% cv_job image="dcu.png" %}}
 #### September 2001 – June 2005
 ### BSc. in Computer Applications (Honours) / Dublin City University
 - Modules include Java software development, Business process management, Computer Graphics, Database administration and the Software development life-cycle (waterfall).

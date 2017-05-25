@@ -1,5 +1,9 @@
-<section class="cv-job">
-	<img src="https://unsplash.it/200/160/" />
+{{ $base 	:= .Site.Params.cl_image_base }}
+{{ $image 	:= .Get "image" }}
+<section class="cv-job {{ if not $image }}no-image{{ end }}">
+	{{ if $image }}
+		<img src="{{ $base }}/w_200/{{ $image }}" />
+	{{ end }}
 	<aside>
 		{{ .Inner }}
 	</aside>
