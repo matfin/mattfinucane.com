@@ -30,6 +30,8 @@ main.work-experience
 	
 	max-width: 80rem
 
+	// padding: 0
+
 	.cv-job
 		display: flex
 		flex-direction: row
@@ -45,14 +47,22 @@ main.work-experience
 		aside
 			max-width: $units * 50
 
-		&:nth-of-type(odd)
-			flex-direction: row-reverse
+		+break(min-max, 0, $break-2)
+			flex-direction: column
+			
 			img
-				margin-left: $units * 2.5
+				align-self: center
+				margin-bottom: $units * 2
 
-		&:nth-of-type(even)
-			img
-				margin-right: $units * 2.5
+		+break(min, $break-2)
+			&:nth-of-type(odd)
+				flex-direction: row-reverse
+				img
+					margin-left: $units * 2.5
+
+			&:nth-of-type(even)
+				img
+					margin-right: $units * 2.5
 
 		&:last-child
 			margin-bottom: 0
