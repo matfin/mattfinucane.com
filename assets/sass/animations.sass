@@ -15,14 +15,16 @@
 
 .animated-card
 	a
-		opacity: 0
-		transform: rotate3d(0, 1, 0, -90deg)
-		backface-visibility: hidden
+		+cardRotateState(before)
 
 	&.is-animated
 		perspective: 200px
 		a
-			opacity: 1.0
-			transform: rotate3d(0, 0, 0, 0deg)
+			+cardRotateState(after)
 
-	
+.animated-image
+	+transitionWithProperties(transform, 500ms)
+	+cardRotateState(before, 90deg, 0deg)
+
+	&.is-animated
+		+cardRotateState(after)

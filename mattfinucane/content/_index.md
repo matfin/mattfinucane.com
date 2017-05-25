@@ -1,6 +1,6 @@
 ---
 title: 			"Freelance software engineer"
-description: 	"Hello. I am a freelance Full-stack software engineer originally from Ireland and based in Berlin, Germany. This is my online portfolio which details my skills, experience and some of the projects I have worked on."
+description: 	"I am a freelance sofrware engineer based in Berlin. This is my portfolio and blog which details my skills and experience."
 identifier:		"home"
 ---
 

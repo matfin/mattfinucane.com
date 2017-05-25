@@ -2,7 +2,11 @@
 {{ $image 	:= .Get "image" }}
 <section class="cv-job {{ if not $image }}no-image{{ end }}">
 	{{ if $image }}
-		<img src="{{ $base }}/w_200/{{ $image }}" />
+		<img
+			class="animated-image"
+			src="{{ $base }}/w_200/{{ $image }}" 
+			srcset="{{ $base }}/w_200/{{ $image }} 1x, {{ $base }}/w_400/{{ $image }} 2x"
+		/>
 	{{ end }}
 	<aside>
 		{{ .Inner }}

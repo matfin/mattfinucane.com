@@ -36,8 +36,8 @@ onload = () => {
 	/**
 	 *	Card animation into view
 	 */
-	animations.animateVisibleCardTransforms('.animated-card');
-	window.addEventListener('scroll', utils.throttle(animations.animateVisibleCardTransforms.bind(null, '.animated-card'), 200));
+	animations.animateVisibleCardTransforms('.animated-card, .animated-image');
+	window.addEventListener('scroll', utils.throttle(animations.animateVisibleCardTransforms.bind(null, '.animated-card, .animated-image'), 200));
 
 	/**
 	 *	Skip animations if promises 
