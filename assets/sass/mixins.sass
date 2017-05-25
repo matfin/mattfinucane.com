@@ -79,3 +79,13 @@
 
 		&:hover
 			border-bottom: 6px solid $link-hover
+
+=cardRotateState($state: 'before', $deg-before: -90deg, $deg-after: 0deg)
+
+	@if $state == before
+		opacity: 0
+		transform: rotate3d(0, 1, 0, -90deg)
+
+	@else if $state == after
+		opacity: 1.0
+		transform: rotate3d(0, 0, 0, 0deg)

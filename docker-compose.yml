@@ -3,6 +3,7 @@ version: '3'
 services:
   mf-site-dev:
     container_name: site_dev
+    restart: always
     build:
       context: .docker/site
       dockerfile: Dockerfile

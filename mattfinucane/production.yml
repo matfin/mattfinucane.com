@@ -12,7 +12,7 @@ params:
   title_first:   "Matt"
   title_last:    "Finucane"
   cl_video_base: "https://res.cloudinary.com/matt-finucane-portfolio/video/upload/ac_none"
-  title_last:    "Finucane"
+  cl_image_base: "https://res.cloudinary.com/matt-finucane-portfolio/image/upload/ac_none"
 
 menu:
   main:
@@ -46,4 +46,5 @@ taxonomies:
   framework:      "Frameworks"
   infrastructure: "Infrastructure"
   tool:           "Tools"
+  category:       "Categories"
 ...
