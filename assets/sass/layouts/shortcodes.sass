@@ -73,6 +73,8 @@ section.cv-job
 
 		img
 			display: block
+			width: $units * 12.5
+			height: auto
 
 	aside
 		max-width: $units * 50
@@ -94,6 +96,9 @@ section.cv-job
 		align-items: center
 
 	+break(min, $break-4)
+
+		figure
+			width: $units * 12.5
 
 		&:nth-of-type(odd)
 			flex-direction: row-reverse
