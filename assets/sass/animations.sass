@@ -7,6 +7,7 @@
 	span.letter
 		display: inline-block
 		transform: rotate3d(0, 1, 0, 90deg)
+		backface-visibility: hidden
 		transition-duration: 200ms
 
 		&.revealed
@@ -16,6 +17,7 @@
 	a
 		opacity: 0
 		transform: rotate3d(0, 1, 0, -90deg)
+		backface-visibility: hidden
 
 	&.is-animated
 		perspective: 200px

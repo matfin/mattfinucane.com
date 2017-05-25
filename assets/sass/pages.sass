@@ -27,11 +27,34 @@ main.page
  *	CV
  */
 main.work-experience
-	ul
-		margin-top: $units
-		margin-bottom: $units * 3.5
+	
+	max-width: 80rem
+
+	.cv-job
+		display: flex
+		flex-direction: row
+		margin-bottom: $units * 4
+
+		img 
+			width: $units * 12.5
+			height: auto
+			align-self: flex-start
+
+		aside
+			max-width: $units * 50
+
+		&:nth-of-type(odd)
+			flex-direction: row-reverse
+			img
+				margin-left: $units * 2.5
+
+		&:nth-of-type(even)
+			img
+				margin-right: $units * 2.5
+
 		&:last-child
 			margin-bottom: 0
+
 	h3,
 	h4
 		color: $green
