@@ -47,8 +47,12 @@
 			border-bottom: none
 			+transitionWithProperties((background-color, transform, opacity))
 
+			h3,
+			h4
+				display: block
+
 			+break(min, $break-3)
-				padding: ($units * 3) $units
+				min-height: $units * 6.25
 
 			&[data-proficiency="1"]
 				background-color: rgba($proficiency, 0.45)
@@ -61,9 +65,6 @@
 
 			&[data-proficiency="4"]
 				background-color: $proficiency
-
-			&:hover
-				background-color: $link-hover
 
 =contentLink
 	display: inline-block
