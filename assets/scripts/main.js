@@ -8,7 +8,8 @@ onload = () => {
 			ie 			= mf_site.ie,
 			menu		= mf_site.menu,
 			video 		= mf_site.video,
-			utils 		= mf_site.utils;
+			utils 		= mf_site.utils,
+			intercom	= mf_site.intercom;
 
 	/**
 	 *	Monitor tap/click on header button

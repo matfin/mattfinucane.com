@@ -30,9 +30,19 @@ ul.taxonomies-list
 
 ul.projects-list
 	li
+		a
+			padding: $units
 
-		a:hover
-			background-color: $link-hover
+			p
+				margin-top: $units * 2
+				opacity: 0
+				+transitionWithProperties(opacity)
+
+			&:hover
+				p
+					opacity: 1
+
+
 
 		+break(min-max, 0, $break-1)
 			width: 100%
@@ -45,6 +55,10 @@ ul.projects-list
 
 		+break(min, $break-2)
 			width: 33%
+
+			a
+				min-height: $units * 10
+
 			&:nth-child(3n)
 				padding-right: 0
 
