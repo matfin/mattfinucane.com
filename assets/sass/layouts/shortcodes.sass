@@ -19,8 +19,21 @@ ul.taxonomies-list
 			&:nth-child(4n)
 				padding-right: 0
 
+		a 
+			h4
+				+transitionWithProperties(opacity)
+				opacity: 0
+
+			&:hover
+				h4
+					opacity: 1
+
 ul.projects-list
 	li
+
+		a:hover
+			background-color: $link-hover
+
 		+break(min-max, 0, $break-1)
 			width: 100%
 			padding-right: 0
