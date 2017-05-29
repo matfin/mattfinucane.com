@@ -46,7 +46,7 @@ div.wrapper
 		background-color: $light-green
 
 header,
-div:not(.wrapper):not(.video-teaser),
+div:not(.wrapper):not(.video-teaser):not(.teaser),
 main,
 footer
 	width: 100%
@@ -58,7 +58,7 @@ ul
 a
 	text-decoration: none
 	color: currentColor
-	&:not(.term-card):not(.project-card):not(.nav-link):not(.title):not(.social-link):not(.top)
+	&:not(.term-card):not(.project-card):not(.nav-link):not(.title):not(.social-link):not(.top):not(.blogpost-card a)
 		+contentLink
 
 p
