@@ -67,27 +67,31 @@
 				background-color: $proficiency
 
 =contentLink
+	position: relative
 	display: inline-block
+	padding: 0 $units / 4
 	color: $green
 	text-decoration: none
 
 	&:after
-		display: block
+		z-index: -1
+		position: absolute
+		bottom: 2px
+		left: 0
 		width: 100%
 		height: 2px
-		margin-top: -2px
-		+transitionWithProperties(background-color)
-		background-color: $link-border
+		+transitionWithProperties(height, 100ms)
+		background-color: $link
 		content: ''
 
 	&:hover
 		&:after
-			background-color: $link-hover
+			height: calc(100% - 4px)
 
 	+break(min, $break-3)
 		&:after
 			height: 6px
-			margin-top: -6px
+			margin-top: -($units / 2)
 
 
 
