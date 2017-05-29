@@ -1,5 +1,5 @@
 ---
-title: "Approaches to modern web development."
+title: "Approaches to modern web development"
 description: "This article provides tips for good modern web development."
 synopsis: "I talk about some caveats and provide tips to create and maintain modern web applications."
 date: "2017-05-24"

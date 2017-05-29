@@ -1,5 +1,5 @@
 ---
-title: "My experiences working with Drupal."
+title: "My experiences working with Drupal"
 description: "Discussing the merits of module based development and content managed frameworks."
 synopsis: "I talk about my experience working with module based development and my experiences in working with Drupal, a content management platform."
 date: "2017-05-24"
