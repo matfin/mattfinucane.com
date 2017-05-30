@@ -13,6 +13,7 @@ params:
   title_last:    "Finucane"
   cl_video_base: "https://res.cloudinary.com/matt-finucane-portfolio/video/upload/ac_none"
   cl_image_base: "https://res.cloudinary.com/matt-finucane-portfolio/image/upload/ac_none"
+  intercom_id:   "k1dt7p36"
   no_index:      true
 
 menu:
