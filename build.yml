@@ -2,7 +2,7 @@ version: '3'
 
 services:
     mf-site-build:
-      container_name: site_build
+      container_name: mf_site_build
       build:
         context: .docker/site
         dockerfile: Dockerfile
@@ -13,7 +13,7 @@ services:
       command: hugo -s /opt/mattfinucane -b http://mattfinucane.build --config=./mattfinucane/build.yml -d ../public
 
     mf-nginx-build:
-      container_name: nginx_build
+      container_name: mf_nginx_build
       build:
         context: .docker/nginx
         dockerfile: Dockerfile
@@ -28,12 +28,11 @@ services:
         - "80:80"
       command: nginx -g "daemon off;"
 
-    mf-dependencies-build:
-      image: node:7.9.0
-      container_name: dependencies_build
+    mf-gulp-build:
+      image: node:8.0.0-alpine
+      container_name: mf_dependencies_build
       environment:
         - SCRIPTS_DEST=./public/js/
-        - STYLES_DEST=./public/css/
         - SVG_DEST=./public/svg/
         - FAVICONS_DEST=./public/favicons/
       volumes:
@@ -42,4 +41,15 @@ services:
         - mf-site-build
       depends_on:
         - mf-site-build
-      command: sh -c "cd /opt && npm install -g gulp && npm link gulp && npm install && gulp build"
+      command: sh -c "npm install -g gulp && npm link gulp && cd /opt && npm install && npm start"
+
+    mf-sass-dev:
+      container_name: mf_sass_build
+      image: ruby:2.1-alpine
+      volumes:
+        - ./:/opt:rw
+      links:
+        - mf-site-build
+      depends_on:
+        - mf-site-build
+      command: sh -c "gem install sass && sass /opt/assets/sass/main.sass:/opt/public/css/main.css --style compressed"

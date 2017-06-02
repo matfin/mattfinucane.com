@@ -2,7 +2,7 @@ version: '3'
 
 services:
   mf-site-dev:
-    container_name: site_dev
+    container_name: mf_site_dev
     restart: on-failure
     build:
       context: .docker/site
@@ -16,7 +16,7 @@ services:
     command: hugo server -s /opt/mattfinucane --config /opt/mattfinucane/config.yml --baseURL http://mattfinucane.dev/ --bind "0.0.0.0" --appendPort=false --verbose
 
   mf-nginx-dev:
-    container_name: nginx_dev
+    container_name: mf_nginx_dev
     build:
       context: .docker/nginx
       dockerfile: Dockerfile
@@ -31,7 +31,7 @@ services:
     command: nginx -g "daemon off;"
 
   mf-gulp-dev:
-    container_name: gulp_dev
+    container_name: mf_gulp_dev
     image: node:8.0.0-alpine
     restart: on-failure
     environment:
@@ -48,7 +48,7 @@ services:
     command: sh -c "npm install -g gulp && npm link gulp && cd /opt && npm install && npm start"
 
   mf-sass-dev:
-    container_name: cinematt_sass_dev
+    container_name: mf_sass_dev
     image: ruby:2.1-alpine
     restart: on-failure
     volumes:
