@@ -1,6 +1,6 @@
 machine: 
   node:
-    version: 7.7.4
+    version: 8.0.0
 
 dependencies:
   pre:
@@ -9,18 +9,20 @@ dependencies:
     - sudo dpkg -i hugo*.deb
     - npm install -g gulp
     - npm link gulp
+    - gem install sass
 
 test:
   override:
-    - echo "Tests are coming soon."
+    - npm test
 
 deployment:
   staging: 
     branch: develop
     commands:
       - hugo -s ./mattfinucane -b $HUGO_STAGING_HOST --config=./mattfinucane/staging.yml -d ../public
+      - sass ./assets/sass/main.sass:./public/css/main.css --style compressed --sourcemap=none
       - npm install
-      - gulp build
+      - gulp
       - tar -zcvf public.tar.gz public/
       - scp public.tar.gz $DEPLOY_USER@$DEPLOY_STAGING_HOST:$DEPLOY_STAGING_PATH
       - ssh -t $DEPLOY_USER@$DEPLOY_STAGING_HOST "
@@ -33,8 +35,9 @@ deployment:
     tag: /v[0-9]+(\.[0-9]+)*/
     commands:
       - hugo -s ./mattfinucane -b $HUGO_PRODUCTION_HOST --config=./mattfinucane/production.yml -d ../public
+      - sass ./assets/sass/main.sass:./public/css/main.css --style compressed --sourcemap=none
       - npm install
-      - gulp build
+      - gulp
       - tar -zcvf public-$CIRCLE_TAG.tar.gz public/
       - scp public-$CIRCLE_TAG.tar.gz $DEPLOY_USER@$DEPLOY_PRODUCTION_HOST:$DEPLOY_PRODUCTION_PATH
       - ssh -t $DEPLOY_USER@$DEPLOY_PRODUCTION_HOST "
