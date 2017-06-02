@@ -20,7 +20,7 @@ deployment:
     branch: develop
     commands:
       - hugo -s ./mattfinucane -b $HUGO_STAGING_HOST --config=./mattfinucane/staging.yml -d ../public
-      - sass ./assets/sass/main.sass:./public/css/main.css --style compressed
+      - sass ./assets/sass/main.sass:./public/css/main.css --style compressed --sourcemap=none
       - npm install
       - gulp
       - tar -zcvf public.tar.gz public/
@@ -35,7 +35,7 @@ deployment:
     tag: /v[0-9]+(\.[0-9]+)*/
     commands:
       - hugo -s ./mattfinucane -b $HUGO_PRODUCTION_HOST --config=./mattfinucane/production.yml -d ../public
-      - sass ./assets/sass/main.sass:./public/css/main.css --style compressed
+      - sass ./assets/sass/main.sass:./public/css/main.css --style compressed --sourcemap=none
       - npm install
       - gulp
       - tar -zcvf public-$CIRCLE_TAG.tar.gz public/

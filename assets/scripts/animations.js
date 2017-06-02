@@ -33,7 +33,7 @@ window.mf_site.animations = {
 		 *	the ones we are interested in with 
 		 *	the above filter function.
 		 */
-		let child_nodes 	= [...node.childNodes],
+		let child_nodes 	= Array.prototype.slice.call(node.childNodes),
 			filtered_nodes	= child_nodes.filter(is_valid_child);
 
 		/**
@@ -74,7 +74,7 @@ window.mf_site.animations = {
 	 *	@return 	{HTMLElement} - the node with the text cleared
 	 */
 	clearText: (node) => {
-		let child_nodes 	= [...node.childNodes],
+		let child_nodes 	= Array.prototype.slice.call(node.childNodes),
 			filtered_nodes 	= child_nodes.filter((child) => child.nodeType === 3);
 
 		Array.prototype.forEach.call(filtered_nodes, (filtered_node) => {
@@ -264,7 +264,7 @@ window.mf_site.animations = {
 		 *	We also set an index for the timeout function.
 		 */
 		let nodes 	= document.querySelectorAll(selector),
-			items	= [...nodes],
+			items	= Array.prototype.slice.call(nodes),
 			cards 	= items.filter(mf_site.animations.filterCards),
 			index 	= 0,
 			speed 	= Math.ceil(500 / cards.length);

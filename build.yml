@@ -52,4 +52,4 @@ services:
         - mf-site-build
       depends_on:
         - mf-site-build
-      command: sh -c "gem install sass && sass /opt/assets/sass/main.sass:/opt/public/css/main.css --style compressed"
+      command: sh -c "gem install sass && sass /opt/assets/sass/main.sass:/opt/public/css/main.css --style compressed --sourcemap=none"
