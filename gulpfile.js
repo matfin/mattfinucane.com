@@ -12,7 +12,36 @@ const dest = {
 	scripts: process.env['SCRIPTS_DEST'],
 	styles: process.env['STYLES_DEST'],
 	svg: process.env['SVG_DEST'],
-	favicons: process.env['FAVICONS_DEST']
+	favicons: process.env['FAVICONS_DEST'],
+	development: process.env['DEVELOPMENT'] != null
+};
+
+/**
+ *	If we have the environment variable
+ *	indicating this is a development
+ *	environment, return the development
+ *	tasks or return the build tasks.
+ */
+const tasks = () => {
+	if(dest.development) {
+		return [
+			'debug',
+			'sass-dev',
+			'scripts-dev',
+			'svgs',
+			'favicons',
+			'watch'
+		];
+	}
+	else {
+		return [
+			'debug',
+			'sass-build',
+			'scripts-build',
+			'svgs',
+			'favicons'
+		];
+	}
 };
 
 gulp.task('debug', () => {
@@ -80,7 +109,6 @@ gulp.task('svgs', () => {
 	.pipe(gulp.dest(dest.svg));
 });
 
-
 /**
  *	Favicons
  */
@@ -103,22 +131,4 @@ gulp.task('watch', () => {
 /**
  *	Copmpile assets on boot and then watch.
  */
-gulp.task('default', [
-	'debug',
-	'sass-dev',
-	'scripts-dev',
-	'svgs',
-	'favicons',
-	'watch'
-]);
-
-/**
- *	Build assets
- */
-gulp.task('build', [
-	'debug',
-	'sass-build',
-	'scripts-build',
-	'svgs',
-	'favicons'
-]);
+gulp.task('default', tasks());

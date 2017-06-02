@@ -17,16 +17,25 @@ window.mf_site.animations = {
 	getLetters: (node, letters = []) => {
 
 		/**
+		 *	This function filters out valid 
+		 *	nodes given the following:
+		 *	- is an element node (1)
+		 *	- is a text node
+		 *	- text content contains actual text
+		 */
+		let is_valid_child = (child) => {
+			return 	(child.nodeType === 1 || child.nodeType === 3) 
+					&& child.textContent.trim().length > 0;
+		};
+
+		/**
 		 *	Get a list of child nodes converted
 		 *	to an array and filter them  down to 
-		 *	the ones we are interested in:
-		 *	- html element nodes
-		 *	- child text nodes that have actual text in them
+		 *	the ones we are interested in with 
+		 *	the above filter function.
 		 */
-		let child_nodes 	= Array.prototype.slice.call(node.childNodes),
-			filtered_nodes	= child_nodes.filter((child) => {
-				return (child.nodeType === 1 || child.nodeType === 3) && child.textContent.trim().length > 0;
-			});
+		let child_nodes 	= [...node.childNodes],
+			filtered_nodes	= child_nodes.filter(is_valid_child);
 
 		/**
 		 *	Then go through each filtered child node
@@ -66,10 +75,8 @@ window.mf_site.animations = {
 	 *	@return 	{HTMLElement} - the node with the text cleared
 	 */
 	clearText: (node) => {
-		let child_nodes 	= Array.prototype.slice.call(node.childNodes),
-			filtered_nodes 	= child_nodes.filter((child) => {
-				return child.nodeType === 3;
-			});
+		let child_nodes 	= [...node.childNodes],
+			filtered_nodes 	= child_nodes.filter((child) => child.nodeType === 3);
 
 		Array.prototype.forEach.call(filtered_nodes, (filtered_node) => {
 			node.removeChild(filtered_node);
@@ -258,9 +265,10 @@ window.mf_site.animations = {
 		 *	We also set an index for the timeout function.
 		 */
 		let nodes 	= document.querySelectorAll(selector),
-			items 	= Array.prototype.slice.call(nodes),
+			items	= [...nodes],
 			cards 	= items.filter(mf_site.animations.filterCards),
-			index 	= 0;
+			index 	= 0,
+			speed 	= Math.ceil(500 / cards.length);
 
 		/**
 		 *	Go through each filtered card and add 
@@ -271,7 +279,7 @@ window.mf_site.animations = {
 		Array.prototype.forEach.call(cards, (card) => {
 			setTimeout(() => {
 				card.classList.add('is-animated');
-			}, (++index) * 75);
+			}, (++index) * speed);
 		});
 	}
 };
