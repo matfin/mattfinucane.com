@@ -1,5 +1,10 @@
 <li class="animated-card">
 	<a class="term-card" href="{{ "/infrastructure/" | relLangURL }}{{ .Title | urlize }}" data-proficiency="{{ .Params.proficiency }}">
-		{{ .Title }}
+		<h3>
+			{{ .Title }}
+		</h3>
+		<h4>
+			{{ partial "proficiency" . }}
+		</h4>
 	</a>
 </li>

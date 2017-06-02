@@ -1,6 +1,6 @@
 ---
 title: 			"Freelance software engineer"
-description: 	"I am a freelance sofrware engineer based in Berlin. This is my portfolio and blog which details my skills and experience."
+description: 	"I am a freelance software engineer based in Berlin. This is my portfolio and blog which details my skills and experience."
 identifier:		"home"
 ---
 

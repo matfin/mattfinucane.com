@@ -1,0 +1,12 @@
+{{ $proficiency := .Params.proficiency }}
+<h4>
+	{{ if eq $proficiency 1 }}
+		Beginner
+	{{ else if eq $proficiency 2 }}
+		Intermediate
+	{{ else if eq $proficiency 3 }}
+		Advanced
+	{{ else if eq $proficiency 4 }}
+		Expert
+	{{ end }}
+</h4>

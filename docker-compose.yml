@@ -2,8 +2,8 @@ version: '3'
 
 services:
   mf-site-dev:
-    container_name: site_dev
-    restart: always
+    container_name: mf_site_dev
+    restart: on-failure
     build:
       context: .docker/site
       dockerfile: Dockerfile
@@ -16,7 +16,7 @@ services:
     command: hugo server -s /opt/mattfinucane --config /opt/mattfinucane/config.yml --baseURL http://mattfinucane.dev/ --bind "0.0.0.0" --appendPort=false --verbose
 
   mf-nginx-dev:
-    container_name: nginx_dev
+    container_name: mf_nginx_dev
     build:
       context: .docker/nginx
       dockerfile: Dockerfile
@@ -30,32 +30,31 @@ services:
       - "80:80"
     command: nginx -g "daemon off;"
 
-  mf-dependencies-dev:
-    image: node:7.9.0
-    container_name: dependencies_dev  
-    volumes:
-      - ./:/opt:rw
-    links:
-      - mf-site-dev
-    depends_on:
-      - mf-site-dev
-    command: sh -c "cd /opt && npm install -g gulp && npm install"
-
   mf-gulp-dev:
-    image: node:7.9.0
-    container_name: gulp_dev
-    restart: always
-    environment: 
+    container_name: mf_gulp_dev
+    image: node:8.0.0-alpine
+    restart: on-failure
+    environment:
+      - DEVELOPMENT=true
       - SCRIPTS_DEST=./mattfinucane/static/js/
-      - STYLES_DEST=./mattfinucane/static/css/
       - SVG_DEST=./mattfinucane/static/svg/
       - FAVICONS_DEST=./mattfinucane/static/favicons/
     volumes:
       - ./:/opt:rw
     links:
       - mf-site-dev
-      - mf-dependencies-dev
     depends_on:
-      - mf-dependencies-dev
       - mf-site-dev
-    command: sh -c "cd /opt && npm link gulp && gulp"
+    command: sh -c "npm install -g gulp && npm link gulp && cd /opt && npm install && npm start"
+
+  mf-sass-dev:
+    container_name: mf_sass_dev
+    image: ruby:2.1-alpine
+    restart: on-failure
+    volumes:
+      - ./:/opt:rw
+    links:
+      - mf-site-dev
+    depends_on:
+      - mf-site-dev
+    command: sh -c "gem install sass && sass --watch /opt/assets/sass/main.sass:/opt/mattfinucane/static/css/main.css"
