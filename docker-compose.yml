@@ -37,7 +37,6 @@ services:
     environment:
       - DEVELOPMENT=true
       - SCRIPTS_DEST=./mattfinucane/static/js/
-      - STYLES_DEST=./mattfinucane/static/css/
       - SVG_DEST=./mattfinucane/static/svg/
       - FAVICONS_DEST=./mattfinucane/static/favicons/
     volumes:
@@ -46,7 +45,7 @@ services:
       - mf-site-dev
     depends_on:
       - mf-site-dev
-    command: sh -c "cd /opt && npm install && npm start"
+    command: sh -c "npm install -g gulp && npm link gulp && cd /opt && npm install && npm start"
 
   mf-sass-dev:
     container_name: cinematt_sass_dev

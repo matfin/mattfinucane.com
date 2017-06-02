@@ -24,8 +24,7 @@ window.mf_site.animations = {
 		 *	- text content contains actual text
 		 */
 		let is_valid_child = (child) => {
-			return 	(child.nodeType === 1 || child.nodeType === 3) 
-					&& child.textContent.trim().length > 0;
+			return 	(child.nodeType === 1 || child.nodeType === 3) && child.textContent.trim().length > 0;
 		};
 
 		/**

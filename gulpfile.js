@@ -4,13 +4,10 @@ const 	gulp 		= require('gulp'),
 		concat		= require('gulp-concat'),
 		babel 		= require('gulp-babel'),
 		jshint	 	= require('gulp-jshint'),
-		babelmin	= require('gulp-babel-minify'),
-		sass		= require('gulp-sass'),
-		cleancss	= require('gulp-clean-css');
+		babelmin	= require('gulp-babel-minify');
 
 const dest = {
 	scripts: process.env['SCRIPTS_DEST'],
-	styles: process.env['STYLES_DEST'],
 	svg: process.env['SVG_DEST'],
 	favicons: process.env['FAVICONS_DEST'],
 	development: process.env['DEVELOPMENT'] != null
@@ -26,7 +23,6 @@ const tasks = () => {
 	if(dest.development) {
 		return [
 			'debug',
-			'sass-dev',
 			'scripts-dev',
 			'svgs',
 			'favicons',
@@ -36,7 +32,6 @@ const tasks = () => {
 	else {
 		return [
 			'debug',
-			'sass-build',
 			'scripts-build',
 			'svgs',
 			'favicons'
@@ -48,26 +43,6 @@ gulp.task('debug', () => {
 	console.log({
 		destinations: dest
 	});
-});
-
-/**
- *	Compile SASS into CSS
- */
-gulp.task('sass-dev', () => {
-	return gulp
-	.src('./assets/sass/main.sass')
-	.pipe(sass())
-	.on('error', sass.logError)
-	.pipe(gulp.dest(dest.styles));
-});
-
-gulp.task('sass-build', () => {
-	return gulp
-	.src('./assets/sass/main.sass')
-	.pipe(sass())
-	.on('error', sass.logError)
-	.pipe(cleancss())
-	.pipe(gulp.dest(dest.styles));
 });
 
 /**
@@ -123,9 +98,9 @@ gulp.task('favicons', () => {
  *	changes are detected.
  */
 gulp.task('watch', () => {
-	gulp.watch('./assets/sass/**/*.sass', ['sass-dev']);
 	gulp.watch('./assets/scripts/**/*.js', ['scripts-dev']);
 	gulp.watch('./assets/svg/**/*.svg', ['svgs']);
+	gulp.watch('./assets/favicons/**/*', ['favicons']);
 });
 
 /**
