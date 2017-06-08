@@ -41,23 +41,22 @@ This website uses three containers that work together as follows:
 
 - The first container named `mf-site-dev` is derived from Alpine Linux and contains the binary for Hugo itself. This runs a development server for Hugo and builds out the site.
 - The second container named `mf-nginx-dev` is derived from the `nginx:alpine` image acts as a reverse proxy that interfaces with the running Hugo server instance. This means I can access the development version of my site at `http://mattfinucane.dev` instead of `http://localhost:1313`.
-- The third container named `mf-depdencies-dev` is derived from the `node:7.9.0` image and handles dependencies that are installed with [NPM](https://www.npmjs.com) - the official NodeJS package manager. This container installs development dependencies and then exits when done.
-- The final container named `mf-gulp-dev` is also derived from `node:7.9.0` and it contains the Javascript task runners I need to manage my styles and scripts using [Gulp](http://gulpjs.com/).
-
-**Note:** The third and fourth containers used to be merged into one, but the [BabelJS](https://babeljs.io/) task I was running would kill the container if there was a syntax error in my Javascript source.
+- The third container named `mf-gulp-dev` is derived from the `node:8.0.0` image and handles dependencies that are installed with [NPM](https://www.npmjs.com) - the official NodeJS package manager. This container installs development dependencies and then exits when done.
+- The final container named `mf-sass-dev` is derived from `ruby:2.1-alpine` and it acts as a CSS preprocessor - compiling my [SASS](http://sass-lang.com/) stylesheets to the plain CSS that the browser can understand.
 
 ## Taking a look at the set up for Docker
 Docker Compose is the tool that is used to create containers from images, provision them and get them running. 
 
 The `docker-compose.yml` file describes how these containers should be run and we can do things like expose ports to the host operating system, set environment variables and link containers to other containers.
 
-
 ## The static site container
 This snippet from my Docker Compose file describes the set up for the container for Hugo.
 
 ```
 mf-site-dev:
-    container_name: site_dev
+  mf-site-dev:
+    container_name: mf_site_dev
+    restart: on-failure
     build:
       context: .docker/site
       dockerfile: Dockerfile
@@ -70,14 +69,15 @@ mf-site-dev:
     command: hugo server -s /opt/mattfinucane --config /opt/mattfinucane/config.yml --baseURL http://mattfinucane.dev/ --bind "0.0.0.0" --appendPort=false --verbose
 ```
 
-This is what each of the configuration parameters does:
+We will take a look at each of the configuration parameters below:
 
 - `container_name` simply gives the container its name.
+- `restart` tells the container to restart itself if the service inside it falls over.
 - `build` specifies the build parameters for the container.
 - `build/context`  tells Docker Compose where additional configuration files can be found - in this case they are in the `.docker/site` directory.
 - `build/dockerfile` tells Docker Compose where to find the Dockerfile, which contains additional pre-build commands needed before running the container.
 - `build/args` allows us to pass in arguments to the Dockerfile which we can subsitute into the pre-build commands.
-- `ports` allows us to expose the ports for the infrastructure running inside the container. Hugo runs its server on port 1313 so if we did not have this, we could not connect to that server.
+- `ports` allows us to expose the ports for the infrastructure running inside the container. Hugo runs its server on port 1313 so if we did not have this we could not connect to that server.
 - `volumes` exposes our local filesystem to the container running Hugo and maps the containers `/opt` directory to the current directory with read-write access.
 - `command` is the command we run to bring the container up. In this case, we are running the Hugo development server with the parameters above. If you want to know more about these parameters then check out the [Hugo configuration docs](https://gohugo.io/overview/configuration/).
 
@@ -115,23 +115,23 @@ This is what each of the configuration parameters does:
 Taking a look at this snippet from the `docker-compose.yml` file for the Nginx container, we see the following:
 
 ```
- mf-nginx-dev:
-    container_name: nginx_dev
-    build:
-      context: .docker/nginx
-      dockerfile: Dockerfile
-      args:
-        nginx_conf: nginx.development.conf
-    volumes:
-      - ./media:/opt/media:ro
-    links: 
-      - mf-site-dev
-    ports:
-      - "80:80"
-    command: nginx -g "daemon off;"
+mf-nginx-dev:
+  container_name: mf_nginx_dev
+  build:
+    context: .docker/nginx
+    dockerfile: Dockerfile
+    args:
+      nginx_conf: nginx.development.conf
+  volumes:
+    - ./media:/opt/media:ro
+  links: 
+    - mf-site-dev
+  ports:
+    - "80:80"
+  command: nginx -g "daemon off;"
 ```
 
-The `links` parameter is something that we haven't seen in the first snippet. This tells Docker Compose that the Nginx container should be able to talk to the Hugo container and we need this because Nginx is acting as a reverse proxy for Hugo.
+The `links` parameter is something that we haven't seen in the first snippet. This tells Docker Compose that the Nginx container should be able to talk to the Hugo container. We need this because Nginx is acting as a reverse proxy for Hugo.
 
 This is what the Nginx configuration file looks like:
 
@@ -191,57 +191,58 @@ Remember that the `ARG` directive pulls the filename for the Nginx configuration
 
 ## The dependencies container
 
-If we take a look at the snippet for the `mf-dependencies-dev` container, we see the following:
-
-```
-mf-dependencies-dev:
-    image: node:7.9.0
-    container_name: dependencies_dev  
-    volumes:
-      - ./:/opt:rw
-    links:
-      - mf-site-dev
-    depends_on:
-      - mf-site-dev
-    command: sh -c "cd /opt && npm install -g gulp && npm install"
-```
-
-We have specified an `image` which says should be derived from `node:7.9.0` which is one of the official images maintained by the creators of NodeJS.
-
-This container installs Gulp (our Javascript task runner) and its dependencies.
-
-## The Gulp container
-
-Finally, we can take a look at the container set up for the `mf-gulp-dev` container.
+If we take a look at the snippet for the `mf-gulp-dev` container, we see the following:
 
 ```
 mf-gulp-dev:
-    image: node:7.9.0
-    container_name: gulp_dev
-    restart: always
-    environment: 
-      - SCRIPTS_DEST=./mattfinucane/static/js/
-      - STYLES_DEST=./mattfinucane/static/css/
-      - SVG_DEST=./mattfinucane/static/svg/
-      - FAVICONS_DEST=./mattfinucane/static/favicons/
-    volumes:
-      - ./:/opt:rw
-    links:
-      - mf-site-dev
-      - mf-dependencies-dev
-    depends_on:
-      - mf-dependencies-dev
-      - mf-site-dev
-    command: sh -c "cd /opt && npm link gulp && gulp"
+  container_name: mf_gulp_dev
+  image: node:8.0.0-alpine
+  restart: on-failure
+  environment:
+    - DEVELOPMENT=true
+    - SCRIPTS_DEST=./mattfinucane/static/js/
+    - SVG_DEST=./mattfinucane/static/svg/
+    - FAVICONS_DEST=./mattfinucane/static/favicons/
+  volumes:
+    - ./:/opt:rw
+  links:
+    - mf-site-dev
+  depends_on:
+    - mf-site-dev
+  command: sh -c "npm install -g gulp && npm link gulp && cd /opt && npm install && npm start"
 ```
 
-Setting `restart: always` means that if the container exits, it will be restarted automatically without having to bring all the containers down.
+We have specified an `image` which says should be derived from `node:8.0.0-alpine` which is one of the official images maintained by the creators of NodeJS.
+
+Setting `restart: on-failure` will reboot the container if the process running inside it fails.
 
 Here we see the `environment` configuration parameters. This is where we can set environment variables that need to be set for different deployment environments.
 
+**Note:** We set `DEVELOPMENT=true` in this `docker-compose.yml` file so that the Gulp task runner knows that it should run the Gulp `watch` tasks. For more info, see [Building this site - Assets and Gulp](/blog/gulp-asset-management).
+
 The environment variables above will tell my Gulp script where it needs to put the files it generates for styles, image assets and scripts. 
 
-The `command` here runs a gulp task which watches for changes to the source files and then automatically generates assets from those.
+The `command` here will call `npm start` which itself will start the Gulp process to manage the Javascript source files.
+
+## The SASS container
+
+Finally, we can take a look at the container set up for the `mf-sass-dev` container.
+
+```
+mf-sass-dev:
+  container_name: mf_sass_dev
+  image: ruby:2.1-alpine
+  restart: on-failure
+  volumes:
+    - ./:/opt:rw
+  links:
+    - mf-site-dev
+  depends_on:
+    - mf-site-dev
+  command: sh -c "gem install sass && sass --watch /opt/assets/sass/main.sass:/opt/mattfinucane/static/css/main.css"
+```
+
+This container watches for changes to the source SASS files and generates CSS.
 
 ## Running your local development environment
 Here, we have an overview of the Docker and Docker Compose set up for this website. 
@@ -253,7 +254,13 @@ The project is run with the following commands:
 - `$ docker-compose down` will stop the containers again.
 
 ## Wrapping up
-We have looked at how Docker and Docker Compose can be used to set up a development environment. Next, we will take a look at using Gulp to manage scripts, styles and assets in [part four](/blog/hugo-asset-management) of this series.
+We have looked at how Docker and Docker Compose can be used to set up a development environment. 
+
+It might look daunting at the start, but if you were to get a new development machine set up and needed to work on this project, all you would need to do is run the above commands and you are good to go.
+
+This contrasts nicely against having to install all the required infrastructure on your local machine in turn.
+
+Next, we will take a look at using Gulp to manage scripts, styles and assets in [part four](/blog/hugo-asset-management) of this series.
 
 
 

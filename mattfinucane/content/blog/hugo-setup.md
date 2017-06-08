@@ -171,7 +171,7 @@ When calling the render function for the project card template inside the `range
 ```
 
 ## A note on adding content to list templates
-One item I was stuck on for quite some time was when trying to add content to list templates. For a list of projects, for instance, I wanted to include some extra content such as a title and a small paragraph of text.
+Adding content to the list templates had me stumped for quite some time. For a list of projects, I wanted to include some extra content such as a title and a small paragraph of text.
 
 If you want something similar, what you need to do is add an `_index.md` file to the content subdirectory and place your content in there. For my set up, I had the following file `mattfinucane/content/projects/_index.md` which contains the following:
 
@@ -181,6 +181,9 @@ title: 		"Selected projects"
 description:	"Some selected projects from my portfolio"
 identifier:	"projects"
 ---
+
+# This is a heading
+And this is some content.
 ```
 
 With this, I was able to include this metadata on the project listing page and render it inside the stage teaser.
@@ -212,7 +215,7 @@ I then call this from inside my markdown content as follows:
 This is where Hugo dumps the code for the generated site once it has been built. 
 
 ## The static/ directory
-This is where assets such as images and svgs, styles and scripts go. You could add your source code in here and Hugo will pick it up immediately. What I do is keep my source code elsewhere and copy contents over here once they have been concatenated and minified using a Javascript based task runner. I will cover this in more detail in a post later as part of this series.
+This is where assets such as images, SVG files, styles and scripts go. You could add your source code in here and Hugo will pick it up immediately. What I do is keep my source code elsewhere and copy contents over here once they have been concatenated and minified using a Javascript based task runner. I will cover this in more detail in a post later as part of this series.
 
 ## Configuration files
 Hugo loads the site-wide configuration info from a `mattfinucane/config.yml` file. This contains info such as the base URL for the site, the title, menu items, taxonomies and other custom configuration parameters. For this project, I have configuration files set up for my local development environment, one for a local build, one for the staging environment and one for the production environment.
