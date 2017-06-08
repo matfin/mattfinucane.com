@@ -1,7 +1,7 @@
 ---
 title: "Cross-platform vs native"
 description: "Discussing cross-platform vs native development."
-synopsis: "I discuss the pros and cons of cross-platform vs native application development."
+synopsis: "I talk about why you shouldn't use cross platform Javascript frameworks for mobile application development."
 date: "2017-06-08"
 author: "Matt Finucane"
 identifier: "blog"
@@ -67,6 +67,8 @@ For Android devices, the webview did not use any hardware acceleration. This wou
 
 For iOS devices, performance was not as much of an issue provided your applications functionality did not go beyond list and detail views. With that said, the version of Safari that was run in an iOS webview was much slower than the mobile Safari application. A much older version of the Nitro Javascript engine was used.
 
+When you are running a cross platform Javascript application, you are running it atop a deliberately hobbled runtime and then on the phones hardware itself. This is something the operating system vendors have put in place.
+
 ## Application functionality
 This was another area where we encountered serious problems with cross-platform mobile application development as follows:
 
@@ -89,9 +91,32 @@ There was quite a lot of extra work needed to get these applications working, as
 - For persistent storage, I needed to write a bridge between the cross-platform application and the native storage offered by the device (think CoreData). I needed to do this for iOS and Android.
 - I also had to call another intent for Android devices to play embedded media content.
 
+To add to this, if there was ever a new release of the Sencha Touch platform, the code for the application would need quite a bit of effort to make sure things were working correctly as before. This was needed despite the fact we had stuck to best practices and tried to do everything the correctly sanctioned way.
 
+We even got to the stage where the performance in one of our applications was so bad on Android, no amount of tweaks and optimisations could fix things. We ended up having to rewrite it from scratch natively.
 
+## Why go native
+Despite its drawbacks at the time, mainly around language complexities, there are still plenty of good reasons to stick to native application development.
 
+- Native application frameworks have been refined over the years giving better performance and stability.
+- The testing frameworks are more integrated and much more mature.
+- Native application frameworks have less dependencies and overhead. Most of the libraries needed are built in to the platforms.
+- Better access to device hardware with mature persistent storage frameworks that handle data migrations much more easily.
+
+## Conclusion
+For each of the applications build using Sencha, we ended up having to maintain three code bases as follows:
+
+- The application itself with its HTML5, Javascript and CSS styles. We had to maintain some separate code to deal with the differences between platforms.
+- An XCode codebase to test and deploy the iOS version of the app. We used Git submodules to include the application.
+- An Android codebase to to do the same as above.
+
+We also had to keep tabs on the version of Cordova we were using and make sure that everything worked with each successive release of iOS and with it, XCode.
+
+We found ourselves in a scenario where we not only had to keep tabs on Sencha releases to make sure everything worked smoothly, but Android and iOS releases. It was a perpetual task of making sure everything still worked.
+
+To address concerns regarding performance, an article was posted entitled [The Making of Fastbook: An HTML5 Love Story](https://www.sencha.com/blog/the-making-of-fastbook-an-html5-love-story/) showing a comparison between the native Facebook application and one written using Sencha. I read through this but felt rather dubious about the whole thing. The comparisons were made on the most modern phones on the market, not the Gingerbread based Android phones that were commplace in the market. The source code was never made available which would have been very useful at the time. 
+
+HTML was designed in the beginning as a document markup language. Although it has come a long way since its inception in the early 1990s, it was never designed to compete with native UIs and it will be playing catch up for the foreseeable future.
 
 
 
