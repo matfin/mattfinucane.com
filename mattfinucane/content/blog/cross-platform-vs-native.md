@@ -102,6 +102,7 @@ Despite its drawbacks at the time, mainly around language complexities, there ar
 - The testing frameworks are more integrated and much more mature.
 - Native application frameworks have less dependencies and overhead. Most of the libraries needed are built in to the platforms.
 - Better access to device hardware with mature persistent storage frameworks that handle data migrations much more easily.
+- Bigger communities and better documentation makes things more predictable.
 
 ## Conclusion
 For each of the applications build using Sencha, we ended up having to maintain three code bases as follows:
@@ -116,7 +117,11 @@ We found ourselves in a scenario where we not only had to keep tabs on Sencha re
 
 To address concerns regarding performance, an article was posted entitled [The Making of Fastbook: An HTML5 Love Story](https://www.sencha.com/blog/the-making-of-fastbook-an-html5-love-story/) showing a comparison between the native Facebook application and one written using Sencha. I read through this but felt rather dubious about the whole thing. The comparisons were made on the most modern phones on the market, not the Gingerbread based Android phones that were commplace in the market. The source code was never made available which would have been very useful at the time. 
 
-HTML was designed in the beginning as a document markup language. Although it has come a long way since its inception in the early 1990s, it was never designed to compete with native UIs and it will be playing catch up for the foreseeable future.
+The three projects I worked on were released on time, but required long hours to get them to do what we wanted them to. 
+
+The fourth mobile project we took on was slightly more complex and required more functionality - we needed to be able to save news articles (and their images) for offline viewing. We completed this project in the same amount of time (for iOS, Android and Windows Mobile) as it took to complete it for a Sencha project targeting Android and iOS. 
+
+HTML was designed in the beginning as a document markup language. Although it has come a long way since its inception in the early 1990s, it was never designed to compete with native UIs and it will be playing catch up for the foreseeable future. 
 
 
 
