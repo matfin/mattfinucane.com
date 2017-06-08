@@ -115,7 +115,7 @@ We also had to keep tabs on the version of Cordova we were using and make sure t
 
 We found ourselves in a scenario where we not only had to keep tabs on Sencha releases to make sure everything worked smoothly, but Android and iOS releases. It was a perpetual task of making sure everything still worked.
 
-To address concerns regarding performance, an article was posted entitled [The Making of Fastbook: An HTML5 Love Story](https://www.sencha.com/blog/the-making-of-fastbook-an-html5-love-story/) showing a comparison between the native Facebook application and one written using Sencha. I read through this but felt rather dubious about the whole thing. The comparisons were made on the most modern phones on the market, not the Gingerbread based Android phones that were commplace in the market. The source code was never made available which would have been very useful at the time. 
+To address concerns regarding performance, an article was posted entitled [The Making of Fastbook: An HTML5 Love Story](https://www.sencha.com/blog/the-making-of-fastbook-an-html5-love-story/) showing a comparison between the native Facebook application and one written using Sencha. I read through this but felt rather dubious about the whole thing. The comparisons were made on the most modern phones on the market, not the Gingerbread based Android phones that were commonplace in the market. The source code was never made available which would have been very useful at the time. 
 
 The three projects I worked on were released on time, but required long hours to get them to do what we wanted them to. 
 
