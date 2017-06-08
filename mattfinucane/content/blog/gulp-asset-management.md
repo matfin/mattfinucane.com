@@ -25,6 +25,24 @@ Gulp is a Javascript task runner that processes source files and generates them 
 - Our scripts are written in Javascript using the ES7 syntax. We convert these to the more widely-supported ES5 syntax to maintain compatibility using the [BabelJS](https://babeljs.io) transpiler tool.
 - This site also contains a series of different image files for favicons and SVG icons. Gulp takes care of copying these to the correct place during development and build.
 
+## A quick note about package.json
+The `package.json` file contains the metadata and dependency configuration for this project. 
+
+This is what the Node Package Manager (NPM) uses to install the dependencies for this site.
+
+It also contains the scripts that need to be run when building and running the site for any platform. 
+
+If we look inside the `scripts` configuration parameter inside this file, we see the following:
+
+```
+"scripts": {
+  "test": "echo \"Tests are coming soon\" && exit 0",
+  "start": "gulp"
+},
+```
+
+If we run `npm start` from the command line (or specify it inside the `docker-compose.yml` command directive), the script specified inside `start` will be called. This makes things cleaner and much simpler.
+
 ## The Gulp file.
 To understand the build process for this site, we will take a look at the contents of the `gulpfile.js`.
 

@@ -218,6 +218,8 @@ Setting `restart: on-failure` will reboot the container if the process running i
 
 Here we see the `environment` configuration parameters. This is where we can set environment variables that need to be set for different deployment environments.
 
+**Note:** We set `DEVELOPMENT=true` in this `docker-compose.yml` file so that the Gulp task runner knows that it should run the Gulp `watch` tasks. For more info, see [Building this site - Assets and Gulp](/blog/gulp-asset-management).
+
 The environment variables above will tell my Gulp script where it needs to put the files it generates for styles, image assets and scripts. 
 
 The `command` here will call `npm start` which itself will start the Gulp process to manage the Javascript source files.
