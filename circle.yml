@@ -5,7 +5,7 @@ machine:
 dependencies:
   pre:
     - cd /tmp
-    - wget https://github.com/spf13/hugo/releases/download/v0.23/hugo_0.20.2-64bit.deb
+    - wget https://github.com/gohugoio/hugo/releases/download/v0.23/hugo_0.23_Linux-64bit.deb
     - sudo dpkg -i hugo*.deb
     - npm install -g gulp
     - npm link gulp
