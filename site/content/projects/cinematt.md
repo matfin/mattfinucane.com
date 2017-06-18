@@ -41,7 +41,7 @@ I set about creating my own Photography website to fulfill the following require
 - I didn't want to have people waiting too long for the page to load. I implemented lazy loading in Javascript to start sequentially loading images once the layout of the page was rendered.
 - I wanted to include the metadata for my images. Cloudinary also did an excellent job parsing and delivering this through their API.
 
-**Note:** I have written about my experiences in building this site - see my blog post on [CSS grid layout](/blog/css-grid-layout).
+**Note:** I have written about my experiences in building this site - see my blog post on [Building Cinematt with CSS grid layout](/blog/building-cinematt-css-grid-layout).
 
 ## Challenges encountered
 I needed to be able to fetch the image metadata from Cloudinary and format it in such a way that Hugo could pick it up as a content item for each of the 289 photos I had processed. I wrote a little [tool](https://github.com/matfin/cloudinary_to_hugo) to take care of this.
