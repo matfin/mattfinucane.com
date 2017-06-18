@@ -7,10 +7,10 @@ services:
         context: .docker/site
         dockerfile: Dockerfile
         args:
-          hugo_version: "0.20.2"
+          hugo_version: "0.23"
       volumes:
         - ./:/opt:rw
-      command: hugo -s /opt/mattfinucane -b http://mattfinucane.build --config=./mattfinucane/build.yml -d ../public
+      command: hugo -s /opt/site -b http://mattfinucane.build --config=./site/build.yml -d ../public
 
     mf-nginx-build:
       container_name: mf_nginx_build

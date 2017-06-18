@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 53 37" style="enable-background:new 0 0 53 37;" xml:space="preserve">
+	<style type="text/css">
+		.st0{display:none;}
+		.st1{fill:#0C2606;}
+	</style>
+	<g>
+		<g>
+			<path class="st1" d="M0.8,19.5v-2.4l13.8-7v2.5L3.7,18.3l10.9,5.7v2.5L0.8,19.5z"/>
+		</g>
+		<g>
+			<path class="st1" d="M52.2,19.5l-13.8,7.1v-2.5l10.9-5.7l-10.9-5.7v-2.5l13.8,7V19.5z"/>
+		</g>
+		<g>
+			<path class="st1" d="M32,0h2.4L22.9,36.9h-2.5L32,0z"/>
+		</g>
+	</g>
+</svg>

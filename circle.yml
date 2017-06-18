@@ -5,7 +5,7 @@ machine:
 dependencies:
   pre:
     - cd /tmp
-    - wget https://github.com/spf13/hugo/releases/download/v0.20.2/hugo_0.20.2-64bit.deb
+    - wget https://github.com/gohugoio/hugo/releases/download/v0.23/hugo_0.23_Linux-64bit.deb
     - sudo dpkg -i hugo*.deb
     - npm install -g gulp
     - npm link gulp
@@ -19,7 +19,7 @@ deployment:
   staging: 
     branch: develop
     commands:
-      - hugo -s ./mattfinucane -b $HUGO_STAGING_HOST --config=./mattfinucane/staging.yml -d ../public
+      - hugo -s ./site -b $HUGO_STAGING_HOST --config=./site/staging.yml -d ../public
       - mkdir -p ./public/css
       - sass ./assets/sass/main.sass:./public/css/main.css --style compressed --sourcemap=none
       - npm install
@@ -35,7 +35,7 @@ deployment:
   production:
     tag: /v[0-9]+(\.[0-9]+)*/
     commands:
-      - hugo -s ./mattfinucane -b $HUGO_PRODUCTION_HOST --config=./mattfinucane/production.yml -d ../public
+      - hugo -s ./site -b $HUGO_PRODUCTION_HOST --config=./site/production.yml -d ../public
       - mkdir -p ./public/css
       - sass ./assets/sass/main.sass:./public/css/main.css --style compressed --sourcemap=none
       - npm install
