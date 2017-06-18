@@ -58,7 +58,7 @@ deployment:
   staging: 
     branch: develop
     commands:
-      - hugo -s ./mattfinucane -b $HUGO_STAGING_HOST --config=./mattfinucane/staging.yml -d ../public
+      - hugo -s ./site -b $HUGO_STAGING_HOST --config=./site/staging.yml -d ../public
       - npm install
       - gulp build
       - tar -zcvf public.tar.gz public/
@@ -72,7 +72,7 @@ deployment:
   production:
     tag: /v[0-9]+(\.[0-9]+)*/
     commands:
-      - hugo -s ./mattfinucane -b $HUGO_PRODUCTION_HOST --config=./mattfinucane/production.yml -d ../public
+      - hugo -s ./site -b $HUGO_PRODUCTION_HOST --config=./site/production.yml -d ../public
       - npm install
       - gulp build
       - tar -zcvf public-$CIRCLE_TAG.tar.gz public/

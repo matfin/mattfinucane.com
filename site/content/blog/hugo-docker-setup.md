@@ -66,7 +66,7 @@ mf-site-dev:
       - "1313:1313"
     volumes: 
       - ./:/opt:rw
-    command: hugo server -s /opt/mattfinucane --config /opt/mattfinucane/config.yml --baseURL http://mattfinucane.dev/ --bind "0.0.0.0" --appendPort=false --verbose
+    command: hugo server -s /opt/site --config /opt/site/config.yml --baseURL http://mattfinucane.dev/ --bind "0.0.0.0" --appendPort=false --verbose
 ```
 
 We will take a look at each of the configuration parameters below:
@@ -200,9 +200,9 @@ mf-gulp-dev:
   restart: on-failure
   environment:
     - DEVELOPMENT=true
-    - SCRIPTS_DEST=./mattfinucane/static/js/
-    - SVG_DEST=./mattfinucane/static/svg/
-    - FAVICONS_DEST=./mattfinucane/static/favicons/
+    - SCRIPTS_DEST=./site/static/js/
+    - SVG_DEST=./site/static/svg/
+    - FAVICONS_DEST=./site/static/favicons/
   volumes:
     - ./:/opt:rw
   links:
@@ -239,7 +239,7 @@ mf-sass-dev:
     - mf-site-dev
   depends_on:
     - mf-site-dev
-  command: sh -c "gem install sass && sass --watch /opt/assets/sass/main.sass:/opt/mattfinucane/static/css/main.css"
+  command: sh -c "gem install sass && sass --watch /opt/assets/sass/main.sass:/opt/site/static/css/main.css"
 ```
 
 This container watches for changes to the source SASS files and generates CSS.
@@ -260,7 +260,7 @@ It might look daunting at the start, but if you were to get a new development ma
 
 This contrasts nicely against having to install all the required infrastructure on your local machine in turn.
 
-Next, we will take a look at using Gulp to manage scripts, styles and assets in [part four](/blog/hugo-asset-management) of this series.
+Next, we will take a look at using Gulp to manage scripts, styles and assets in [part four](/blog/gulp-asset-management) of this series.
 
 
 

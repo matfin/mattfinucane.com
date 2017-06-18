@@ -92,9 +92,9 @@ This directory contains the HTML for the list, detail and card layouts for each 
 
 If you have a content type called `project` and you have some content inside `content/projects/`, you would need the following layout setup for it.
 
-- `mattfinucane/layouts/projects/single.html` contains the HTML to render the content and metadata for a single project - a detail view.
-- `mattfinucane/layouts/projects/card.html` contains the HTML to display a single card - a small summary view that would appear in a list.
-- `mattfinucane/layouts/projects/list.html` is the list view that renders a list of project cards.
+- `site/layouts/projects/single.html` contains the HTML to render the content and metadata for a single project - a detail view.
+- `site/layouts/projects/card.html` contains the HTML to display a single card - a small summary view that would appear in a list.
+- `site/layouts/projects/list.html` is the list view that renders a list of project cards.
 
 ## The single template
 A single template acts as the detail view for content. Its HTML should look like the following.
@@ -127,8 +127,8 @@ A single template acts as the detail view for content. Its HTML should look like
 
 We can break down the above example as follows:
 
-- `{{ .Site.LanguageCode }}` is a global site configuration parameter. These are set up inside `mattfinucane/config.yml` and we will go over this later on in this post.
-- `{{ partial "head" . }}` will inline the HTML from the `mattfinucane/layouts/partials/head.html` file and inline its contents. The `.` shifts the context for the page metadata into the `head` partial so we can populate the SEO metadata tags correctly.
+- `{{ .Site.LanguageCode }}` is a global site configuration parameter. These are set up inside `site/config.yml` and we will go over this later on in this post.
+- `{{ partial "head" . }}` will inline the HTML from the `site/layouts/partials/head.html` file and inline its contents. The `.` shifts the context for the page metadata into the `head` partial so we can populate the SEO metadata tags correctly.
 - `{{ partial "header" . }}` pulls in and inlines the HTML for the header partial, which contains the site title and navigation.
 - `{{ partial "teaser" . }}` calls on another partial I have created for stage teasers with the `.` passing in the context for the page metadata to the partial. We can access the metadata for the content inside this partial to pull things out such as the title and description.
 - `{{ .Content }}` will inline the HTML that is generated from the Markdown content inside the content markdown file.
@@ -218,7 +218,7 @@ This is where Hugo dumps the code for the generated site once it has been built.
 This is where assets such as images, SVG files, styles and scripts go. You could add your source code in here and Hugo will pick it up immediately. What I do is keep my source code elsewhere and copy contents over here once they have been concatenated and minified using a Javascript based task runner. I will cover this in more detail in a post later as part of this series.
 
 ## Configuration files
-Hugo loads the site-wide configuration info from a `mattfinucane/config.yml` file. This contains info such as the base URL for the site, the title, menu items, taxonomies and other custom configuration parameters. For this project, I have configuration files set up for my local development environment, one for a local build, one for the staging environment and one for the production environment.
+Hugo loads the site-wide configuration info from a `site/config.yml` file. This contains info such as the base URL for the site, the title, menu items, taxonomies and other custom configuration parameters. For this project, I have configuration files set up for my local development environment, one for a local build, one for the staging environment and one for the production environment.
 
 As far as I am aware, there is no way to create an abstract configuration file with common properties and allow other files to inherit settings from that.
 
@@ -242,7 +242,7 @@ Likewise, when I am looking at the content for that project, I want to list all 
 
 Since Hugo doesn't offer a way to do this out of the box, I created archetypes for each of the taxonomies shown above, and I added content for each taxonomy term.
 
-Inside the `mattfinucane/content/` directory for this project, I have subdirectories for `languages/`, `projects/`, `tools` etc. This means I can now add rich content for each taxonomy term while being able to link the term to a project.
+Inside the `site/content/` directory for this project, I have subdirectories for `languages/`, `projects/`, `tools` etc. This means I can now add rich content for each taxonomy term while being able to link the term to a project.
 
 ## Wrapping up
 This article provides an in-depth overview of how I understand Hugo works. For more information, it's always useful to check out [their docs](https://gohugo.io/overview/introduction/) which are improving all the time. 
