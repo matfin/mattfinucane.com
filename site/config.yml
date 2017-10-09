@@ -1,5 +1,5 @@
 ---
-baseURL:                "http://mattfinucane.dev"
+baseURL:                "http://mattfinucane.local"
 languageCode:           "en-ie"
 title:                  "Matt Finucane"
 disableLiveReload:      true

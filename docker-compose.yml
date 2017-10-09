@@ -12,8 +12,8 @@ services:
     ports: 
       - "1313:1313"
     volumes: 
-      - ./:/opt:rw
-    command: hugo server -s /opt/site --config /opt/site/config.yml --baseURL http://mattfinucane.dev/ --bind "0.0.0.0" --appendPort=false --verbose
+      - .:/opt:rw
+    command: hugo server -s /opt/site --config /opt/site/config.yml --baseURL http://mattfinucane.local/ --bind "0.0.0.0" --appendPort=false --verbose
 
   mf-nginx-dev:
     container_name: mf_nginx_dev
@@ -29,32 +29,15 @@ services:
     ports:
       - "80:80"
     command: nginx -g "daemon off;"
-
-  mf-gulp-dev:
-    container_name: mf_gulp_dev
-    image: node:8.0.0-alpine
+    
+  mf-webpack-dev:
+    container_name: mf_webpack_dev
     restart: on-failure
-    environment:
-      - DEVELOPMENT=true
-      - SCRIPTS_DEST=./site/static/js/
-      - SVG_DEST=./site/static/svg/
-      - FAVICONS_DEST=./site/static/favicons/
+    build:
+      context: .
+      dockerfile: ./.docker/node/Dockerfile.development
     volumes:
-      - ./:/opt:rw
-    links:
-      - mf-site-dev
-    depends_on:
-      - mf-site-dev
-    command: sh -c "npm install -g gulp && npm link gulp && cd /opt && npm install && npm start"
+      - .:/opt:rw
+      - /opt/node_modules
+    command: ["npm", "run", "start:dev"]
 
-  mf-sass-dev:
-    container_name: mf_sass_dev
-    image: ruby:2.1-alpine
-    restart: on-failure
-    volumes:
-      - ./:/opt:rw
-    links:
-      - mf-site-dev
-    depends_on:
-      - mf-site-dev
-    command: sh -c "gem install sass && sass --watch /opt/assets/sass/main.sass:/opt/site/static/css/main.css"

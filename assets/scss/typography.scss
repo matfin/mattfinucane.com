@@ -1,0 +1,231 @@
+/**
+ *	Body
+ */
+body {
+  font-family: $font-family;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/**
+ *	Header
+ */
+header {
+  h1 {
+    font-size: $base-font-size * 1.25;
+    letter-spacing: $letter-spacing;
+    text-transform: uppercase;
+    font-weight: $font-weight-light;
+
+    strong {
+      font-size: $base-font-size * 1.25;
+      font-family: $font-family;
+      font-weight: $font-weight-semibold;
+    }
+  }
+}
+
+/**
+ *	Teaser
+ */
+div.teaser {
+  h2,
+  h3 {
+    font-family: $font-family-alt;
+    font-style: italic;
+    font-weight: $font-weight-light;
+    letter-spacing: $letter-spacing / 2;
+  }
+
+  h2 {
+    font-size: $base-font-size * 1.75;
+    line-height: $base-font-size * 2;
+
+    @include break(min, $break-3) {
+      font-size: $base-font-size * 3.5;
+      line-height: $base-font-size * 4;
+    }
+  }
+
+  h3 {
+    font-size: $base-font-size * 1.25;
+    line-height: $base-font-size * 1.5;
+
+    @include break(min, $break-3) {
+      font-size: $base-font-size * 1.75;
+      line-height: $base-font-size * 3;
+    }
+  }
+}
+
+/**
+ *	Navigation
+ */
+nav {
+  a {
+    font-size: $units * 1.25;
+    letter-spacing: $letter-spacing;
+    text-transform: uppercase;
+    font-weight: $font-weight-light;
+  }
+}
+
+/**
+ *	Page
+ */
+main.page {
+  h2 {
+    font-family: $font-family-alt;
+    font-size: $base-font-size * 1.25;
+    line-height: $base-font-size * 1.5;
+    font-weight: $font-weight-light;
+
+    @include break(min, $break-3) {
+      font-size: $base-font-size * 2;
+      line-height: $base-font-size * 3;
+    }
+  }
+
+  h3,
+  h4 {
+    font-family: $font-family;
+    font-size: $base-font-size;
+    font-weight: $font-weight-semibold;
+    letter-spacing: $letter-spacing;
+
+    @include break(min, $break-3) {
+      font-size: $base-font-size * 1.5;
+    }
+  }
+
+  h3 {
+    font-size: $base-font-size * 1.25;
+
+    @include break(min, $break-3) {
+      font-size: $base-font-size * 1.5;
+    }
+  }
+}
+
+/**
+ *	General
+ */
+ul,
+p,
+time,
+strong {
+  font-family: $font-family;
+  font-size: $base-font-size;
+  line-height: $base-font-size * 1.25;
+  letter-spacing: $letter-spacing;
+  font-weight: $font-weight-light;
+
+  @include break(min, $break-3) {
+    line-height: $base-font-size * 1.75;
+    font-size: $base-font-size * 1.25;
+    letter-spacing: 0;
+  }
+}
+
+strong {
+  font-weight: $font-weight-bold;
+}
+
+pre {
+  font-family: $font-family-code;
+  line-height: $base-font-size * 1.25;
+  font-weight: $font-weight-light;
+
+  @include break(min, $break-3) {
+    line-height: $base-font-size * 1.75;
+    font-size: $base-font-size * 1.25;
+  }
+}
+
+/**
+ *	CV Job card
+ */
+.cv-job {
+  aside {
+    h1,
+    h2 {
+      font-family: $font-family;
+      font-size: $base-font-size * 1.25;
+      font-weight: $font-weight-semibold;
+      letter-spacing: $letter-spacing;
+
+      @include break(min, $break-3) {
+        font-size: $base-font-size * 1.5;
+      }
+    }
+  }
+}
+
+/**
+ *	Blogpost card
+ */
+.blogpost-card {
+  time {
+    font-weight: $font-weight-semibold;
+  }
+}
+
+/**
+ *	Taxonomies list
+ */
+ul.taxonomies-list {
+  a {
+    h3,
+    h4 {
+      font-size: $base-font-size;
+      line-height: $base-font-size * 1.25;
+      letter-spacing: $letter-spacing;
+      font-weight: $font-weight-semibold;
+
+      @include break(min, $break-3) {
+        font-size: $base-font-size * 1.25;
+        line-height: $base-font-size * 1.75;
+      }
+    }
+  }
+}
+
+/**
+ *	Project listing
+ */
+ul.projects-list {
+  a {
+    h3 {
+      font-size: $base-font-size * 1.5;
+      letter-spacing: $letter-spacing;
+      font-weight: $font-weight-light;
+    }
+
+    p {
+      font-size: $base-font-size;
+      letter-spacing: $letter-spacing;
+      font-weight: $font-weight-light;
+      line-height: $base-font-size * 1.5;
+
+      @include break(min, $break-3) {
+        font-size: $base-font-size * 1.25;
+      }
+    }
+  }
+}
+
+/**
+ *	Blog
+ */
+.byline {
+  font-family: $font-family-alt;
+}
+
+/**
+ *	Footer 
+ */
+footer {
+  font-family: $font-family-alt;
+  font-size: $base-font-size * 2.5;
+  font-weight: $font-weight-light;
+}

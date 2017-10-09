@@ -1,0 +1,5 @@
+FROM        node:9.1.0-alpine
+MAINTAINER  Matt Finucane <me@mattfinucane.com>
+COPY        package.json /opt/package.json
+WORKDIR     /opt
+RUN         npm install -g webpack && npm install

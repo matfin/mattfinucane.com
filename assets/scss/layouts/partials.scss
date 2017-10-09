@@ -1,0 +1,244 @@
+/**
+ *	Header
+ */
+header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 $units;
+  padding-right: 0;
+
+  @include break(min, $break-3) {
+    padding: ($units * 0.625) $units;
+  }
+  
+  @include transitionWithProperties((background-color, transform));
+
+  a {
+    border-bottom: none;
+    color: $white;
+
+    h1 {
+      strong {
+        margin-left: $units / 2;
+
+        span.letter {
+          margin-right: $units / 8;
+        }
+      }
+    }
+  }
+
+  button {
+    display: none;
+    width: $units * 4;
+    height: $units * 4;
+    align-items: center;
+    justify-content: center;
+    color: $white;
+
+    svg,
+    img {
+      flex: 1;
+      color: $white;
+
+      &:first-of-type {
+        display: block;
+      }
+
+      &:last-of-type {
+        display: none;
+      }
+    }
+
+    @include break(min-max, 0, $break-3) {
+      display: flex;
+    }
+  }
+
+  &.nav-open {
+    background-color: $menu-green;
+
+    svg,
+    img {
+      &:first-of-type {
+        display: none;
+      }
+
+      &:last-of-type {
+        display: block;
+      }
+    }
+  }
+}
+
+/**
+ *	This is a fix for IE to place the nav button 
+ *	in the correct place. It addresses a flexbox
+ *  bug that leaves the button centered.
+ */
+html.is-ie {
+  header {
+    height: $units * 4;
+
+    button {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+
+    h1 {
+      opacity: 1;
+    }
+
+    nav {
+      opacity: 1;
+    }
+  }
+
+  .teaser:first-of-type {
+    opacity: 1;
+  }
+}
+
+/**
+ *	Responsive navigation
+ */
+nav {
+  ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    li {
+      padding: $units / 2;
+
+      a {
+        border-bottom: none;
+
+        &.active {
+          border-bottom: 1px solid currentColor;
+          padding-bottom: $units / 2;
+        }
+      }
+    }
+
+    @include break(min, $break-3) {
+      flex-direction: row;
+
+      li {
+        padding-left: $units * 1.5;
+      }
+    }
+  }
+
+  @include break(min-max, 0, $break-3) {
+    position: fixed;
+    top: $units * 4;
+    transform: translate3d(100vw, 0, 0);
+    width: 100vw;
+    height: calc(100vh - #{$units * 4});
+    background-color: $dark-green;
+
+    @include transitionWithProperties((transform, background-color));
+
+    ul {
+      height: 100%;
+
+      li {
+        flex: 1;
+        width: 100%;
+        display: flex;
+        padding: 0;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+
+    &.revealed {
+      z-index: $over;
+      background-color: $menu-green;
+      left: 0;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+
+  @include break(min, $break-3) {
+    opacity: 0;
+
+    @include transitionWithProperties(opacity);
+
+    &.faded-in {
+      opacity: 1;
+    }
+  }
+}
+
+/**
+ *	Teasers
+ */
+div.teaser {
+  padding: ($units * 3) $units;
+  padding-top: $units * 5;
+  color: $white;
+
+  h2 {
+    margin-bottom: $units;
+  }
+
+  @include break(min, $break-2) {
+    padding: ($units * 6) $units;
+    padding-top: $units * 8;
+  }
+
+
+  @include break(min, $break-3) {
+    padding: ($units * 9) $units;
+    padding-top: $units * 11;
+
+    h3 {
+      max-width: 75%;
+    }
+  }
+
+
+  &:first-of-type {
+    width: 100%;
+    max-width: 70rem;
+    opacity: 0;
+
+    @include transitionWithProperties(opacity);
+  }
+
+  &.faded-in {
+    opacity: 1;
+  }
+}
+
+div.video-teaser {
+  padding-top: $units * 4;
+  width: 100%;
+
+  video {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+}
+
+/**
+ *	Footer
+ */
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: ($units * 1.5) $units;
+
+  a {
+    color: $green;
+  }
+}
