@@ -1,0 +1,204 @@
+ul.taxonomies-list,
+ul.projects-list {
+  @include listBoxes;
+}
+
+ul.taxonomies-list {
+  li {
+    @include break(min-max, 0, $break-1) {
+      width: 50%;
+
+      &:nth-child(2n) {
+        padding-right: 0;
+      }
+    }
+    
+    @include break(min-max, $break-1, $break-2) {
+      width: 33%;
+
+      &:nth-child(3n) {
+        padding-right: 0;
+      }
+    }
+
+
+    @include break(min, $break-2) {
+      width: 25%;
+
+      &:nth-child(4n) {
+        padding-right: 0;
+      }
+    }
+
+
+    a {
+      h4 {
+        @include transitionWithProperties(opacity);
+
+        opacity: 0;
+      }
+
+      &:hover {
+        h4 {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+ul.projects-list {
+  li {
+    a {
+      padding: $units;
+
+      p {
+        margin-top: $units * 2;
+        opacity: 0;
+
+        @include transitionWithProperties(opacity);
+      }
+
+      &:hover {
+        p {
+          opacity: 1;
+        }
+      }
+    }
+
+    @include break(min-max, 0, $break-1) {
+      width: 100%;
+      padding-right: 0;
+    }
+
+
+    @include break(min-max, $break-1, $break-2) {
+      width: 50%;
+
+      &:nth-child(2n) {
+        padding-right: 0;
+      }
+    }
+
+
+    @include break(min, $break-2) {
+      width: 33%;
+
+      a {
+        min-height: $units * 10;
+      }
+
+      &:nth-child(3n) {
+        padding-right: 0;
+      }
+    }
+  }
+}
+
+/**
+ *	Social links
+ */
+ul.social-links {
+  display: flex;
+  flex-direction: row;
+
+  li {
+    a {
+      display: block;
+
+      svg,
+      img {
+        margin-right: $units * 1.5;
+        width: $units * 2.5;
+        height: $units * 2.5;
+        color: $link;
+
+        @include transitionWithProperties(color);
+      }
+    }
+
+    &:hover {
+      svg,
+      img {
+        color: $link-hover;
+      }
+    }
+  }
+}
+
+/**
+ *	Nested section for the CV job overview.
+ */
+section.cv-job {
+  display: flex;
+  flex-direction: row;
+  margin: ($units * 4) 0;
+
+  figure {
+    background-color: $dark-green;
+    align-self: flex-start;
+
+    img {
+      display: block;
+      width: $units * 12.5;
+      height: auto;
+    }
+  }
+
+  aside {
+    max-width: $units * 50;
+  }
+
+  @include break(min-max, 0, $break-3) {
+    aside {
+      padding: 0 $units;
+    }
+  }
+
+
+  @include break(min-max, 0, $break-4) {
+    flex-direction: column;
+
+    figure {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      margin-bottom: $units * 2;
+    }
+  }
+
+
+  @include break(min, $break-3) {
+    align-items: center;
+  }
+
+
+  @include break(min, $break-4) {
+    figure {
+      width: $units * 12.5;
+    }
+
+    &:nth-of-type(odd) {
+      flex-direction: row-reverse;
+
+      figure {
+        margin-left: $units * 2.5;
+      }
+    }
+
+    &:nth-of-type(even) {
+      figure {
+        margin-right: $units * 2.5;
+      }
+    }
+  }
+
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &.no-image {
+    justify-content: center;
+  }
+}

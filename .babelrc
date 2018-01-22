@@ -1,0 +1,17 @@
+{
+  "presets": [
+    [
+      "env",
+      {
+        "targets": {
+          "browsers": [
+            "last 5 versions",
+            "safari >= 7",
+            "ie >= 11"
+          ]
+        }
+      }
+    ]
+  ],
+  "compact": true
+}

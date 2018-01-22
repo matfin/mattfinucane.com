@@ -40,7 +40,7 @@ I don't need to be tied to any particular version of a platform and worry about 
 This website uses three containers that work together as follows:
 
 - The first container named `mf-site-dev` is derived from Alpine Linux and contains the binary for Hugo itself. This runs a development server for Hugo and builds out the site.
-- The second container named `mf-nginx-dev` is derived from the `nginx:alpine` image acts as a reverse proxy that interfaces with the running Hugo server instance. This means I can access the development version of my site at `http://mattfinucane.dev` instead of `http://localhost:1313`.
+- The second container named `mf-nginx-dev` is derived from the `nginx:alpine` image acts as a reverse proxy that interfaces with the running Hugo server instance. This means I can access the development version of my site at `http://mattfinucane.local` instead of `http://localhost:1313`.
 - The third container named `mf-gulp-dev` is derived from the `node:8.0.0` image and handles dependencies that are installed with [NPM](https://www.npmjs.com) - the official NodeJS package manager. This container installs development dependencies and then exits when done.
 - The final container named `mf-sass-dev` is derived from `ruby:2.1-alpine` and it acts as a CSS preprocessor - compiling my [SASS](http://sass-lang.com/) stylesheets to the plain CSS that the browser can understand.
 
@@ -66,7 +66,7 @@ mf-site-dev:
       - "1313:1313"
     volumes: 
       - ./:/opt:rw
-    command: hugo server -s /opt/site --config /opt/site/config.yml --baseURL http://mattfinucane.dev/ --bind "0.0.0.0" --appendPort=false --verbose
+    command: hugo server -s /opt/site --config /opt/site/config.yml --baseURL http://mattfinucane.local/ --bind "0.0.0.0" --appendPort=false --verbose
 ```
 
 We will take a look at each of the configuration parameters below:
@@ -150,7 +150,7 @@ http {
 	server {
 		listen 80;
 
-		server_name mattfinucane.dev;
+		server_name mattfinucane.local;
 
 		gzip 				on;
 		gzip_proxied 			any;

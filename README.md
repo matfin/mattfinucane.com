@@ -71,7 +71,7 @@ Docker Compose is useful because it means that containers can talk to each other
 
 I have the following Docker set up for my development environment.
 
-- The first container acts and an Nginx reverse proxy so I can see the site at http://mattfinucane.dev instead of http://localhost:1313
+- The first container acts and an Nginx reverse proxy so I can see the site at http://mattfinucane.local instead of http://localhost:1313
 - The second container is NodeJS based and handles the build processed for the image, css and script assets through Gulp.
 - The third container runs Hugo itself as a server and listens for changes to the content and layout files.
 
@@ -81,7 +81,7 @@ To run my development environment, all I need to do is run `$ docker-compose bui
 
 To test a local build with minified assets and static HTML generated, I need to run `$ docker-compose -f build.yml up`.
 
-**Note:** to make sure the site is accessible over `http://mattfinucane.dev` or `http://mattfinucane.build` I need to edit my `hosts` file to point `127.0.0.1` to `mattfinucane.dev` and `mattfinucane.build`.
+**Note:** to make sure the site is accessible over `http://mattfinucane.local` or `http://mattfinucane.build` I need to edit my `hosts` file to point `127.0.0.1` to `mattfinucane.local` and `mattfinucane.build`.
 
 ### Deployments
 

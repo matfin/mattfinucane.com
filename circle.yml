@@ -1,29 +1,26 @@
 machine: 
   node:
-    version: 7.9.0
+    version: 9.1.0
 
 dependencies:
   pre:
     - cd /tmp
     - wget https://github.com/gohugoio/hugo/releases/download/v0.23/hugo_0.23_Linux-64bit.deb
     - sudo dpkg -i hugo*.deb
-    - npm install -g gulp
-    - npm link gulp
-    - gem install sass
+    - npm install -g webpack eslint
 
 test:
   override:
-    - npm test
+    - npm run coverage && npm run lint
 
 deployment:
   staging: 
-    branch: develop
+    branch: master
     commands:
       - hugo -s ./site -b $HUGO_STAGING_HOST --config=./site/staging.yml -d ../public
       - mkdir -p ./public/css
-      - sass ./assets/sass/main.sass:./public/css/main.css --style compressed --sourcemap=none
       - npm install
-      - gulp
+      - npm run build
       - tar -zcvf public.tar.gz public/
       - scp public.tar.gz $DEPLOY_USER@$DEPLOY_STAGING_HOST:$DEPLOY_STAGING_PATH
       - ssh -t $DEPLOY_USER@$DEPLOY_STAGING_HOST "
@@ -37,9 +34,8 @@ deployment:
     commands:
       - hugo -s ./site -b $HUGO_PRODUCTION_HOST --config=./site/production.yml -d ../public
       - mkdir -p ./public/css
-      - sass ./assets/sass/main.sass:./public/css/main.css --style compressed --sourcemap=none
       - npm install
-      - gulp
+      - npm run build
       - tar -zcvf public-$CIRCLE_TAG.tar.gz public/
       - scp public-$CIRCLE_TAG.tar.gz $DEPLOY_USER@$DEPLOY_PRODUCTION_HOST:$DEPLOY_PRODUCTION_PATH
       - ssh -t $DEPLOY_USER@$DEPLOY_PRODUCTION_HOST "

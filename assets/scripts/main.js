@@ -1,71 +1,75 @@
-if(window.mf_site == null) {
-	window.mf_site = {};
-}
+import {
+  primeTapEvent,
+  throttle
+} from './utils';
+import { isIE, setClass, ieSvgFix } from './ie';
+import { setVideo } from './video';
+import {
+  animateVisibleCardTransforms,
+  setAnimationsComplete,
+  animateLetters,
+  animateFadeIn
+} from './animations';
+import {
+  toggleNavReveal,
+  toggleShadow
+} from './menu';
 
 onload = () => {
 
-	const 	animations 	= mf_site.animations,
-			ie 			= mf_site.ie,
-			menu		= mf_site.menu,
-			video 		= mf_site.video,
-			utils 		= mf_site.utils,
-			intercom	= mf_site.intercom;
+  /**
+   *	Monitor tap/click on header button
+   */
+  primeTapEvent('header button', toggleNavReveal);
 
-	/**
-	 *	Monitor tap/click on header button
-	 */
-	utils.primeTapEvent('header button', menu.toggleNavReveal);
+  /**
+   *	Detect IE11 then run fixes
+   */
+  if (isIE()) {
+    setClass();
+    ieSvgFix();
+  }
 
-	/**
-	 *	Detect IE11 then run fixes
-	 */
-	if(ie.isIE()) {
-		ie.setClass();
-		ie.ieSvgFix();
-	}
+  window.addEventListener('scroll', throttle(toggleShadow.bind(null, '.wrapper:first-of-type'), 50));
 
-	window.addEventListener('scroll', utils.throttle(menu.toggleShadow.bind(null, '.wrapper:first-of-type'), 50));
+  /**
+   *	Set the video source given device parameters
+   */
+  let videos;
+  if ((videos = document.querySelectorAll('video'))) {
+    videos.forEach(setVideo);
+  }
 
-	/**
-	 *	Set the video source given device parameters
-	 */
-	let videos;
-	if((videos = document.querySelectorAll('video')) != null) {
-		Array.prototype.forEach.call(videos, video.setVideo);
-	}
+  /**
+   *	Card animation into view
+   */
+  animateVisibleCardTransforms('.animated-card');
+  window.addEventListener('scroll', throttle(animateVisibleCardTransforms.bind(null, '.animated-card'), 200));
 
-	/**
-	 *	Card animation into view
-	 */
-	animations.animateVisibleCardTransforms('.animated-card');
-	window.addEventListener('scroll', utils.throttle(animations.animateVisibleCardTransforms.bind(null, '.animated-card'), 200));
+  /**
+   *	Skip animations if promises
+   *	not supported. Polyfill will
+   *	come soon for this.
+   */
+  if (!window.Promise) {
+    return;
+  }
 
-	/**
-	 *	Skip animations if promises 
-	 *	not supported. Polyfill will
-	 *	come soon for this.
-	 */
-	if(!window.Promise) {
-		return;
-	}
-
-	/**
-	 *	Call intro animation only if it has not already been run.
-	 */
-	if(localStorage.getItem('intro-complete') == null) {
-		animations.animateLetters('header h1')
-		.then(animations.animateFadeIn.bind(null, 'nav'))
-		.then(animations.animateFadeIn.bind(null, '.teaser:first-of-type'))
-		.then(animations.setAnimationsComplete)
-		.catch(console.log);
-	}
-	else {
-		Promise.all([
-			animations.animateLetters('header h1', 20),
-			animations.animateFadeIn('nav'),
-			animations.animateFadeIn('.teaser:first-of-type')
-		])
-		.catch(console.log);
-	}
+  /**
+   *	Call intro animation only if it has not already been run.
+   */
+  if (!localStorage.getItem('intro-complete')) {
+    animateLetters('header h1')
+      .then(animateFadeIn.bind(null, 'nav'))
+      .then(animateFadeIn.bind(null, '.teaser:first-of-type'))
+      .then(setAnimationsComplete)
+      .catch(console.error); // eslint-disable-line no-console
+  } else if (localStorage.getItem('intro-complete')) {
+    Promise.all([
+      animateLetters('header h1', 20),
+      animateFadeIn('nav'),
+      animateFadeIn('.teaser:first-of-type')
+    ]).catch(() => {});
+  }
 
 };

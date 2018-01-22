@@ -1,0 +1,87 @@
+/**
+ *	Applicable to all pages
+ */
+main.page {
+  @include contentSection;
+
+  max-width: $units * 50;
+
+  h2 {
+    color: $green;
+    margin-left: $units * 4;
+    margin-bottom: $units;
+    margin-top: $units * 3;
+
+    @include break(min, $break-3) {
+      margin-bottom: $units * 2;
+      margin-top: $units * 6;
+    }
+
+
+    &:first-of-type {
+      margin-top: 0;
+    }
+  }
+
+  p + h2 {
+    @include break(min, $break-3) {
+      margin-top: $units * 5;
+    }
+  }
+}
+
+/**
+ *	Projects
+ */
+main.projects {
+  max-width: $units * 67.5;
+}
+
+/**
+ *	CV
+ */
+main.work-experience {
+  max-width: 80rem;
+  padding: 0;
+
+  h1,
+  h2 {
+    color: $green;
+  }
+
+  h2 {
+    margin: 0;
+  }
+}
+
+/**
+ *	Blog posts
+ */
+main.posts {
+  h2 {
+    margin: 0;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  article {
+    padding: $units 0;
+    border-bottom: 4px solid $link;
+    margin-bottom: $units * 3;
+
+    &:last-of-type {
+      border-bottom: 0;
+    }
+  }
+}
+
+/**
+ *	Disqus comment widget
+ */
+div.comments {
+  @include contentSection;
+
+  max-width: $units * 50;
+}

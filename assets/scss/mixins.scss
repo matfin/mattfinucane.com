@@ -1,0 +1,138 @@
+@mixin break($type, $param-break-1, $param-break-2: "") {
+  @if $type == min {
+    @media screen and (min-width: $param-break-1) {
+      @content;
+    }
+  }
+  @else if $type == max {
+    @media screen and (max-width: $param-break-2) {
+      @content;
+    }
+  }
+  @else if $type == min-max {
+    @media screen and (min-width: $param-break-1) and (max-width: $param-break-2 - 0.05rem) {
+      @content;
+    }
+  }
+}
+
+@mixin transitionWithProperties($props, $ms: $transition-duration) {
+  transition-property: $props;
+  transition-duration: $ms;
+}
+
+@mixin contentSection {
+  padding: ($units * 2.5) $units;
+
+  @include break(min, $break-3) {
+    padding: ($units * 4) 0;
+  }
+}
+
+@mixin listItem {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  padding-left: $units * 1.25;
+  margin: ($units * 0.625) 0;
+
+  &:before {
+    position: absolute;
+    left: $units * 0.25;
+    content: "–";
+  }
+}
+
+@mixin listBoxes {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  li {
+    display: flex;
+    margin-bottom: $units / 2;
+    padding-right: $units / 2;
+
+    a {
+      width: 100%;
+      color: $white;
+      padding: $units;
+      background-color: $dark-green;
+      border-bottom: none;
+
+      @include transitionWithProperties((background-color, transform, opacity));
+
+      h3,
+      h4 {
+        display: block;
+      }
+
+      @include break(min, $break-3) {
+        min-height: $units * 6.25;
+      }
+
+
+      &[data-proficiency="1"] {
+        background-color: rgba($proficiency, 0.45);
+      }
+
+      &[data-proficiency="2"] {
+        background-color: rgba($proficiency, 0.65);
+      }
+
+      &[data-proficiency="3"] {
+        background-color: rgba($proficiency, 0.85);
+      }
+
+      &[data-proficiency="4"] {
+        background-color: $proficiency;
+      }
+    }
+  }
+}
+
+@mixin contentLink {
+  position: relative;
+  display: inline-block;
+  padding: 0 ($units / 4);
+  color: $green;
+  text-decoration: none;
+
+  &:after {
+    z-index: -1;
+    position: absolute;
+    bottom: 2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+
+    @include transitionWithProperties(height, 100ms);
+
+    background-color: $link;
+    content: "";
+  }
+
+  &:hover {
+    &:after {
+      height: calc(100% - 4px);
+    }
+  }
+
+  @include break(min, $break-3) {
+    &:after {
+      height: 6px;
+      margin-top: -($units / 2);
+    }
+  }
+}
+
+@mixin cardRotateState($state: "before", $deg-before: -90deg, $deg-after: 0deg) {
+  @if $state == before {
+    opacity: 0;
+    transform: rotate3d(0, 1, 0, -90deg);
+  }
+  @else if $state == after {
+    opacity: 1;
+    transform: rotate3d(0, 0, 0, 0deg);
+  }
+}
