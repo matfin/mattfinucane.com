@@ -3,6 +3,7 @@ title: 			"Magento"
 description: 	"CMS and e-commerce platform written in PHP."
 proficiency:	1
 identifier:		"home"
+deprecated: true
 ---
 
 ## What is it?
@@ -17,3 +18,8 @@ If I was given the choice on building an e-commerce based website, I would opt t
 
 ## Projects
 {{% categorised_projects taxonomy="frameworks" term="Magento" %}}
+
+## Deprecation
+Large monolothic application frameworks that tightly couple front and back end logic are dated and difficult to manage.
+
+A microservice based architecture with separation of concerns is a modern and more manageable approach to the problem.

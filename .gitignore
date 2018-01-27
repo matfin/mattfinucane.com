@@ -3,6 +3,4 @@
 coverage/
 public/
 node_modules/
-bower_components/
-assets/sass/thirdparty/
 site/static/*

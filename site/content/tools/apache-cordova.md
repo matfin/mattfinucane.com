@@ -3,6 +3,7 @@ title: 			"Apache Cordova"
 description: 	"Tool to bridge cross-platform apps with a devices native functionality."
 proficiency:	3
 identifier:		"home"
+deprecated: true
 ---
 
 ## What is it?
@@ -10,3 +11,6 @@ identifier:		"home"
 
 ## Projects
 {{% categorised_projects taxonomy="tools" term="Apache Cordova" %}}
+
+## Deprecation
+Building native apps is much easier than hybrid apps with bridged native code.

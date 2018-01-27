@@ -3,6 +3,7 @@ title: 			"Mongoose"
 description: 	"NodeJS wrapper for MongoDB."
 proficiency:	4
 identifier:		"home"
+deprecated: true
 ---
 
 ## What is it?
@@ -13,7 +14,8 @@ Powerful and easy to pick up. It has a powerful relational data modelling set up
 
 Fragmented documentation can be a bit tricky, but it does keep up to date with new MongoDB features.
 
-I will continue to use this on all MEAN stack applications I work with.
-
 ## Projects
 {{% categorised_projects taxonomy="frameworks" term="Mongoose" %}}
+
+## Deprecation
+As with MongoDB, I would deprecate this in favour of using a relational database.

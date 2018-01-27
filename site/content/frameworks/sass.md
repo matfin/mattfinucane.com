@@ -1,5 +1,5 @@
 ---
-title: 			"Sass"
+title: 			"Sass/SCSS"
 description: 	"CSS preprocessor."
 proficiency:	4
 identifier:		"home"

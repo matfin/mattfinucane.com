@@ -37,7 +37,7 @@ onload = () => {
    */
   let videos;
   if ((videos = document.querySelectorAll('video'))) {
-    videos.forEach(setVideo);
+    [...videos].forEach(setVideo);
   }
 
   /**

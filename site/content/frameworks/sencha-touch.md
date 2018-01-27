@@ -3,6 +3,7 @@ title: 			"Sencha Touch"
 description: 	"Cross-platform Javascript and HTML5 mobile application framework."
 proficiency:	4
 identifier:		"home"
+deprecated: true
 ---
 
 ## What is it?
@@ -15,3 +16,6 @@ For better usability, stability and performance, I would always build mobile app
 
 ## Projects
 {{% categorised_projects taxonomy="frameworks" term="Sencha Touch" %}}
+
+## Deprecation
+I would not use a cross platform tool or framework to build hybrid apps. This should be deprecated in favour of something like [React Native](https://facebook.github.io/react-native/) which builds native apps from React components.

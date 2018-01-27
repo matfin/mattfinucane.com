@@ -1,5 +1,5 @@
 ---
-title: 			"ChaiJS"
+title: 			"ChaiJS expect"
 description: 	"Javascript assertion library for testing."
 proficiency:	3
 identifier:		"home"

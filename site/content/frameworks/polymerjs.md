@@ -3,6 +3,7 @@ title: 			"PolymerJS"
 description: 	"Javascript web application framework."
 proficiency:	4
 identifier:		"home"
+deprecated: true
 ---
 
 ## What is it?
@@ -17,3 +18,6 @@ With that said, it has matured significantly and has a growing community, and I 
 
 ## Projects
 {{% categorised_projects taxonomy="frameworks" term="PolymerJS" %}}
+
+## Deprecation
+While this was a nice exploration of a component based architecture, ReactJS would be favoured given better community support and adherence to community standards.
