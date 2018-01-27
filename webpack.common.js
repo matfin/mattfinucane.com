@@ -1,8 +1,14 @@
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
+const polyfills = [
+  'core-js/fn/array/from',
+  'core-js/fn/array/for-each'
+];
+
 module.exports = {
   entry: [
+    ...polyfills,
     './assets/scripts/main.js',
     './assets/scss/main.scss'
   ],

@@ -8,7 +8,7 @@ services:
       context: .docker/site
       dockerfile: Dockerfile
       args:
-        hugo_version: "0.23"
+        hugo_version: "0.34"
     volumes: 
       - ./:/opt:rw
     command: hugo -s /opt/site -b http://mattfinucane.build --config=./site/build.yml -d ../public

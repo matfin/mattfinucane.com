@@ -3,6 +3,7 @@ title: 			"MeteorJS"
 description: 	"Javascript client side single page platform."
 proficiency:	4
 identifier:		"home"
+deprecated: true
 ---
 
 ## What is it?
@@ -19,3 +20,6 @@ Meteor is a good choice when it comes to creating a real time single page applic
 
 ## Projects
 {{% categorised_projects taxonomy="frameworks" term="MeteorJS" %}}
+
+## Deprecation
+While pleasant to work with, this has been deprecated in favour of other Javascript frameworks that tie into a microservice architecture. Keeping back and front end components for a product facilitates scaling.

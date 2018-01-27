@@ -1,5 +1,6 @@
+{{ $deprecated := .Params.deprecated }}
 <li class="animated-card">
-	<a class="term-card" href="{{ "/tools/" | relLangURL }}{{ .Title | urlize }}" data-proficiency="{{ .Params.proficiency }}">
+	<a class="term-card{{ if eq $deprecated true }} deprecated{{ end }}" href="{{ "/tools/" | relLangURL }}{{ .Title | urlize }}" data-proficiency="{{ .Params.proficiency }}">
 		<h3>
 			{{ .Title }}
 		</h3>

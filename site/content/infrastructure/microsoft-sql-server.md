@@ -3,6 +3,7 @@ title: 			"Microsoft SQL Server"
 description: 	"Relational database management system."
 proficiency:	1
 identifier:		"home"
+deprecated: true
 ---
 
 ## What is it?
@@ -10,3 +11,6 @@ identifier:		"home"
 
 ## Projects
 {{% categorised_projects taxonomy="infrastructure" term="Microsoft SQL Server" %}}
+
+## Deprecation
+I prefer working with Open-source software, which is more accessible and community oriented.

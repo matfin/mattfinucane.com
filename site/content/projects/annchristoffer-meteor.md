@@ -3,7 +3,6 @@ title: 			"Anna Christoffer (Meteor)"
 description:	"Portfolio site built using MeteorJS."
 synopsis:		"This is the online portfolio for Anna Christoffer, an Art Director based in Berlin."
 github:			"https://github.com/matfin/annachristoffer"
-liveurl:		"http://annachristoffer.com"
 date:			"2015-07-01"
 duration:		"40 days"
 identifier:		"projects"
@@ -30,6 +29,7 @@ tools:
 - ChaiJS
 - Mocha
 - Velocity
+- SinonJS
 ---
 
 ## The brief

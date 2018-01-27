@@ -3,6 +3,7 @@ title: 			"Gulp"
 description: 	"Gulp is an automated task runner for Javascript applications."
 proficiency:	3
 identifier:		"home"
+deprecated: true
 ---
 
 ## What is it?
@@ -10,3 +11,6 @@ identifier:		"home"
 
 ## Projects
 {{% categorised_projects taxonomy="tools" term="Gulp" %}}
+
+## Deprecation
+WebPack is a better tool to use.

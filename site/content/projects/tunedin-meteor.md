@@ -25,6 +25,7 @@ tools:
 - JSLint
 - Grunt
 - Vagrant
+- SinonJS
 ---
 
 ## The brief

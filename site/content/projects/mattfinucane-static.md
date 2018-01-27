@@ -20,9 +20,10 @@ infrastructure:
 tools:
 - Docker Compose
 - CircleCI
-- Gulp
-- BowerJS
-- Sublime Text
+- WebPack
+- SinonJS
+- WebStorm
+- BabelJS
 - Adobe Photoshop
 - Git
 - Font Awesome

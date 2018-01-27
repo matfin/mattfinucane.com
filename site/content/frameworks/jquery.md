@@ -3,6 +3,7 @@ title: 			"jQuery"
 description: 	"Javascript library designed to simplify client side development."
 proficiency:	4
 identifier:		"home"
+deprecated: true
 ---
 
 ## What is it?
@@ -15,3 +16,6 @@ I have used this in the past and would use it again if support for older browser
 
 ## Projects
 {{% categorised_projects taxonomy="frameworks" term="jQuery" %}}
+
+## Deprecation
+With better standardised browser support and additions to the WebAPI, jQuery is no longer needed unless support for older browsers is an absolute requirement.

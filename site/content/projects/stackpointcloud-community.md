@@ -31,6 +31,7 @@ tools:
 - Git
 - Sketch
 - JSLint
+- SinonJS
 ---
 
 ## The brief

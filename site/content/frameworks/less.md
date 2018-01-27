@@ -3,6 +3,7 @@ title: 			"Less"
 description: 	"CSS preprocessor."
 proficiency:	4
 identifier:		"home"
+deprecated: true
 ---
 
 ## What is it?
@@ -13,3 +14,6 @@ Nice and easy to use with a good clean syntax. I used LESS with several projects
 
 ## Projects
 {{% categorised_projects taxonomy="frameworks" term="Less" %}}
+
+## Deprecation
+SASS/SCSS has overtaken this as the CSS pre-processor of choice. They are easier and more enjoyable to work with.

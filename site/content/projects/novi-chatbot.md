@@ -22,6 +22,7 @@ tools:
 - Mocha
 - ChaiJS
 - JSLint
+- SinonJS
 ---
 
 ## The brief

@@ -3,6 +3,7 @@ title: 			"Dojo"
 description: 	"Client side Javascript toolkit."
 proficiency:	2
 identifier:		"home"
+deprecated: true
 ---
 
 ## What is it?
@@ -15,3 +16,6 @@ If I was starting a new project, I would opt to go with something more modern su
 
 ## Projects
 {{% categorised_projects taxonomy="frameworks" term="Dojo" %}}
+
+## Deprecation
+There are more modern and well supported JavaScript frameworks available with build and test suites that adhere to community standards.

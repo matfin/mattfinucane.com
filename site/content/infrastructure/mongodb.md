@@ -10,3 +10,6 @@ identifier:		"home"
 
 ## Projects
 {{% categorised_projects taxonomy="infrastructure" term="MongoDB" %}}
+
+## Deprecation
+I prefer working with relational database systems for larger projects. While document oriented data stores reduce complexity in some areas, they introduce more complexity in others.

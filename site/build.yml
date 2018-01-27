@@ -7,7 +7,7 @@ watch:                  false
 preservetaxonomynames:  true
 
 params:
-  description:   "Freelance software engineer based in Berlin, Germany"
+  description:   "Software engineer based in Berlin, Germany"
   author:        "Matt Finucane"
   title_first:   "Matt"
   title_last:    "Finucane"

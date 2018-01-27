@@ -3,6 +3,7 @@ title: 			"Ember.js"
 description: 	"Javascript framework for creating web applications."
 proficiency:	1
 identifier:		"home"
+deprecated: true
 ---
 
 ## What is it?
@@ -15,3 +16,6 @@ As with all relatively young frameworks, fragmentation between versions can make
 
 ## Projects
 {{% categorised_projects taxonomy="frameworks" term="Ember.js" %}}
+
+## Deprecation
+I prefer working with ReactJS.
