@@ -31,8 +31,8 @@
     "coverage": "jest --coverage",
     "lint": "eslint .",
     "test": "jest",
-    "start:dev": "webpack --config webpack.dev.js --progress --colors --watch --display-error-details",
-    "build": "webpack --config webpack.build.js"
+    "start:dev": "webpack --mode development --config webpack.dev.js --progress --colors --watch --display-error-details",
+    "build": "webpack --mode production --config webpack.build.js"
   },
   "jest": {
     "globals": {
