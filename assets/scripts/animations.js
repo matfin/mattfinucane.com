@@ -1,6 +1,6 @@
 import * as utils from './utils';
 
-export const clearText = (node) => {
+export const clearText = node => {
   const filtered_nodes = [...node.childNodes].filter(child => child.nodeType === 3);
 
   filtered_nodes.forEach(filtered_node => node.removeChild(filtered_node));
@@ -8,10 +8,10 @@ export const clearText = (node) => {
 };
 
 export const animateLetters = (selector, delay = 75) => {
-  return new Promise((resolve) => {
+  return new Promise(resolve => {
     const node = document.querySelector(selector);
     const	letters = utils.getLetters(node);
-    const	lettercount = letters.map((item) => item.letters.length).reduce((a, b) => a + b);
+    const	lettercount = letters.map(item => item.letters.length).reduce((a, b) => a + b);
     let index = 0;
     let	haschild = false;
     let	runcount = 0;
@@ -20,8 +20,8 @@ export const animateLetters = (selector, delay = 75) => {
     /**
      *	Go through each item in the collection of letters.
      */
-    letters.forEach((item) => {
-      const elements = item.letters.map((letter) => {
+    letters.forEach(item => {
+      const elements = item.letters.map(letter => {
         const span = document.createElement('span');
 
         span.textContent = letter;
@@ -46,7 +46,7 @@ export const animateLetters = (selector, delay = 75) => {
       /**
        *	Now we start to go through each generated span element.
        */
-      elements.forEach((element) => {
+      elements.forEach(element => {
 
         /**
          *	If there is already a child element when inserting the
@@ -85,7 +85,7 @@ export const animateLetters = (selector, delay = 75) => {
   });
 };
 
-export const animateFadeIn = (selector) => {
+export const animateFadeIn = selector => {
   return new Promise((resolve, reject) => {
     const node = document.querySelector(selector);
 
@@ -108,7 +108,7 @@ export const setAnimationsComplete = () => {
   localStorage.setItem('intro-complete', true);
 };
 
-export const filterCards = (node) => {
+export const filterCards = node => {
   const top 		= node.getBoundingClientRect().top;
   const height 	= window.innerHeight;
   const applied = node.classList.contains('is-animated');
@@ -116,12 +116,12 @@ export const filterCards = (node) => {
   return (top <= height) && !applied;
 };
 
-export const animateVisibleCardTransforms = (selector) => {
+export const animateVisibleCardTransforms = selector => {
   const cards = [...document.querySelectorAll(selector)].filter(filterCards);
   const speed = Math.ceil(500 / cards.length);
   let index = 0;
 
-  cards.forEach((card) => {
+  cards.forEach(card => {
     setTimeout(() => {
       card.classList.add('is-animated');
       index += 1;

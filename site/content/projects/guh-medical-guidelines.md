@@ -7,7 +7,7 @@ date:			"2013-03-01"
 duration:		"50 days"
 identifier:		"projects"
 languages: 		
-- Javascript (ES5)
+- Javascript
 - HTML5
 frameworks:
 - Sencha Touch

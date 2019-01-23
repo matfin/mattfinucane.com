@@ -7,7 +7,7 @@ date:			"2017-04-01"
 duration:		"120 days"
 identifier:		"projects"
 languages: 		
-- Javascript (ES7)
+- Javascript
 - HTML5
 frameworks:
 - PolymerJS

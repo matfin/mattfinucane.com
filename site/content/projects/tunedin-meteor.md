@@ -6,7 +6,7 @@ date:			"2014-04-01"
 duration:		"150 days"
 identifier:		"projects"
 languages: 		
-- Javascript (ES5)
+- Javascript
 - HTML5
 frameworks:
 - MeteorJS

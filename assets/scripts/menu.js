@@ -12,7 +12,7 @@ export const toggleNavReveal = () => {
   }
 };
 
-export const toggleShadow = (selector) => {
+export const toggleShadow = selector => {
   const teaser = document.querySelector('.teaser, .video-teaser');
   const node = document.querySelector(selector);
   const scroll = document.body.scrollTop || document.documentElement.scrollTop;

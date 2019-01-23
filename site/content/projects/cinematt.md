@@ -8,7 +8,7 @@ date:			"2017-06-01"
 ongoing:		true
 identifier:		"projects"
 languages: 		
-- Javascript (ES7)
+- Javascript
 - HTML5
 frameworks:
 - Hugo

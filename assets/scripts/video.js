@@ -1,6 +1,6 @@
 import * as utils from './utils';
 
-export const setVideo = (video) => {
+export const setVideo = video => {
   const breakpoint 	= utils.getVideoParams();
   const video_base 	= video.getAttribute('data-base-url');
   const video_name	= video.getAttribute('data-video');

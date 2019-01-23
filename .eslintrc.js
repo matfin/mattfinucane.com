@@ -4,7 +4,8 @@ module.exports = {
     "node": true,
     "es6": true,
     "commonjs": true,
-    "jasmine": true
+    "jasmine": true,
+    "jest": true
   },
   "extends": "eslint:recommended",
   "parserOptions": {

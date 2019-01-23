@@ -8,7 +8,7 @@ ongoing:		true
 draft:			true
 identifier:		"projects"
 languages:	
-- Javascript (ES5)
+- Javascript
 frameworks:
 - WebGL
 tools: 

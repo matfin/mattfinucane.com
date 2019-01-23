@@ -7,7 +7,7 @@ date:			"2014-11-01"
 duration:		"45 days"
 identifier:		"projects"
 languages: 		
-- Javascript (ES5)
+- Javascript
 - PHP
 frameworks:
 - Magento
