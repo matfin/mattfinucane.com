@@ -1,4 +1,4 @@
-FROM        node:9.1.0-alpine
+FROM        node:9.1.0
 MAINTAINER  Matt Finucane <me@mattfinucane.com>
 COPY        package.json /opt/package.json
 WORKDIR     /opt
