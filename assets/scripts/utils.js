@@ -1,4 +1,4 @@
-export const isValidChild = (child) => {
+export const isValidChild = child => {
   return (
     (child.nodeType === 1 || child.nodeType === 3) &&
     child.textContent.trim().length > 0

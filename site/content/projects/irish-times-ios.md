@@ -8,7 +8,7 @@ duration:		"60 days"
 identifier:		"projects"
 languages: 		
 - Objective C
-- Javascript (ES5)
+- Javascript
 frameworks:
 - CoreData
 tools:

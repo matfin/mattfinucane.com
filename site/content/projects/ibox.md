@@ -7,7 +7,7 @@ date:			"2012-04-01"
 duration:		"60 days"
 identifier:		"projects"
 languages: 		
-- Javascript (ES5)
+- Javascript
 - HTML5
 - C#
 frameworks:

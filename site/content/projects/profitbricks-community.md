@@ -7,7 +7,7 @@ date:			"2016-09-01"
 ongoing:		true
 identifier:		"projects"
 languages:	
-- Javascript (ES5)
+- Javascript
 - Python
 - HTML5
 - PHP

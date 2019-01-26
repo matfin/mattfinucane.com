@@ -25,24 +25,19 @@ module.exports = {
         }
       },
       {
-        test: /\.scss$/,
+        test: /\.(sc|c)ss$/,
         use: [
           MiniCssExtractPlugin.loader,
-          {
-            loader: 'css-loader'
-          },
-          {
-            loader: 'sass-loader',
-            options: {
-              sourceMap: true
-            }
-          }
+          'css-loader',
+          'sass-loader'
         ]
       }
     ]
   },
   plugins: [
-    new MiniCssExtractPlugin('../css/main.css'),
+    new MiniCssExtractPlugin({
+      filename: '../css/[name].css'
+    }),
     new CopyWebpackPlugin([
       {
         from: './assets/favicons',

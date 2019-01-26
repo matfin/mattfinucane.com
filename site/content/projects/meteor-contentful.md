@@ -8,7 +8,7 @@ date:			"2015-08-01"
 duration:		"30 days"
 identifier:		"projects"
 languages: 		
-- Javascript (ES5)
+- Javascript
 frameworks:
 - MeteorJS
 infrastructure:

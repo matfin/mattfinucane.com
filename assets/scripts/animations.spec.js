@@ -2,31 +2,7 @@ import * as animations from './animations';
 import * as utils from './utils';
 import * as sinon from 'sinon';
 
-class LocalStorageMock {
-  constructor() {
-    this.store = {};
-  }
-
-  clear() {
-    this.store = {};
-  }
-
-  getItem(key) {
-    return this.store[key] || null;
-  }
-
-  setItem(key, value) {
-    this.store[key] = value.toString();
-  }
-
-  removeItem(key) {
-    delete this.store[key];
-  }
-}
-global.localStorage = new LocalStorageMock();
-
 describe('animations', () => {
-
   it('should get letters with nested nodes', () => {
     const spy_getLetters = sinon.spy(utils, 'getLetters');
     const node = document.createElement('h1');
@@ -173,12 +149,12 @@ describe('animations', () => {
   });
 
   it('sets animations complete', () => {
-    const stub_setItem = sinon.stub(window.localStorage, 'setItem');
+    const spy_setItem = jest.spyOn(Storage.prototype, 'setItem');
 
     animations.setAnimationsComplete();
-    expect(stub_setItem.getCall(0).args[0]).toEqual('intro-complete');
+    expect(spy_setItem.mock.calls[0]).toEqual(['intro-complete', true]);
 
-    stub_setItem.restore();
+    spy_setItem.mockRestore();
   });
 
   it('filters cards', () => {

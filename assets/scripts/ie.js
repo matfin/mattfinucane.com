@@ -2,7 +2,7 @@ export const isIE = () => {
   return 'ActiveXObject' in window;
 };
 
-export const replaceSVG = (svg) => {
+export const replaceSVG = svg => {
   const src = `/svg/${svg.getAttribute('data-svg')}.svg`;
   const img	= document.createElement('img');
   const { parentNode: parent } = svg;

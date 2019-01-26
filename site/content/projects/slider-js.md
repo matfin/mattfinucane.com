@@ -7,7 +7,7 @@ date:			"2015-08-01"
 duration:		"20 days"
 identifier:		"projects"
 languages: 		
-- Javascript (ES7)
+- Javascript
 tools:
 - BowerJS
 - Sublime Text
@@ -40,7 +40,7 @@ I came up with a list of features that needed to be implemented:
 ## Testing and deployment
 This plugin was tested on several devices, from an entry level Android phone to an iMac desktop.
 
-The package was recently refactored to use the ES7 Javascript standard. It is available as a [Bower package](https://Git.com/matfin/slider).
+The package was recently refactored to use the ES Javascript standard. It is available as a [Bower package](https://Git.com/matfin/slider).
 
 
 

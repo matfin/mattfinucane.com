@@ -8,7 +8,7 @@ duration:		"14 days"
 draft: 			true
 identifier:		"projects"
 languages: 		
-- Javascript (ES5)
+- Javascript
 - HTML5
 frameworks:
 - MeteorJS

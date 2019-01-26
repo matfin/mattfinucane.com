@@ -7,7 +7,7 @@ date:			"2017-03-01"
 duration:		"40 days"
 identifier:		"projects"
 languages: 		
-- Javascript (ES7)
+- Javascript
 - HTML5
 infrastructure: 
 - Docker
@@ -33,7 +33,7 @@ The set up came as two projects, one a CMS where content editors could curate cu
 ## Project work
 The first task undertaken was to get to grips with how the whole set up worked. The best way to accomplish this was to containerise both parts of the project and tie everything together using [Docker Compose](https://docs.docker.com/compose/).
 
-The code in both projects were refactored and the Javascript was rewritten to use the ES7 standard syntax. Modules were refactored to facilitate unit testing.
+The code in both projects were refactored and the Javascript was rewritten to use the latest ES standard syntax. Modules were refactored to facilitate unit testing.
 
 The tool [JSLint](http://www.jslint.com/) was used to check the code quality.
 
