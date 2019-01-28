@@ -58,18 +58,16 @@ onload = () => {
   /**
    *	Call intro animation only if it has not already been run.
    */
-  if (!localStorage.getItem('intro-complete')) {
-    animateLetters('header h1')
-      .then(animateFadeIn.bind(null, 'nav'))
-      .then(animateFadeIn.bind(null, '.teaser:first-of-type'))
-      .then(setAnimationsComplete)
-      .catch(console.error); // eslint-disable-line no-console
-  } else if (localStorage.getItem('intro-complete')) {
+  if (localStorage.getItem('intro-complete')) {
     Promise.all([
-      animateLetters('header h1', 20),
+      animateLetters('header h1', 0),
       animateFadeIn('nav'),
       animateFadeIn('.teaser:first-of-type')
-    ]).catch(() => {});
+    ]);
+  } else {
+    animateLetters('header h1', 100)
+      .then(animateFadeIn.bind(null, 'nav'))
+      .then(animateFadeIn.bind(null, '.teaser:first-of-type'))
+      .then(setAnimationsComplete);
   }
-
 };
