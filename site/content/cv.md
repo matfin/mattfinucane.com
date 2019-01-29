@@ -4,8 +4,17 @@ description: 	"Professional work experience and qualifications from 2001 to pres
 identifier:		"cv"
 ---
 
+{{% cv_job image="heycar.png" align="left" %}}
+## January 2018 – Present
+# Senior front end engineer
+- Created and maintained a marketplace and CRM for a used car platform.
+- Managed technical debt for projects and maintained 100% test coverage.
+- Platforms created using ReactJS with Redux for state management and Jest for testing.
+- Mentored junior engineers, reviewed CVs and interviewed candidates.
+{{% /cv_job %}}
+
 {{% cv_job %}}
-## December 2014 – Present
+## December 2014 – January 2018
 # Freelance software engineer / Berlin
 - Created and maintained community websites for cloud based service providers.
 - Set up continuous integration (testing and deployment) for projects.

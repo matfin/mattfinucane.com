@@ -17,3 +17,6 @@ Maintaining a predictable state works as follows:
 - an action is called which dispatches an action type and payload that the reducer function then picks up on.
 - the reducer is then responsible for updating the state.
 - a connected component sets the properties for its child component which is then updated in real time.
+
+## Projects
+{{% categorised_projects taxonomy="frameworks" term="Redux" %}}
