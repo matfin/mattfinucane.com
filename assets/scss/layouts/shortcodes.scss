@@ -184,6 +184,15 @@ section.cv-job {
       figure {
         margin-left: $units * 2.5;
       }
+      
+      &.left {
+        flex-direction: row;
+        
+        figure {
+          margin-left: 0;
+          margin-right: $units * 2.5;
+        }
+      }
     }
 
     &:nth-of-type(even) {

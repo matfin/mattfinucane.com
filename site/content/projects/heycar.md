@@ -12,6 +12,7 @@ languages:
 frameworks:
 - ReactJS
 - Redux
+- styled-components
 infrastructure: 
 - NodeJS
 tools:
