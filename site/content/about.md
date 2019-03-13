@@ -7,7 +7,7 @@ poster:			"about"
 ---
 
 ## Profile
-I am a full stack web and mobile software engineer based based in Berlin, Germany.
+I am a full stack web and mobile software engineer based in Berlin, Germany.
 
 I have been building websites and applications since the early 2000s and I graduated from Dublin City University with a BSc. in Computer Science.
 
